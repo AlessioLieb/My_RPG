@@ -43,4 +43,9 @@ typedef struct {
     int actual_sp;
 }player;
 
+typedef struct {
+    sfSprite *sp;
+    int actual_room;
+}room;
+
 #endif

@@ -13,7 +13,7 @@ player *creation_player(void)
     sfIntRect place = {130, 19, 28, 35};
     py->x = WIDTH / 2;
     py->y = HEIGHT / 2;
-    py->speed = 10;
+    py->speed = 15;
     py->tx = sfTexture_createFromFile("assets/isaac.png", NULL);
     py->sp = sfSprite_create();
     py->as_moved = false;
@@ -25,16 +25,9 @@ player *creation_player(void)
     return py;
 }
 
-void move_player(player *py, sfRenderWindow *wd)
+void player_room(player *py, sfRenderWindow *wd, room *rm)
 {
-    sfIntRect nw;
-    /*
-    if (!py->as_moved) {
-        nw = sfSprite_getTextureRect(py->sp);
-        nw.left = 130;
-        sfSprite_setTextureRect(py->sp, nw);
-    }
-     */
+    sfRenderWindow_drawSprite(wd, rm->sp, NULL);
     sfRenderWindow_drawSprite(wd, py->sp, NULL);
 }
 
@@ -82,8 +75,19 @@ void move_event(player *py, sfRenderWindow *wd, sfEvent event)
         event.key.code == sfKeyD ? move_sprite(py, wd, 149) : 0;
         event.key.code == sfKeyZ ? move_sprite(py, wd, 213) : 0;
         event.key.code == sfKeyS ? move_sprite(py, wd, 21) : 0;
-        printf("%d\n", py->actual_sp);
     }
+}
+
+room *create_room(void)
+{
+    room *rm = malloc(sizeof(room));
+    sfTexture *txt = sfTexture_createFromFile("assets/allrooms.png", NULL);
+    rm->sp = sfSprite_create();
+    rm->actual_room = 0;
+    sfSprite_setTexture(rm->sp, txt, sfTrue);
+    sfSprite_setTextureRect(rm->sp, (sfIntRect){0, 0, 468, 312});
+    sfSprite_setScale(rm->sp, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
+    return rm;
 }
 
 int main(void)
@@ -91,12 +95,13 @@ int main(void)
     sfRenderWindow *wd = sfRenderWindow_create((sfVideoMode)
             {1920, 1080, 32},  "isaac", sfFullscreen | sfClose, NULL);
     player *py = creation_player();
+    room *rm = create_room();
     sfEvent event;
     while (sfRenderWindow_isOpen(wd)) {
         sfRenderWindow_clear(wd, sfBlack);
         while (sfRenderWindow_pollEvent(wd, &event))
             move_event(py, wd, event);
-        move_player(py, wd);
+        player_room(py, wd, rm);
         sfRenderWindow_display(wd);
     }
     return 1;
