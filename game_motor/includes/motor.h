@@ -45,7 +45,13 @@ typedef struct {
 
 typedef struct {
     sfSprite *sp;
+    sfVector2f pos;
+}stone;
+
+typedef struct {
+    sfSprite *sp;
     int actual_room;
+    stone *st;
 }room;
 
 #endif

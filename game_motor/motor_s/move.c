@@ -31,24 +31,65 @@ void player_room(player *py, sfRenderWindow *wd, room *rm)
     sfRenderWindow_drawSprite(wd, py->sp, NULL);
 }
 
-void move_sp_top(player *py, int top)
+int check_move_right(player *py)
 {
-    if (top == 21)
-        sfSprite_move(py->sp, (sfVector2f){0, py->speed});
-    if (top == 87)
-        sfSprite_move(py->sp, (sfVector2f){-py->speed, 0});
-    if (top == 149)
-        sfSprite_move(py->sp, (sfVector2f){py->speed, 0});
-    if (top == 213)
-        sfSprite_move(py->sp, (sfVector2f){0, -py->speed});
+    sfVector2f pos = sfSprite_getPosition(py->sp);
+    if (pos.x + py->actual_sp >= WIDTH - 275)
+        return 0;
+    return 1;
+}
+
+int check_move_left(player *py)
+{
+    sfVector2f pos = sfSprite_getPosition(py->sp);
+    if (pos.x - py->actual_sp < 200)
+        return 0;
+    return 1;
+}
+
+int check_move_down(player *py)
+{
+    sfVector2f pos = sfSprite_getPosition(py->sp);
+    if (pos.y - py->actual_sp < 100)
+        return 0;
+    return 1;
+}
+
+int check_move_up(player *py)
+{
+    sfVector2f pos = sfSprite_getPosition(py->sp);
+    if (pos.y + py->actual_sp >= HEIGHT - 275)
+        return 0;
+    return 1;
+}
+
+int move_sp_top(player *py, int top)
+{
+    int ret = 0;
+    if (top == 21 && check_move_up(py)) {
+        sfSprite_move(py->sp, (sfVector2f) {0, py->speed});
+        ret = 1;
+    }
+    if (top == 87 && check_move_left(py)) {
+        sfSprite_move(py->sp, (sfVector2f) {-py->speed, 0});
+        ret = 1;
+    }
+    if (top == 149 && check_move_right(py)) {
+        sfSprite_move(py->sp, (sfVector2f) {py->speed, 0});
+        ret = 1;
+    }
+    if (top == 213 && check_move_down(py)) {
+        sfSprite_move(py->sp, (sfVector2f) {0, -py->speed});
+        ret = 1;
+    }
+    return ret;
 }
 
 int move_sprite(player *py, sfRenderWindow *wd, int top)
 {
     int next = 0;
-    if (0)
+    if (!move_sp_top(py, top))
         return 1;
-    move_sp_top(py, top);
     py->actual_sp ? ++py->actual_sp : 0;
     if (py->actual_sp == 4) {
         sfSprite_setTextureRect(py->sp, (sfIntRect){227, top, 28, 34});
