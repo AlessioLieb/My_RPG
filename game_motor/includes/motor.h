@@ -51,7 +51,13 @@ typedef struct {
 typedef struct {
     sfSprite *sp;
     int actual_room;
+    int len_stone;
     stone *st;
 }room;
 
+bool collision_stone(room *rm, player *py, int x, int y);
+void draw_stone(room *rm, sfRenderWindow *wd);
+void place_stone(room *rm, player *py);
+stone *create_stone(void);
+int move_sp_top(player *py, int top, room *rm);
 #endif

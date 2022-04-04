@@ -5,7 +5,9 @@
 ## makefile for world
 ##
 
-SRC	=	motor_s/move.c
+SRC	=	motor_s/move.c	\
+		motor_s/basic_move.c	\
+		motor_s/stone_base.c
 
 LIB = -l csfml-graphics -O2 -lm -l csfml-audio	\
 		-l csfml-system -l csfml-window -Wall

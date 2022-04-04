@@ -29,66 +29,13 @@ void player_room(player *py, sfRenderWindow *wd, room *rm)
 {
     sfRenderWindow_drawSprite(wd, rm->sp, NULL);
     sfRenderWindow_drawSprite(wd, py->sp, NULL);
+    draw_stone(rm, wd);
 }
 
-int check_move_right(player *py)
-{
-    sfVector2f pos = sfSprite_getPosition(py->sp);
-    if (pos.x + py->actual_sp >= WIDTH - 275)
-        return 0;
-    return 1;
-}
-
-int check_move_left(player *py)
-{
-    sfVector2f pos = sfSprite_getPosition(py->sp);
-    if (pos.x - py->actual_sp < 200)
-        return 0;
-    return 1;
-}
-
-int check_move_down(player *py)
-{
-    sfVector2f pos = sfSprite_getPosition(py->sp);
-    if (pos.y - py->actual_sp < 100)
-        return 0;
-    return 1;
-}
-
-int check_move_up(player *py)
-{
-    sfVector2f pos = sfSprite_getPosition(py->sp);
-    if (pos.y + py->actual_sp >= HEIGHT - 275)
-        return 0;
-    return 1;
-}
-
-int move_sp_top(player *py, int top)
-{
-    int ret = 0;
-    if (top == 21 && check_move_up(py)) {
-        sfSprite_move(py->sp, (sfVector2f) {0, py->speed});
-        ret = 1;
-    }
-    if (top == 87 && check_move_left(py)) {
-        sfSprite_move(py->sp, (sfVector2f) {-py->speed, 0});
-        ret = 1;
-    }
-    if (top == 149 && check_move_right(py)) {
-        sfSprite_move(py->sp, (sfVector2f) {py->speed, 0});
-        ret = 1;
-    }
-    if (top == 213 && check_move_down(py)) {
-        sfSprite_move(py->sp, (sfVector2f) {0, -py->speed});
-        ret = 1;
-    }
-    return ret;
-}
-
-int move_sprite(player *py, sfRenderWindow *wd, int top)
+int move_sprite(player *py, sfRenderWindow *wd, int top, room *rm)
 {
     int next = 0;
-    if (!move_sp_top(py, top))
+    if (!move_sp_top(py, top, rm))
         return 1;
     py->actual_sp ? ++py->actual_sp : 0;
     if (py->actual_sp == 4) {
@@ -107,15 +54,15 @@ int move_sprite(player *py, sfRenderWindow *wd, int top)
     return 0;
 }
 
-void move_event(player *py, sfRenderWindow *wd, sfEvent event)
+void move_event(player *py, sfRenderWindow *wd, sfEvent event, room *rm)
 {
     py->as_moved = false;
     if (event.type == sfEvtKeyPressed) {
         event.key.code == sfKeyE ? sfRenderWindow_close(wd) : 0;
-        event.key.code == sfKeyQ ? move_sprite(py, wd, 87) : 0;
-        event.key.code == sfKeyD ? move_sprite(py, wd, 149) : 0;
-        event.key.code == sfKeyZ ? move_sprite(py, wd, 213) : 0;
-        event.key.code == sfKeyS ? move_sprite(py, wd, 21) : 0;
+        event.key.code == sfKeyQ ? move_sprite(py, wd, 87, rm) : 0;
+        event.key.code == sfKeyD ? move_sprite(py, wd, 149, rm) : 0;
+        event.key.code == sfKeyZ ? move_sprite(py, wd, 213, rm) : 0;
+        event.key.code == sfKeyS ? move_sprite(py, wd, 21, rm) : 0;
     }
 }
 
@@ -128,6 +75,8 @@ room *create_room(void)
     sfSprite_setTexture(rm->sp, txt, sfTrue);
     sfSprite_setTextureRect(rm->sp, (sfIntRect){0, 0, 468, 312});
     sfSprite_setScale(rm->sp, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
+    rm->len_stone = 15;
+    rm->st = create_stone();
     return rm;
 }
 
@@ -138,10 +87,11 @@ int main(void)
     player *py = creation_player();
     room *rm = create_room();
     sfEvent event;
+    place_stone(rm, py);
     while (sfRenderWindow_isOpen(wd)) {
         sfRenderWindow_clear(wd, sfBlack);
         while (sfRenderWindow_pollEvent(wd, &event))
-            move_event(py, wd, event);
+            move_event(py, wd, event, rm);
         player_room(py, wd, rm);
         sfRenderWindow_display(wd);
     }
