@@ -39,7 +39,7 @@ void place_stone(room *rm, player *py, char *str)
     for (int i = 0; str[i] != '\0'; ++i) {
         if (str[i] == 'B') {
             sfSprite_setPosition(rm->st[count].sp, (sfVector2f)
-            {i % 22 * 78 + 140, (i / 22 * 90) + 90});
+            {i % 22 * 78 + 140, (i / 22 * 90) + 82});
             ++count;
         }
     }
