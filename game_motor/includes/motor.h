@@ -57,7 +57,7 @@ typedef struct {
 
 bool collision_stone(room *rm, player *py, int x, int y);
 void draw_stone(room *rm, sfRenderWindow *wd);
-void place_stone(room *rm, player *py);
-stone *create_stone(void);
+void place_stone(room *rm, player *py, char *str);
+stone *create_stone(char *str);
 int move_sp_top(player *py, int top, room *rm);
 #endif

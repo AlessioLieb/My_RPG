@@ -10,7 +10,7 @@ SRC	=	motor_s/move.c	\
 		motor_s/stone_base.c
 
 LIB = -l csfml-graphics -O2 -lm -l csfml-audio	\
-		-l csfml-system -l csfml-window -Wall
+		-l csfml-system -l csfml-window -Wall -g
 
 NAME	=	my_rpg
 

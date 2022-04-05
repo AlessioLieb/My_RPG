@@ -58,7 +58,7 @@ void move_event(player *py, sfRenderWindow *wd, sfEvent event, room *rm)
 {
     py->as_moved = false;
     if (event.type == sfEvtKeyPressed) {
-        event.key.code == sfKeyE ? sfRenderWindow_close(wd) : 0;
+        event.key.code == sfKeyF4 ? sfRenderWindow_close(wd) : 0;
         event.key.code == sfKeyQ ? move_sprite(py, wd, 87, rm) : 0;
         event.key.code == sfKeyD ? move_sprite(py, wd, 149, rm) : 0;
         event.key.code == sfKeyZ ? move_sprite(py, wd, 213, rm) : 0;
@@ -66,7 +66,7 @@ void move_event(player *py, sfRenderWindow *wd, sfEvent event, room *rm)
     }
 }
 
-room *create_room(void)
+room *create_room(char *str)
 {
     room *rm = malloc(sizeof(room));
     sfTexture *txt = sfTexture_createFromFile("assets/allrooms.png", NULL);
@@ -76,18 +76,22 @@ room *create_room(void)
     sfSprite_setTextureRect(rm->sp, (sfIntRect){0, 0, 468, 312});
     sfSprite_setScale(rm->sp, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
     rm->len_stone = 15;
-    rm->st = create_stone();
+    rm->st = create_stone(str);
     return rm;
 }
 
 int main(void)
 {
+    char *buff = malloc(1000);
+    int file = open("rooms/1.room", O_RDONLY);
+    int size = read(file, buff, 1000);
+    buff[size] = '\0';
     sfRenderWindow *wd = sfRenderWindow_create((sfVideoMode)
             {1920, 1080, 32},  "isaac", sfFullscreen | sfClose, NULL);
     player *py = creation_player();
-    room *rm = create_room();
+    room *rm = create_room(buff);
     sfEvent event;
-    place_stone(rm, py);
+    place_stone(rm, py, buff);
     while (sfRenderWindow_isOpen(wd)) {
         sfRenderWindow_clear(wd, sfBlack);
         while (sfRenderWindow_pollEvent(wd, &event))
@@ -95,5 +99,6 @@ int main(void)
         player_room(py, wd, rm);
         sfRenderWindow_display(wd);
     }
+    free(buff);
     return 1;
 }

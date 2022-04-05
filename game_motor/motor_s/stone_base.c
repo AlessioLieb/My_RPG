@@ -7,13 +7,21 @@
 
 #include "../includes/motor.h"
 
-stone *create_stone(void)
+int count_stone(char *str)
 {
-    stone *array_stone = malloc(sizeof(stone) * 15);
+    int count = 0;
+    for (int i = 0; str[i] != '\0'; ++i)
+        (str[i] == 'B') ? ++count : 0;
+    return (count);
+}
+
+stone *create_stone(char *str)
+{
+    stone *array_stone = malloc(sizeof(stone) * count_stone(str));
     sfTexture *text = sfTexture_createFromFile
     ("assets/allroomobjects.png", NULL);
     srand(time(NULL));
-    for (int i = 0; i < 15; ++i) {
+    for (int i = 0; i < count_stone(str); ++i) {
         array_stone[i].sp = sfSprite_create();
         sfSprite_setTexture(array_stone[i].sp, text, sfTrue);
         sfSprite_setTextureRect
@@ -24,13 +32,17 @@ stone *create_stone(void)
     return array_stone;
 }
 
-void place_stone(room *rm, player *py)
+void place_stone(room *rm, player *py, char *str)
 {
-    srand(time(NULL));
-    rm->len_stone = 3 + rand() % 12;
-    for (int i = 0; i < rm->len_stone; ++i)
-        sfSprite_setPosition(rm->st[i].sp, (sfVector2f)
-        {250 + (90 * (rand() % 12)), 250 + (110 * (rand() % 6))});
+    int count = 0;
+    rm->len_stone = count_stone(str);
+    for (int i = 0; str[i] != '\0'; ++i) {
+        if (str[i] == 'B') {
+            sfSprite_setPosition(rm->st[count].sp, (sfVector2f)
+            {i % 22 * 78 + 140, (i / 22 * 90) + 90});
+            ++count;
+        }
+    }
 }
 
 void draw_stone(room *rm, sfRenderWindow *wd)
