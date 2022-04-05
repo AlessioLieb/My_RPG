@@ -53,6 +53,7 @@ typedef struct {
     int actual_room;
     int len_stone;
     stone *st;
+    char *actual_room;
 }room;
 
 bool collision_stone(room *rm, player *py, int x, int y);

@@ -10,8 +10,8 @@
 stone *create_stone(void)
 {
     stone *array_stone = malloc(sizeof(stone) * 15);
-    sfTexture *text = sfTexture_createFromFile("assets/allroomobjects.png", NULL);
-    sfIntRect one = {0, 436, 25, 27};
+    sfTexture *text = sfTexture_createFromFile
+    ("assets/allroomobjects.png", NULL);
     srand(time(NULL));
     for (int i = 0; i < 15; ++i) {
         array_stone[i].sp = sfSprite_create();
@@ -44,7 +44,8 @@ bool collision_stone(room *rm, player *py, int x, int y)
     sfVector2f pos_tmp;
     sfIntRect tmp;
     sfVector2f player_tmp = sfSprite_getPosition(py->sp);
-    sfIntRect player_pos = (sfIntRect) {player_tmp.y + y, player_tmp.x + x, 28 * 3, 35 * 3};
+    sfIntRect player_pos = (sfIntRect)
+            {player_tmp.y + y, player_tmp.x + x, 28 * 3, 35 * 3};
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
     for (int i = 0; i < rm->len_stone; ++i) {
         pos_tmp = sfSprite_getPosition(rm->st[i].sp);
