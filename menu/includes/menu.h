@@ -86,7 +86,7 @@ typedef struct {
 void init_all(window *wndw, options *sprt, players *perso);
 
 void params_window(window *wndw, options *sprt, players *perso);
-int event_window(window *wndw, options *sprt);
+// int event_window(window *wndw, options *sprt, room *rm, player *py);
 
 int call_main_func(char *str);
 

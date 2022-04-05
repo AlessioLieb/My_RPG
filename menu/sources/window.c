@@ -6,6 +6,7 @@
 */
 
 #include "../includes/menu.h"
+#include "../includes/motor.h"
 
 void params_window(window *wndw, options *sprt, players *perso)
 {
@@ -19,23 +20,22 @@ void params_window(window *wndw, options *sprt, players *perso)
     sfFullscreen, NULL);
 }
 
-int event_window(window *wndw, options *sprt)
+int event_window(window *wndw, options *sprt, room *rm, player *py)
 {
     sfEvent event;
 
     while (sfRenderWindow_pollEvent(wndw->window, &event)) {
-        (event.type == sfEvtKeyPressed && sfKeyF4 == event.key.code) ?
-        sfRenderWindow_close(wndw->window) : 0;
-        (event.type == sfEvtKeyPressed && sfKeyL == event.key.code) ?
-        sprt->begin = 0 : 0;
-        (event.type == sfEvtMouseButtonReleased) ?
-        catch_button(wndw, sprt, event) : 0;
-        (event.type == sfEvtMouseButtonPressed) ?
-        click_button(wndw, sprt, event) : 0;
-        (sprt->begin == 3 && event.type == sfEvtKeyPressed && sfKeyEscape ==
-        event.key.code) ? sprt->begin = 4 : 0;
-        (sprt->begin == 4 && event.type == sfEvtKeyPressed
-        && sfKeyQ == event.key.code) ? sprt->begin = 3 : 0;
+        (event.type == sfEvtKeyPressed && sfKeyF4 == event.key.code) ? sfRenderWindow_close(wndw->window) : 0;
+        (event.type == sfEvtKeyPressed && sfKeyL == event.key.code) ? sprt->begin = 0 : 0;
+        (event.type == sfEvtMouseButtonReleased) ? catch_button(wndw, sprt, event) : 0;
+        (event.type == sfEvtMouseButtonPressed) ? click_button(wndw, sprt, event) : 0;
+        (sprt->begin == 3 && event.type == sfEvtKeyPressed && sfKeyEscape == event.key.code) ? sprt->begin = 4 : 0;
+        (sprt->begin == 4 && event.type == sfEvtKeyPressed && sfKeyQ == event.key.code) ? sprt->begin = 3 : 0;
+        move_event(py, event, rm);
+        // (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ) ? move_sprite(py, 87, rm) : 0;
+        // (event.type == sfEvtKeyPressed && event.key.code == sfKeyD) ? move_sprite(py, 149, rm) : 0;
+        // (event.type == sfEvtKeyPressed && event.key.code == sfKeyZ) ? move_sprite(py, 213, rm) : 0;
+        // (event.type == sfEvtKeyPressed && event.key.code == sfKeyS) ? move_sprite(py, 21, rm) : 0;
     }
     return 0;
 }

@@ -18,7 +18,10 @@ SRC	=	sources/init_base.c						\
 		sources/init_choose_players.c			\
 		sources/action_button.c					\
 		sources/players_choose.c				\
-		sources/framebuffer_play.c
+		sources/framebuffer_play.c				\
+		motor_s/move.c	\
+		motor_s/basic_move.c	\
+		motor_s/stone_base.c
 
 OBJ	=    $(SRC:.c=.o)
 
