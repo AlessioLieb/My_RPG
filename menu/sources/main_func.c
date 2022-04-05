@@ -27,7 +27,8 @@ int main_func(window *wndw, options *sprt, players *perso)
     while (sfRenderWindow_isOpen(wndw->window)) {
         event_window(wndw, sprt);
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;
-        (sprt->begin == 2 || sprt->begin == 3) ? screen_choose_player(wndw, sprt, perso) : 0;
+        (sprt->begin == 2 || sprt->begin == 3)
+        ? screen_choose_player(wndw, sprt, perso) : 0;
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 3) ? my_game(wndw, sprt) : 0;

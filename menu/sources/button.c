@@ -58,5 +58,3 @@ void linked_button(options *opt, window *wndw)
     opt->ar_btn[TURN_RIGHT_WHEEL_PERSO].screen = 2;
     part_linked_button(opt, wndw);
 }
-
-

@@ -25,7 +25,8 @@ void init_theotitime(window *wndw, players *perso)
     sfIntRect first = {0, 408, 1659, 414};
     sfVector2f scale = {0.45, 0.45};
     perso->sprt_theotitime = sfSprite_create();
-    sfSprite_setTexture(perso->sprt_theotitime, perso->txt_perso_wheel, sfTrue);
+    sfSprite_setTexture(perso->sprt_theotitime,
+    perso->txt_perso_wheel, sfTrue);
     sfSprite_setTextureRect(perso->sprt_theotitime, first);
     sfSprite_setScale(perso->sprt_theotitime, scale);
     sfSprite_setPosition(perso->sprt_theotitime, prems);

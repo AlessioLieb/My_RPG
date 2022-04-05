@@ -32,8 +32,8 @@ void is_touched_button(window *wndw, options *opt)
 
 void move_rect_pressed(options *opt, int i)
 {
-    sfIntRect new = {opt->ar_btn[i].place.left, opt->ar_btn[i].place.height * 2,
-    opt->ar_btn[i].place.width, opt->ar_btn[i].place.height};
+    sfIntRect new = {opt->ar_btn[i].place.left, opt->ar_btn[i].place.height *
+    2, opt->ar_btn[i].place.width, opt->ar_btn[i].place.height};
     sfSprite_setTextureRect(opt->ar_btn[i].sprt, new);
     opt->ar_btn[i].event = 3;
 }

@@ -1,4 +1,3 @@
-
 /*
 ** EPITECH PROJECT, 2021
 ** B-MUL-100-MLH-1-1-mywndw-oscar.frank
@@ -14,7 +13,8 @@ void params_window(window *wndw, options *sprt, players *perso)
     sprt->welcome = sfTexture_createFromFile("ressources/welcome.png", NULL);
     sprt->barre = sfTexture_createFromFile("ressources/barre.png", NULL);
     sprt->pause_txt = sfTexture_createFromFile("ressources/pause.png", NULL);
-    perso->txt_perso_wheel = sfTexture_createFromFile("ressources/player_wheel_choose.png", NULL);
+    perso->txt_perso_wheel =
+    sfTexture_createFromFile("ressources/player_wheel_choose.png", NULL);
     wndw->window = sfRenderWindow_create(mode, "my_world", sfResize | sfClose |
     sfFullscreen, NULL);
 }
