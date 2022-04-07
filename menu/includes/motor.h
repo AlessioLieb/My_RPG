@@ -22,6 +22,7 @@
     #include <SFML/System/Time.h>
     #include <SFML/System/Vector3.h>
     #include <stddef.h>
+    #include <SFML/Graphics/Color.h>
     #include <SFML/Audio.h>
     #include <SFML/System/Export.h>
     #include <SFML/System/Time.h>
@@ -42,11 +43,13 @@ typedef struct {
     bool as_moved;
     int speed;
     int actual_sp;
+    sfImage *collision_box;
 }player;
 
 typedef struct {
     sfSprite *sp;
     sfVector2f pos;
+    int nb_stone;
 }stone;
 
 typedef struct {
@@ -54,6 +57,7 @@ typedef struct {
     int actual_room;
     int len_stone;
     stone *st;
+    sfImage *room_col;
 }room;
 
 int event_window(window *wndw, options *sprt, room *rm, player *py);

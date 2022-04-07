@@ -33,6 +33,9 @@ NAME	=    my_rpg
 
 all:    	$(NAME)
 
+debug:
+	gcc -g $(SRC) $(FLAGS)
+
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) $(FLAGS)
 clean:

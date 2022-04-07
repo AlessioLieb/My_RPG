@@ -17,17 +17,20 @@ int count_stone(char *str)
 
 stone *create_stone(char *str)
 {
+    int rd = 0;
     stone *array_stone = malloc(sizeof(stone) * count_stone(str));
     sfTexture *text = sfTexture_createFromFile
     ("assets/allroomobjects.png", NULL);
     srand(time(NULL));
     for (int i = 0; i < count_stone(str); ++i) {
+        rd = rand() % 3;
         array_stone[i].sp = sfSprite_create();
         sfSprite_setTexture(array_stone[i].sp, text, sfTrue);
         sfSprite_setTextureRect
         (array_stone[i].sp, (sfIntRect)
-        {0 + (27 * (rand() % 3)), 432, 27, 30});
+        {0 + (27 * rd), 432, 27, 30});
         sfSprite_setScale(array_stone[i].sp, (sfVector2f) {3, 3});
+        array_stone[i].nb_stone = rd;
     }
     return array_stone;
 }
@@ -35,14 +38,28 @@ stone *create_stone(char *str)
 void place_stone(room *rm, player *py, char *str)
 {
     int count = 0;
+    sfImage *f_stone = sfImage_createFromFile("assets/collisions/stone1.png");
+    sfImage *s_stone = sfImage_createFromFile("assets/collisions/stone2.png");
+    sfImage *t_stone = sfImage_createFromFile("assets/collisions/stone3.png");
+    rm->room_col = sfImage_create(WIDTH, HEIGHT);
     rm->len_stone = count_stone(str);
     for (int i = 0; str[i] != '\0'; ++i) {
         if (str[i] == 'B') {
             sfSprite_setPosition(rm->st[count].sp, (sfVector2f)
             {i % 22 * 78 + 140, (i / 22 * 90) + 82});
+            if (rm->st[count].nb_stone == 0)
+                sfImage_copyImage(rm->room_col, f_stone, i % 22 * 78 + 140 + 10,(i / 22
+                * 90) + 82, (sfIntRect) {0, 0, 0, 0}, sfTrue);
+            if (rm->st[count].nb_stone == 1)
+                sfImage_copyImage(rm->room_col, s_stone, i % 22 * 78 + 140 + 10, (i / 22
+                * 90) + 82, (sfIntRect) {0, 0, 0, 0}, sfTrue);
+            if (rm->st[count].nb_stone == 2)
+                sfImage_copyImage(rm->room_col, t_stone, i % 22 * 78 + 140 + 10, (i / 22
+                * 90) + 62, (sfIntRect) {0, 0, 0, 0}, sfTrue);
             ++count;
         }
     }
+    sfImage_saveToFile(rm->room_col, "img.png");
 }
 
 void draw_stone(room *rm, sfRenderWindow *wd)
@@ -53,17 +70,14 @@ void draw_stone(room *rm, sfRenderWindow *wd)
 
 bool collision_stone(room *rm, player *py, int x, int y)
 {
-    sfVector2f pos_tmp;
-    sfIntRect tmp;
     sfVector2f player_tmp = sfSprite_getPosition(py->sp);
-    sfIntRect player_pos = (sfIntRect)
-            {player_tmp.y + y, player_tmp.x + x, 28 * 3, 35 * 3};
-    sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
-    for (int i = 0; i < rm->len_stone; ++i) {
-        pos_tmp = sfSprite_getPosition(rm->st[i].sp);
-        tmp = (sfIntRect){pos_tmp.y, pos_tmp.x + 32, 27 * 3, 37};
-        if (sfIntRect_intersects(&tmp, &player_pos, &overlap))
-            return false;
-    }
+    player_tmp.x += x;
+    player_tmp.y += y;
+    for (int i = 0; i < 83; ++i)
+        for (int j = 0; j < 70; ++j) {
+            if (sfImage_getPixel(py->collision_box, i, j).r == sfImage_getPixel(rm->room_col, player_tmp.x + i, player_tmp.y + j).r && sfImage_getPixel(py->collision_box, i, j).r != 0) {
+                return false;
+            }
+        }
     return true;
 }

@@ -18,6 +18,7 @@ player *creation_player(void)
     py->sp = sfSprite_create();
     py->as_moved = false;
     py->actual_sp = 0;
+    py->collision_box = sfImage_createFromFile("assets/collisions/isaac_border.png");
     sfSprite_setTexture(py->sp, py->tx, sfTrue);
     sfSprite_setTextureRect(py->sp, place);
     sfSprite_setScale(py->sp, (sfVector2f){3, 3});
