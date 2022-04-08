@@ -19,6 +19,7 @@ player *creation_player(void)
     py->as_moved = false;
     py->actual_sp = 0;
     py->collision_box = sfImage_createFromFile("assets/collisions/isaac_border.png");
+    py->actual_speed = (sfVector2f) {0, 0};
     sfSprite_setTexture(py->sp, py->tx, sfTrue);
     sfSprite_setTextureRect(py->sp, place);
     sfSprite_setScale(py->sp, (sfVector2f){3, 3});
@@ -51,19 +52,23 @@ int move_sprite(player *py, int top, room *rm)
         sfSprite_setTextureRect(py->sp, (sfIntRect) {32, top, 29, 34});
         py->actual_sp = 1;
     }
-    py->as_moved = true;
+    py->as_moved = 2;
     return 0;
 }
 
 void move_event(player *py, sfEvent event, room *rm)
 {
-    py->as_moved = false;
+    --py->as_moved;
     if (event.type == sfEvtKeyPressed) {
         event.key.code == sfKeyQ ? move_sprite(py, 87, rm) : 0;
         event.key.code == sfKeyD ? move_sprite(py, 149, rm) : 0;
         event.key.code == sfKeyZ ? move_sprite(py, 213, rm) : 0;
         event.key.code == sfKeyS ? move_sprite(py, 21, rm) : 0;
     }
+    if (py->as_moved <= 0) {
+        py->actual_speed = (sfVector2f) {0, 0};
+    }
+    sfSprite_move(py->sp, py->actual_speed);
 }
 
 room *create_room(char *str)

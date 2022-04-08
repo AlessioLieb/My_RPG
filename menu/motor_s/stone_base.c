@@ -54,12 +54,11 @@ void place_stone(room *rm, player *py, char *str)
                 sfImage_copyImage(rm->room_col, s_stone, i % 22 * 78 + 140 + 10, (i / 22
                 * 90) + 82, (sfIntRect) {0, 0, 0, 0}, sfTrue);
             if (rm->st[count].nb_stone == 2)
-                sfImage_copyImage(rm->room_col, t_stone, i % 22 * 78 + 140 + 10, (i / 22
-                * 90) + 62, (sfIntRect) {0, 0, 0, 0}, sfTrue);
+                sfImage_copyImage(rm->room_col, t_stone, i % 22 * 78 + 140 + 10
+                , (i / 22 * 90) + 62, (sfIntRect) {0, 0, 0, 0}, sfTrue);
             ++count;
         }
     }
-    sfImage_saveToFile(rm->room_col, "img.png");
 }
 
 void draw_stone(room *rm, sfRenderWindow *wd)
@@ -71,13 +70,20 @@ void draw_stone(room *rm, sfRenderWindow *wd)
 bool collision_stone(room *rm, player *py, int x, int y)
 {
     sfVector2f player_tmp = sfSprite_getPosition(py->sp);
+    sfVector2f end = player_tmp;
+    bool res = true;
     player_tmp.x += x;
     player_tmp.y += y;
+    end.x -= x;
+    end.y -= y;
     for (int i = 0; i < 83; ++i)
-        for (int j = 0; j < 70; ++j) {
-            if (sfImage_getPixel(py->collision_box, i, j).r == sfImage_getPixel(rm->room_col, player_tmp.x + i, player_tmp.y + j).r && sfImage_getPixel(py->collision_box, i, j).r != 0) {
-                return false;
-            }
-        }
-    return true;
+        for (int j = 0; j < 70; ++j)
+            res = (sfImage_getPixel(py->collision_box, i, j).r == sfImage_getPixel
+            (rm->room_col, player_tmp.x + i, player_tmp.y + j).r && sfImage_getPixel
+            (py->collision_box, i, j).r != 0) ? false : res;
+    if (!res) {
+        py->actual_speed = (sfVector2f) {0, 0};
+        sfSprite_setPosition(py->sp, end);
+    }
+    return res;
 }

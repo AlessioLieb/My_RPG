@@ -40,9 +40,10 @@ typedef struct {
     sfTexture *tx;
     int x;
     int y;
-    bool as_moved;
+    int as_moved;
     int speed;
     int actual_sp;
+    sfVector2f actual_speed;
     sfImage *collision_box;
 }player;
 
