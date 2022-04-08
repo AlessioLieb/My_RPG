@@ -30,8 +30,9 @@ static int check_move_left(player *py, room *rm)
 static int check_move_down(player *py, room *rm)
 {
     sfVector2f pos = sfSprite_getPosition(py->sp);
+    int tmp_y = py->actual_speed.y <= -py->speed ? - py->speed : py->actual_speed.y - 1;
     if (pos.y - py->actual_speed.y < 100
-    || !collision_stone(rm, py, py->actual_speed.x, - (py->actual_speed.y + 1)))
+    || !collision_stone(rm, py, py->actual_speed.x, (tmp_y)))
         return 0;
     return 1;
 }
