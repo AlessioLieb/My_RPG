@@ -57,7 +57,7 @@ bool collision_stone(room *rm, player *py, int x, int y)
     sfIntRect tmp;
     sfVector2f player_tmp = sfSprite_getPosition(py->sp);
     sfIntRect player_pos = (sfIntRect)
-            {player_tmp.y + y, player_tmp.x + x, 28 * 3, 35 * 3};
+            {player_tmp.y + y, player_tmp.x + x, 28 * 3, 25 * 3};
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
     for (int i = 0; i < rm->len_stone; ++i) {
         pos_tmp = sfSprite_getPosition(rm->st[i].sp);
