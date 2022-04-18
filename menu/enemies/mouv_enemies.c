@@ -29,11 +29,9 @@ static void move_adv(adv_t *actual, int i, sfVector2f player_pos, int type, room
     (actual[i].pos.y - player_pos.y)) {
         nw_move.x += actual[i].pos.x - player_pos
                 .x > 0 ? -actual[i].speed : actual[i].speed;
-        changed = 0;
     }else {
         nw_move.y += actual[i].pos.y - player_pos
                 .y > 0 ? -actual[i].speed : actual[i].speed;
-        changed = 1;
     }
     if (actual[i].is_flying || actual[i].speed == 0 || check_move(nw_move, type, rm))
         actual[i].pos = nw_move;
