@@ -61,7 +61,7 @@ typedef struct {
     sfImage *room_col;
 }room;
 
-int event_window(window *wndw, options *sprt, room *rm, player *py);
+//int event_window(window *wndw, options *sprt, room *rm, player *py);
 void player_room(player *py, sfRenderWindow *wd, room *rm);
 player *creation_player(void);
 room *create_room(char *str);

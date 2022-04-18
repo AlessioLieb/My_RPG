@@ -21,7 +21,9 @@ SRC	=	sources/init_base.c						\
 		sources/framebuffer_play.c				\
 		motor_s/move.c	\
 		motor_s/basic_move.c	\
-		motor_s/stone_base.c
+		motor_s/stone_base.c	\
+		enemies/create_enemies.c	\
+		enemies/enemies_room.c
 
 OBJ	=    $(SRC:.c=.o)
 
