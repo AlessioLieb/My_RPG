@@ -5,13 +5,13 @@
 ** create_enemies
 */
 
-#include "../includes/enemies.h"
+#include "../includes/motor.h"
 
 adv_t *no_mouving_adv_create(void)
 {
     sfTexture *one = sfTexture_createFromFile("../Sprites/m_anim/constant.png", NULL);
     sfTexture *two = sfTexture_createFromFile("../Sprites/m_anim/horf.png", NULL);
-    sfIntRect place = {0, 0, 30, 30};
+    sfIntRect place = {0, 0, 31, 30};
     adv_t *no_mouv = malloc(sizeof(adv_t) * 10);
     sfVector2f scale = {3, 3};
     int tmp = 0;
@@ -40,7 +40,7 @@ adv_t *big_adv_create(void)
     NULL), sfTexture_createFromFile("../Sprites/m_anim/muli.png", NULL),
     sfTexture_createFromFile("../Sprites/m_anim/muliboom.png", NULL),
     sfTexture_createFromFile("../Sprites/m_anim/skinny.png", NULL), NULL};
-    sfIntRect place = {0, 0, 60, 60};
+    sfIntRect place = {0, 0, 60, 70};
     adv_t *adv = malloc(sizeof(adv_t) * 10);
     sfVector2f scale = {3, 3};
     srand(time(NULL));
@@ -49,7 +49,7 @@ adv_t *big_adv_create(void)
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 4], sfTrue);
         sfSprite_setTextureRect(adv[i].sp, place);
         sfSprite_setScale(adv[i].sp, scale);
-        adv[i].speed = 5;
+        adv[i].speed = 1;
         adv[i].pos = (sfVector2f){-1, -1};
         adv[i].is_flying = false;
         adv[i].is_shooting = false;
@@ -74,7 +74,7 @@ adv_t *flying_adv_create(void)
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 4], sfTrue);
         sfSprite_setTextureRect(adv[i].sp, place);
         sfSprite_setScale(adv[i].sp, scale);
-        adv[i].speed = 20;
+        adv[i].speed = 5;
         adv[i].pos = (sfVector2f){-1, -1};
         adv[i].is_flying = true;
         adv[i].is_shooting = false;
@@ -89,7 +89,7 @@ adv_t *little_adv_create(void)
     ("../Sprites/m_anim/bodies.png", NULL), sfTexture_createFromFile
     ("../Sprites/m_anim/dip.png", NULL), sfTexture_createFromFile
     ("../Sprites/m_anim/charger.png", NULL), NULL};
-    sfIntRect place = {0, 0, 24, 25};
+    sfIntRect place = {0, 0, 28, 25};
     adv_t *adv = malloc(sizeof(adv_t) * 10);
     sfVector2f scale = {3, 3};
     srand(time(NULL));
@@ -98,7 +98,7 @@ adv_t *little_adv_create(void)
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 3], sfTrue);
         sfSprite_setTextureRect(adv[i].sp, place);
         sfSprite_setScale(adv[i].sp, scale);
-        adv[i].speed = 10;
+        adv[i].speed = 2;
         adv[i].pos = (sfVector2f){-1, -1};
         adv[i].is_flying = false;
         adv[i].is_shooting = false;
@@ -141,5 +141,10 @@ enemies_t *create_enemies(void)
     enem_t->flying_adv = flying_adv_create();
     enem_t->little_adv = little_adv_create();
     enem_t->wall_adv = NULL;
+    enem_t->ti.timer_total = 0;
+    enem_t->ti.timer = 0;
+    enem_t->move_ti.timer_total = 0;
+    enem_t->move_ti.timer = 0;
+    enem_t->total_clock = sfClock_create();
     return enem_t;
 }

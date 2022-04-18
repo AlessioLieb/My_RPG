@@ -5,7 +5,7 @@
 ** enemies room
 */
 
-#include "../includes/enemies.h"
+#include "../includes/motor.h"
 
 int search_len_en(adv_t *adv)
 {
@@ -45,8 +45,9 @@ void draw_adv(adv_t *adv, sfRenderWindow *wndw)
         }
 }
 
-void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw)
+void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py)
 {
+    anim_enemies(enem_t, py);
     draw_adv(enem_t->no_mouving_adv, wndw);
     //draw_adv(enem_t->wall_adv, wndw);
     draw_adv(enem_t->flying_adv, wndw);

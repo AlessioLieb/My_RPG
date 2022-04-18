@@ -35,7 +35,7 @@
     #define WIDTH 1920
     #include "../includes/menu.h"
 
-typedef struct {
+typedef struct player_s{
     sfSprite *sp;
     sfTexture *tx;
     int x;
@@ -61,6 +61,35 @@ typedef struct {
     sfImage *room_col;
 }room;
 
+typedef struct {
+    sfSprite *sp;
+    sfVector2f pos;
+    bool is_shooting;
+    bool is_flying;
+    int pv;
+    int speed;
+}adv_t;
+
+typedef struct {
+    unsigned long timer_total;
+    unsigned long timer;
+}timer;
+
+typedef struct {
+    timer ti;
+    timer move_ti;
+    sfClock *total_clock;
+    adv_t *no_mouving_adv;
+    adv_t *big_adv;
+    adv_t *flying_adv;
+    adv_t *little_adv;
+    adv_t *wall_adv;
+}enemies_t;
+
+enemies_t *create_enemies(void);
+void place_enemies(char *str, enemies_t *enem_t);
+void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py);
+void anim_enemies(enemies_t *enem_t, player *py);
 //int event_window(window *wndw, options *sprt, room *rm, player *py);
 void player_room(player *py, sfRenderWindow *wd, room *rm);
 player *creation_player(void);
