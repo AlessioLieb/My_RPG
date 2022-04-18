@@ -13,7 +13,7 @@ int my_game(window *wndw, player *py, sfEvent event, room *rm, enemies_t *enem_t
     // while (sfRenderWindow_pollEvent(wndw->window, &event))
     //     move_event(py, event, rm);
     player_room(py, wndw->window, rm);
-    draw_enemies(enem_t, wndw->window, py);
+    draw_enemies(enem_t, wndw->window, py, rm);
     //sfRenderWindow_display(wndw->window);
     return 0;
 }

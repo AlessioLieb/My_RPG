@@ -86,10 +86,11 @@ typedef struct {
     adv_t *wall_adv;
 }enemies_t;
 
+void move_enemies(enemies_t *enem_t, player *py, room *rm);
 enemies_t *create_enemies(void);
 void place_enemies(char *str, enemies_t *enem_t);
-void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py);
-void anim_enemies(enemies_t *enem_t, player *py);
+void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py, room *rm);
+void anim_enemies(enemies_t *enem_t);
 //int event_window(window *wndw, options *sprt, room *rm, player *py);
 void player_room(player *py, sfRenderWindow *wd, room *rm);
 player *creation_player(void);
