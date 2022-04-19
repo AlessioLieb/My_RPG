@@ -35,9 +35,17 @@
     #define WIDTH 1920
     #include "../includes/menu.h"
 
+typedef struct {
+    int total_life;
+    int red_hearth;
+    int blue_hearth;
+    int black_hearth;
+}life;
+
 typedef struct player_s{
     sfSprite *sp;
     sfTexture *tx;
+    life lf;
     int x;
     int y;
     int as_moved;
