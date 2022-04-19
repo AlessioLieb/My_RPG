@@ -12,10 +12,11 @@ static bool check_move(sfVector2f tmp, int type, room *rm)
     sfImage *img = type == 2 ? sfImage_createFromFile("assets/collisions/little.png") :
             sfImage_createFromFile("assets/collisions/big.png");
     bool res = true;
-    for (int i = 0; i < (type == 2 ? 69 : 147); ++i)
-        for (int j = 0; j < (type == 2 ? 63 : 162); ++j) {
-            res = (sfImage_getPixel(img, i, j).r > 100 && sfImage_getPixel
-                    (rm->room_col, tmp.x + i, tmp.y + j).r > 100) ? false : res;
+    sfVector2u size = sfImage_getSize(img);
+    for (int i = 0; i < size.x; ++i)
+        for (int j = 0; j < size.y; ++j) {
+            res = ((sfImage_getPixel(img, i, j).r > 100 && sfImage_getPixel
+                    (rm->room_col, tmp.x + i, tmp.y + j).r > 100)) ? false : res;
         }
     sfImage_destroy(img);
     return res;
