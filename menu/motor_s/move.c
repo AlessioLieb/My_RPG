@@ -27,11 +27,12 @@ player *creation_player(void)
     return py;
 }
 
-void player_room(player *py, sfRenderWindow *wd, room *rm)
+void player_room(sfRenderWindow *wd, reduce *red)
 {
-    sfRenderWindow_drawSprite(wd, rm->sp, NULL);
-    sfRenderWindow_drawSprite(wd, py->sp, NULL);
-    draw_stone(rm, wd);
+    sfRenderWindow_drawSprite(wd, red->rm->sp, NULL);
+    sfRenderWindow_drawSprite(wd, red->py->sp, NULL);
+    draw_stone(red->rm, wd);
+    move_tears(2, red, wd);
 }
 
 int move_sprite(player *py, int top, room *rm)
@@ -56,19 +57,23 @@ int move_sprite(player *py, int top, room *rm)
     return 0;
 }
 
-void move_event(player *py, sfEvent event, room *rm)
+void move_event(sfEvent event, reduce *red)
 {
-    --py->as_moved;
+    --red->py->as_moved;
     if (event.type == sfEvtKeyPressed) {
-        event.key.code == sfKeyQ ? move_sprite(py, 87, rm) : 0;
-        event.key.code == sfKeyD ? move_sprite(py, 149, rm) : 0;
-        event.key.code == sfKeyZ ? move_sprite(py, 213, rm) : 0;
-        event.key.code == sfKeyS ? move_sprite(py, 21, rm) : 0;
+        event.key.code == sfKeyQ ? move_sprite(red->py, 87, red->rm) : 0;
+        event.key.code == sfKeyD ? move_sprite(red->py, 149, red->rm) : 0;
+        event.key.code == sfKeyZ ? move_sprite(red->py, 213, red->rm) : 0;
+        event.key.code == sfKeyS ? move_sprite(red->py, 21, red->rm) : 0;
     }
-    if (py->as_moved <= 0) {
-        py->actual_speed = (sfVector2f) {0, 0};
+    event.key.code == sfKeyLeft ? shoot_tears(1, red) : 0;
+    event.key.code == sfKeyRight ? shoot_tears(2, red) : 0;
+    event.key.code == sfKeyUp ? shoot_tears(3, red) : 0;
+    event.key.code == sfKeyDown ? shoot_tears(4, red) : 0;
+    if (red->py->as_moved <= 0) {
+        red->py->actual_speed = (sfVector2f) {0, 0};
     }
-    sfSprite_move(py->sp, py->actual_speed);
+    sfSprite_move(red->py->sp, red->py->actual_speed);
 }
 
 room *create_room(char *str)

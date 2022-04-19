@@ -94,19 +94,48 @@ typedef struct {
     adv_t *wall_adv;
 }enemies_t;
 
+typedef struct {
+    sfSprite *t_sp;
+    sfTexture *t_tx;
+    int x;
+    int y;
+    bool is_shot;
+    bool move;
+    float speed;
+    int actual_sp;
+    int direction;
+}tears;
+
+typedef struct {
+    player *py;
+    room *rm;
+    tears *te;
+    enemies_t *enem_t;
+}reduce;
+
 void move_enemies(enemies_t *enem_t, player *py, room *rm);
 enemies_t *create_enemies(void);
 void place_enemies(char *str, enemies_t *enem_t);
 void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py, room *rm);
 void anim_enemies(enemies_t *enem_t);
-//int event_window(window *wndw, options *sprt, room *rm, player *py);
-void player_room(player *py, sfRenderWindow *wd, room *rm);
+int event_window(window *wndw, options *sprt, reduce *red);
+void player_room(sfRenderWindow *wd, reduce *red);
 player *creation_player(void);
 room *create_room(char *str);
-void move_event(player *py, sfEvent event, room *rm);
+void move_event(sfEvent event, reduce *red);
 bool collision_stone(room *rm, player *py, int x, int y);
 void draw_stone(room *rm, sfRenderWindow *wd);
 void place_stone(room *rm, player *py, char *str);
 stone *create_stone(char *str);
 int move_sp_top(player *py, int top, room *rm);
+
+tears *create_tears(player *py);
+int event_tears(window *win, options *sprt, room *rm, tears *te);
+void shoot_tears(int id, reduce *red);
+void move_tears(int id, reduce *red, sfRenderWindow *wd);
+
+int verif_moving(reduce *red, int nb_tears);
+int verif_shooting(reduce *red, int nb_tears);
+void disp_tears(reduce *red, sfRenderWindow *wd);
+int check_collisions(int id, reduce *red, int nb);
 #endif

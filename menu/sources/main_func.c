@@ -7,13 +7,13 @@
 
 #include "../includes/motor.h"
 
-int my_game(window *wndw, player *py, sfEvent event, room *rm, enemies_t *enem_t)
+int my_game(window *wndw, sfEvent event, reduce *red)
 {
     // sfRenderWindow_clear(wndw->window, sfBlack);
     // while (sfRenderWindow_pollEvent(wndw->window, &event))
     //     move_event(py, event, rm);
-    player_room(py, wndw->window, rm);
-    draw_enemies(enem_t, wndw->window, py, rm);
+    player_room(wndw->window, red);
+    draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
     //sfRenderWindow_display(wndw->window);
     return 0;
 }
@@ -38,18 +38,19 @@ int main_func(window *wndw, options *sprt, players *perso)
     player *py = creation_player();
     room *rm = create_room(buff);
     sfEvent event;
+    tears *te = create_tears(py);
     enemies_t *enem_t = create_enemies();
     place_enemies(buff, enem_t);
     place_stone(rm, py, buff);
     init_all(wndw, sprt, perso);
     while (sfRenderWindow_isOpen(wndw->window)) {
-        event_window(wndw, sprt, rm, py);
+        event_window(wndw, sprt, &(reduce) {py, rm, te, enem_t});
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;
         (sprt->begin == 2 || sprt->begin == 3)
         ? screen_choose_player(wndw, sprt, perso) : 0;
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
-        (sprt->begin == 3) ? my_game(wndw, py, event, rm, enem_t) : 0;
+        (sprt->begin == 3) ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t}) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         sfRenderWindow_display(wndw->window);
         sfRenderWindow_clear(wndw->window, sfBlack);

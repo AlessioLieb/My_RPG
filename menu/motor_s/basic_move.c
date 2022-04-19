@@ -72,18 +72,22 @@ int move_sp_top(player *py, int top, room *rm)
     int ret = 0;
     if (top == 21 && check_move_up(py, rm)) {
         py->actual_speed.y + 1 < py->speed ? ++py->actual_speed.y : 0;
+        py->y += py->speed;
         ret = 1;
     }
     if (top == 87 && check_move_left(py, rm)) {
         py->actual_speed.x + 1 > -py->speed ? --py->actual_speed.x : 0;
+        py->x -= py->speed;
         ret = 1;
     }
     if (top == 149 && check_move_right(py, rm)) {
         py->actual_speed.x + 1 < py->speed ? ++py->actual_speed.x : 0;
+        py->x += py->speed;
         ret = 1;
     }
     if (top == 213 && check_move_down(py, rm)) {
         py->actual_speed.y + 1 > -py->speed ? --py->actual_speed.y : 0;
+        py->y -= py->speed;
         ret = 1;
     }
     return ret;

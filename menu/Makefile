@@ -25,7 +25,10 @@ SRC	=	sources/init_base.c						\
 		enemies/create_enemies.c	\
 		enemies/enemies_room.c	\
 		enemies/anim_enemies.c	\
-		enemies/mouv_enemies.c
+		enemies/mouv_enemies.c	\
+		motor_s/tears_shooting.c	\
+		motor_s/tears_state.c	\
+		motor_s/check_tears_collision.c
 
 OBJ	=    $(SRC:.c=.o)
 

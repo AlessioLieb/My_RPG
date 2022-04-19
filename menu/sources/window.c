@@ -16,11 +16,11 @@ void params_window(window *wndw, options *sprt, players *perso)
     sprt->pause_txt = sfTexture_createFromFile("ressources/pause.png", NULL);
     perso->txt_perso_wheel =
     sfTexture_createFromFile("ressources/player_wheel_choose.png", NULL);
-    wndw->window = sfRenderWindow_create(mode, "my_world", sfResize | sfClose |
-    sfFullscreen, NULL);
+    wndw->window = sfRenderWindow_create(mode, "my_world", sfResize | sfClose/* |
+    sfFullscreen*/, NULL);
 }
 
-int event_window(window *wndw, options *sprt, room *rm, player *py)
+int event_window(window *wndw, options *sprt, reduce *red)
 {
     sfEvent event;
 
@@ -31,7 +31,7 @@ int event_window(window *wndw, options *sprt, room *rm, player *py)
         (event.type == sfEvtMouseButtonPressed) ? click_button(wndw, sprt, event) : 0;
         (sprt->begin == 3 && event.type == sfEvtKeyPressed && sfKeyEscape == event.key.code) ? sprt->begin = 4 : 0;
         (sprt->begin == 4 && event.type == sfEvtKeyPressed && sfKeyQ == event.key.code) ? sprt->begin = 3 : 0;
-        move_event(py, event, rm);
+        move_event(event, red);
         // (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ) ? move_sprite(py, 87, rm) : 0;
         // (event.type == sfEvtKeyPressed && event.key.code == sfKeyD) ? move_sprite(py, 149, rm) : 0;
         // (event.type == sfEvtKeyPressed && event.key.code == sfKeyZ) ? move_sprite(py, 213, rm) : 0;
