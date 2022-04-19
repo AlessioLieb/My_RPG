@@ -39,16 +39,16 @@ adv_t *big_adv_create(void)
     sfTexture *array_text[] = {sfTexture_createFromFile("../Sprites/m_anim/fatty.png",
     NULL), sfTexture_createFromFile("../Sprites/m_anim/muli.png", NULL),
     sfTexture_createFromFile("../Sprites/m_anim/muliboom.png", NULL),
+    sfTexture_createFromFile("../Sprites/m_anim/squirt.png", NULL),
     sfTexture_createFromFile("../Sprites/m_anim/skinny.png", NULL), NULL};
     sfIntRect place = {0, 0, 60, 70};
     adv_t *adv = malloc(sizeof(adv_t) * 10);
-    sfVector2f scale = {3, 3};
     srand(time(NULL));
     for (int i = 0; i < 10; ++i) {
         adv[i].sp = sfSprite_create();
-        sfSprite_setTexture(adv[i].sp, array_text[rand() % 4], sfTrue);
+        sfSprite_setTexture(adv[i].sp, array_text[rand() % 5], sfTrue);
         sfSprite_setTextureRect(adv[i].sp, place);
-        sfSprite_setScale(adv[i].sp, scale);
+        sfSprite_setScale(adv[i].sp, (sfVector2f) {3, 3});
         adv[i].speed = 2;
         adv[i].pos = (sfVector2f){-1, -1};
         adv[i].is_flying = false;
