@@ -65,10 +65,17 @@ typedef struct {
 
 typedef struct {
     sfSprite *sp;
+    sfIntRect pos_collision;
+    int (*change)(player *py);
+}collectible;
+
+typedef struct {
+    sfSprite *sp;
     int actual_room;
     int len_stone;
     stone *st;
     sfImage *room_col;
+    collectible *red_hearth;
 }room;
 
 typedef struct {
@@ -115,6 +122,7 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+collectible *create_red_hearth(sfTexture *text);
 life create_life(void);
 void touch_player_enemy(adv_t adv, sfVector2f player_pos, player *py);
 void move_enemies(enemies_t *enem_t, player *py, room *rm);

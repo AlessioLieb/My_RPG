@@ -82,6 +82,7 @@ room *create_room(char *str)
 {
     room *rm = malloc(sizeof(room));
     sfTexture *txt = sfTexture_createFromFile("assets/allrooms.png", NULL);
+    sfTexture *text = sfTexture_createFromFile("assets/allroomobjects.png", NULL);
     rm->sp = sfSprite_create();
     rm->actual_room = 0;
     sfSprite_setTexture(rm->sp, txt, sfTrue);
@@ -89,5 +90,6 @@ room *create_room(char *str)
     sfSprite_setScale(rm->sp, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
     rm->len_stone = 15;
     rm->st = create_stone(str);
+    rm->red_hearth = create_red_hearth(text);
     return rm;
 }
