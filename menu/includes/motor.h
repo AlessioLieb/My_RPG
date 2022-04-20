@@ -34,6 +34,7 @@
     #define HEIGHT 1080
     #define WIDTH 1920
     #include "../includes/menu.h"
+    #include "procedural.h"
 
 typedef struct {
     int total_life;
@@ -113,6 +114,7 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+bool collision_stone_tears(reduce *red, int x, int y, int nb);
 void move_enemies(enemies_t *enem_t, player *py, room *rm);
 enemies_t *create_enemies(void);
 void place_enemies(char *str, enemies_t *enem_t);

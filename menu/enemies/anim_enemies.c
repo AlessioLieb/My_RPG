@@ -14,7 +14,8 @@ static void check_max(sfIntRect actual, int max, adv_t *adv, int i, int decal)
         (sfIntRect) {0, actual.top, actual.width, actual.height});
     else
         sfSprite_setTextureRect(adv[i].sp,
-        (sfIntRect) {actual.left + decal, actual.top, actual.width, actual.height});
+        (sfIntRect) {actual.left + decal, actual.top,
+        actual.width, actual.height});
 }
 
 static void anim_all(adv_t *all, int max, int decal)
@@ -35,5 +36,6 @@ void anim_enemies(enemies_t *enem_t)
         anim_all(enem_t->no_mouving_adv, 61, 31);
         enem_t->ti.timer_total -= 100000;
     }
-    enem_t->ti.timer = sfClock_getElapsedTime(enem_t->total_clock).microseconds;
+    enem_t->ti.timer =
+    sfClock_getElapsedTime(enem_t->total_clock).microseconds;
 }

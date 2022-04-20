@@ -15,6 +15,7 @@ SRC	=	sources/init_base.c						\
 		sources/states_button.c					\
 		sources/button.c						\
 		sources/animation_framebuffer.c			\
+		sources/animation_framebuffer2.c		\
 		sources/init_choose_players.c			\
 		sources/action_button.c					\
 		sources/players_choose.c				\
@@ -22,13 +23,23 @@ SRC	=	sources/init_base.c						\
 		motor_s/move.c	\
 		motor_s/basic_move.c	\
 		motor_s/stone_base.c	\
+		motor_s/reduce.c		\
 		enemies/create_enemies.c	\
 		enemies/enemies_room.c	\
 		enemies/anim_enemies.c	\
 		enemies/mouv_enemies.c	\
 		motor_s/tears_shooting.c	\
 		motor_s/tears_state.c	\
-		motor_s/check_tears_collision.c
+		motor_s/check_tears_collision.c	\
+		procedural_generation/gen_main.c	\
+		procedural_generation/map_gen.c	\
+		procedural_generation/map_gen2.c	\
+		procedural_generation/reduce_boss.c	\
+		procedural_generation/reduce_map_gen.c	\
+		procedural_generation/tools.c	\
+		procedural_generation/tools2.c	\
+		procedural_generation/tools3.c	\
+		procedural_generation/verif_rooms.c
 
 OBJ	=    $(SRC:.c=.o)
 

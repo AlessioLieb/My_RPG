@@ -34,7 +34,8 @@ static bool map_collision(player *py)
 
 static int check_move_right(player *py, room *rm)
 {
-    int tmp_x = py->actual_speed.x >= py->speed ? py->speed : py->actual_speed.x + 1;
+    int tmp_x = py->actual_speed.x >= py->speed
+    ? py->speed : py->actual_speed.x + 1;
     if (!map_collision(py) || !collision_stone
     (rm, py, tmp_x, py->actual_speed.y))
         return 0;
@@ -43,7 +44,8 @@ static int check_move_right(player *py, room *rm)
 
 static int check_move_left(player *py, room *rm)
 {
-    int tmp_x = py->actual_speed.x <= -py->speed ? - py->speed : py->actual_speed.x - 1;
+    int tmp_x = py->actual_speed.x <= -py->speed
+    ? - py->speed : py->actual_speed.x - 1;
     if (!map_collision(py)
     || !collision_stone(rm, py, tmp_x, py->actual_speed.y))
         return 0;
@@ -52,7 +54,8 @@ static int check_move_left(player *py, room *rm)
 
 static int check_move_down(player *py, room *rm)
 {
-    int tmp_y = py->actual_speed.y <= -py->speed ? - py->speed : py->actual_speed.y - 1;
+    int tmp_y = py->actual_speed.y <= -py->speed
+    ? - py->speed : py->actual_speed.y - 1;
     if (!map_collision(py)
     || !collision_stone(rm, py, py->actual_speed.x, (tmp_y)))
         return 0;

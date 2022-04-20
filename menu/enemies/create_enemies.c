@@ -9,8 +9,10 @@
 
 adv_t *no_mouving_adv_create(void)
 {
-    sfTexture *one = sfTexture_createFromFile("../Sprites/m_anim/constant.png", NULL);
-    sfTexture *two = sfTexture_createFromFile("../Sprites/m_anim/horf.png", NULL);
+    sfTexture *one =
+    sfTexture_createFromFile("../Sprites/m_anim/constant.png", NULL);
+    sfTexture *two =
+    sfTexture_createFromFile("../Sprites/m_anim/horf.png", NULL);
     sfIntRect place = {0, 0, 31, 30};
     adv_t *no_mouv = malloc(sizeof(adv_t) * 10);
     sfVector2f scale = {3, 3};
@@ -36,7 +38,8 @@ adv_t *no_mouving_adv_create(void)
 
 adv_t *big_adv_create(void)
 {
-    sfTexture *array_text[] = {sfTexture_createFromFile("../Sprites/m_anim/fatty.png",
+    sfTexture *array_text[] =
+    {sfTexture_createFromFile("../Sprites/m_anim/fatty.png",
     NULL), sfTexture_createFromFile("../Sprites/m_anim/muli.png", NULL),
     sfTexture_createFromFile("../Sprites/m_anim/muliboom.png", NULL),
     sfTexture_createFromFile("../Sprites/m_anim/squirt.png", NULL),

@@ -7,36 +7,16 @@
 
 #include "../includes/menu.h"
 
-void restore_framebuffer(options *sprt)
-{
-    for (int i = 0; i < WIDTH * HEIGHT * 4; ++i) {
-        sprt->framebuffer[i] = 0;
-    }
-}
-
-void init_framebuffer(options *sprt)
-{
-    sprt->framebuffer = malloc(sizeof(sfUint8) * (WIDTH * HEIGHT * 4));
-    sprt->frame_txt = sfTexture_create(WIDTH, HEIGHT);
-    sprt->frame_sprt = sfSprite_create();
-    sprt->j = sfClock_create();
-    for (int i = 0; i < WIDTH * HEIGHT * 4; ++i) {
-        sprt->framebuffer[i] = 255;
-    }
-}
-
 void put_framebuffer(options *sprt)
 {
-    for (int i = 0; i < WIDTH * HEIGHT * 4; ++i) {
+    for (int i = 0; i < WIDTH * HEIGHT * 4; ++i)
         sprt->framebuffer[i] = 255;
-    }
 }
 
 void func_flash_frame(window *wndw, options *sprt)
 {
-    for (int i = 3; i < WIDTH * HEIGHT * 4; i += 4) {
+    for (int i = 3; i < WIDTH * HEIGHT * 4; i += 4)
         (sprt->framebuffer[i] > 1) ? sprt->framebuffer[i] -= 1.5 : 0;
-    }
     sfClock_restart(sprt->j);
 }
 

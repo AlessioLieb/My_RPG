@@ -23,14 +23,19 @@ void params_window(window *wndw, options *sprt, players *perso)
 int event_window(window *wndw, options *sprt, reduce *red)
 {
     sfEvent event;
-
     while (sfRenderWindow_pollEvent(wndw->window, &event)) {
-        (event.type == sfEvtKeyPressed && sfKeyF4 == event.key.code) ? sfRenderWindow_close(wndw->window) : 0;
-        (event.type == sfEvtKeyPressed && sfKeyL == event.key.code) ? sprt->begin = 0 : 0;
-        (event.type == sfEvtMouseButtonReleased) ? catch_button(wndw, sprt, event) : 0;
-        (event.type == sfEvtMouseButtonPressed) ? click_button(wndw, sprt, event) : 0;
-        (sprt->begin == 3 && event.type == sfEvtKeyPressed && sfKeyEscape == event.key.code) ? sprt->begin = 4 : 0;
-        (sprt->begin == 4 && event.type == sfEvtKeyPressed && sfKeyQ == event.key.code) ? sprt->begin = 3 : 0;
+        (event.type == sfEvtKeyPressed && sfKeyF4 == event.key.code)
+        ? sfRenderWindow_close(wndw->window) : 0;
+        (event.type == sfEvtKeyPressed && sfKeyL == event.key.code)
+        ? sprt->begin = 0 : 0;
+        (event.type == sfEvtMouseButtonReleased)
+        ? catch_button(wndw, sprt, event) : 0;
+        (event.type == sfEvtMouseButtonPressed)
+        ? click_button(wndw, sprt, event) : 0;
+        (sprt->begin == 3 && event.type == sfEvtKeyPressed
+        && sfKeyEscape == event.key.code) ? sprt->begin = 4 : 0;
+        (sprt->begin == 4 && event.type == sfEvtKeyPressed
+        && sfKeyQ == event.key.code) ? sprt->begin = 3 : 0;
         move_event(event, red);
         // (event.type == sfEvtKeyPressed && event.key.code == sfKeyQ) ? move_sprite(py, 87, rm) : 0;
         // (event.type == sfEvtKeyPressed && event.key.code == sfKeyD) ? move_sprite(py, 149, rm) : 0;
