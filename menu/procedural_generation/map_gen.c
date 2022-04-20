@@ -58,9 +58,12 @@ void place_boss(char **map, int x)
 {
     int *max = malloc(sizeof(int) * 4);
     max[0] = 0;
+    for (int i = 0; i != 3; ++i)
+        max[i] = 0;
     for (int i = 0; i != x; ++i)
         another_boss_reduce(max, i, x, map);
-    if (connected_room(map, max[1], max[2], x) == 3)
+    if (max[1] != 0 && max[2] != 0 && max[1] != x - 1
+    && max[2] != x - 1 && connected_room(map, max[1], max[2], x) == 3)
         map[max[1]][max[2]] = 'B';
     else
         place_r_boss(map, x);

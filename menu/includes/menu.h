@@ -20,6 +20,7 @@
     #include <stdio.h>
     #include <math.h>
     #include "../includes/enemies.h"
+    #include "procedural.h"
     #define WIDTH 1920
     #define HEIGHT 1080
     #define nb_buttons 2

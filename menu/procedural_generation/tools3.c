@@ -29,6 +29,7 @@ void create_verge(char **map, int x, rooms *room)
         last_i = i;
         last_j = j;
     }
+    room->verge[count] = '\0';
 }
 
 void find_verge(char **map, int x, rooms *room)

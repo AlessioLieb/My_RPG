@@ -15,8 +15,10 @@
 typedef struct {
     int *lvl_rooms;
     int *verge;
-    char ***floor_rooms;
+    char **floor_rooms;
+    int lvl;
 }rooms;
+void gen_main(rooms *room);
 int entirely_connected(char **map, int x, int y, int len);
 void break_walls(char **map, int x);
 void another_boss_reduce(int *max, int i, int x, char **map);

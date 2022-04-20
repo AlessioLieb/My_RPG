@@ -7,13 +7,12 @@
 
 #include "../includes/procedural.h"
 
-int gen_main(int ac, char **av)
+void gen_main(rooms *room)
 {
     srand(time(NULL));
     int x = 10;
-    char **map = malloc(sizeof(char *) * x + 1);
-    rooms room;
-    create_rooms(&room);
+    char **map = malloc(sizeof(char *) * (x + 1));
+    create_rooms(room);
     for (int i = 0; i != x; ++i) {
         map[i] = malloc(x + 1);
         map[i][x] = '\0';
@@ -22,11 +21,5 @@ int gen_main(int ac, char **av)
     for (int i = 0; i != x; ++i)
         for (int j = 0; j != x; ++j)
             map[i][j] = ' ';
-    for (int j = 0; j != 5; ++j)
-        room.floor_rooms[j] = print_map(map, x, &room, j);
-    for (int i = 0; map[i] != NULL; ++i)
-        free(map[i]);
-    free(map);
-    free(room.lvl_rooms);
-    free(room.verge);
+    room->floor_rooms = print_map(map, x, room, room->lvl);
 }
