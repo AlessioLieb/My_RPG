@@ -28,7 +28,7 @@ void place_enemies(char *str, enemies_t *enem_t)
             enem_t->big_adv[search_len_en(enem_t->big_adv)]
             .pos = (sfVector2f){i % 22 * 78 + 140, (i / 22 * 90) + 82};
         if (str[i] == 'N')
-            enem_t->no_mouving_adv[search_len_en(enem_t->no_mouving_adv)]
+            enem_t->no_moving_adv[search_len_en(enem_t->no_moving_adv)]
             .pos = (sfVector2f){i % 22 * 78 + 140, (i / 22 * 90) + 82};
         if (str[i] == 'W')
             enem_t->wall_adv[search_len_en(enem_t->wall_adv)]
@@ -49,8 +49,7 @@ void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py, room *rm)
 {
     anim_enemies(enem_t);
     move_enemies(enem_t, py, rm);
-    draw_adv(enem_t->no_mouving_adv, wndw);
-    //draw_adv(enem_t->wall_adv, wndw);
+    draw_adv(enem_t->no_moving_adv, wndw);
     draw_adv(enem_t->flying_adv, wndw);
     draw_adv(enem_t->little_adv, wndw);
     draw_adv(enem_t->big_adv, wndw);

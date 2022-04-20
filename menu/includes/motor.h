@@ -88,7 +88,7 @@ typedef struct {
     timer ti;
     timer move_ti;
     sfClock *total_clock;
-    adv_t *no_mouving_adv;
+    adv_t *no_moving_adv;
     adv_t *big_adv;
     adv_t *flying_adv;
     adv_t *little_adv;
@@ -114,11 +114,15 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+void reduce_init_fly(int i, adv_t *adv);
+void reduce_init_big(int i, adv_t *adv);
+void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale, sfIntRect place);
 bool collision_stone_tears(reduce *red, int x, int y, int nb);
 void move_enemies(enemies_t *enem_t, player *py, room *rm);
 enemies_t *create_enemies(void);
 void place_enemies(char *str, enemies_t *enem_t);
-void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py, room *rm);
+void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw,
+player *py, room *rm);
 void anim_enemies(enemies_t *enem_t);
 int event_window(window *wndw, options *sprt, reduce *red);
 void player_room(sfRenderWindow *wd, reduce *red);

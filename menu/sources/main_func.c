@@ -9,12 +9,8 @@
 
 int my_game(window *wndw, sfEvent event, reduce *red)
 {
-    // sfRenderWindow_clear(wndw->window, sfBlack);
-    // while (sfRenderWindow_pollEvent(wndw->window, &event))
-    //     move_event(py, event, rm);
     player_room(wndw->window, red);
     draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
-    //sfRenderWindow_display(wndw->window);
     return 0;
 }
 
@@ -33,8 +29,6 @@ int main_func(window *wndw, options *sprt, players *perso)
     int file = open("rooms/1.room", O_RDONLY);
     int size = read(file, buff, 1000);
     buff[size] = '\0';
-    // sfRenderWindow *wd = sfRenderWindow_create((sfVideoMode)
-    //         {1920, 1080, 32},  "isaac", sfFullscreen | sfClose, NULL);
     player *py = creation_player();
     room *rm = create_room(buff);
     sfEvent event;
@@ -50,7 +44,8 @@ int main_func(window *wndw, options *sprt, players *perso)
         ? screen_choose_player(wndw, sprt, perso) : 0;
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
-        (sprt->begin == 3) ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t}) : 0;
+        (sprt->begin == 3)
+        ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t}) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         sfRenderWindow_display(wndw->window);
         sfRenderWindow_clear(wndw->window, sfBlack);

@@ -24,7 +24,7 @@ static bool check_move(sfVector2f tmp, int type, room *rm)
     return res;
 }
 
-static void move_adv(adv_t *actual, int i, sfVector2f player_pos, int type, room *rm)
+void move_adv(adv_t *actual, int i, sfVector2f player_pos, int type, room *rm)
 {
     sfVector2f nw_move = actual[i].pos;
     int changed = 0;
@@ -41,7 +41,7 @@ static void move_adv(adv_t *actual, int i, sfVector2f player_pos, int type, room
         actual[i].pos = nw_move;
 }
 
-static void mouv_all(adv_t *all, sfVector2f player_pos, int type, room *rm)
+static void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm)
 {
     for (int i = 0; i < 10; ++i)
         if (all[i].pos.x != - 1 && all[i].pos.y != - 1)
@@ -54,12 +54,23 @@ void move_enemies(enemies_t *enem_t, player *py, room *rm)
     enem_t->move_ti.timer_total += sfClock_getElapsedTime(enem_t->total_clock)
     .microseconds - enem_t->move_ti.timer;
     while (enem_t->move_ti.timer_total > 50000) {
-        mouv_all(enem_t->flying_adv, p_pos, 0, rm);
-        mouv_all(enem_t->big_adv, p_pos, 1, rm);
-        mouv_all(enem_t->little_adv, p_pos, 2, rm);
-        mouv_all(enem_t->no_mouving_adv, p_pos, 3, rm);
+        mov_all(enem_t->flying_adv, p_pos, 0, rm);
+        mov_all(enem_t->big_adv, p_pos, 1, rm);
+        mov_all(enem_t->little_adv, p_pos, 2, rm);
+        mov_all(enem_t->no_moving_adv, p_pos, 3, rm);
         enem_t->move_ti.timer_total -= 50000;
     }
     enem_t->move_ti.timer =
     sfClock_getElapsedTime(enem_t->total_clock).microseconds;
+}
+
+void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale, sfIntRect place)
+{
+    sfSprite_setTextureRect(no_mov[i].sp, place);
+    sfSprite_setScale(no_mov[i].sp, scale);
+    no_mov[i].speed = 0;
+    no_mov[i].pos = (sfVector2f){-1, -1};
+    no_mov[i].is_flying = false;
+    no_mov[i].is_shooting = true;
+    no_mov[i].pv = 10;
 }
