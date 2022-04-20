@@ -11,10 +11,9 @@ void shoot_tears(int id, reduce *red)
 {
     int nb_tears = verif_moving(red, 6);
 
-    red->te[nb_tears].x = red->py->x + 20;
-    red->te[nb_tears].y = red->py->y;
+    sfVector2f t_pos = sfSprite_getPosition(red->py->sp);
     sfSprite_setPosition(red->te[nb_tears].t_sp,
-    (sfVector2f){red->te[nb_tears].x, red->te[nb_tears].y});
+    (sfVector2f){t_pos.x + 20, t_pos.y});
 
     red->te[nb_tears].move = true;
     red->te[nb_tears].is_shot = true;
