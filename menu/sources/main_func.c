@@ -11,6 +11,7 @@ int my_game(window *wndw, sfEvent event, reduce *red)
 {
     player_room(wndw->window, red);
     draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
+    draw_life(red->py, wndw->window);
     return 0;
 }
 

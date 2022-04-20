@@ -18,9 +18,10 @@ player *creation_player(void)
     py->sp = sfSprite_create();
     py->as_moved = false;
     py->actual_sp = 0;
-    py->collision_box =
-    sfImage_createFromFile("assets/collisions/isaac_border.png");
+    py->collision_box = sfImage_createFromFile("assets/collisions/isaac_border.png");
     py->actual_speed = (sfVector2f) {0, 0};
+    py->lf = create_life();
+    py->invulnerability = 1000;
     sfSprite_setTexture(py->sp, py->tx, sfTrue);
     sfSprite_setTextureRect(py->sp, place);
     sfSprite_setScale(py->sp, (sfVector2f){3, 3});
@@ -54,6 +55,8 @@ int move_sprite(player *py, int top, room *rm)
         py->actual_sp = 1;
     }
     py->as_moved = 2;
+    if (py->invulnerability >= 500 && rand() % 2 == 0)
+        sfSprite_setTextureRect(py->sp, (sfIntRect){181, 181, 28, 33});
     return 0;
 }
 

@@ -40,7 +40,7 @@ typedef struct {
     int total_life;
     int red_hearth;
     int blue_hearth;
-    int black_hearth;
+    sfSprite *h_sp;
 }life;
 
 typedef struct player_s{
@@ -52,6 +52,7 @@ typedef struct player_s{
     int as_moved;
     int speed;
     int actual_sp;
+    int invulnerability;
     sfVector2f actual_speed;
     sfImage *collision_box;
 }player;
@@ -114,6 +115,9 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+life create_life(void);
+void touch_player_enemy(adv_t adv, sfVector2f player_pos, player *py);
+void move_enemies(enemies_t *enem_t, player *py, room *rm);
 void reduce_init_fly(int i, adv_t *adv);
 void reduce_init_big(int i, adv_t *adv);
 void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale, sfIntRect place);

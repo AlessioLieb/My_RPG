@@ -41,11 +41,13 @@ void move_adv(adv_t *actual, int i, sfVector2f player_pos, int type, room *rm)
         actual[i].pos = nw_move;
 }
 
-static void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm)
+static void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm, player *py)
 {
     for (int i = 0; i < 10; ++i)
-        if (all[i].pos.x != - 1 && all[i].pos.y != - 1)
+        if (all[i].pos.x != - 1 && all[i].pos.y != - 1) {
             move_adv(all, i, player_pos, type, rm);
+            touch_player_enemy(all[i], player_pos, py);
+        }
 }
 
 void move_enemies(enemies_t *enem_t, player *py, room *rm)
@@ -54,10 +56,10 @@ void move_enemies(enemies_t *enem_t, player *py, room *rm)
     enem_t->move_ti.timer_total += sfClock_getElapsedTime(enem_t->total_clock)
     .microseconds - enem_t->move_ti.timer;
     while (enem_t->move_ti.timer_total > 50000) {
-        mov_all(enem_t->flying_adv, p_pos, 0, rm);
-        mov_all(enem_t->big_adv, p_pos, 1, rm);
-        mov_all(enem_t->little_adv, p_pos, 2, rm);
-        mov_all(enem_t->no_moving_adv, p_pos, 3, rm);
+        mov_all(enem_t->flying_adv, p_pos, 0, rm, py);
+        mov_all(enem_t->big_adv, p_pos, 1, rm, py);
+        mov_all(enem_t->little_adv, p_pos, 2, rm, py);
+        mov_all(enem_t->no_moving_adv, p_pos, 3, rm, py);
         enem_t->move_ti.timer_total -= 50000;
     }
     enem_t->move_ti.timer =
