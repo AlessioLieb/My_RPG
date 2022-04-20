@@ -43,7 +43,8 @@ SRC	=	sources/init_base.c						\
 		motor_s/life_gestion.c	\
 		enemies/player_enemies.c	\
 		collectibles/collectible_create.c	\
-		collectibles/red_hearth.c
+		collectibles/red_hearth.c	\
+		collectibles/blue_hearth.c	\
 
 OBJ	=    $(SRC:.c=.o)
 

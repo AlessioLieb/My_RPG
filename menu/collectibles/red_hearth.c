@@ -16,7 +16,7 @@ int add_one_red_hearth(player *py)
         return 1;
     }
     py->lf.red_hearth += 2;
-    return 0;
+    return 1;
 }
 
 int add_one_semi_red_hearth(player *py)
@@ -51,7 +51,8 @@ collectible *create_red_hearth(sfTexture *text)
 
 void got_hearth(room *rm, int i, player *py)
 {
-    (*(rm->red_hearth[i].change))(py);
-    rm->red_hearth[i].pos_collision.left = -1;
-    rm->red_hearth[i].pos_collision.top = -1;
+    if ((*(rm->red_hearth[i].change))(py)) {
+        rm->red_hearth[i].pos_collision.left = -1;
+        rm->red_hearth[i].pos_collision.top = -1;
+    }
 }

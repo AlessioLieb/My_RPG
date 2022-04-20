@@ -91,5 +91,6 @@ room *create_room(char *str)
     rm->len_stone = 15;
     rm->st = create_stone(str);
     rm->red_hearth = create_red_hearth(text);
+    rm->blue_hearth = create_blue_hearth(text);
     return rm;
 }

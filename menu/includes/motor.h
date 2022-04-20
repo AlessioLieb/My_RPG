@@ -76,6 +76,7 @@ typedef struct {
     stone *st;
     sfImage *room_col;
     collectible *red_hearth;
+    collectible *blue_hearth;
 }room;
 
 typedef struct {
@@ -122,6 +123,8 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+void got_blue_hearth(room *rm, int i, player *py);
+collectible *create_blue_hearth(sfTexture *text);
 void got_hearth(room *rm, int i, player *py);
 void draw_life(player *py, sfRenderWindow *rd);
 void draw_bonus(room *rm, sfRenderWindow *wd, player *py);

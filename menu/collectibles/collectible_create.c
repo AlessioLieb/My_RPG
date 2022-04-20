@@ -18,6 +18,12 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py)
             &player, &overlap)) ? got_hearth(rm, i, py) : 0;
             sfRenderWindow_drawSprite(wd, rm->red_hearth[i].sp, NULL);
         }
+    for (int i = 0; i < 2; ++i)
+        if (rm->blue_hearth[i].pos_collision.left != -1) {
+            (sfIntRect_intersects(&rm->blue_hearth[i].pos_collision,
+            &player, &overlap)) ? got_blue_hearth(rm, i, py) : 0;
+            sfRenderWindow_drawSprite(wd, rm->blue_hearth[i].sp, NULL);
+        }
 
 }
 
@@ -25,10 +31,17 @@ void place_bonus(room *rm)
 {
     srand(time(NULL));
     for (int i = 0; i < 4; ++i)
-        if (rand() % (i + 1) == 0) {
+        if (rand() % (i + 2) == 0) {
             rm->red_hearth[i].pos_collision.left = 200 + rand() % 1400;
             rm->red_hearth[i].pos_collision.top = 200 + rand() % 600;
             sfSprite_setPosition(rm->red_hearth[i].sp, (sfVector2f) {rm->red_hearth[i]
             .pos_collision.left, rm->red_hearth[i].pos_collision.top});
     }
+    for (int i = 0; i < 2; ++i)
+        if (rand() % (i + 3) == 0) {
+            rm->blue_hearth[i].pos_collision.left = 200 + rand() % 1400;
+            rm->blue_hearth[i].pos_collision.top = 200 + rand() % 600;
+            sfSprite_setPosition(rm->blue_hearth[i].sp, (sfVector2f) {rm->blue_hearth[i]
+            .pos_collision.left, rm->blue_hearth[i].pos_collision.top});
+        }
 }
