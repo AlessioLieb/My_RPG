@@ -41,7 +41,9 @@ SRC	=	sources/init_base.c						\
 		procedural_generation/tools3.c	\
 		procedural_generation/verif_rooms.c	\
 		motor_s/life_gestion.c	\
-		enemies/player_enemies.c
+		enemies/player_enemies.c	\
+		collectibles/collectible_create.c	\
+		collectibles/red_hearth.c
 
 OBJ	=    $(SRC:.c=.o)
 

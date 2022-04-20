@@ -82,7 +82,7 @@ room *create_room(char *str)
 {
     room *rm = malloc(sizeof(room));
     sfTexture *txt = sfTexture_createFromFile("assets/allrooms.png", NULL);
-    sfTexture *text = sfTexture_createFromFile("assets/allroomobjects.png", NULL);
+    sfTexture *text = sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
     rm->sp = sfSprite_create();
     rm->actual_room = 0;
     sfSprite_setTexture(rm->sp, txt, sfTrue);

@@ -12,6 +12,7 @@ int my_game(window *wndw, sfEvent event, reduce *red)
     player_room(wndw->window, red);
     draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
     draw_life(red->py, wndw->window);
+    draw_bonus(red->rm, wndw->window, red->py);
     return 0;
 }
 
@@ -38,6 +39,7 @@ int main_func(window *wndw, options *sprt, players *perso)
     place_enemies(buff, enem_t);
     place_stone(rm, py, buff);
     init_all(wndw, sprt, perso);
+    place_bonus(rm);
     while (sfRenderWindow_isOpen(wndw->window)) {
         event_window(wndw, sprt, &(reduce) {py, rm, te, enem_t});
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;

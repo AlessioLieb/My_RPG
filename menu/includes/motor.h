@@ -122,6 +122,10 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+void got_hearth(room *rm, int i, player *py);
+void draw_life(player *py, sfRenderWindow *rd);
+void draw_bonus(room *rm, sfRenderWindow *wd, player *py);
+void place_bonus(room *rm);
 collectible *create_red_hearth(sfTexture *text);
 life create_life(void);
 void touch_player_enemy(adv_t adv, sfVector2f player_pos, player *py);
