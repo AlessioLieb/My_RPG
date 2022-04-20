@@ -65,11 +65,11 @@ void move_event(sfEvent event, reduce *red)
         event.key.code == sfKeyD ? move_sprite(red->py, 149, red->rm) : 0;
         event.key.code == sfKeyZ ? move_sprite(red->py, 213, red->rm) : 0;
         event.key.code == sfKeyS ? move_sprite(red->py, 21, red->rm) : 0;
+        event.key.code == sfKeyLeft ? shoot_tears(1, red) : 0;
+        event.key.code == sfKeyRight ? shoot_tears(2, red) : 0;
+        event.key.code == sfKeyUp ? shoot_tears(3, red) : 0;
+        event.key.code == sfKeyDown ? shoot_tears(4, red) : 0;
     }
-    event.key.code == sfKeyLeft ? shoot_tears(1, red) : 0;
-    event.key.code == sfKeyRight ? shoot_tears(2, red) : 0;
-    event.key.code == sfKeyUp ? shoot_tears(3, red) : 0;
-    event.key.code == sfKeyDown ? shoot_tears(4, red) : 0;
     if (red->py->as_moved <= 0)
         red->py->actual_speed = (sfVector2f) {0, 0};
     sfSprite_move(red->py->sp, red->py->actual_speed);
