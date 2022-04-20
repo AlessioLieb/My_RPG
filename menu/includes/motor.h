@@ -132,6 +132,7 @@ stone *create_stone(char *str);
 int move_sp_top(player *py, int top, room *rm);
 
 tears *create_tears(player *py);
+tears *init_st_array(tears *te, sfIntRect r, player *py);
 int event_tears(window *win, options *sprt, room *rm, tears *te);
 void shoot_tears(int id, reduce *red);
 void move_tears(int id, reduce *red, sfRenderWindow *wd);

@@ -27,8 +27,3 @@ int verif_moving(reduce *red, int nb_tears)
     }
     return nb;
 }
-
-int verif_shooting(reduce *red, int nb_tears)
-{
-    return 0;
-}
