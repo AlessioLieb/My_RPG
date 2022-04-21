@@ -23,3 +23,13 @@ void draw_spause(window *wndw, options *sprt)
     sfRenderWindow_drawSprite(wndw->window, sprt->pause_sprt, NULL);
     is_touched_button(wndw, sprt);
 }
+
+void init_dlc(window *wndw, options *sprt)
+{
+    sfIntRect rect = {49, 369, 49, 33};
+    sfVector2f scale = {3.5, 3.5};
+    sprt->doorlclose = sfSprite_create();
+    sfSprite_setTexture(sprt->doorlclose, sprt->doors, sfTrue);
+    sfSprite_setTextureRect(sprt->doorlclose, rect);
+    sfSprite_setScale(sprt->doorlclose, scale);
+}

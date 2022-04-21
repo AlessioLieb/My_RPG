@@ -50,4 +50,10 @@ void init_sprites(window *wndw, options *sprt)
     init_barre(wndw, sprt);
     init_pause(wndw, sprt);
     init_tuto(wndw, sprt);
+    init_doo(wndw, sprt);
+    init_doc(wndw, sprt);
+    init_dto(wndw, sprt);
+    init_dtc(wndw, sprt);
+    init_dlo(wndw, sprt);
+    init_dlc(wndw, sprt);
 }

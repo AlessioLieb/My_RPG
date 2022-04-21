@@ -11,6 +11,7 @@ SRC	=	sources/init_base.c						\
 		sources/main_func.c						\
 		sources/create_sprites.c 				\
 		sources/draw_sprites.c					\
+		sources/draw_sprites2.c					\
 		sources/factory_button.c				\
 		sources/states_button.c					\
 		sources/button.c						\
@@ -21,6 +22,7 @@ SRC	=	sources/init_base.c						\
 		sources/players_choose.c				\
 		sources/framebuffer_play.c				\
 		sources/manage_rooms.c					\
+		sources/create_sprites2.c				\
 		motor_s/move.c	\
 		motor_s/basic_move.c	\
 		motor_s/stone_base.c	\
