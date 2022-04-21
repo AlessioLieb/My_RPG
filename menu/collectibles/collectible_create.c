@@ -30,7 +30,6 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py)
             &player, &overlap)) ? launch_piece(py, rm, i) : 0;
             sfRenderWindow_drawSprite(wd, rm->piece[i].sp, NULL);
         }
-    printf("player piece = %d\n", py->invent.money);
 }
 
 void place_bonus(room *rm)

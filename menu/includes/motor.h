@@ -61,6 +61,7 @@ typedef struct player_s{
     int invulnerability;
     sfVector2f actual_speed;
     sfImage *collision_box;
+    sfClock *time;
 }player;
 
 typedef struct {
@@ -130,6 +131,10 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+void nb_time_hud(long time, sfRenderWindow *wd);
+int str_len(char const *str);
+void nb_piece_hud(int piece, sfRenderWindow *wd);
+char *my_int_str(unsigned long long nb);
 void launch_piece(player *py, room *rm, int i);
 inventory create_inventory(void);
 collectible *create_piece(sfTexture *text);

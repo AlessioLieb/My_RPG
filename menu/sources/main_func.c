@@ -13,6 +13,8 @@ int my_game(window *wndw, sfEvent event, reduce *red)
     draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
     draw_life(red->py, wndw->window);
     draw_bonus(red->rm, wndw->window, red->py);
+    nb_piece_hud(red->py->invent.money, wndw->window);
+    nb_time_hud(sfClock_getElapsedTime(red->py->time).microseconds / 1000000, wndw->window);
     return 0;
 }
 
