@@ -60,6 +60,7 @@ inventory create_inventory(void)
 {
     inventory invent;
     invent.money = 3;
+    invent.bomb = 6;
     invent.key = 1;
     return invent;
 }

@@ -45,6 +45,7 @@ typedef struct {
 
 typedef struct {
     int money;
+    int bomb;
     int key;
 }inventory;
 
@@ -136,6 +137,8 @@ typedef struct {
 bool touched_enemy(reduce *red, int i, char c);
 bool touch_enemy(sfVector2f tears_pos, reduce *red);
 void nb_time_hud(long time, sfRenderWindow *wd);
+void nb_bomb_hud(int bomb, sfRenderWindow *wd);
+void nb_key_hud(int key, sfRenderWindow *wd);
 int str_len(char const *str);
 void nb_piece_hud(int piece, sfRenderWindow *wd);
 char *my_int_str(unsigned long long nb);
