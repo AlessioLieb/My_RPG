@@ -11,7 +11,8 @@ int check_left(sfVector2f pos, reduce *red, int nb)
 {
     sfVector2f pos_te = sfSprite_getPosition(red->te[nb].t_sp);
     if ((pos_te.x - red->te[nb].speed) < 200
-    || !collision_stone_tears(red, -red->te[nb].speed, 0, nb)) {
+    || !collision_stone_tears(red, -red->te[nb].speed, 0, nb)
+    || !touch_enemy(pos_te, red)) {
         red->te[nb].is_shot = false;
         return 1;
     }
@@ -22,7 +23,8 @@ int check_right(sfVector2f pos, reduce *red, int nb)
 {
     sfVector2f pos_te = sfSprite_getPosition(red->te[nb].t_sp);
     if ((pos_te.x + red->te[nb].speed) >= WIDTH - 200
-    || !collision_stone_tears(red, red->te[nb].speed, 0, nb)) {
+    || !collision_stone_tears(red, red->te[nb].speed, 0, nb)
+    || !touch_enemy(pos_te, red)) {
         red->te[nb].is_shot = false;
         return 1;
     }
@@ -33,7 +35,8 @@ int check_up(sfVector2f pos, reduce *red, int nb)
 {
     sfVector2f pos_te = sfSprite_getPosition(red->te[nb].t_sp);
     if ((pos_te.y - red->te[nb].speed) < 100
-    || !collision_stone_tears(red, 0, -red->te[nb].speed, nb)) {
+    || !collision_stone_tears(red, 0, -red->te[nb].speed, nb)
+    || !touch_enemy(pos_te, red)) {
         red->te[nb].is_shot = false;
         return 1;
     }
@@ -44,7 +47,8 @@ int check_down(sfVector2f pos, reduce *red, int nb)
 {
     sfVector2f pos_te = sfSprite_getPosition(red->te[nb].t_sp);
     if ((pos_te.y + red->te[nb].speed) >= HEIGHT - 150
-    || !collision_stone_tears(red, 0, red->te[nb].speed, nb)) {
+    || !collision_stone_tears(red, 0, red->te[nb].speed, nb)
+    || !touch_enemy(pos_te, red)) {
         red->te[nb].is_shot = false;
         return 1;
     }

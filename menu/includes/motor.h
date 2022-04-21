@@ -133,6 +133,8 @@ typedef struct {
     rooms *ro;
 }reduce;
 
+bool touched_enemy(reduce *red, int i, char c);
+bool touch_enemy(sfVector2f tears_pos, reduce *red);
 void nb_time_hud(long time, sfRenderWindow *wd);
 int str_len(char const *str);
 void nb_piece_hud(int piece, sfRenderWindow *wd);
