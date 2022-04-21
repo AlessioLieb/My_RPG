@@ -24,4 +24,4 @@ This project was created by:
 * Théotime Schmeltz
 * Robin Denni
 * Oscar Frank
-* Alessio Libenguth
+* Alessio Liebenguth
