@@ -30,6 +30,22 @@ void screen_choose_player(window *wndw, options *sprt, players *perso)
     (sprt->choose == 3) ? draw_osca(wndw, perso) : 0;
 }
 
+void enemies_verification(enemies_t *enem_t, room *rm)
+{
+    int count = 0;
+
+    for (int i = 0; i != 10; ++i) {
+        enem_t->big_adv[i].pos.x != -1 ? ++count : 0;
+        enem_t->flying_adv[i].pos.x != -1 ? ++count : 0;
+        enem_t->little_adv[i].pos.x != -1 ? ++count : 0;
+        enem_t->no_moving_adv[i].pos.x != -1 ? ++count : 0;
+    }
+    if (count == 0)
+        rm->open = true;
+    else
+        rm->open = false;
+}
+
 int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
 {
     char *buff = malloc(1000);
@@ -41,6 +57,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
     rm->actual_room = malloc(sizeof(int) * 2);
     rm->actual_room[0] = 4;
     rm->actual_room[1] = 4;
+    rm->open = true;
     sfEvent event;
     tears *te = create_tears(py);
     enemies_t *enem_t = create_enemies();
@@ -55,6 +72,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         ? screen_choose_player(wndw, sprt, perso) : 0;
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
+        enemies_verification(enem_t, rm);
         (sprt->begin == 3)
         ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro}, sprt) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;

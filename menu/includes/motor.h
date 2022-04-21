@@ -134,6 +134,14 @@ typedef struct {
     rooms *ro;
 }reduce;
 
+void draw_doors_topo(int lvl, options *sprt, sfRenderWindow *wd);
+void draw_doors_righto(int lvl, options *sprt, sfRenderWindow *wd);
+void draw_doors_lefto(int lvl, options *sprt, sfRenderWindow *wd);
+void draw_doors_boto(int lvl, options *sprt, sfRenderWindow *wd);
+void draw_doors_topc(int lvl, options *sprt, sfRenderWindow *wd);
+void draw_doors_rightc(int lvl, options *sprt, sfRenderWindow *wd);
+void draw_doors_leftc(int lvl, options *sprt, sfRenderWindow *wd);
+void draw_doors_botc(int lvl, options *sprt, sfRenderWindow *wd);
 bool touched_enemy(reduce *red, int i, char c);
 bool touch_enemy(sfVector2f tears_pos, reduce *red);
 void nb_time_hud(long time, sfRenderWindow *wd);

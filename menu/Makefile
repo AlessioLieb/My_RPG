@@ -12,6 +12,7 @@ SRC	=	sources/init_base.c						\
 		sources/create_sprites.c 				\
 		sources/draw_sprites.c					\
 		sources/draw_sprites2.c					\
+		sources/draw_sprites3.c					\
 		sources/factory_button.c				\
 		sources/states_button.c					\
 		sources/button.c						\
