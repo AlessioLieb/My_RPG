@@ -23,7 +23,7 @@ char *str_concat(char *str, char *concat)
 void nb_time_hud(long time, sfRenderWindow *wd)
 {
     sfText *hud = sfText_create();
-    sfFont *font = sfFont_createFromFile("ressources/ft.ttf");
+    sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     char *nb = str_concat("time = ", my_int_str(time));
     sfText_setFont(hud, font);
     sfText_setString(hud, nb);
@@ -37,7 +37,7 @@ void nb_time_hud(long time, sfRenderWindow *wd)
 void nb_piece_hud(int piece, sfRenderWindow *wd)
 {
     sfText *hud = sfText_create();
-    sfFont *font = sfFont_createFromFile("ressources/ft.ttf");
+    sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     char *nb = str_concat("Pieces = ", my_int_str(piece));
     sfText_setFont(hud, font);
     sfText_setString(hud, nb);
