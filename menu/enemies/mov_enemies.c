@@ -41,7 +41,7 @@ void move_adv(adv_t *actual, int i, sfVector2f player_pos, int type, room *rm)
         actual[i].pos = nw_move;
 }
 
-static void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm, player *py)
+void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm, player *py)
 {
     for (int i = 0; i < 10; ++i)
         if (all[i].pos.x != - 1 && all[i].pos.y != - 1) {

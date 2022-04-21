@@ -21,12 +21,14 @@ void draw_blue_life(player *py, sfRenderWindow *rd)
     int j = 0;
     sfSprite_setTextureRect(py->lf.h_sp, (sfIntRect) {1, 17, 13, 12});
     for (; j < (py->lf.blue_hearth / 2); ++j) {
-        sfSprite_setPosition(py->lf.h_sp, (sfVector2f) {50 + (13 * 3) * j, 100});
+        sfSprite_setPosition(py->lf.h_sp,
+        (sfVector2f) {50 + (13 * 3) * j, 100});
         sfRenderWindow_drawSprite(rd, py->lf.h_sp, NULL);
     }
     if ((py->lf.blue_hearth % 2) != 0) {
         sfSprite_setTextureRect(py->lf.h_sp, (sfIntRect) {17, 17, 13, 12});
-        sfSprite_setPosition(py->lf.h_sp, (sfVector2f) {50 + (13 * 3) * j, 100});
+        sfSprite_setPosition(py->lf.h_sp,
+        (sfVector2f) {50 + (13 * 3) * j, 100});
         sfRenderWindow_drawSprite(rd, py->lf.h_sp, NULL);
     }
     --py->invulnerability;
