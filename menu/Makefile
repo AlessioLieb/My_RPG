@@ -20,6 +20,7 @@ SRC	=	sources/init_base.c						\
 		sources/action_button.c					\
 		sources/players_choose.c				\
 		sources/framebuffer_play.c				\
+		sources/manage_rooms.c					\
 		motor_s/move.c	\
 		motor_s/basic_move.c	\
 		motor_s/stone_base.c	\

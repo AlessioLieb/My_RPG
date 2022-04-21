@@ -7,14 +7,15 @@
 
 #include "../includes/motor.h"
 
-int my_game(window *wndw, sfEvent event, reduce *red)
+int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
 {
-    player_room(wndw->window, red);
+    player_room(wndw->window, red, sprt);
     draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
     draw_life(red->py, wndw->window);
     draw_bonus(red->rm, wndw->window, red->py);
     nb_piece_hud(red->py->invent.money, wndw->window);
-    nb_time_hud(sfClock_getElapsedTime(red->py->time).microseconds / 1000000, wndw->window);
+    nb_time_hud(sfClock_getElapsedTime(red->py->time).microseconds / 1000000,
+    wndw->window);
     return 0;
 }
 
@@ -27,7 +28,7 @@ void screen_choose_player(window *wndw, options *sprt, players *perso)
     (sprt->choose == 3) ? draw_osca(wndw, perso) : 0;
 }
 
-int main_func(window *wndw, options *sprt, players *perso)
+int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
 {
     char *buff = malloc(1000);
     int file = open("rooms/1.room", O_RDONLY);
@@ -35,6 +36,9 @@ int main_func(window *wndw, options *sprt, players *perso)
     buff[size] = '\0';
     player *py = creation_player();
     room *rm = create_room(buff);
+    rm->actual_room = malloc(sizeof(int) * 2);
+    rm->actual_room[0] = 4;
+    rm->actual_room[1] = 4;
     sfEvent event;
     tears *te = create_tears(py);
     enemies_t *enem_t = create_enemies();
@@ -50,7 +54,7 @@ int main_func(window *wndw, options *sprt, players *perso)
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 3)
-        ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t}) : 0;
+        ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro}, sprt) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         sfRenderWindow_display(wndw->window);
         sfRenderWindow_clear(wndw->window, sfBlack);

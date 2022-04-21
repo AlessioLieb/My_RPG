@@ -18,7 +18,8 @@ player *creation_player(void)
     py->sp = sfSprite_create();
     py->as_moved = false;
     py->actual_sp = 0;
-    py->collision_box = sfImage_createFromFile("assets/collisions/isaac_border.png");
+    py->collision_box =
+    sfImage_createFromFile("assets/collisions/isaac_border.png");
     py->actual_speed = (sfVector2f) {0, 0};
     py->lf = create_life();
     py->invulnerability = 1000;
@@ -31,9 +32,10 @@ player *creation_player(void)
     return py;
 }
 
-void player_room(sfRenderWindow *wd, reduce *red)
+void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
 {
     sfRenderWindow_drawSprite(wd, red->rm->sp, NULL);
+    draw_doors(red->rm, red->ro, wd, sprt);
     sfRenderWindow_drawSprite(wd, red->py->sp, NULL);
     draw_stone(red->rm, wd);
     move_tears(2, red, wd);
@@ -84,9 +86,9 @@ room *create_room(char *str)
 {
     room *rm = malloc(sizeof(room));
     sfTexture *txt = sfTexture_createFromFile("assets/allrooms.png", NULL);
-    sfTexture *text = sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
+    sfTexture *text =
+    sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
     rm->sp = sfSprite_create();
-    rm->actual_room = 0;
     sfSprite_setTexture(rm->sp, txt, sfTrue);
     sfSprite_setTextureRect(rm->sp, (sfIntRect){0, 0, 468, 312});
     sfSprite_setScale(rm->sp, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});

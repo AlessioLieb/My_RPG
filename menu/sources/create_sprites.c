@@ -34,9 +34,20 @@ void init_pause(window *wndw, options *sprt)
     sfSprite_setPosition(sprt->pause_sprt, prems);
 }
 
+void init_tuto(window *wndw, options *sprt)
+{
+    sfIntRect rect = {469, 627, 468, 312};
+    sfVector2f scale = {1920.0 / 468.0, 1080.0 / 312.0};
+    sprt->tutorial = sfSprite_create();
+    sfSprite_setTexture(sprt->tutorial, sprt->tuto, sfTrue);
+    sfSprite_setTextureRect(sprt->tutorial, rect);
+    sfSprite_setScale(sprt->tutorial, scale);
+}
+
 void init_sprites(window *wndw, options *sprt)
 {
     init_welcome(wndw, sprt);
     init_barre(wndw, sprt);
     init_pause(wndw, sprt);
+    init_tuto(wndw, sprt);
 }

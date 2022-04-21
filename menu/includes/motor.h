@@ -78,8 +78,9 @@ typedef struct {
 
 typedef struct {
     sfSprite *sp;
-    int actual_room;
+    int *actual_room;
     int len_stone;
+    bool open;
     stone *st;
     sfImage *room_col;
     collectible *red_hearth;
@@ -129,6 +130,7 @@ typedef struct {
     room *rm;
     tears *te;
     enemies_t *enem_t;
+    rooms *ro;
 }reduce;
 
 void nb_time_hud(long time, sfRenderWindow *wd);
@@ -159,7 +161,7 @@ void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw,
 player *py, room *rm);
 void anim_enemies(enemies_t *enem_t);
 int event_window(window *wndw, options *sprt, reduce *red);
-void player_room(sfRenderWindow *wd, reduce *red);
+void player_room(sfRenderWindow *wd, reduce *red, options *sprt);
 player *creation_player(void);
 room *create_room(char *str);
 void move_event(sfEvent event, reduce *red);
@@ -179,4 +181,6 @@ int verif_moving(reduce *red, int nb_tears);
 int verif_shooting(reduce *red, int nb_tears);
 void disp_tears(reduce *red, sfRenderWindow *wd);
 int check_collisions(int id, reduce *red, int nb);
+
+void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
 #endif

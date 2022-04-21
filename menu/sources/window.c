@@ -16,8 +16,9 @@ void params_window(window *wndw, options *sprt, players *perso)
     sprt->pause_txt = sfTexture_createFromFile("ressources/pause.png", NULL);
     perso->txt_perso_wheel =
     sfTexture_createFromFile("ressources/player_wheel_choose.png", NULL);
-    wndw->window = sfRenderWindow_create(mode, "my_world", sfResize
-    | sfClose/* | sfFullscreen*/, NULL);
+    sprt->tuto = sfTexture_createFromFile("ressources/allrooms.png", NULL);
+    wndw->window = sfRenderWindow_create(mode, "niktameralessio", sfResize
+    | sfClose | sfFullscreen, NULL);
 }
 
 int event_window(window *wndw, options *sprt, reduce *red)

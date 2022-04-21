@@ -47,6 +47,8 @@ typedef struct {
     sfSprite *spbarre;
     sfTexture *pause_txt;
     sfSprite *pause_sprt;
+    sfTexture *tuto;
+    sfSprite *tutorial;
     sfTexture *t;
     struct button *ar_btn;
     sfUint8 *framebuffer;
@@ -90,7 +92,7 @@ void restore_framebuffer(options *sprt);
 void params_window(window *wndw, options *sprt, players *perso);
 // int event_window(window *wndw, options *sprt, room *rm, player *py);
 int call_main_func(char *str);
-int main_func(window *wndw, options *sprt, players *perso);
+int main_func(window *wndw, options *sprt, players *perso, rooms *room);
 int my_game();
 void init_welcome(window *wndw, options *sprt);
 void init_barre(window *wndw, options *sprt);
