@@ -22,6 +22,7 @@ player *creation_player(void)
     py->actual_speed = (sfVector2f) {0, 0};
     py->lf = create_life();
     py->invulnerability = 1000;
+    py->invent = create_inventory();
     sfSprite_setTexture(py->sp, py->tx, sfTrue);
     sfSprite_setTextureRect(py->sp, place);
     sfSprite_setScale(py->sp, (sfVector2f){3, 3});
@@ -92,5 +93,6 @@ room *create_room(char *str)
     rm->st = create_stone(str);
     rm->red_hearth = create_red_hearth(text);
     rm->blue_hearth = create_blue_hearth(text);
+    rm->piece = create_piece(text);
     return rm;
 }

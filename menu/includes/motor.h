@@ -43,10 +43,16 @@ typedef struct {
     sfSprite *h_sp;
 }life;
 
+typedef struct {
+    int money;
+    int key;
+}inventory;
+
 typedef struct player_s{
     sfSprite *sp;
     sfTexture *tx;
     life lf;
+    inventory invent;
     int x;
     int y;
     int as_moved;
@@ -77,6 +83,7 @@ typedef struct {
     sfImage *room_col;
     collectible *red_hearth;
     collectible *blue_hearth;
+    collectible *piece;
 }room;
 
 typedef struct {
@@ -123,6 +130,9 @@ typedef struct {
     enemies_t *enem_t;
 }reduce;
 
+void launch_piece(player *py, room *rm, int i);
+inventory create_inventory(void);
+collectible *create_piece(sfTexture *text);
 void got_blue_hearth(room *rm, int i, player *py);
 collectible *create_blue_hearth(sfTexture *text);
 void got_hearth(room *rm, int i, player *py);
