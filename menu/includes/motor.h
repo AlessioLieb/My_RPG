@@ -55,6 +55,14 @@ typedef struct {
 }inventory;
 
 typedef struct {
+    int speed;
+    int shot_speed;
+    int damages;
+    int freq_tears;
+    int luck;
+}stats;
+
+typedef struct {
     bool key_q;
     bool key_z;
     bool key_s;
@@ -71,6 +79,7 @@ typedef struct player_s{
     sfTexture *tx;
     life lf;
     inventory invent;
+    stats st;
     int x;
     int y;
     int as_moved;
@@ -167,6 +176,7 @@ void nb_time_hud(long time, sfRenderWindow *wd);
 void nb_bomb_hud(int bomb, sfRenderWindow *wd);
 void nb_key_hud(int key, sfRenderWindow *wd);
 int str_len(char const *str);
+char *str_concat(char *str, char *concat);
 void nb_piece_hud(int piece, sfRenderWindow *wd);
 char *my_int_str(unsigned long long nb);
 void launch_piece(player *py, room *rm, int i);
@@ -215,4 +225,8 @@ void disp_tears(reduce *red, sfRenderWindow *wd);
 int check_collisions(int id, reduce *red, int nb);
 
 void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
+
+stats create_stats(void);
+void disp_stat_hud(reduce *red, sfRenderWindow *wd);
+
 #endif

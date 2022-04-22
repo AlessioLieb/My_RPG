@@ -28,6 +28,8 @@ int put_nbr(unsigned long long nb, char *str, int i)
 int nb_size(unsigned long long nb)
 {
     int i = 0;
+    if (nb == 0)
+        return 1;
     while (nb > 0) {
         nb = nb / 10;
         ++i;

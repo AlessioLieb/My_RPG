@@ -54,6 +54,7 @@ SRC	=	sources/init_base.c						\
 		motor_s/base_hud.c	\
 		enemies/shoot_enemies.c	\
 		enemies/touch_enemy.c	\
+		motor_s/stat_hud.c
 
 OBJ	=    $(SRC:.c=.o)
 

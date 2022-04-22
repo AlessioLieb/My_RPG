@@ -24,6 +24,7 @@ player *creation_player(void)
     py->lf = create_life();
     py->invulnerability = 1000;
     py->invent = create_inventory();
+    py->st = create_stats();
     py->player_key = (event_key) {false, false, false, false, false, false, false, false};
     py->move_timer = (timer){0, 0};
     py->anim_timer = (timer){0, 0};
