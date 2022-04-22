@@ -20,7 +20,13 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
 {
     draw_room(wd, red, red->ro);
     draw_doors(red->rm, red->ro, wd, sprt);
-    sfRenderWindow_drawSprite(wd, red->py->sp, NULL);
+    if (sprt->win_cond == false)
+        sfRenderWindow_drawSprite(wd, red->py->sp, NULL);
+    else {
+        sfSprite_setPosition(sprt->win, (sfVector2f) {1920 / 2 -
+        ((32 * 3.5) / 2), 265});
+        sfRenderWindow_drawSprite(wd, sprt->win, NULL);
+    }
     draw_stone(red->rm, wd);
     move_tears(2, red, wd);
 }
@@ -41,4 +47,31 @@ void trap_colisions(options *sprt, room *ry, player *py)
         sfSprite_setPosition(py->sp, (sfVector2f) {1920 / 2, 1080 / 2});
         sprt->plus_lvl = true;
     }
+}
+
+void trophy_colisions(options *sprt, room *rm, player *py)
+{
+    sfIntRect overlap = {1, 1, 1, 1};
+    sfIntRect trophy = sfSprite_getTextureRect(sprt->trophy);
+    sfVector2f t_pos = sfSprite_getPosition(sprt->trophy);
+    sfIntRect player = sfSprite_getTextureRect(py->sp);
+    sfVector2f p_pos = sfSprite_getPosition(py->sp);
+    player.left = p_pos.x;
+    player.top = p_pos.y;
+    trophy.left = t_pos.x;
+    trophy.top = t_pos.y;
+    if (sfIntRect_intersects(&trophy, &player, &overlap) == true)
+        sprt->win_cond = true;
+}
+
+void close_door(rooms *ro, options *sprt, int x, int y)
+{
+    if (ro->floor_rooms[y][x - 1] == ' ' || ro->floor_rooms[y][x - 1] == '?')
+        sprt->actual_doors[3] = false;
+    if (ro->floor_rooms[y][x + 1] == ' ' || ro->floor_rooms[y][x + 1] == '?')
+        sprt->actual_doors[1] = false;
+    if (ro->floor_rooms[y - 1][x] == ' ' || ro->floor_rooms[y - 1][x] == '?')
+        sprt->actual_doors[0] = false;
+    if (ro->floor_rooms[y + 1][x] == ' ' || ro->floor_rooms[y + 1][x] == '?')
+        sprt->actual_doors[2] = false;
 }

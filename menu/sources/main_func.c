@@ -79,8 +79,6 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
     place_stone(rm, py, buff);
     init_all(wndw, sprt, perso);
     place_bonus(rm);
-    for (int i = 0; i != 10; ++i)
-        printf("%s\n", ro->floor_rooms[i]);
     while (sfRenderWindow_isOpen(wndw->window)) {
         event_window(wndw, sprt, &(reduce) {py, rm, te, enem_t});
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;

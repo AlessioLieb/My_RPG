@@ -61,6 +61,9 @@ typedef struct {
     sfSprite *boss_do;
     sfSprite *boss_dc;
     sfSprite *trap;
+    sfSprite *trophy;
+    sfSprite *win;
+    sfTexture *pickups;
     sfTexture *t;
     bool *actual_doors;
     bool plus_lvl;
@@ -71,6 +74,7 @@ typedef struct {
     sfClock *j;
     int choose;
     int anim;
+    bool win_cond;
 }options;
 
 typedef enum button_name {
@@ -122,6 +126,8 @@ void init_tdc(window *wndw, options *sprt);
 void init_bdo(window *wndw, options *sprt);
 void init_bdc(window *wndw, options *sprt);
 void init_trap(window *wndw, options *sprt);
+void init_trophy(window *wndw, options *sprt);
+void init_win(window *wndw, options *sprt);
 void draw_spwelcome(window *wndw, options *sprt);
 void draw_spbarre(window *wndw, options *sprt);
 void draw_spause(window *wndw, options *sprt);

@@ -26,6 +26,7 @@ SRC	=	sources/init_base.c						\
 		sources/manage_rooms2.c					\
 		sources/create_sprites2.c				\
 		sources/create_sprites3.c				\
+		sources/create_sprites4.c				\
 		motor_s/move.c	\
 		motor_s/move2.c	\
 		motor_s/basic_move.c	\

@@ -160,6 +160,8 @@ typedef struct {
     rooms *ro;
 }reduce;
 
+void close_door(rooms *ro, options *sprt, int x, int y);
+void trophy_colisions(options *sprt, room *rm, player *py);
 void trap_colisions(options *sprt, room *ry, player *py);
 void reduce_move_player_check(reduce *red);
 void init_player(player *py);

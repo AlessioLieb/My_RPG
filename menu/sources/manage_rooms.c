@@ -30,12 +30,16 @@ void reduce_draw_traps(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
     int y = rm->actual_room[0];
     int x = rm->actual_room[1];
     sfVector2f pos = {1920 / 2 - ((32 * 3.5) / 2), 265};
-    if (ro->floor_rooms[x][y] == 'B' && rm->open == true) {
+    if (ro->floor_rooms[x][y] == 'B' && rm->open == true && ro->lvl != 4) {
         sprt->actual_doors[4] = true;
         sfSprite_setPosition(sprt->trap, pos);
         sfRenderWindow_drawSprite(wd, sprt->trap, NULL);
     } else
         sprt->actual_doors[4] = false;
+    if (ro->floor_rooms[x][y] == 'B' && rm->open == true && ro->lvl == 4) {
+        sfSprite_setPosition(sprt->trophy, pos);
+        sfRenderWindow_drawSprite(wd, sprt->trophy, NULL);
+    }
 }
 
 void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
@@ -57,6 +61,7 @@ void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
     && ro->floor_rooms[y + 1][x] != '?' && rm->open == true)
         draw_doors_boto(ro->lvl, sprt, wd, ro->floor_rooms[y + 1][x]);
     reduce_draw_doors(rm, ro, wd, sprt);
+    close_door(ro, sprt, x, y);
     reduce_draw_traps(rm, ro, wd, sprt);
 }
 
@@ -102,4 +107,5 @@ void doors_colisions(options *sprt, room *rm, player *py)
     }
     reduce_doors_colisions(sprt, rm, py);
     trap_colisions(sprt, rm, py);
+    trophy_colisions(sprt, rm, py);
 }
