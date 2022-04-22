@@ -160,6 +160,7 @@ typedef struct {
     rooms *ro;
 }reduce;
 
+void trap_colisions(options *sprt, room *ry, player *py);
 void reduce_move_player_check(reduce *red);
 void init_player(player *py);
 void key_action_pressed(sfEvent event, reduce *red);
