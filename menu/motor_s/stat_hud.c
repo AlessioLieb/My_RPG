@@ -9,7 +9,7 @@
 
 stats create_stats(void)
 {
-    stats st; 
+    stats st;
     st.damages = 3;
     st.freq_tears = 5;
     st.luck = 7;

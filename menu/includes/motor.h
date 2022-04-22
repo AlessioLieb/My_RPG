@@ -107,7 +107,9 @@ typedef struct {
 }collectible;
 
 typedef struct {
-    sfSprite *sp;
+    sfSprite *fo;
+    sfSprite *ft;
+    sfSprite *fl;
     int *actual_room;
     int len_stone;
     bool open;
@@ -158,6 +160,15 @@ typedef struct {
     rooms *ro;
 }reduce;
 
+void reduce_move_player_check(reduce *red);
+void init_player(player *py);
+void key_action_pressed(sfEvent event, reduce *red);
+void draw_room(sfRenderWindow *wd, reduce *red, rooms *ro);
+void player_room(sfRenderWindow *wd, reduce *red, options *sprt);
+int move_sprite(player *py, int top, room *rm);
+void move_event(sfEvent event, reduce *red);
+void move_player_check(reduce *red);
+void floor_pass(rooms *ro, reduce *red, options *sprt);
 void doors_colisions(options *sprt, room *rm, player *py);
 void init_rm_sprt(room *rm, options *sprt);
 void move_player_check(reduce *red);

@@ -30,3 +30,11 @@ tears *create_tears(player *py)
     sfIntRect r = {402, 285, 15, 15};
     te = init_st_array(te, r, py);
 }
+
+void reduce_move_player_check(reduce *red)
+{
+    red->py->anim_timer.timer =
+    sfClock_getElapsedTime(red->py->time).microseconds;
+    red->py->tears_timer.timer_total += sfClock_getElapsedTime
+    (red->py->time).microseconds - red->py->tears_timer.timer;
+}

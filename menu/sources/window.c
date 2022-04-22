@@ -54,4 +54,5 @@ void init_rm_sprt(room *rm, options *sprt)
     sprt->actual_doors[1] = false;
     sprt->actual_doors[2] = false;
     sprt->actual_doors[3] = false;
+    sprt->plus_lvl = false;
 }

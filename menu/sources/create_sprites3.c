@@ -46,3 +46,13 @@ void init_bdo(window *wndw, options *sprt)
     sfSprite_setTextureRect(sprt->boss_do, rect);
     sfSprite_setScale(sprt->boss_do, scale);
 }
+
+void init_trap(window *wndw, options *sprt)
+{
+    sfIntRect rect = {14, 261, 32, 32};
+    sfVector2f scale = {3.5, 3.5};
+    sprt->trap = sfSprite_create();
+    sfSprite_setTexture(sprt->trap, sprt->doors, sfTrue);
+    sfSprite_setTextureRect(sprt->trap, rect);
+    sfSprite_setScale(sprt->trap, scale);
+}

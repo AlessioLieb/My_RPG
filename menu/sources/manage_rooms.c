@@ -25,6 +25,19 @@ void reduce_draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
         draw_doors_botc(ro->lvl, sprt, wd, ro->floor_rooms[y + 1][x]);
 }
 
+void reduce_draw_traps(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
+{
+    int y = rm->actual_room[0];
+    int x = rm->actual_room[1];
+    sfVector2f pos = {1920 / 2 - ((32 * 3.5) / 2), 265};
+    if (ro->floor_rooms[x][y] == 'B' && rm->open == true) {
+        sprt->actual_doors[4] = true;
+        sfSprite_setPosition(sprt->trap, pos);
+        sfRenderWindow_drawSprite(wd, sprt->trap, NULL);
+    } else
+        sprt->actual_doors[4] = false;
+}
+
 void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
 {
     int x = rm->actual_room[0];
@@ -44,14 +57,7 @@ void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
     && ro->floor_rooms[y + 1][x] != '?' && rm->open == true)
         draw_doors_boto(ro->lvl, sprt, wd, ro->floor_rooms[y + 1][x]);
     reduce_draw_doors(rm, ro, wd, sprt);
-}
-
-void floor_pass(rooms *ro, reduce *red)
-{
-    ++ro->lvl;
-    gen_main(ro);
-    red->rm->actual_room[0] = 4;
-    red->rm->actual_room[1] = 4;
+    reduce_draw_traps(rm, ro, wd, sprt);
 }
 
 static void reduce_doors_colisions(options *sprt, room *rm, player *py)
@@ -75,6 +81,24 @@ static void reduce_doors_colisions(options *sprt, room *rm, player *py)
     }
 }
 
+void trap_colisions(options *sprt, room *ry, player *py)
+{
+    sfIntRect overlap = {1, 1, 1, 1};
+    sfIntRect trap = sfSprite_getTextureRect(sprt->trap);
+    sfVector2f t_pos = sfSprite_getPosition(sprt->trap);
+    sfIntRect player = sfSprite_getTextureRect(py->sp);
+    sfVector2f p_pos = sfSprite_getPosition(py->sp);
+    player.left = p_pos.x;
+    player.top = p_pos.y;
+    trap.left = t_pos.x;
+    trap.top = t_pos.y;
+    if (sfIntRect_intersects(&trap, &player, &overlap) == true
+    && sprt->actual_doors[4] == true) {
+        sfSprite_setPosition(py->sp, (sfVector2f) {1920 / 2, 1080 / 2});
+        sprt->plus_lvl = true;
+    }
+}
+
 void doors_colisions(options *sprt, room *rm, player *py)
 {
     sfIntRect overlap = {1, 1, 1, 1};
@@ -93,6 +117,7 @@ void doors_colisions(options *sprt, room *rm, player *py)
     && sprt->actual_doors[1] == true) {
         ++rm->actual_room[0];
         sfSprite_setPosition(py->sp, (sfVector2f) {260, 468});
-    } 
+    }
     reduce_doors_colisions(sprt, rm, py);
+    trap_colisions(sprt, rm, py);
 }

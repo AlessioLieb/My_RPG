@@ -23,9 +23,11 @@ SRC	=	sources/init_base.c						\
 		sources/players_choose.c				\
 		sources/framebuffer_play.c				\
 		sources/manage_rooms.c					\
+		sources/manage_rooms2.c					\
 		sources/create_sprites2.c				\
 		sources/create_sprites3.c				\
 		motor_s/move.c	\
+		motor_s/move2.c	\
 		motor_s/basic_move.c	\
 		motor_s/stone_base.c	\
 		motor_s/reduce.c		\

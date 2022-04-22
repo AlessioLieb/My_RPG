@@ -68,6 +68,6 @@ char *my_int_str(unsigned long long nb)
 int str_len(char const *str)
 {
     int i = 0;
-    for(; str[i] != '\0'; ++i);
+    for (; str[i] != '\0'; ++i);
     return i;
 }

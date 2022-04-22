@@ -55,3 +55,17 @@ void draw_life(player *py, sfRenderWindow *rd)
     }
     draw_blue_life(py, rd);
 }
+
+void init_player(player *py)
+{
+    py->x = WIDTH / 2;
+    py->y = HEIGHT / 2;
+    py->speed = 5;
+    py->tx = sfTexture_createFromFile("assets/isaac.png", NULL);
+    py->sp = sfSprite_create();
+    py->as_moved = false;
+    py->actual_sp = 0;
+    py->collision_box =
+    sfImage_createFromFile("assets/collisions/isaac_border.png");
+    py->actual_speed = (sfVector2f) {0, 0};
+}

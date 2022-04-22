@@ -60,4 +60,5 @@ void init_sprites(window *wndw, options *sprt)
     init_tdc(wndw, sprt);
     init_bdo(wndw, sprt);
     init_bdc(wndw, sprt);
+    init_trap(wndw, sprt);
 }
