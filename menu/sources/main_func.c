@@ -7,9 +7,25 @@
 
 #include "../includes/motor.h"
 
+void check_move_all(reduce *red)
+{
+    red->py->move_timer.timer_total += sfClock_getElapsedTime
+    (red->py->time).microseconds - red->py->move_timer.timer;
+    while (red->py->move_timer.timer_total > 10000) {
+        if (!check_move_right(red->py, red->rm))
+            red->py->actual_speed = (sfVector2f) {0, 0};
+        sfSprite_move(red->py->sp, red->py->actual_speed);
+        move_player_check(red);
+        red->py->move_timer.timer_total -= 10000;
+    }
+    red->py->move_timer.timer =
+    sfClock_getElapsedTime(red->py->time).microseconds;
+}
+
 int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
 {
     player_room(wndw->window, red, sprt);
+    check_move_all(red);
     draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
     draw_life(red->py, wndw->window);
     draw_bonus(red->rm, wndw->window, red->py);

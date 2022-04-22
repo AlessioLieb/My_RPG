@@ -37,6 +37,11 @@
     #include "procedural.h"
 
 typedef struct {
+    unsigned long timer_total;
+    unsigned long timer;
+}timer;
+
+typedef struct {
     int total_life;
     int red_hearth;
     int blue_hearth;
@@ -49,7 +54,19 @@ typedef struct {
     int key;
 }inventory;
 
+typedef struct {
+    bool key_q;
+    bool key_z;
+    bool key_s;
+    bool key_d;
+    bool key_left;
+    bool key_up;
+    bool key_right;
+    bool key_down;
+}event_key;
+
 typedef struct player_s{
+    event_key player_key;
     sfSprite *sp;
     sfTexture *tx;
     life lf;
@@ -62,6 +79,9 @@ typedef struct player_s{
     int invulnerability;
     sfVector2f actual_speed;
     sfImage *collision_box;
+    timer move_timer;
+    timer anim_timer;
+    timer tears_timer;
     sfClock *time;
 }player;
 
@@ -99,11 +119,6 @@ typedef struct {
 }adv_t;
 
 typedef struct {
-    unsigned long timer_total;
-    unsigned long timer;
-}timer;
-
-typedef struct {
     timer ti;
     timer move_ti;
     sfClock *total_clock;
@@ -134,6 +149,8 @@ typedef struct {
     rooms *ro;
 }reduce;
 
+void move_player_check(reduce *red);
+int check_move_right(player *py, room *rm);
 void draw_doors_topo(int lvl, options *sprt, sfRenderWindow *wd);
 void draw_doors_righto(int lvl, options *sprt, sfRenderWindow *wd);
 void draw_doors_lefto(int lvl, options *sprt, sfRenderWindow *wd);

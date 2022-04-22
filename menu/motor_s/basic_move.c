@@ -32,7 +32,7 @@ static bool map_collision(player *py)
     return end;
 }
 
-static int check_move_right(player *py, room *rm)
+int check_move_right(player *py, room *rm)
 {
     int tmp_x = py->actual_speed.x >= py->speed
     ? py->speed : py->actual_speed.x + 1;

@@ -13,7 +13,7 @@ player *creation_player(void)
     sfIntRect place = {130, 19, 28, 35};
     py->x = WIDTH / 2;
     py->y = HEIGHT / 2;
-    py->speed = 15;
+    py->speed = 5;
     py->tx = sfTexture_createFromFile("assets/isaac.png", NULL);
     py->sp = sfSprite_create();
     py->as_moved = false;
@@ -24,6 +24,10 @@ player *creation_player(void)
     py->lf = create_life();
     py->invulnerability = 1000;
     py->invent = create_inventory();
+    py->player_key = (event_key) {false, false, false, false, false, false, false, false};
+    py->move_timer = (timer){0, 0};
+    py->anim_timer = (timer){0, 0};
+    py->tears_timer = (timer){0, 0};
     sfSprite_setTexture(py->sp, py->tx, sfTrue);
     sfSprite_setTextureRect(py->sp, place);
     sfSprite_setScale(py->sp, (sfVector2f){3, 3});
@@ -58,28 +62,98 @@ int move_sprite(player *py, int top, room *rm)
         sfSprite_setTextureRect(py->sp, (sfIntRect) {32, top, 29, 34});
         py->actual_sp = 1;
     }
-    py->as_moved = 2;
     if (py->invulnerability >= 500 && rand() % 2 == 0)
         sfSprite_setTextureRect(py->sp, (sfIntRect){181, 181, 28, 33});
     return 0;
 }
 
+void key_action_realeased(sfEvent event, reduce *red)
+{
+    if (event.type == sfEvtKeyReleased) {
+        red->py->player_key.key_q = event.key.code == sfKeyQ ? false :
+        red->py->player_key.key_q;
+        red->py->player_key.key_d = event.key.code == sfKeyD ? false :
+        red->py->player_key.key_d;
+        red->py->player_key.key_z = event.key.code == sfKeyZ ? false :
+        red->py->player_key.key_z;
+        red->py->player_key.key_s = event.key.code == sfKeyS ? false :
+        red->py->player_key.key_s;
+        red->py->player_key.key_left = event.key.code == sfKeyLeft ? false :
+        red->py->player_key.key_left;
+        red->py->player_key.key_right = event.key.code == sfKeyRight ? false :
+        red->py->player_key.key_right;
+        red->py->player_key.key_up = event.key.code == sfKeyUp ? false :
+        red->py->player_key.key_up;
+        red->py->player_key.key_down = event.key.code == sfKeyDown ? false :
+        red->py->player_key.key_down;
+    }
+}
+
+void key_action_pressed(sfEvent event, reduce *red)
+{
+    if (event.type == sfEvtKeyPressed) {
+        red->py->player_key.key_q = event.key.code == sfKeyQ ? true :
+        red->py->player_key.key_q;
+        red->py->player_key.key_d = event.key.code == sfKeyD ? true :
+        red->py->player_key.key_d;
+        red->py->player_key.key_z = event.key.code == sfKeyZ ? true :
+        red->py->player_key.key_z;
+        red->py->player_key.key_s = event.key.code == sfKeyS ? true :
+        red->py->player_key.key_s;
+        red->py->player_key.key_left = event.key.code == sfKeyLeft ? true :
+        red->py->player_key.key_left;
+        red->py->player_key.key_right = event.key.code == sfKeyRight ? true :
+        red->py->player_key.key_right;
+        red->py->player_key.key_up = event.key.code == sfKeyUp ? true :
+        red->py->player_key.key_up;
+        red->py->player_key.key_down = event.key.code == sfKeyDown ? true :
+        red->py->player_key.key_down;
+    }
+    key_action_realeased(event, red);
+}
+
+void slow_player(player *py)
+{
+    if (!py->player_key.key_q && py->actual_speed.x < 0)
+        ++py->actual_speed.x;
+    if (!py->player_key.key_d && py->actual_speed.x > 0)
+        --py->actual_speed.x;
+    if (!py->player_key.key_z && py->actual_speed.y < 0)
+        ++py->actual_speed.y;
+    if (!py->player_key.key_s && py->actual_speed.y > 0)
+        --py->actual_speed.y;
+}
+
+void move_player_check(reduce *red)
+{
+    red->py->anim_timer.timer_total += sfClock_getElapsedTime
+    (red->py->time).microseconds - red->py->anim_timer.timer;
+    while (red->py->anim_timer.timer_total > 10000) {
+        red->py->player_key.key_q ? move_sprite(red->py, 87, red->rm) : 0;
+        red->py->player_key.key_d ? move_sprite(red->py, 149, red->rm) : 0;
+        red->py->player_key.key_z ? move_sprite(red->py, 213, red->rm) : 0;
+        red->py->player_key.key_s ? move_sprite(red->py, 21, red->rm) : 0;
+        red->py->anim_timer.timer_total -= 10000;
+    }
+    red->py->anim_timer.timer =
+    sfClock_getElapsedTime(red->py->time).microseconds;
+    red->py->tears_timer.timer_total += sfClock_getElapsedTime
+    (red->py->time).microseconds - red->py->tears_timer.timer;
+    while (red->py->tears_timer.timer_total > 300000) {
+        red->py->player_key.key_left ? shoot_tears(1, red) : 0;
+        red->py->player_key.key_right ? shoot_tears(2, red) : 0;
+        red->py->player_key.key_up ? shoot_tears(3, red) : 0;
+        red->py->player_key.key_down ? shoot_tears(4, red) : 0;
+        red->py->tears_timer.timer_total -= 300000;
+    }
+    red->py->tears_timer.timer =
+    sfClock_getElapsedTime(red->py->time).microseconds;
+    slow_player(red->py);
+}
+
 void move_event(sfEvent event, reduce *red)
 {
-    --red->py->as_moved;
-    if (event.type == sfEvtKeyPressed) {
-        event.key.code == sfKeyQ ? move_sprite(red->py, 87, red->rm) : 0;
-        event.key.code == sfKeyD ? move_sprite(red->py, 149, red->rm) : 0;
-        event.key.code == sfKeyZ ? move_sprite(red->py, 213, red->rm) : 0;
-        event.key.code == sfKeyS ? move_sprite(red->py, 21, red->rm) : 0;
-        event.key.code == sfKeyLeft ? shoot_tears(1, red) : 0;
-        event.key.code == sfKeyRight ? shoot_tears(2, red) : 0;
-        event.key.code == sfKeyUp ? shoot_tears(3, red) : 0;
-        event.key.code == sfKeyDown ? shoot_tears(4, red) : 0;
-    }
-    if (red->py->as_moved <= 0)
-        red->py->actual_speed = (sfVector2f) {0, 0};
-    sfSprite_move(red->py->sp, red->py->actual_speed);
+    key_action_pressed(event, red);
 }
 
 room *create_room(char *str)

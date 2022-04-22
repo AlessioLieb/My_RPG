@@ -17,6 +17,7 @@ bool touch_three_reduce(reduce *red, sfIntRect tears)
             tmp = sfSprite_getTextureRect(red->enem_t->little_adv[i].sp);
             tmp.left = red->enem_t->flying_adv[i].pos.x;
             tmp.top = red->enem_t->flying_adv[i].pos.y;
+            tmp.height *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
                     ? touched_enemy(red, i, 'F') : check;
         }
