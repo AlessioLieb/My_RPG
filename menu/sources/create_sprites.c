@@ -56,4 +56,8 @@ void init_sprites(window *wndw, options *sprt)
     init_dtc(wndw, sprt);
     init_dlo(wndw, sprt);
     init_dlc(wndw, sprt);
+    init_tdo(wndw, sprt);
+    init_tdc(wndw, sprt);
+    init_bdo(wndw, sprt);
+    init_bdc(wndw, sprt);
 }

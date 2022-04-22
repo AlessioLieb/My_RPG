@@ -13,16 +13,16 @@ void reduce_draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
     int y = rm->actual_room[1];
     if (x != 0 && ro->floor_rooms[y][x - 1] != ' '
     && ro->floor_rooms[y][x - 1] != '?' && rm->open == false)
-        draw_doors_leftc(ro->lvl, sprt, wd);
+        draw_doors_leftc(ro->lvl, sprt, wd, ro->floor_rooms[y][x - 1]);
     if (x != 9 && ro->floor_rooms[y][x + 1] != ' '
     && ro->floor_rooms[y][x + 1] != '?' && rm->open == false)
-        draw_doors_rightc(ro->lvl, sprt, wd);
+        draw_doors_rightc(ro->lvl, sprt, wd, ro->floor_rooms[y][x + 1]);
     if (y != 0 && ro->floor_rooms[y - 1][x] != ' '
     && ro->floor_rooms[y - 1][x] != '?' && rm->open == false)
-        draw_doors_topc(ro->lvl, sprt, wd);
+        draw_doors_topc(ro->lvl, sprt, wd, ro->floor_rooms[y - 1][x]);
     if (y != 9 && ro->floor_rooms[y + 1][x] != ' '
     && ro->floor_rooms[y + 1][x] != '?' && rm->open == false)
-        draw_doors_botc(ro->lvl, sprt, wd);
+        draw_doors_botc(ro->lvl, sprt, wd, ro->floor_rooms[y + 1][x]);
 }
 
 void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
@@ -33,16 +33,16 @@ void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
         draw_tuto(wd, sprt);
     if (x != 0 && ro->floor_rooms[y][x - 1] != ' '
     && ro->floor_rooms[y][x - 1] != '?' && rm->open == true)
-        draw_doors_lefto(ro->lvl, sprt, wd);
+        draw_doors_lefto(ro->lvl, sprt, wd, ro->floor_rooms[y][x - 1]);
     if (x != 9 && ro->floor_rooms[y][x + 1] != ' '
     && ro->floor_rooms[y][x + 1] != '?' && rm->open == true)
-        draw_doors_righto(ro->lvl, sprt, wd);
+        draw_doors_righto(ro->lvl, sprt, wd, ro->floor_rooms[y][x + 1]);
     if (y != 0 && ro->floor_rooms[y - 1][x] != ' '
     && ro->floor_rooms[y - 1][x] != '?' && rm->open == true)
-        draw_doors_topo(ro->lvl, sprt, wd);
+        draw_doors_topo(ro->lvl, sprt, wd, ro->floor_rooms[y - 1][x]);
     if (y != 9 && ro->floor_rooms[y + 1][x] != ' '
     && ro->floor_rooms[y + 1][x] != '?' && rm->open == true)
-        draw_doors_boto(ro->lvl, sprt, wd);
+        draw_doors_boto(ro->lvl, sprt, wd, ro->floor_rooms[y + 1][x]);
     reduce_draw_doors(rm, ro, wd, sprt);
 }
 
@@ -57,8 +57,8 @@ void floor_pass(rooms *ro, reduce *red)
 static void reduce_doors_colisions(options *sprt, room *rm, player *py)
 {
     sfIntRect overlap = {1, 1, 1, 1};
-    sfIntRect doorthree = {916, 799, 10, 10};
-    sfIntRect doorfour = {210, 468, 10, 10};
+    sfIntRect doorthree = {916, 799, 30, 10};
+    sfIntRect doorfour = {210, 468, 10, 30};
     sfIntRect player = sfSprite_getTextureRect(py->sp);
     sfVector2f p_pos = sfSprite_getPosition(py->sp);
     player.left = p_pos.x;
@@ -78,8 +78,8 @@ static void reduce_doors_colisions(options *sprt, room *rm, player *py)
 void doors_colisions(options *sprt, room *rm, player *py)
 {
     sfIntRect overlap = {1, 1, 1, 1};
-    sfIntRect doorone = {912, 110, 10, 10};
-    sfIntRect doortwo = {1635, 452, 10, 10};
+    sfIntRect doorone = {912, 110, 30, 10};
+    sfIntRect doortwo = {1635, 452, 10, 30};
     sfIntRect player = sfSprite_getTextureRect(py->sp);
     sfVector2f p_pos = sfSprite_getPosition(py->sp);
     player.left = p_pos.x;
@@ -93,7 +93,6 @@ void doors_colisions(options *sprt, room *rm, player *py)
     && sprt->actual_doors[1] == true) {
         ++rm->actual_room[0];
         sfSprite_setPosition(py->sp, (sfVector2f) {260, 468});
-    }
-    
+    } 
     reduce_doors_colisions(sprt, rm, py);
 }

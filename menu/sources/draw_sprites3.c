@@ -7,7 +7,7 @@
 
 #include "../includes/motor.h"
 
-void draw_doors_topc(int lvl, options *sprt, sfRenderWindow *wd)
+void draw_doors_topc(int lvl, options *sprt, sfRenderWindow *wd, char c)
 {
     sfVector2f pos = {1920 / 2 - ((49 * 3.5) / 2), 65};
     sfSprite *door;
@@ -17,12 +17,16 @@ void draw_doors_topc(int lvl, options *sprt, sfRenderWindow *wd)
         door = sfSprite_copy(sprt->doortclose);
     if (lvl == 4)
         door = sfSprite_copy(sprt->doorlclose);
+    if (c == 'T') {
+        door = sfSprite_copy(sprt->treasure_dc);
+        pos.y -= 20;
+    }
     sfSprite_setPosition(door, pos);
     sfRenderWindow_drawSprite(wd, door, NULL);
     sprt->actual_doors[0] = false;
 }
 
-void draw_doors_botc(int lvl, options *sprt, sfRenderWindow *wd)
+void draw_doors_botc(int lvl, options *sprt, sfRenderWindow *wd, char c)
 {
     sfVector2f pos = {1920 / 2 - ((49 * 3.5) / 2) + 170, 1015};
     sfSprite *door;
@@ -32,13 +36,17 @@ void draw_doors_botc(int lvl, options *sprt, sfRenderWindow *wd)
         door = sfSprite_copy(sprt->doortclose);
     if (lvl == 4)
         door = sfSprite_copy(sprt->doorlclose);
+    if (c == 'T') {
+        door = sfSprite_copy(sprt->treasure_dc);
+        pos.y += 20;
+    }
     sfSprite_setPosition(door, pos);
     sfSprite_setRotation(door, 180);
     sfRenderWindow_drawSprite(wd, door, NULL);
     sprt->actual_doors[2] = false;
 }
 
-void draw_doors_rightc(int lvl, options *sprt, sfRenderWindow *wd)
+void draw_doors_rightc(int lvl, options *sprt, sfRenderWindow *wd, char c)
 {
     sfVector2f pos = {1820, 1080 / 2 - (49 * 3.5 / 2)};
     sfSprite *door;
@@ -48,13 +56,17 @@ void draw_doors_rightc(int lvl, options *sprt, sfRenderWindow *wd)
         door = sfSprite_copy(sprt->doortclose);
     if (lvl == 4)
         door = sfSprite_copy(sprt->doorlclose);
+    if (c == 'T') {
+        door = sfSprite_copy(sprt->treasure_dc);
+        pos.x += 20;
+    }
     sfSprite_setPosition(door, pos);
     sfSprite_setRotation(door, 90);
     sfRenderWindow_drawSprite(wd, door, NULL);
     sprt->actual_doors[1] = false;
 }
 
-void draw_doors_leftc(int lvl, options *sprt, sfRenderWindow *wd)
+void draw_doors_leftc(int lvl, options *sprt, sfRenderWindow *wd, char c)
 {
     sfVector2f pos = {100, 1080 / 2 - (49 * 3.5 / 2) + 170};
     sfSprite *door;
@@ -64,6 +76,10 @@ void draw_doors_leftc(int lvl, options *sprt, sfRenderWindow *wd)
         door = sfSprite_copy(sprt->doortclose);
     if (lvl == 4)
         door = sfSprite_copy(sprt->doorlclose);
+    if (c == 'T') {
+        door = sfSprite_copy(sprt->treasure_dc);
+        pos.x -= 20;
+    }
     sfSprite_setRotation(door, -90);
     sfSprite_setPosition(door, pos);
     sfRenderWindow_drawSprite(wd, door, NULL);
