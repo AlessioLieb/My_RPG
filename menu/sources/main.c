@@ -12,6 +12,8 @@ int call_main_func(char *str)
     window *wndw = malloc(sizeof(window));
     options *sprt = malloc(sizeof(options));
     players *perso = malloc(sizeof(players));
+    sprt->all_doors = malloc(sizeof(sfSprite *) * 4);
+    sprt->actual_doors = malloc(sizeof(bool) * 4);
     rooms room = {0, 0, NULL, 0};
     gen_main(&room);
     main_func(wndw, sprt, perso, &room);

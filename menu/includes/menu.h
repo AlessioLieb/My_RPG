@@ -57,7 +57,9 @@ typedef struct {
     sfSprite *doorlopen;
     sfSprite *doorlclose;
     sfTexture *t;
+    bool *actual_doors;
     struct button *ar_btn;
+    sfSprite **all_doors;
     sfUint8 *framebuffer;
     struct sfTexture *frame_txt;
     struct sfSprite *frame_sprt;

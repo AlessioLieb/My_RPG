@@ -24,6 +24,8 @@ void draw_doors_topo(int lvl, options *sprt, sfRenderWindow *wd)
         door = sfSprite_copy(sprt->doorlopen);
     sfSprite_setPosition(door, pos);
     sfRenderWindow_drawSprite(wd, door, NULL);
+    sprt->all_doors[0] = door;
+    sprt->actual_doors[0] = true;
 }
 
 void draw_doors_boto(int lvl, options *sprt, sfRenderWindow *wd)
@@ -39,6 +41,8 @@ void draw_doors_boto(int lvl, options *sprt, sfRenderWindow *wd)
     sfSprite_setPosition(door, pos);
     sfSprite_setRotation(door, 180);
     sfRenderWindow_drawSprite(wd, door, NULL);
+    sprt->all_doors[2] = door;
+    sprt->actual_doors[2] = true;
 }
 
 void draw_doors_righto(int lvl, options *sprt, sfRenderWindow *wd)
@@ -54,6 +58,8 @@ void draw_doors_righto(int lvl, options *sprt, sfRenderWindow *wd)
     sfSprite_setPosition(door, pos);
     sfSprite_setRotation(door, 90);
     sfRenderWindow_drawSprite(wd, door, NULL);
+    sprt->all_doors[1] = door;
+    sprt->actual_doors[1] = true;
 }
 
 void draw_doors_lefto(int lvl, options *sprt, sfRenderWindow *wd)
@@ -69,4 +75,6 @@ void draw_doors_lefto(int lvl, options *sprt, sfRenderWindow *wd)
     sfSprite_setRotation(door, -90);
     sfSprite_setPosition(door, pos);
     sfRenderWindow_drawSprite(wd, door, NULL);
+    sprt->all_doors[3] = door;
+    sprt->actual_doors[3] = true;
 }

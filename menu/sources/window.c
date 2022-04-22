@@ -43,3 +43,15 @@ int event_window(window *wndw, options *sprt, reduce *red)
     }
     return 0;
 }
+
+void init_rm_sprt(room *rm, options *sprt)
+{
+    rm->actual_room = malloc(sizeof(int) * 2);
+    rm->actual_room[0] = 4;
+    rm->actual_room[1] = 4;
+    rm->open = true;
+    sprt->actual_doors[0] = false;
+    sprt->actual_doors[1] = false;
+    sprt->actual_doors[2] = false;
+    sprt->actual_doors[3] = false;
+}

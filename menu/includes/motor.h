@@ -149,6 +149,8 @@ typedef struct {
     rooms *ro;
 }reduce;
 
+void doors_colisions(options *sprt, room *rm, player *py);
+void init_rm_sprt(room *rm, options *sprt);
 void move_player_check(reduce *red);
 int check_move_right(player *py, room *rm);
 void draw_doors_topo(int lvl, options *sprt, sfRenderWindow *wd);

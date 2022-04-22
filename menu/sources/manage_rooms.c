@@ -53,3 +53,47 @@ void floor_pass(rooms *ro, reduce *red)
     red->rm->actual_room[0] = 4;
     red->rm->actual_room[1] = 4;
 }
+
+static void reduce_doors_colisions(options *sprt, room *rm, player *py)
+{
+    sfIntRect overlap = {1, 1, 1, 1};
+    sfIntRect doorthree = {916, 799, 10, 10};
+    sfIntRect doorfour = {210, 468, 10, 10};
+    sfIntRect player = sfSprite_getTextureRect(py->sp);
+    sfVector2f p_pos = sfSprite_getPosition(py->sp);
+    player.left = p_pos.x;
+    player.top = p_pos.y;
+    if (sfIntRect_intersects(&doorthree, &player, &overlap) == true
+    && sprt->actual_doors[2] == true) {
+        ++rm->actual_room[1];
+        sfSprite_setPosition(py->sp, (sfVector2f) {912, 160});
+    }
+    if (sfIntRect_intersects(&doorfour, &player, &overlap) == true
+    && sprt->actual_doors[3] == true) {
+        --rm->actual_room[0];
+        sfSprite_setPosition(py->sp, (sfVector2f) {1585, 452});
+    }
+}
+
+void doors_colisions(options *sprt, room *rm, player *py)
+{
+    sfIntRect overlap = {1, 1, 1, 1};
+    sfIntRect doorone = {912, 110, 10, 10};
+    sfIntRect doortwo = {1635, 452, 10, 10};
+    sfIntRect player = sfSprite_getTextureRect(py->sp);
+    sfVector2f p_pos = sfSprite_getPosition(py->sp);
+    player.left = p_pos.x;
+    player.top = p_pos.y;
+    if (sfIntRect_intersects(&doorone, &player, &overlap) == true
+    && sprt->actual_doors[0] == true) {
+        --rm->actual_room[1];
+        sfSprite_setPosition(py->sp, (sfVector2f) {916, 749});
+    }
+    if (sfIntRect_intersects(&doortwo, &player, &overlap) == true
+    && sprt->actual_doors[1] == true) {
+        ++rm->actual_room[0];
+        sfSprite_setPosition(py->sp, (sfVector2f) {260, 468});
+    }
+    
+    reduce_doors_colisions(sprt, rm, py);
+}
