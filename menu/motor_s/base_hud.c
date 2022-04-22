@@ -24,10 +24,16 @@ void nb_time_hud(long time, sfRenderWindow *wd)
 {
     sfText *hud = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
-    char *nb = str_concat("time = ", my_int_str(time));
+    int t = time / 60;
+    int t2 = time % 60;
+    t2 = (t2 == 0) ? 0 : t2;
+    char *nb = str_concat("Time = ", my_int_str(t));
+    nb = str_concat(nb, " : ");
+    nb = str_concat(nb, my_int_str(t2));
     sfText_setFont(hud, font);
     sfText_setString(hud, nb);
-    sfText_setPosition(hud, (sfVector2f) {WIDTH / 2 - (str_len(nb) / 2), 25});
+    sfText_setPosition(hud, (sfVector2f) {(WIDTH / 2.2), 25});
+    sfText_setScale(hud, (sfVector2f) {1, 1});
     sfRenderWindow_drawText(wd, hud, NULL);
     sfText_destroy(hud);
     sfFont_destroy(font);
