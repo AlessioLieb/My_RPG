@@ -115,13 +115,13 @@ void key_action_pressed(sfEvent event, reduce *red)
 void slow_player(player *py)
 {
     if (!py->player_key.key_q && py->actual_speed.x < 0)
-        ++py->actual_speed.x;
+        py->actual_speed.x += 0.25;
     if (!py->player_key.key_d && py->actual_speed.x > 0)
-        --py->actual_speed.x;
+        py->actual_speed.x -= 0.25;
     if (!py->player_key.key_z && py->actual_speed.y < 0)
-        ++py->actual_speed.y;
+        py->actual_speed.y += 0.25;
     if (!py->player_key.key_s && py->actual_speed.y > 0)
-        --py->actual_speed.y;
+        py->actual_speed.y -= 0.25;
 }
 
 void move_player_check(reduce *red)
