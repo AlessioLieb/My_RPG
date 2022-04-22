@@ -12,9 +12,11 @@ int call_main_func(char *str)
     window *wndw = malloc(sizeof(window));
     options *sprt = malloc(sizeof(options));
     players *perso = malloc(sizeof(players));
-    sprt->actual_doors = malloc(sizeof(bool) * 5);
-    rooms room = {0, 0, NULL, 0};
+    sprt->actual_doors = malloc(sizeof(bool) * 6);
+    rooms room = {0, 0, NULL, 4};
     gen_main(&room);
+    for (int i = 0; i != 10; ++i)
+        printf("%s\n", room.floor_rooms[i]);
     main_func(wndw, sprt, perso, &room);
 }
 

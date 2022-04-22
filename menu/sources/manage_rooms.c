@@ -36,10 +36,13 @@ void reduce_draw_traps(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
         sfRenderWindow_drawSprite(wd, sprt->trap, NULL);
     } else
         sprt->actual_doors[4] = false;
-    if (ro->floor_rooms[x][y] == 'B' && rm->open == true && ro->lvl == 4) {
+    if (ro->floor_rooms[x][y] == 'B' && rm->open == true && ro->lvl == 4
+    && sprt->win_cond == false) {
         sfSprite_setPosition(sprt->trophy, pos);
         sfRenderWindow_drawSprite(wd, sprt->trophy, NULL);
-    }
+        sprt->actual_doors[5] = true;
+    } else
+        sprt->actual_doors[5] = false;
 }
 
 void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)

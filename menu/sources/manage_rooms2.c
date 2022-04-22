@@ -24,7 +24,7 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
         sfRenderWindow_drawSprite(wd, red->py->sp, NULL);
     else {
         sfSprite_setPosition(sprt->win, (sfVector2f) {1920 / 2 -
-        ((32 * 3.5) / 2), 265});
+        ((32 * 3.5) / 2), 115});
         sfRenderWindow_drawSprite(wd, sprt->win, NULL);
     }
     draw_stone(red->rm, wd);
@@ -60,7 +60,8 @@ void trophy_colisions(options *sprt, room *rm, player *py)
     player.top = p_pos.y;
     trophy.left = t_pos.x;
     trophy.top = t_pos.y;
-    if (sfIntRect_intersects(&trophy, &player, &overlap) == true)
+    if (sfIntRect_intersects(&trophy, &player, &overlap) == true
+    && sprt->actual_doors[5] == true)
         sprt->win_cond = true;
 }
 
