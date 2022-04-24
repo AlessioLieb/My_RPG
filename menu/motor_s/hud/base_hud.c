@@ -5,7 +5,7 @@
 ** hud
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 char *str_concat(char *str, char *concat)
 {

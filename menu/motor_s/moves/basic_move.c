@@ -5,7 +5,7 @@
 ** basic move
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 static bool map_collision(player *py)
 {

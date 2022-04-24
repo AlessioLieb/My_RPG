@@ -5,7 +5,7 @@
 ** tears collision
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 int check_left(sfVector2f pos, reduce *red, int nb)
 {

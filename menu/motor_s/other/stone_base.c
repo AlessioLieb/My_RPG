@@ -5,7 +5,7 @@
 ** stone
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 int count_stone(char *str)
 {

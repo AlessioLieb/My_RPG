@@ -5,7 +5,7 @@
 ** int to str
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 int put_nbr(unsigned long long nb, char *str, int i)
 {

@@ -5,7 +5,7 @@
 ** hearth
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 life create_life(void)
 {

@@ -5,7 +5,7 @@
 ** reduce.c
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 bool collision_stone_tears(reduce *red, int x, int y, int nb)
 {
@@ -37,4 +37,24 @@ void reduce_move_player_check(reduce *red)
     sfClock_getElapsedTime(red->py->time).microseconds;
     red->py->tears_timer.timer_total += sfClock_getElapsedTime
     (red->py->time).microseconds - red->py->tears_timer.timer;
+}
+
+void disp_stat_hud(reduce *red, sfRenderWindow *wd)
+{
+    disp_speed(red, wd);
+    disp_freq_tears(red, wd);
+    disp_sp_tears(red, wd);
+    disp_damages(red, wd);
+    disp_luck(red, wd);
+}
+
+stats create_stats(void)
+{
+    stats st;
+    st.damages = 3;
+    st.freq_tears = 5;
+    st.luck = 7;
+    st.shot_speed = 5;
+    st.speed = 6;
+    return st;
 }

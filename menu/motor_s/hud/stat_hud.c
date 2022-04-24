@@ -5,18 +5,7 @@
 ** hud
 */
 
-#include "../includes/motor.h"
-
-stats create_stats(void)
-{
-    stats st;
-    st.damages = 3;
-    st.freq_tears = 5;
-    st.luck = 7;
-    st.shot_speed = 5;
-    st.speed = 6;
-    return st;
-}
+#include "../../includes/motor.h"
 
 void disp_speed(reduce *red, sfRenderWindow *wd)
 {
@@ -136,13 +125,4 @@ void disp_luck(reduce *red, sfRenderWindow *wd)
     sfSprite_destroy(lu);
     sfTexture_destroy(l);
     free(dam);
-}
-
-void disp_stat_hud(reduce *red, sfRenderWindow *wd)
-{
-    disp_speed(red, wd);
-    disp_freq_tears(red, wd);
-    disp_sp_tears(red, wd);
-    disp_damages(red, wd);
-    disp_luck(red, wd);
 }

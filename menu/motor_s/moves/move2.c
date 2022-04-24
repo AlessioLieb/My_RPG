@@ -5,7 +5,7 @@
 ** move2.c
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 void slow_player(player *py)
 {

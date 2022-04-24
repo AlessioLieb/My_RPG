@@ -5,7 +5,7 @@
 ** tears state
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 void disp_tears(reduce *red, sfRenderWindow *wd)
 {

@@ -27,38 +27,38 @@ SRC	=	sources/init_base.c						\
 		sources/create_sprites2.c				\
 		sources/create_sprites3.c				\
 		sources/create_sprites4.c				\
-		motor_s/move.c	\
-		motor_s/move2.c	\
-		motor_s/basic_move.c	\
-		motor_s/stone_base.c	\
-		motor_s/reduce.c		\
-		enemies/create_enemies.c	\
-		enemies/enemies_room.c	\
-		enemies/anim_enemies.c	\
-		enemies/mov_enemies.c	\
-		motor_s/tears_shooting.c	\
-		motor_s/tears_state.c	\
-		motor_s/check_tears_collision.c	\
-		procedural_generation/gen_main.c	\
-		procedural_generation/map_gen.c	\
-		procedural_generation/map_gen2.c	\
-		procedural_generation/reduce_boss.c	\
+		motor_s/hud/base_hud.c					\
+		motor_s/hud/stat_hud.c					\
+		motor_s/moves/move.c					\
+		motor_s/moves/move2.c					\
+		motor_s/moves/basic_move.c				\
+		motor_s/other/stone_base.c				\
+		motor_s/other/reduce.c					\
+		motor_s/other/int_str.c					\
+		motor_s/other/life_gestion.c			\
+		motor_s/tears/tears_shooting.c				\
+		motor_s/tears/tears_state.c					\
+		motor_s/tears/check_tears_collision.c			\
+		enemies/create_enemies.c				\
+		enemies/enemies_room.c					\
+		enemies/anim_enemies.c					\
+		enemies/mov_enemies.c					\
+		procedural_generation/gen_main.c		\
+		procedural_generation/map_gen.c			\
+		procedural_generation/map_gen2.c		\
+		procedural_generation/reduce_boss.c		\
 		procedural_generation/reduce_map_gen.c	\
-		procedural_generation/tools.c	\
-		procedural_generation/tools2.c	\
-		procedural_generation/tools3.c	\
-		procedural_generation/verif_rooms.c	\
-		motor_s/life_gestion.c	\
-		enemies/player_enemies.c	\
-		collectibles/collectible_create.c	\
-		collectibles/red_hearth.c	\
-		collectibles/blue_hearth.c	\
-		collectibles/base_inventory.c	\
-		motor_s/int_str.c	\
-		motor_s/base_hud.c	\
-		enemies/shoot_enemies.c	\
-		enemies/touch_enemy.c	\
-		motor_s/stat_hud.c
+		procedural_generation/tools.c			\
+		procedural_generation/tools2.c			\
+		procedural_generation/tools3.c			\
+		procedural_generation/verif_rooms.c		\
+		enemies/player_enemies.c				\
+		enemies/shoot_enemies.c					\
+		enemies/touch_enemy.c					\
+		collectibles/collectible_create.c		\
+		collectibles/red_hearth.c				\
+		collectibles/blue_hearth.c				\
+		collectibles/base_inventory.c			\
 
 OBJ	=    $(SRC:.c=.o)
 

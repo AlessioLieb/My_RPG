@@ -5,7 +5,7 @@
 ** tears
 */
 
-#include "../includes/motor.h"
+#include "../../includes/motor.h"
 
 void shoot_tears(int id, reduce *red)
 {
