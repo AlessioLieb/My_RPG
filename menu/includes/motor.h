@@ -265,6 +265,7 @@ sfIntRect place);
 
 // player_enemies.c //
 void touch_player_enemy(adv_t adv, sfVector2f player_pos, player *py);
+void touch_player_boss(boss_t adv, sfVector2f player_pos, player *py);
 
 // shoot_enemies.c //
 bool touched_enemy(reduce *red, int i, char c);

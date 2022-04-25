@@ -50,6 +50,29 @@ void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm, player *py)
         }
 }
 
+void move_boss(boss_t *actual, int i, sfVector2f player_pos)
+{
+    sfVector2f nw_move = actual[i].pos;
+    if (fabsf(actual[i].pos.x - player_pos.x) > fabsf
+            (actual[i].pos.y - player_pos.y)) {
+        nw_move.x += actual[i].pos.x - player_pos
+                .x > 0 ? -actual[i].speed : actual[i].speed;
+    } else {
+        nw_move.y += actual[i].pos.y - player_pos
+                .y > 0 ? -actual[i].speed : actual[i].speed;
+    }
+    actual[i].pos = nw_move;
+}
+
+void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py)
+{
+    for (int i = 0; i < 2; ++i)
+        if (all[i].pos.x != - 1 && all[i].pos.y != - 1) {
+            move_boss(all, i, player_pos);
+            touch_player_boss(all[i], player_pos, py);
+        }
+}
+
 void move_enemies(enemies_t *enem_t, player *py, room *rm)
 {
     sfVector2f p_pos = sfSprite_getPosition(py->sp);
@@ -60,6 +83,7 @@ void move_enemies(enemies_t *enem_t, player *py, room *rm)
         mov_all(enem_t->big_adv, p_pos, 1, rm, py);
         mov_all(enem_t->little_adv, p_pos, 2, rm, py);
         mov_all(enem_t->no_moving_adv, p_pos, 3, rm, py);
+        mov_all_boss(enem_t->boss_adv, p_pos, py);
         enem_t->move_ti.timer_total -= 50000;
     }
     enem_t->move_ti.timer =
