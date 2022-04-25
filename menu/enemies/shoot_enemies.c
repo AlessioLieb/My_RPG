@@ -7,6 +7,17 @@
 
 #include "../includes/motor.h"
 
+void check_boss(reduce *red, int i, char c)
+{
+    if (c == 'E') {
+        red->enem_t->boss_adv[i].pv--;
+        if (red->enem_t->boss_adv[i].pv <= 0) {
+            red->enem_t->boss_adv[i].pos = (sfVector2f){-1, -1};
+            red->enem_t->boss_adv[i].pv = 1;
+        }
+    }
+}
+
 void check_other(reduce *red, int i, char c)
 {
     if (c == 'F') {
@@ -23,6 +34,7 @@ void check_other(reduce *red, int i, char c)
             red->enem_t->little_adv[i].pv = 20;
         }
     }
+    check_boss(red, i, c);
 }
 
 bool touched_enemy(reduce *red, int i, char c)

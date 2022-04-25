@@ -7,6 +7,27 @@
 
 #include "../includes/motor.h"
 
+bool touch_boss(reduce *red, sfIntRect tears)
+{
+    sfIntRect tmp;
+    sfIntRect overlap = {1, 1, 1, 1};
+    bool check = true;
+    for (int i = 0; i < 2 /*changer par len boss*/; ++i) {
+        if (red->enem_t->boss_adv[i].pos.x != -1) {
+            tmp = sfSprite_getTextureRect(red->enem_t->boss_adv[i].sp);
+            tmp.left = red->enem_t->boss_adv[i].pos.x;
+            tmp.top = red->enem_t->boss_adv[i].pos.y;
+            tmp.height *= 2;
+            tmp.width *= 2;
+            check = (sfIntRect_intersects(&tmp, &tears, &overlap))
+                    ? touched_enemy(red, i, 'E') : check;
+        }
+        if (!check)
+            return false;
+    }
+    return true;
+}
+
 bool touch_three_reduce(reduce *red, sfIntRect tears)
 {
     sfIntRect tmp;
@@ -18,13 +39,14 @@ bool touch_three_reduce(reduce *red, sfIntRect tears)
             tmp.left = red->enem_t->flying_adv[i].pos.x;
             tmp.top = red->enem_t->flying_adv[i].pos.y;
             tmp.height *= 2;
+            tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
                     ? touched_enemy(red, i, 'F') : check;
         }
         if (!check)
             return false;
     }
-    return true;
+    return touch_boss(red, tears);
 }
 
 bool touch_reduce_reduce(reduce *red, sfIntRect tears)
@@ -37,6 +59,8 @@ bool touch_reduce_reduce(reduce *red, sfIntRect tears)
             tmp = sfSprite_getTextureRect(red->enem_t->little_adv[i].sp);
             tmp.left = red->enem_t->little_adv[i].pos.x;
             tmp.top = red->enem_t->little_adv[i].pos.y;
+            tmp.height *= 2;
+            tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
                     ? touched_enemy(red, i, 'L') : check;
         }
@@ -56,6 +80,8 @@ bool touch_reduce_enemy(reduce *red, sfIntRect tears)
             tmp = sfSprite_getTextureRect(red->enem_t->no_moving_adv[i].sp);
             tmp.left = red->enem_t->no_moving_adv[i].pos.x;
             tmp.top = red->enem_t->no_moving_adv[i].pos.y;
+            tmp.height *= 2;
+            tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
                     ? touched_enemy(red, i, 'N') : check;
         }
@@ -77,6 +103,7 @@ bool touch_enemy(sfVector2f tears_pos, reduce *red)
             tmp.left = red->enem_t->big_adv[i].pos.x;
             tmp.top = red->enem_t->big_adv[i].pos.y;
             tmp.height *= 2;
+            tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
                     ? touched_enemy(red, i, 'I') : check;
         }

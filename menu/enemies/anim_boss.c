@@ -9,7 +9,7 @@
 
 void draw_boss(boss_t *bst, sfRenderWindow *wd)
 {
-    for (int i = 0; i < 1; ++i)
+    for (int i = 0; i < 2; ++i)
         if (bst[i].pos.x != -1)
             sfRenderWindow_drawSprite(wd, bst[i].sp, NULL);
 }
@@ -30,6 +30,6 @@ static void anim_boss(boss_t *bst, int i)
 
 void anim_boss_loop(enemies_t *enemy)
 {
-    for (int i = 0; i < 1; ++i)
+    for (int i = 0; i < 2; ++i)
         anim_boss(enemy->boss_adv, i);
 }

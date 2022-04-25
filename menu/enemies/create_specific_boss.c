@@ -21,5 +21,5 @@ void create_monstro_diggle(boss_t *boss)
     false,65, 520, (boss_spawning_t) {"rooms/diggle.room", 7500, 0, true}};
     sfSprite_setTexture(boss[DIGGLE].sp, text_diggle, sfTrue);
     sfSprite_setScale(boss[DIGGLE].sp, scale);
-    sfSprite_setTextureRect(boss[DIGGLE].sp, (sfIntRect) {0, 0, 65, 52});
+    sfSprite_setTextureRect(boss[DIGGLE].sp, (sfIntRect) {0, 0, 55, 52});
 }
