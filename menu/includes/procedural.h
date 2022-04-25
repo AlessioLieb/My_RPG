@@ -12,13 +12,16 @@
     #include <unistd.h>
     #include <time.h>
     #include <math.h>
+
 typedef struct {
     int *lvl_rooms;
     int *verge;
     char **floor_rooms;
     int lvl;
 }rooms;
+
 void gen_main(rooms *room);
+
 int entirely_connected(char **map, int x, int y, int len);
 void break_walls(char **map, int x);
 void another_boss_reduce(int *max, int i, int x, char **map);
@@ -37,12 +40,13 @@ int connected_room_fr(char **map, int x, int y, int len);
 int connected_b(char **map, int x, int y, int len);
 void place_boss(char **map, int x);
 int replace_boss(char **map, int x);
+
 int reduce_r_gen(int init_x1, int init_y1, char **map);
 int reduce_l_gen(int init_x1, int init_y1, char **map);
 int reduce_d_gen(int init_x1, int init_y1, char **map);
 int reduce_u_gen(int init_x1, int init_y1, char **map);
+
 void procedural_gen(char **map, int x, rooms *room, int lvl);
-void create_lvl(rooms *room);
 void create_lvl(rooms *room);
 int connected_room(char **map, int maxx, int maxy, int x);
 int place_r_boss(char **map, int x);

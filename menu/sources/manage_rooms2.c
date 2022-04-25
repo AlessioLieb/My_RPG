@@ -67,12 +67,16 @@ void trophy_colisions(options *sprt, room *rm, player *py)
 
 void close_door(rooms *ro, options *sprt, int x, int y)
 {
-    if (ro->floor_rooms[y][x - 1] == ' ' || ro->floor_rooms[y][x - 1] == '?')
+    if (x != 0 && (ro->floor_rooms[y][x - 1] == ' '
+    || ro->floor_rooms[y][x - 1] == '?'))
         sprt->actual_doors[3] = false;
-    if (ro->floor_rooms[y][x + 1] == ' ' || ro->floor_rooms[y][x + 1] == '?')
+    if (x != 9 && (ro->floor_rooms[y][x + 1] == ' '
+    || ro->floor_rooms[y][x + 1] == '?'))
         sprt->actual_doors[1] = false;
-    if (ro->floor_rooms[y - 1][x] == ' ' || ro->floor_rooms[y - 1][x] == '?')
+    if (y != 0 && (ro->floor_rooms[y - 1][x] == ' '
+    || ro->floor_rooms[y - 1][x] == '?'))
         sprt->actual_doors[0] = false;
-    if (ro->floor_rooms[y + 1][x] == ' ' || ro->floor_rooms[y + 1][x] == '?')
+    if (y != 9 && (ro->floor_rooms[y + 1][x] == ' '
+    || ro->floor_rooms[y + 1][x] == '?'))
         sprt->actual_doors[2] = false;
 }
