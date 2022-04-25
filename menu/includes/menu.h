@@ -19,6 +19,7 @@
     #include <stdlib.h>
     #include <stdio.h>
     #include <math.h>
+    #include "stdbool.h"
     #include "../includes/enemies.h"
     #include "procedural.h"
     #define WIDTH 1920

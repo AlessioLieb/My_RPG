@@ -30,9 +30,6 @@ void place_enemies(char *str, enemies_t *enem_t)
         if (str[i] == 'N')
             enem_t->no_moving_adv[search_len_en(enem_t->no_moving_adv)]
             .pos = (sfVector2f){i % 22 * 78 + 140, (i / 22 * 90) + 82};
-        if (str[i] == 'W')
-            enem_t->wall_adv[search_len_en(enem_t->wall_adv)]
-            .pos = (sfVector2f){i % 22 * 78 + 140, (i / 22 * 90) + 82};
     }
 }
 
@@ -53,4 +50,5 @@ void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py, room *rm)
     draw_adv(enem_t->flying_adv, wndw);
     draw_adv(enem_t->little_adv, wndw);
     draw_adv(enem_t->big_adv, wndw);
+    draw_boss(enem_t->boss_adv, wndw);
 }

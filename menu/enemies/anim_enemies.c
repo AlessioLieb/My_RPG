@@ -34,6 +34,7 @@ void anim_enemies(enemies_t *enem_t)
         anim_all(enem_t->big_adv, 440, 64);
         anim_all(enem_t->little_adv, 93, 31);
         anim_all(enem_t->no_moving_adv, 61, 31);
+        anim_boss_loop(enem_t);
         enem_t->ti.timer_total -= 100000;
     }
     enem_t->ti.timer =

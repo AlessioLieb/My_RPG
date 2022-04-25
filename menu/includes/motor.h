@@ -32,6 +32,24 @@ typedef struct {
     unsigned long timer;
 }timer;
 
+typedef struct boss_spawning_s {
+    char *file_spawn;
+    int delay;
+    int actual;
+    bool is_spawning;
+} boss_spawning_t;
+
+typedef struct boss_s {
+    sfSprite *sp;
+    sfVector2f pos;
+    int pv;
+    int speed;
+    bool is_flying;
+    int decal_texture;
+    int max_decal;
+    boss_spawning_t bospt;
+}boss_t;
+
 typedef struct {
     int total_life;
     int red_hearth;
@@ -128,7 +146,7 @@ typedef struct {
     adv_t *big_adv;
     adv_t *flying_adv;
     adv_t *little_adv;
-    adv_t *wall_adv;
+    boss_t *boss_adv;
 }enemies_t;
 
 typedef struct {
@@ -253,6 +271,21 @@ bool touched_enemy(reduce *red, int i, char c);
 
 // touch_enemy.c //7
 bool touch_enemy(sfVector2f tears_pos, reduce *red);
+
+
+//create_boss.c //
+
+boss_t *create_boss(void);
+void place_boss_level(enemies_t *enemy);
+
+//create_specific_boss.c //
+
+void create_monstro_diggle(boss_t *boss);
+
+//anim_boss //
+
+void anim_boss_loop(enemies_t *enemy);
+void draw_boss(boss_t *bst, sfRenderWindow *wd);
 
 //////// collectibles ////////
 

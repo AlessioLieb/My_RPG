@@ -59,6 +59,10 @@ SRC	=	sources/init_base.c						\
 		collectibles/red_hearth.c				\
 		collectibles/blue_hearth.c				\
 		collectibles/base_inventory.c			\
+		enemies/create_specific_boss.c					\
+		enemies/anim_boss.c					\
+		enemies/create_boss.c					\
+
 
 OBJ	=    $(SRC:.c=.o)
 
