@@ -16,7 +16,7 @@ void put_framebuffer(options *sprt)
 void func_flash_frame(window *wndw, options *sprt)
 {
     for (int i = 3; i < WIDTH * HEIGHT * 4; i += 4)
-        (sprt->framebuffer[i] > 1) ? sprt->framebuffer[i] -= 1.5 : 0;
+        (sprt->framebuffer[i] > 1) ? sprt->framebuffer[i] -= 2.5 : 0;
     sfClock_restart(sprt->j);
 }
 
