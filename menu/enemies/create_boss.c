@@ -7,11 +7,13 @@
 
 #include "../includes/motor.h"
 
-void place_boss_level(enemies_t *enemy)
+void place_boss_level(enemies_t *enemy, bool final_boss)
 {
     int choose;
     srand(time(NULL));
-    choose = 1;
+    choose = rand() % (LEN_BOSS - 1) + 1;
+    if (final_boss)
+        choose = 0;
     enemy->boss_adv[choose].pos.x = WIDTH / 2;
     enemy->boss_adv[choose].pos.y = HEIGHT / 2;
 }

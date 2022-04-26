@@ -66,7 +66,7 @@ void move_boss(boss_t *actual, int i, sfVector2f player_pos)
 
 void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py)
 {
-    for (int i = 0; i < 2; ++i)
+    for (int i = 0; i < LEN_BOSS; ++i)
         if (all[i].pos.x != - 1 && all[i].pos.y != - 1) {
             move_boss(all, i, player_pos);
             touch_player_boss(all[i], player_pos, py);

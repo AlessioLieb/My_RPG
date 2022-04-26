@@ -12,7 +12,7 @@ bool touch_boss(reduce *red, sfIntRect tears)
     sfIntRect tmp;
     sfIntRect overlap = {1, 1, 1, 1};
     bool check = true;
-    for (int i = 0; i < 2 /*changer par len boss*/; ++i) {
+    for (int i = 0; i < LEN_BOSS; ++i) {
         if (red->enem_t->boss_adv[i].pos.x != -1) {
             tmp = sfSprite_getTextureRect(red->enem_t->boss_adv[i].sp);
             tmp.left = red->enem_t->boss_adv[i].pos.x;

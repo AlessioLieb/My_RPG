@@ -26,6 +26,7 @@
     #define WIDTH 1920
     #include "../includes/menu.h"
     #include "procedural.h"
+    #define LEN_MAP 219
 
 typedef struct {
     unsigned long timer_total;
@@ -277,7 +278,7 @@ bool touch_enemy(sfVector2f tears_pos, reduce *red);
 //create_boss.c //
 
 boss_t *create_boss(void);
-void place_boss_level(enemies_t *enemy);
+void place_boss_level(enemies_t *enemy, bool final_boss);
 
 //create_specific_boss.c //
 
