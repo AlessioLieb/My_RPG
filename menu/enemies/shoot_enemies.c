@@ -11,10 +11,15 @@ void check_boss(reduce *red, int i, char c)
 {
     if (c == 'E') {
         red->enem_t->boss_adv[i].pv--;
-        if (red->enem_t->boss_adv[i].pv <= 0) {
+        if (red->enem_t->boss_adv[i].pv <= 0 && (i != 0 || red->enem_t->boss_adv[i].bospt.delay == 0)) {
             red->enem_t->boss_adv[i].pos = (sfVector2f){-1, -1};
             red->enem_t->boss_adv[i].pv = 1;
             red->enem_t->boss_life.active = -1;
+        } else if (red->enem_t->boss_adv[i].pv <= 0) {
+            red->enem_t->boss_adv[i].pv = 100;
+            red->enem_t->boss_adv[i].bospt.delay = 0;
+            sfSprite_setTextureRect(red->enem_t->boss_adv[i].sp, (sfIntRect) {0, 158, 271, 156});
+            place_boss_level(red->enem_t, false);
         }
     }
 }

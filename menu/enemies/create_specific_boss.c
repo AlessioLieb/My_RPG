@@ -7,15 +7,45 @@
 
 #include "../includes/motor.h"
 
-static void create_greed(boss_t *boss)
+static void create_last_boss(boss_t *boss)
+{
+    sfTexture *text_duke = sfTexture_createFromFile("../Sprites/bosses/duke.png", NULL);
+    sfTexture *text_satan = sfTexture_createFromFile("../Sprites/bosses/satan.png", NULL);
+    sfVector2f scale = {3, 3};
+    boss[DUKE] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 40, 6,
+    false,77, 307, (boss_spawning_t) {"rooms/husk.room", 3000, 0, true}, 40};
+    sfSprite_setTexture(boss[DUKE].sp, text_duke, sfTrue);
+    sfSprite_setScale(boss[DUKE].sp, scale);
+    sfSprite_setTextureRect(boss[DUKE].sp, (sfIntRect) {0, 0, 77, 64});
+    boss[SATAN] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 100, 10,
+    false,271, 812, (boss_spawning_t) {"", 666, 0, false}, 100};
+    sfSprite_setTexture(boss[SATAN].sp, text_satan, sfTrue);
+    sfSprite_setScale(boss[SATAN].sp, scale);
+    sfSprite_setTextureRect(boss[SATAN].sp, (sfIntRect) {0, 0, 271, 156});
+}
+
+static void create_greed_dark_husk(boss_t *boss)
 {
     sfTexture *text_greed = sfTexture_createFromFile("../Sprites/bosses/greed.png", NULL);
+    sfTexture *text_dark = sfTexture_createFromFile("../Sprites/bosses/dark_one.png", NULL);
+    sfTexture *text_husk = sfTexture_createFromFile("../Sprites/bosses/husk.png", NULL);
     sfVector2f scale = {3, 3};
     boss[GREED] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 15, 15,
     false,30, 89, (boss_spawning_t) {"", 10000, 0, false}, 15};
     sfSprite_setTexture(boss[GREED].sp, text_greed, sfTrue);
     sfSprite_setScale(boss[GREED].sp, scale);
     sfSprite_setTextureRect(boss[GREED].sp, (sfIntRect) {0, 0, 30, 32});
+    boss[DARK_ONE] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 30, 12,
+    false,78, 419, (boss_spawning_t) {"", 10000, 0, false}, 30};
+    sfSprite_setTexture(boss[DARK_ONE].sp, text_dark, sfTrue);
+    sfSprite_setScale(boss[DARK_ONE].sp, scale);
+    sfSprite_setTextureRect(boss[DARK_ONE].sp, (sfIntRect) {0, 0, 78, 69});
+    boss[HUSK] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 50, 6,
+    false,77, 307, (boss_spawning_t) {"rooms/husk.room", 5000, 0, true}, 50};
+    sfSprite_setTexture(boss[HUSK].sp, text_husk, sfTrue);
+    sfSprite_setScale(boss[HUSK].sp, scale);
+    sfSprite_setTextureRect(boss[HUSK].sp, (sfIntRect) {0, 0, 77, 64});
+    create_last_boss(boss);
 }
 
 static void create_pit_loki_chub(boss_t *boss)
@@ -39,7 +69,7 @@ static void create_pit_loki_chub(boss_t *boss)
     sfSprite_setTexture(boss[CHUB].sp, text_chub, sfTrue);
     sfSprite_setScale(boss[CHUB].sp, scale);
     sfSprite_setTextureRect(boss[CHUB].sp, (sfIntRect) {0, 0, 65, 65});
-    create_greed(boss);
+    create_greed_dark_husk(boss);
 }
 
 void create_monstro_diggle(boss_t *boss)

@@ -17,6 +17,7 @@ enum {
 };
 
 enum {
+    SATAN,
     MONSTRO,
     DIGGLE,
     GRUDY,
@@ -24,6 +25,9 @@ enum {
     LOKI,
     CHUB,
     GREED,
+    DARK_ONE,
+    HUSK,
+    DUKE,
     LEN_BOSS
 };
 
