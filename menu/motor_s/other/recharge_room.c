@@ -38,7 +38,7 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
     if (red->rm->change_room) {
         actual_map = is_empty || is_boss ? "rooms/empty.room" : search_map();
         buff = create_map_str(actual_map);
-        !is_empty && is_boss ? free(actual_map) : 0;
+        !is_empty && !is_boss ? free(actual_map) : 0;
         place_enemies(buff, red->enem_t);
         place_stone(red->rm, red->py, buff);
         place_bonus(red->rm);

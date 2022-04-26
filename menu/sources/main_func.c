@@ -66,21 +66,13 @@ void enemies_verification(enemies_t *enem_t, room *rm)
 
 int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
 {
-    char *buff = malloc(1000);
-    int file = open("rooms/1.room", O_RDONLY);
-    int size = read(file, buff, 1000);
-    buff[size] = '\0';
     player *py = creation_player();
-    room *rm = create_room(buff);
+    room *rm = create_room();
     init_rm_sprt(rm, sprt);
     sfEvent event;
     tears *te = create_tears(py);
     enemies_t *enem_t = create_enemies();
-    place_enemies(buff, enem_t);
-    place_stone(rm, py, buff);
     init_all(wndw, sprt, perso);
-    place_bonus(rm);
-    place_boss_level(enem_t, true);
     while (sfRenderWindow_isOpen(wndw->window)) {
         event_window(wndw, sprt, &(reduce) {py, rm, te, enem_t});
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;

@@ -88,8 +88,8 @@ void create_monstro_diggle(boss_t *boss)
     sfSprite_setTexture(boss[DIGGLE].sp, text_diggle, sfTrue);
     sfSprite_setScale(boss[DIGGLE].sp, scale);
     sfSprite_setTextureRect(boss[DIGGLE].sp, (sfIntRect) {0, 0, 55, 52});
-    boss[GRUDY] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},200, 0,
-    false,138, 551, (boss_spawning_t) {"rooms/grudy.room", 15000, 0, true}, 200};
+    boss[GRUDY] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},50, 0,
+    false,138, 551, (boss_spawning_t) {"rooms/grudy.room", 15000, 0, true}, 50};
     sfSprite_setTexture(boss[GRUDY].sp, text_grudy, sfTrue);
     sfSprite_setScale(boss[GRUDY].sp, scale);
     sfSprite_setTextureRect(boss[GRUDY].sp, (sfIntRect) {0, 0, 135, 118});
