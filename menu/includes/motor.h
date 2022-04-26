@@ -49,6 +49,7 @@ typedef struct boss_s {
     int decal_texture;
     int max_decal;
     boss_spawning_t bospt;
+    int total_life;
 }boss_t;
 
 typedef struct {

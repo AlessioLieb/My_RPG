@@ -14,6 +14,7 @@ void check_boss(reduce *red, int i, char c)
         if (red->enem_t->boss_adv[i].pv <= 0) {
             red->enem_t->boss_adv[i].pos = (sfVector2f){-1, -1};
             red->enem_t->boss_adv[i].pv = 1;
+            red->enem_t->boss_life.active = -1;
         }
     }
 }

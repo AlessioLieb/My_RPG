@@ -7,7 +7,7 @@
 
 #include "../includes/motor.h"
 
-void draw_rectangle_framebuffer(sfVector2f pos, sfVector2f size, sfUint8 *framebuffer, sfColor color)
+void draw_rectangle_framebuffer(sfVector2f pos, sfVector2i size, sfUint8 *framebuffer, sfColor color)
 {
     for (int y = pos.y; y < pos.y + size.y; ++y)
         for (int x = pos.x; x < pos.x + size.x; ++x)
@@ -29,9 +29,15 @@ boss_life_t create_boss_bar(void)
 
 void display_boss_life(enemies_t *enemy, int i, sfRenderWindow *wd)
 {
-    draw_rectangle_framebuffer((sfVector2f){0, 0}, (sfVector2f){WIDTH, HEIGHT},
+    sfVector2i length_bar;
+    float cast_pv = enemy->boss_adv[i].pv;
+    float cast_total_life = enemy->boss_adv[i].total_life;
+    float x = (cast_pv / cast_total_life);
+    length_bar.y = 50;
+    length_bar.x = x * 500;
+    draw_rectangle_framebuffer((sfVector2f){0, 0}, (sfVector2i) {WIDTH, HEIGHT},
     enemy->boss_life.framebuffer, sfTransparent);
-    draw_rectangle_framebuffer((sfVector2f){500, 100}, (sfVector2f){enemy->boss_adv[i].pv * 3, 50},
+    draw_rectangle_framebuffer((sfVector2f){750, 150}, length_bar,
     enemy->boss_life.framebuffer, sfRed);
     sfTexture_updateFromPixels(enemy->boss_life.text_framebuffer,
     enemy->boss_life.framebuffer, WIDTH, HEIGHT, 0, 0);
