@@ -27,6 +27,7 @@
     #include "../includes/menu.h"
     #include "procedural.h"
     #define LEN_MAP 219
+    #define NB_MAPS 18
 
 typedef struct {
     unsigned long timer_total;
@@ -129,6 +130,7 @@ typedef struct {
     collectible *red_hearth;
     collectible *blue_hearth;
     collectible *piece;
+    bool change_room;
 }room;
 
 typedef struct {
@@ -213,7 +215,7 @@ void key_action_pressed(sfEvent event, reduce *red);
 // move2.c //
 void move_player_check(reduce *red);
 void move_event(sfEvent event, reduce *red);
-room *create_room(char *str);
+room *create_room(void);
 
 //// other ////
 
@@ -238,6 +240,9 @@ stone *create_stone(char *str);
 void place_stone(room *rm, player *py, char *str);
 void draw_stone(room *rm, sfRenderWindow *wd);
 bool collision_stone(room *rm, player *py, int x, int y);
+
+//recharge_room.c //
+void recharge_room(reduce *red, bool is_empty, bool is_boss);
 
 //// tears ////
 
@@ -298,6 +303,7 @@ void create_monstro_diggle(boss_t *boss);
 
 void anim_boss_loop(enemies_t *enemy);
 void draw_boss(boss_t *bst, sfRenderWindow *wd);
+char *create_map_str(char *to_read);
 
 //boss_bar.c//
 void display_boss_life(enemies_t *enemy, int i, sfRenderWindow *wd);

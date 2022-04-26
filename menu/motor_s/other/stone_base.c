@@ -38,6 +38,7 @@ stone *create_stone(char *str)
 void place_stone(room *rm, player *py, char *str)
 {
     int count = 0;
+    rm->st = create_stone(str);
     sfImage *f_stone = sfImage_createFromFile("assets/collisions/stone1.png");
     sfImage *s_stone = sfImage_createFromFile("assets/collisions/stone2.png");
     sfImage *t_stone = sfImage_createFromFile("assets/collisions/stone3.png");

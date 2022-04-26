@@ -64,7 +64,7 @@ void reduce_init_room(room *rm, sfTexture *txt)
     sfSprite_setScale(rm->fl, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
 }
 
-room *create_room(char *str)
+room *create_room(void)
 {
     room *rm = malloc(sizeof(room));
     sfTexture *txt = sfTexture_createFromFile("assets/allrooms.png", NULL);
@@ -72,9 +72,10 @@ room *create_room(char *str)
     sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
     reduce_init_room(rm, txt);
     rm->len_stone = 15;
-    rm->st = create_stone(str);
+    rm->st = NULL;
     rm->red_hearth = create_red_hearth(text);
     rm->blue_hearth = create_blue_hearth(text);
     rm->piece = create_piece(text);
+    rm->change_room = true;
     return rm;
 }

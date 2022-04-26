@@ -64,6 +64,7 @@ SRC	=	sources/init_base.c						\
 		enemies/anim_boss.c					\
 		enemies/create_boss.c					\
 		enemies/boss_bar.c					\
+		motor_s/other/recharge_room.c			\
 
 
 OBJ	=    $(SRC:.c=.o)
