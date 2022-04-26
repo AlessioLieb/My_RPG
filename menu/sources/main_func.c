@@ -66,14 +66,21 @@ void enemies_verification(enemies_t *enem_t, room *rm)
 
 int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
 {
+    char *buff = malloc(1000);
+    int file = open("rooms/1.room", O_RDONLY);
+    int size = read(file, buff, 1000);
+    buff[size] = '\0';
     player *py = creation_player();
-    room *rm = create_room();
+    room *rm = create_room(buff);
     init_rm_sprt(rm, sprt);
     sfEvent event;
     tears *te = create_tears(py);
     enemies_t *enem_t = create_enemies();
+    place_enemies(buff, enem_t);
+    place_stone(rm, py, buff);
     init_all(wndw, sprt, perso);
-    recharge_room(&(reduce) {py, rm, te, enem_t, ro}, false, false);
+    place_bonus(rm);
+    // place_boss_level(enem_t, true);
     while (sfRenderWindow_isOpen(wndw->window)) {
         event_window(wndw, sprt, &(reduce) {py, rm, te, enem_t});
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;
@@ -83,13 +90,14 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         enemies_verification(enem_t, rm);
         (sprt->begin == 3) ? doors_colisions(sprt, rm, py) : 0;
-        (sprt->begin == 3)
+        (sprt->begin == 3 || sprt->begin == 6)
         ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro}, sprt) : 0;
+        (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         sfRenderWindow_display(wndw->window);
         sfRenderWindow_clear(wndw->window, sfBlack);
         sprt->plus_lvl == true ? floor_pass(ro, &(reduce)
-        {py, rm, te, enem_t, ro}, sprt) : 0;
+        {py, rm, te, enem_t, ro}, sprt, wndw) : 0;
     }
     end_buffer(sprt);
 }

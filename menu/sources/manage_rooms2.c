@@ -7,8 +7,11 @@
 
 #include "../includes/motor.h"
 
-void floor_pass(rooms *ro, reduce *red, options *sprt)
+void floor_pass(rooms *ro, reduce *red, options *sprt, window *wndw)
 {
+    wndw->radius = 1100;
+    sprt->begin = 6;
+    sprt->anim = 2;
     ++ro->lvl;
     gen_main(ro);
     red->rm->actual_room[0] = 4;
