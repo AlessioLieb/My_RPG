@@ -139,6 +139,14 @@ typedef struct {
     int speed;
 }adv_t;
 
+typedef struct boss_life_s {
+    sfSprite *end_start;
+    sfSprite *life_bar;
+    sfUint8 *framebuffer;
+    sfTexture *text_framebuffer;
+    int active;
+}boss_life_t;
+
 typedef struct {
     timer ti;
     timer move_ti;
@@ -148,6 +156,7 @@ typedef struct {
     adv_t *flying_adv;
     adv_t *little_adv;
     boss_t *boss_adv;
+    boss_life_t boss_life;
 }enemies_t;
 
 typedef struct {
@@ -288,6 +297,11 @@ void create_monstro_diggle(boss_t *boss);
 
 void anim_boss_loop(enemies_t *enemy);
 void draw_boss(boss_t *bst, sfRenderWindow *wd);
+
+//boss_bar.c//
+void display_boss_life(enemies_t *enemy, int i, sfRenderWindow *wd);
+boss_life_t create_boss_bar(void);
+
 
 //////// collectibles ////////
 

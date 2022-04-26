@@ -62,6 +62,7 @@ SRC	=	sources/init_base.c						\
 		enemies/create_specific_boss.c					\
 		enemies/anim_boss.c					\
 		enemies/create_boss.c					\
+		enemies/boss_bar.c					\
 
 
 OBJ	=    $(SRC:.c=.o)

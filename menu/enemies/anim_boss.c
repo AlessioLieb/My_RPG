@@ -37,6 +37,7 @@ static void anim_boss(boss_t *bst, int i, enemies_t *enemy)
             place.left += bst[i].decal_texture;
         sfSprite_setTextureRect(bst[i].sp, place);
         sfSprite_setPosition(bst[i].sp, bst[i].pos);
+        enemy->boss_life.active = i;
         if (bst[i].bospt.is_spawning && bst[i].bospt.actual == 0) {
             map = create_map_str(bst[i].bospt.file_spawn);
             place_enemies(map, enemy);

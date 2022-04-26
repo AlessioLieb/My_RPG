@@ -24,6 +24,5 @@ boss_t *create_boss(void)
     if (boss == NULL)
         return NULL;
     create_monstro_diggle(boss);
-    //boss[LEN_BOSS] = NULL;
     return boss;
 }

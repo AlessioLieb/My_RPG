@@ -109,5 +109,6 @@ enemies_t *create_enemies(void)
     enem_t->move_ti.timer = 0;
     enem_t->total_clock = sfClock_create();
     enem_t->boss_adv = create_boss();
+    enem_t->boss_life = create_boss_bar();
     return enem_t;
 }
