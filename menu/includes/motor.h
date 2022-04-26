@@ -322,7 +322,7 @@ void place_bonus(room *rm);
 collectible *create_red_hearth(sfTexture *text);
 void got_hearth(room *rm, int i, player *py);
 
-
+void reduce_draw_tb(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
 void close_door(rooms *ro, options *sprt, int x, int y);
 void trophy_colisions(options *sprt, room *rm, player *py);
 void trap_colisions(options *sprt, room *ry, player *py);

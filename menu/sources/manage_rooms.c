@@ -64,6 +64,7 @@ void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt)
     && ro->floor_rooms[y + 1][x] != '?' && rm->open == true)
         draw_doors_boto(ro->lvl, sprt, wd, ro->floor_rooms[y + 1][x]);
     reduce_draw_doors(rm, ro, wd, sprt);
+    reduce_draw_tb(rm, ro, wd, sprt);
     close_door(ro, sprt, x, y);
     reduce_draw_traps(rm, ro, wd, sprt);
 }
