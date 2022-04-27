@@ -33,6 +33,7 @@ SRC	=	sources/init_base.c						\
 		motor_s/moves/move.c					\
 		motor_s/moves/move2.c					\
 		motor_s/moves/basic_move.c				\
+		motor_s/moves/reduce_basic_move.c		\
 		motor_s/other/stone_base.c				\
 		motor_s/other/reduce.c					\
 		motor_s/other/int_str.c					\
