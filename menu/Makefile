@@ -56,6 +56,7 @@ SRC	=	sources/init_base.c						\
 		enemies/player_enemies.c				\
 		enemies/shoot_enemies.c					\
 		enemies/touch_enemy.c					\
+		enemies/mov_enemies2.c					\
 		collectibles/collectible_create.c		\
 		collectibles/red_hearth.c				\
 		collectibles/blue_hearth.c				\
