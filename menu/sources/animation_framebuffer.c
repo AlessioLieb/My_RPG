@@ -6,6 +6,7 @@
 */
 
 #include "../includes/menu.h"
+#include "../includes/music.h"
 
 void put_framebuffer(options *sprt)
 {

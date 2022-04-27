@@ -5,14 +5,15 @@
 ** manage_rooms2.c
 */
 
-#include "../includes/motor.h"
+//#include "../includes/motor.h"
+#include "../includes/music.h"
 
-void floor_pass(rooms *ro, reduce *red, options *sprt, window *wndw)
+void floor_pass(rooms *ro, reduce *red, options *sprt, music *mu)
 {
-    wndw->radius = 1100;
     sprt->begin = 6;
     sprt->anim = 2;
     ++ro->lvl;
+    ++mu->id_m;
     gen_main(ro);
     red->rm->actual_room[0] = 4;
     red->rm->actual_room[1] = 4;
