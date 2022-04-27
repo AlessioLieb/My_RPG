@@ -29,6 +29,31 @@
     #define LEN_MAP 219
     #define NB_MAPS 18
 
+enum {
+    NB_ALL_STATS = 6,
+    NB_BOMBS = 3,
+    NB_DMG = 26,
+    NB_FLY_I = 2,
+    NB_HEALTH = 19,
+    NB_KEYS = 4,
+    NB_MONEY = 4,
+    NB_SPEED = 9,
+    NB_TEARS = 9,
+    LEN_FOLDERS = 9
+};
+
+enum {
+    ALL_STATS,
+    BOMBS,
+    DMG,
+    FLY_I,
+    HEALTH,
+    KEYS,
+    MONEY,
+    SPEED,
+    TEARS,
+};
+
 typedef struct {
     unsigned long timer_total;
     unsigned long timer;
@@ -336,7 +361,12 @@ void launch_item(player *py, room *rm);
 //item_fonctions.c//
 int item_life_augmentation(player *py);
 int item_speed(player *py);
-
+int bombs_up(player *py);
+int fly_player(player *py);
+int item_damage(player *py);
+int keys_up(player *py);
+int money_up(player *py);
+int item_speed_tears(player *py);
 	
 
 ///////////// minimap ////////////
