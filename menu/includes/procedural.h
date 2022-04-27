@@ -12,6 +12,7 @@
     #include <unistd.h>
     #include <time.h>
     #include <math.h>
+    #include <stdbool.h>
 
 typedef struct {
     int *lvl_rooms;
@@ -19,6 +20,7 @@ typedef struct {
     char **floor_rooms;
     int lvl;
     char **mini_map;
+    bool init;
 }rooms;
 
 void gen_main(rooms *room);
