@@ -69,6 +69,7 @@ SRC	=	sources/init_base.c						\
 		mini_map/reduce_mini_map.c	\
 		collectibles/item.c			\
 		collectibles/item_fonctions.c			\
+		music/room_music.c
 
 
 OBJ	=    $(SRC:.c=.o)
