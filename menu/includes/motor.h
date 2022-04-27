@@ -130,6 +130,7 @@ typedef struct {
     collectible *red_hearth;
     collectible *blue_hearth;
     collectible *piece;
+    collectible *item;
     bool change_room;
 }room;
 
@@ -328,7 +329,13 @@ void place_bonus(room *rm);
 collectible *create_red_hearth(sfTexture *text);
 void got_hearth(room *rm, int i, player *py);
 
+//item.c//
+void place_item(room *rm);
+void launch_item(player *py, room *rm);
 
+//item_fonctions.c//
+int item_life_augmentation(player *py);
+int item_speed(player *py);
 
 	
 

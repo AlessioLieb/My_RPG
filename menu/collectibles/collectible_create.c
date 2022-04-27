@@ -30,6 +30,11 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py)
             &player, &overlap)) ? launch_piece(py, rm, i) : 0;
             sfRenderWindow_drawSprite(wd, rm->piece[i].sp, NULL);
         }
+    if (rm->item != NULL) {
+        sfRenderWindow_drawSprite(wd, rm->item->sp, NULL);
+        (sfIntRect_intersects(&rm->item->pos_collision,
+        &player, &overlap)) ? launch_item(py, rm) : 0;
+    }
 }
 
 void place_bonus(room *rm)

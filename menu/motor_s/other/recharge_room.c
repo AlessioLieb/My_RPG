@@ -44,6 +44,7 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
         // place_enemies(buff, red->enem_t);
         place_stone(red->rm, red->py, buff);
         place_bonus(red->rm);
+        place_item(red->rm);
         is_boss ? place_boss_level(red->enem_t, false) : 0;
         free(buff);
         red->rm->change_room = false;

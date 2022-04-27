@@ -53,6 +53,7 @@ void reduce_init_room(room *rm, sfTexture *txt)
     rm->fo = sfSprite_create();
     rm->ft = sfSprite_create();
     rm->fl = sfSprite_create();
+    rm->item = NULL;
     sfSprite_setTexture(rm->fo, txt, sfTrue);
     sfSprite_setTexture(rm->ft, txt, sfTrue);
     sfSprite_setTexture(rm->fl, txt, sfTrue);
