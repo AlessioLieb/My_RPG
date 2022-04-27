@@ -41,6 +41,8 @@ void display_framebuffer(window *wndw, options *sprt)
     sfSprite_setTexture(sprt->frame_sprt, sprt->frame_txt, sfTrue);
     sfRenderWindow_drawSprite(wndw->window, sprt->frame_sprt, NULL);
     (sprt->anim != 1) ? restore_framebuffer(sprt) : 0;
+    if (sprt->framebuffer[3] == 0 && sprt->begin == 6)
+        sprt->begin = 3;
 }
 
 void end_buffer(options *sprt)

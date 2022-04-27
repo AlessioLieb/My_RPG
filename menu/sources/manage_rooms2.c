@@ -10,8 +10,9 @@
 
 void floor_pass(rooms *ro, reduce *red, options *sprt, music *mu)
 {
+    put_framebuffer(sprt);
     sprt->begin = 6;
-    sprt->anim = 2;
+    sprt->anim = 1;
     ++ro->lvl;
     ++mu->id_m;
     gen_main(ro);
