@@ -86,10 +86,13 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro}, sprt) : 0;
         (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
+        (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
         sfRenderWindow_display(wndw->window);
         sfRenderWindow_clear(wndw->window, sfBlack);
         sprt->plus_lvl == true ? floor_pass(ro, &(reduce)
         {py, rm, te, enem_t, ro}, sprt, wndw) : 0;
+        for (int i = 0; i != 10; ++i)
+            printf("%s\n", ro->mini_map[i]);
     }
     end_buffer(sprt);
 }

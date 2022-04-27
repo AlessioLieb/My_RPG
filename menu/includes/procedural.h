@@ -18,6 +18,7 @@ typedef struct {
     int *verge;
     char **floor_rooms;
     int lvl;
+    char **mini_map;
 }rooms;
 
 void gen_main(rooms *room);

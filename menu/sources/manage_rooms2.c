@@ -17,6 +17,7 @@ void floor_pass(rooms *ro, reduce *red, options *sprt, window *wndw)
     red->rm->actual_room[0] = 4;
     red->rm->actual_room[1] = 4;
     sprt->plus_lvl = false;
+    clear_mini_map(ro);
 }
 
 void player_room(sfRenderWindow *wd, reduce *red, options *sprt)

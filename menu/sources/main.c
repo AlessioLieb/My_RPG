@@ -5,7 +5,7 @@
 ** main.c
 */
 
-#include "../includes/menu.h"
+#include "../includes/motor.h"
 
 int call_main_func(char *str)
 {
@@ -13,10 +13,10 @@ int call_main_func(char *str)
     options *sprt = malloc(sizeof(options));
     players *perso = malloc(sizeof(players));
     sprt->actual_doors = malloc(sizeof(bool) * 6);
-    rooms room = {0, 0, NULL, 0};
+    rooms room = {0, 0, NULL, 0, NULL};
     gen_main(&room);
-    for (int i = 0; i != 10; ++i)
-        printf("%s\n", room.floor_rooms[i]);
+    init_mini_map(&room);
+    clear_mini_map(&room);
     main_func(wndw, sprt, perso, &room);
 }
 

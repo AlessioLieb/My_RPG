@@ -328,6 +328,19 @@ void place_bonus(room *rm);
 collectible *create_red_hearth(sfTexture *text);
 void got_hearth(room *rm, int i, player *py);
 
+
+
+	
+
+///////////// minimap ////////////
+
+void update_mini_map(rooms *ro, room *rm);
+void clear_mini_map(rooms *ro);
+void init_mini_map(rooms *ro);
+void reduce_shop_minimap(rooms *ro, room *rm);
+void reduce_boss_minimap(rooms *ro, room *rm);
+void reduce_treasure_minimap(rooms *ro, room *rm); 
+
 void reduce_draw_tb(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
 void close_door(rooms *ro, options *sprt, int x, int y);
 void trophy_colisions(options *sprt, room *rm, player *py);
