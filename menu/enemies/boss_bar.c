@@ -7,7 +7,8 @@
 
 #include "../includes/motor.h"
 
-void draw_rectangle_framebuffer(sfVector2f pos, sfVector2i size, sfUint8 *framebuffer, sfColor color)
+void draw_rectangle_framebuffer(sfVector2f pos, sfVector2i size,
+sfUint8 *framebuffer, sfColor color)
 {
     for (int y = pos.y; y < pos.y + size.y; ++y)
         for (int x = pos.x; x < pos.x + size.x; ++x)

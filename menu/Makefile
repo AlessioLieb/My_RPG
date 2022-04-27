@@ -38,9 +38,9 @@ SRC	=	sources/init_base.c						\
 		motor_s/other/reduce.c					\
 		motor_s/other/int_str.c					\
 		motor_s/other/life_gestion.c			\
-		motor_s/tears/tears_shooting.c				\
-		motor_s/tears/tears_state.c					\
-		motor_s/tears/check_tears_collision.c			\
+		motor_s/tears/tears_shooting.c			\
+		motor_s/tears/tears_state.c				\
+		motor_s/tears/check_tears_collision.c	\
 		enemies/create_enemies.c				\
 		enemies/enemies_room.c					\
 		enemies/anim_enemies.c					\
@@ -58,21 +58,22 @@ SRC	=	sources/init_base.c						\
 		enemies/shoot_enemies.c					\
 		enemies/touch_enemy.c					\
 		enemies/mov_enemies2.c					\
+		enemies/init_specific_boss.c			\
 		collectibles/collectible_create.c		\
 		collectibles/red_hearth.c				\
 		collectibles/blue_hearth.c				\
 		collectibles/base_inventory.c			\
-		enemies/create_specific_boss.c					\
-		enemies/anim_boss.c					\
+		enemies/create_specific_boss.c			\
+		enemies/anim_boss.c						\
 		enemies/create_boss.c					\
-		enemies/boss_bar.c					\
+		enemies/boss_bar.c						\
 		motor_s/other/recharge_room.c			\
 		mini_map/mini_map.c						\
-		mini_map/reduce_mini_map.c	\
-		collectibles/item.c			\
+		mini_map/reduce_mini_map.c				\
+		collectibles/item.c						\
 		collectibles/item_fonctions.c			\
-		collectibles/reduce_item_fonctions.c			\
-		collectibles/all_stat.c			\
+		collectibles/reduce_item_fonctions.c	\
+		collectibles/all_stat.c					\
 		music/room_music.c
 
 

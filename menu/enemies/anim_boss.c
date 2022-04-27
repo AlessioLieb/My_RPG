@@ -18,8 +18,10 @@ char *create_map_str(char *to_read)
 {
     int file = open(to_read, O_RDONLY);
     char *buff = malloc(sizeof(char) * LEN_MAP + 1);
-    if (file == -1) return NULL;
-    if (read(file, buff, LEN_MAP) == -1) return NULL;
+    if (file == -1)
+        return NULL;
+    if (read(file, buff, LEN_MAP) == -1)
+        return NULL;
     close(file);
     buff[LEN_MAP] = '\0';
     return buff;
