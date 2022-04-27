@@ -35,6 +35,7 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
 {
     char *actual_map;
     char *buff;
+    is_boss = true;
     if (red->rm->change_room) {
         actual_map = is_empty || is_boss ? "rooms/empty.room" : search_map();
         buff = create_map_str(actual_map);
