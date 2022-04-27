@@ -7,11 +7,11 @@
 
 #include "../../includes/motor.h"
 
-void disp_tears(reduce *red, sfRenderWindow *wd)
+void clear_tears(reduce *red)
 {
     int i = 0;
-    while (red->te[i].move != false) {
-        sfRenderWindow_drawSprite(wd, red->te[i].t_sp, NULL);
+    while (i < 100) {
+        red->te[i].is_shot = false;
         ++i;
     }
 }

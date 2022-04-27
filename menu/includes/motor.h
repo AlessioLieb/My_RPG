@@ -281,7 +281,7 @@ void move_tears(int id, reduce *red, sfRenderWindow *wd);
 tears *init_st_array(tears *te, sfIntRect r, player *py);
 
 // tears_state.c //
-void disp_tears(reduce *red, sfRenderWindow *wd);
+void clear_tears(reduce *red);
 int verif_moving(reduce *red, int nb_tears);
 
 
