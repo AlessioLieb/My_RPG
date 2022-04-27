@@ -76,6 +76,8 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
     music *mu = create_music();
     init_all(wndw, sprt, perso);
     while (sfRenderWindow_isOpen(wndw->window)) {
+        sprt->plus_lvl == true ? floor_pass(ro, &(reduce)
+        {py, rm, te, enem_t, ro}, sprt, mu) : 0;
         event_window(wndw, sprt, &(reduce) {py, rm, te, enem_t});
         music_launcher(&(reduce) {py, rm, te, enem_t, ro}, mu->id_m,
         sprt->begin, mu);
@@ -94,10 +96,6 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
         sfRenderWindow_display(wndw->window);
         sfRenderWindow_clear(wndw->window, sfBlack);
-        sprt->plus_lvl == true ? floor_pass(ro, &(reduce)
-        {py, rm, te, enem_t, ro}, sprt, mu) : 0;
-        for (int i = 0; i != 10; ++i)
-            printf("%s\n", ro->mini_map[i]);
     }
     end_buffer(sprt);
 }

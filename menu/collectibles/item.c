@@ -52,7 +52,6 @@ static char *item_selected(char *path, int nb)
     for (; extension[e] != '\0'; ++e)
         new_str[i + j + e] = extension[e];
     new_str[i + j + e] = '\0';
-    printf("%s\n", new_str);
     return new_str;
 }
 

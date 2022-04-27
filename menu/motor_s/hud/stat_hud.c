@@ -90,7 +90,6 @@ void disp_damages(reduce *red, sfRenderWindow *wd)
     sfSprite_setScale(da, (sfVector2f) {3, 3});
     sfSprite_setPosition(da, (sfVector2f) {74, 875});
     char *dam = str_concat(" ", my_int_str(red->py->st.damages));
-    printf("%d\n", red->py->st.damages);
     sfText_setFont(dmg, font);
     sfText_setString(dmg, dam);
     sfText_setPosition(dmg, (sfVector2f) {115, 875});
