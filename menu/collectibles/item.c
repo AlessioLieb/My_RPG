@@ -59,7 +59,8 @@ static char *item_selected(char *path, int nb)
 static char *select_item(int choose)
 {
     if (choose == ALL_STATS)
-        return item_selected("../Sprites/Items/all_stats_up/", rand() % NB_ALL_STATS);
+        return item_selected("../Sprites/Items/all_stats_up/",
+        rand() % NB_ALL_STATS);
     if (choose == BOMBS)
         return item_selected("../Sprites/Items/bombs_up/", rand() % NB_BOMBS);
     if (choose == DMG)

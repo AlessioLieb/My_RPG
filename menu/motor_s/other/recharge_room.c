@@ -35,14 +35,14 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
 {
     char *actual_map;
     char *buff;
-    //is_boss = true;
+    is_boss = true;
     is_empty = true;
     if (red->rm->change_room) {
         clear_tears(red);
         actual_map = is_empty || is_boss ? "rooms/empty.room" : search_map();
         buff = create_map_str(actual_map);
         !is_empty && !is_boss ? free(actual_map) : 0;
-        // place_enemies(buff, red->enem_t);
+        place_enemies(buff, red->enem_t);
         place_stone(red->rm, red->py, buff);
         place_bonus(red->rm);
         place_item(red->rm);
