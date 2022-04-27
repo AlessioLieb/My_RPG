@@ -371,7 +371,6 @@ int item_damage(player *py);
 int keys_up(player *py);
 int money_up(player *py);
 int item_speed_tears(player *py);
-	
 
 ///////////// minimap ////////////
 
@@ -403,5 +402,12 @@ int event_window(window *wndw, options *sprt, reduce *red);
 void player_room(sfRenderWindow *wd, reduce *red, options *sprt);
 void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
 
+int check_move_right(player *py, room *rm);
+int check_move_left(player *py, room *rm);
+int check_move_down(player *py, room *rm);
+int check_move_up(player *py, room *rm);
+
+void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm, player *py);
+void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py);
 
 #endif

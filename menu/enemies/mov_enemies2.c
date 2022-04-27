@@ -7,7 +7,6 @@
 
 #include "../includes/motor.h"
 
-
 void move_enemies(enemies_t *enem_t, player *py, room *rm)
 {
     sfVector2f p_pos = sfSprite_getPosition(py->sp);
