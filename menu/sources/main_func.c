@@ -35,6 +35,7 @@ int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
     nb_bomb_hud(red->py->invent.bomb, wndw->window);
     nb_key_hud(red->py->invent.key, wndw->window);
     disp_stat_hud(red, wndw->window);
+    draw_npc(wndw, sprt, red->rm);
     nb_time_hud(sfClock_getElapsedTime(red->py->time).microseconds / 1000000,
     wndw->window);
     return 0;

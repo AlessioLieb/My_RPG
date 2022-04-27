@@ -20,6 +20,7 @@ void params_window(window *wndw, options *sprt, players *perso)
     sprt->doors = sfTexture_createFromFile("../Sprites/allroomobjects.png",
     NULL);
     sprt->pickups = sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
+    sprt->text_npc = sfTexture_createFromFile("ressources/npc_froom.png", NULL);
     wndw->window = sfRenderWindow_create(mode, "niktameralessio", sfResize
     | sfClose | sfFullscreen, NULL);
 }

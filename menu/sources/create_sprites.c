@@ -63,4 +63,5 @@ void init_sprites(window *wndw, options *sprt)
     init_trap(wndw, sprt);
     init_trophy(wndw, sprt);
     init_win(wndw, sprt);
+    init_npc(wndw, sprt);
 }

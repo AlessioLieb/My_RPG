@@ -76,6 +76,8 @@ typedef struct {
     int choose;
     int anim;
     bool win_cond;
+    sfTexture *text_npc;
+    sfSprite *npc;
 }options;
 
 typedef enum button_name {
@@ -160,4 +162,7 @@ void put_framebuffer_play(options *sprt);
 void display_framebuffer_play(window *wndw, options *sprt);
 void end_buffer_play(options *sprt);
 void dsquare(int x, int y, int radius, options *sprt, sfColor color);
+
+void init_npc(window *wndw, options *sprt);
+
 #endif
