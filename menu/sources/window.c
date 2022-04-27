@@ -21,7 +21,7 @@ void params_window(window *wndw, options *sprt, players *perso)
     NULL);
     sprt->pickups = sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
     wndw->window = sfRenderWindow_create(mode, "niktameralessio", sfResize
-    | sfClose | sfFullscreen, NULL);
+    | sfClose /*| sfFullscreen*/, NULL);
 }
 
 int event_window(window *wndw, options *sprt, reduce *red)
