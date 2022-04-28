@@ -7,12 +7,14 @@
 
 #include "../includes/motor.h"
 
-int all_stat(player *py)
+int all_stats_up(player *py)
 {
-    py->st.damages++;
-    py->speed++;
-    py->st.freq_tears++;
-    py->st.shot_speed++;
     py->lf.total_life += 2;
+    py->lf.red_hearth += 2;
+    ++py->st.damages;
+    ++py->st.freq_tears;
+    ++py->st.luck;
+    ++py->st.shot_speed;
+    ++py->speed;
     return 1;
 }

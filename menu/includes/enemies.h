@@ -31,5 +31,4 @@ enum {
     LEN_BOSS
 };
 
-
 #endif

@@ -77,7 +77,6 @@ tears *init_st_array(tears *te, sfIntRect r, player *py)
         te[i].move = false;
         te[i].is_shot = false;
         te[i].actual_sp = 0;
-
         sfSprite_setTexture(te[i].t_sp, te_tex, sfTrue);
         sfSprite_setTextureRect(te[i].t_sp, r);
         sfSprite_setScale(te[i].t_sp, (sfVector2f){3, 3});

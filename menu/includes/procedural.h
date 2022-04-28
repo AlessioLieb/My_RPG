@@ -13,6 +13,8 @@
     #include <time.h>
     #include <math.h>
     #include <stdbool.h>
+    #include <SFML/Graphics.h>
+    #include <SFML/Graphics/Export.h>
 
 typedef struct {
     int *lvl_rooms;
@@ -21,6 +23,17 @@ typedef struct {
     int lvl;
     char **mini_map;
     bool init;
+    sfTexture *text;
+    sfSprite *map;
+    sfSprite *t_room_unknown;
+    sfSprite *n_room_unknown;
+    sfSprite *b_room_unknown;
+    sfSprite *s_room_unknown;
+    sfSprite *t_room_known;
+    sfSprite *n_room_known;
+    sfSprite *b_room_known;
+    sfSprite *s_room_known;
+    sfSprite *actual_room_sprite;
 }rooms;
 
 void gen_main(rooms *room);

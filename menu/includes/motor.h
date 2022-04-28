@@ -317,7 +317,6 @@ bool touched_enemy(reduce *red, int i, char c);
 // touch_enemy.c //7
 bool touch_enemy(sfVector2f tears_pos, reduce *red);
 
-
 //create_boss.c //
 
 boss_t *create_boss(void);
@@ -365,10 +364,12 @@ void launch_item(player *py, room *rm);
 //item_fonctions.c//
 int item_life_augmentation(player *py);
 int item_speed(player *py);
+int all_stats_up(player *py);
 int bombs_up(player *py);
 int fly_player(player *py);
 int item_damage(player *py);
 int keys_up(player *py);
+int item_freq(player *py);
 int money_up(player *py);
 int item_speed_tears(player *py);
 
@@ -379,7 +380,8 @@ void clear_mini_map(rooms *ro);
 void init_mini_map(rooms *ro);
 void reduce_shop_minimap(rooms *ro, room *rm);
 void reduce_boss_minimap(rooms *ro, room *rm);
-void reduce_treasure_minimap(rooms *ro, room *rm); 
+void reduce_treasure_minimap(rooms *ro, room *rm);
+void draw_mini_map(rooms *ro, sfRenderWindow *wd, room *rm);
 
 void reduce_draw_tb(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
 void close_door(rooms *ro, options *sprt, int x, int y);

@@ -18,7 +18,7 @@ void launch_item(player *py, room *rm)
 static void choose_effect(collectible *item, int choose)
 {
     if (choose == ALL_STATS)
-        item->change = &item_speed;
+        item->change = &all_stats_up;
     if (choose == BOMBS)
         item->change = &bombs_up;
     if (choose == DMG)
@@ -34,7 +34,7 @@ static void choose_effect(collectible *item, int choose)
     if (choose == SPEED)
         item->change = &item_speed;
     if (choose == TEARS)
-        item->change = &item_speed_tears;
+        item->change = &item_freq;
 }
 
 static char *item_selected(char *path, int nb)

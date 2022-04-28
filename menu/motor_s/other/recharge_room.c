@@ -35,7 +35,7 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
 {
     char *actual_map;
     char *buff;
-    is_boss = true;
+    // is_boss = true;
     is_empty = true;
     if (red->rm->change_room) {
         clear_tears(red);

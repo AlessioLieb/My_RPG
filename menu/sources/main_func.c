@@ -95,6 +95,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
+        sprt->begin == 3 ? draw_mini_map(ro, wndw->window, rm) : 0;
         sfRenderWindow_display(wndw->window);
         sfRenderWindow_clear(wndw->window, sfBlack);
     }
