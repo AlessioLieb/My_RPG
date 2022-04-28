@@ -32,6 +32,7 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro)
         }
     if (rm->item != NULL) {
         sfRenderWindow_drawSprite(wd, rm->item->sp, NULL);
+        sfRenderWindow_drawSprite(wd, rm->item->altar, NULL);
         (sfIntRect_intersects(&rm->item->pos_collision,
         &player, &overlap)) ? launch_item(py, rm) : 0;
     }
