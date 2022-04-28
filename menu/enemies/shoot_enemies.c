@@ -10,7 +10,7 @@
 void check_boss(reduce *red, int i, char c)
 {
     if (c == 'E') {
-        red->enem_t->boss_adv[i].pv--;
+        red->enem_t->boss_adv[i].pv -= red->py->st.damages;
         if (red->enem_t->boss_adv[i].pv <= 0 && (i != 0
         || red->enem_t->boss_adv[i].bospt.delay == 0)) {
             red->enem_t->boss_adv[i].pos = (sfVector2f){-1, -1};
@@ -29,14 +29,14 @@ void check_boss(reduce *red, int i, char c)
 void check_other(reduce *red, int i, char c)
 {
     if (c == 'F') {
-        red->enem_t->flying_adv[i].pv--;
+        red->enem_t->flying_adv[i].pv -= red->py->st.damages;
         if (red->enem_t->flying_adv[i].pv <= 0) {
             red->enem_t->flying_adv[i].pos = (sfVector2f){-1, -1};
             red->enem_t->flying_adv[i].pv = 20;
         }
     }
     if (c == 'L') {
-        red->enem_t->little_adv[i].pv--;
+        red->enem_t->little_adv[i].pv -= red->py->st.damages;
         if (red->enem_t->little_adv[i].pv <= 0) {
             red->enem_t->little_adv[i].pos = (sfVector2f){-1, -1};
             red->enem_t->little_adv[i].pv = 20;
@@ -48,14 +48,14 @@ void check_other(reduce *red, int i, char c)
 bool touched_enemy(reduce *red, int i, char c)
 {
     if (c == 'I') {
-        red->enem_t->big_adv[i].pv--;
+        red->enem_t->big_adv[i].pv -= red->py->st.damages;
         if (red->enem_t->big_adv[i].pv <= 0) {
             red->enem_t->big_adv[i].pos = (sfVector2f){-1, -1};
             red->enem_t->big_adv[i].pv = 20;
         }
     }
     if (c == 'N') {
-        red->enem_t->no_moving_adv[i].pv--;
+        red->enem_t->no_moving_adv[i].pv -= red->py->st.damages;
         if (red->enem_t->no_moving_adv[i].pv <= 0) {
             red->enem_t->no_moving_adv[i].pos = (sfVector2f){-1, -1};
             red->enem_t->no_moving_adv[i].pv = 20;
