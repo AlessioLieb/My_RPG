@@ -30,11 +30,8 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro)
             &player, &overlap)) ? launch_piece(py, rm, i) : 0;
             sfRenderWindow_drawSprite(wd, rm->piece[i].sp, NULL);
         }
-    if (rm->item != NULL && (ro->floor_rooms[rm->actual_room[1]]
-    [rm->actual_room[0]] == 'T' || (ro->floor_rooms[rm->actual_room[1]]
-    [rm->actual_room[0]] == 'B' && rm->open == true))) {
+    if (rm->item != NULL) {
         sfRenderWindow_drawSprite(wd, rm->item->sp, NULL);
-        sfRenderWindow_drawSprite(wd, rm->item->altar, NULL);
         (sfIntRect_intersects(&rm->item->pos_collision,
         &player, &overlap)) ? launch_item(py, rm) : 0;
     }

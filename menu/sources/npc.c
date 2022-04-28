@@ -44,7 +44,8 @@ void touch_npc(sfVector2f player_pos, options *sprt, window *wndw)
 void draw_npc(window *wndw, options *sprt, room *rm, player *py)
 {
     sfVector2f player_pos = sfSprite_getPosition(py->sp);
-    if (rm->actual_room[0] == 4 && rm->actual_room[1] == 4)
+    if (rm->actual_room[0] == 4 && rm->actual_room[1] == 4) {
         sfRenderWindow_drawSprite(wndw->window, sprt->npc, NULL);
-    touch_npc(player_pos, sprt, wndw);
+        touch_npc(player_pos, sprt, wndw);
+    }
 }

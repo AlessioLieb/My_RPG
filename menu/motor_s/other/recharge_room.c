@@ -35,10 +35,11 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
 {
     char *actual_map;
     char *buff;
+    char is_visited = red->ro->mini_map[red->rm->actual_room[1]][red->rm->actual_room[0]];
     char actual_room =
-    red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]];
+            red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]];
     if (actual_room == 'T' || actual_room == 'B' || actual_room == 'S'
-    || actual_room == 'M')
+        || actual_room == 'M' || is_visited == 'X' || is_visited == 'B')
         is_empty = true;
     if (actual_room == 'B')
         is_boss = true;
@@ -49,8 +50,10 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
         !is_empty && !is_boss ? free(actual_map) : 0;
         place_enemies(buff, red->enem_t);
         place_stone(red->rm, red->py, buff, red->ro);
-        place_bonus(red->rm);
-        place_item(red->rm);
+        is_visited != 'X'  && is_visited != 'T' ? place_bonus(red->rm) : 0;
+        if ((red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]] == 'T' || 
+        (red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]] == 'B' && red->rm->open == true)) && is_visited == 't')
+            place_item(red->rm);
         is_boss ? place_boss_level(red->enem_t, false) : 0;
         free(buff);
         red->rm->change_room = false;
