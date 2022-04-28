@@ -84,7 +84,7 @@ OBJ	=    $(SRC:.c=.o)
 
 FLAGS = -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm
 
-CFLAGS += -g
+CFLAGS += -g -Wall -Wextra
 
 NAME	=    my_rpg
 

@@ -14,6 +14,8 @@ void place_boss_level(enemies_t *enemy, bool final_boss)
     choose = rand() % (LEN_BOSS - 1) + 1;
     if (final_boss)
         choose = 0;
+    while (enemy->boss_adv[choose].pv != enemy->boss_adv[choose].total_life)
+        choose = rand() % (LEN_BOSS - 1) + 1;
     enemy->boss_adv[choose].pos.x = WIDTH / 2;
     enemy->boss_adv[choose].pos.y = HEIGHT / 2;
 }

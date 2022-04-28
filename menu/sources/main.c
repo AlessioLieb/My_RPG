@@ -7,7 +7,7 @@
 
 #include "../includes/motor.h"
 
-int call_main_func(char *str)
+static int call_main_func(void)
 {
     window *wndw = malloc(sizeof(window));
     options *sprt = malloc(sizeof(options));
@@ -18,9 +18,11 @@ int call_main_func(char *str)
     init_mini_map(&room);
     clear_mini_map(&room);
     main_func(wndw, sprt, perso, &room);
+    return 0;
 }
 
-int main(int ac, char **av)
+int main(void)
 {
-    call_main_func(av[1]);
+    call_main_func();
+    return 0;
 }
