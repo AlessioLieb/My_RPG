@@ -87,6 +87,10 @@ bool collision_stone(room *rm, player *py, int x, int y)
             && sfImage_getPixel(py->collision_box, i, j).r != 0) ? false : res;
     if (!res) {
         py->actual_speed = (sfVector2f) {0, 0};
+        if (y >= 0)
+            end.y += 5;
+        if (x >= 0)
+            end.x += 5;
         sfSprite_setPosition(py->sp, end);
     }
     return res;
