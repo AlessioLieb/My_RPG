@@ -83,14 +83,21 @@ void place_item(room *rm)
     sfTexture *text;
     collectible *item = malloc(sizeof(collectible));
     int choose = 0;
+    sfVector2f rect = {1920 / 2 - 50, 1080 / 2 - 100};
+    sfVector2f rect1 = {1920 / 2 - 45, 1080 / 2};
+    item->altar_text = sfTexture_createFromFile("../Sprites/altar.png", NULL);
     srand(time(NULL));
     choose = rand() % LEN_FOLDERS;
     text = sfTexture_createFromFile(select_item(choose), NULL);
     item->sp = sfSprite_create();
-    sfSprite_setPosition(item->sp, (sfVector2f) {200, 200});
+    item->altar = sfSprite_create();
+    sfSprite_setTexture(item->altar, item->altar_text, sfTrue);
+    sfSprite_setPosition(item->sp, rect);
+    sfSprite_setScale(item->altar, (sfVector2f) {3 * (32 / 27), 3 * (32 / 27)});
+    sfSprite_setPosition(item->altar, rect1);
     sfSprite_setScale(item->sp, (sfVector2f) {3, 3});
     sfSprite_setTexture(item->sp, text, sfTrue);
-    item->pos_collision = (sfIntRect) {200, 200, 75, 66};
+    item->pos_collision = (sfIntRect) {1920 / 2 - 50, 1080 / 2 - 100, 75, 166};
     choose_effect(item, choose);
     rm->item = item;
 }

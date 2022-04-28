@@ -64,7 +64,7 @@ typedef struct boss_spawning_s {
     int delay;
     int actual;
     bool is_spawning;
-} boss_spawning_t;
+}boss_spawning_t;
 
 typedef struct boss_s {
     sfSprite *sp;
@@ -142,6 +142,8 @@ typedef struct {
     sfSprite *sp;
     sfIntRect pos_collision;
     int (*change)(player *py);
+    sfTexture *altar_text;
+    sfSprite *altar;
 }collectible;
 
 typedef struct {
