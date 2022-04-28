@@ -32,7 +32,7 @@ void init_npc(window *wndw, options *sprt)
 
 void touch_npc(sfVector2f player_pos, options *sprt, window *wndw)
 {
-    sfIntRect tmp = {0, 0, 74, 67};
+    sfIntRect tmp = {0, 0, 130, 250};
     tmp.left = 300;
     tmp.top = 250;
     sfIntRect player = (sfIntRect){player_pos.x, player_pos.y, 28 * 3, 33 * 3};
