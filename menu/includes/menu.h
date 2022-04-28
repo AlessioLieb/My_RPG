@@ -78,6 +78,7 @@ typedef struct {
     bool win_cond;
     sfTexture *text_npc;
     sfSprite *npc;
+    sfSprite *spbulle_npc;
 }options;
 
 typedef enum button_name {
