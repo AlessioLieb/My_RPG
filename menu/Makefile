@@ -71,6 +71,8 @@ SRC	=	sources/init_base.c						\
 		motor_s/other/recharge_room.c			\
 		mini_map/mini_map.c						\
 		mini_map/reduce_mini_map.c				\
+		mini_map/init_mini_map.c				\
+		mini_map/reduce_draw_mini_map.c			\
 		collectibles/item.c						\
 		collectibles/item_fonctions.c			\
 		collectibles/reduce_item_fonctions.c	\

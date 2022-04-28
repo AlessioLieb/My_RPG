@@ -382,6 +382,12 @@ void reduce_shop_minimap(rooms *ro, room *rm);
 void reduce_boss_minimap(rooms *ro, room *rm);
 void reduce_treasure_minimap(rooms *ro, room *rm);
 void draw_mini_map(rooms *ro, sfRenderWindow *wd, room *rm);
+void init_minimap_sprites(rooms *ro);
+void init_shop_sprites(rooms *ro);
+void init_treasure_sprites(rooms *ro);
+void init_broom_sprites(rooms *ro);
+void init_nroom_sprites(rooms *ro);
+void reduce_draw_mini_map(int x, room *rm, rooms *ro, sfRenderWindow *wd);
 
 void reduce_draw_tb(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
 void close_door(rooms *ro, options *sprt, int x, int y);
