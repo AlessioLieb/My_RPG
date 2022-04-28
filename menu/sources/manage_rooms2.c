@@ -5,7 +5,6 @@
 ** manage_rooms2.c
 */
 
-//#include "../includes/motor.h"
 #include "../includes/music.h"
 
 void floor_pass(rooms *ro, reduce *red, options *sprt, music *mu)

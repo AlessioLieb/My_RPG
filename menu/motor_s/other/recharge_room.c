@@ -49,7 +49,7 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
         buff = create_map_str(actual_map);
         !is_empty && !is_boss ? free(actual_map) : 0;
         place_enemies(buff, red->enem_t);
-        place_stone(red->rm, red->py, buff);
+        place_stone(red->rm, red->py, buff, red->ro);
         place_bonus(red->rm);
         place_item(red->rm);
         is_boss ? place_boss_level(red->enem_t, false) : 0;

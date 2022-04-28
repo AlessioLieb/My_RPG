@@ -149,6 +149,7 @@ typedef struct {
     sfSprite *ft;
     sfSprite *fl;
     int *actual_room;
+    sfSprite *shop_room;
     int len_stone;
     bool open;
     stone *st;
@@ -263,8 +264,8 @@ void disp_stat_hud(reduce *red, sfRenderWindow *wd);
 stats create_stats(void);
 
 // stone_base.c //
-stone *create_stone(char *str);
-void place_stone(room *rm, player *py, char *str);
+stone *create_stone(char *str, rooms *ro);
+void place_stone(room *rm, player *py, char *str, rooms *ro);
 void draw_stone(room *rm, sfRenderWindow *wd);
 bool collision_stone(room *rm, player *py, int x, int y);
 

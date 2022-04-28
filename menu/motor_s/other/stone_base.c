@@ -15,30 +15,36 @@ int count_stone(char *str)
     return (count);
 }
 
-stone *create_stone(char *str)
+stone *create_stone(char *str, rooms *ro)
 {
     int rd = 0;
+    sfIntRect rect;
     stone *array_stone = malloc(sizeof(stone) * count_stone(str));
     sfTexture *text = sfTexture_createFromFile
     ("assets/allroomobjects.png", NULL);
     srand(time(NULL));
     for (int i = 0; i < count_stone(str); ++i) {
         rd = rand() % 3;
+        if (ro->lvl == 0 || ro->lvl == 1)
+            rect = (sfIntRect) {0 + (27 * rd), 432, 27, 30};
+        if (ro->lvl == 2 || ro->lvl == 3)
+            rect = (sfIntRect) {0 + (27 * rd), 462, 27, 30};
+        if (ro->lvl == 4)
+            rect = (sfIntRect) {0 + (27 * rd), 493, 27, 30};
         array_stone[i].sp = sfSprite_create();
         sfSprite_setTexture(array_stone[i].sp, text, sfTrue);
         sfSprite_setTextureRect
-        (array_stone[i].sp, (sfIntRect)
-        {0 + (27 * rd), 432, 27, 30});
+        (array_stone[i].sp, rect);
         sfSprite_setScale(array_stone[i].sp, (sfVector2f) {3, 3});
         array_stone[i].nb_stone = rd;
     }
     return array_stone;
 }
 
-void place_stone(room *rm, player *py, char *str)
+void place_stone(room *rm, player *py, char *str, rooms *ro)
 {
     int count = 0;
-    rm->st = create_stone(str);
+    rm->st = create_stone(str, ro);
     sfImage *f_stone = sfImage_createFromFile("assets/collisions/stone1.png");
     sfImage *s_stone = sfImage_createFromFile("assets/collisions/stone2.png");
     sfImage *t_stone = sfImage_createFromFile("assets/collisions/stone3.png");

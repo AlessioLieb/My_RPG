@@ -53,16 +53,21 @@ void reduce_init_room(room *rm, sfTexture *txt)
     rm->fo = sfSprite_create();
     rm->ft = sfSprite_create();
     rm->fl = sfSprite_create();
+    rm->shop_room = sfSprite_create();
     rm->item = NULL;
     sfSprite_setTexture(rm->fo, txt, sfTrue);
     sfSprite_setTexture(rm->ft, txt, sfTrue);
     sfSprite_setTexture(rm->fl, txt, sfTrue);
+    sfSprite_setTexture(rm->shop_room, txt, sfTrue);
     sfSprite_setTextureRect(rm->fo, (sfIntRect){0, 0, 468, 312});
     sfSprite_setScale(rm->fo, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
     sfSprite_setTextureRect(rm->ft, (sfIntRect){469, 314, 468, 312});
     sfSprite_setScale(rm->ft, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
     sfSprite_setTextureRect(rm->fl, (sfIntRect){0, 627, 468, 312});
     sfSprite_setScale(rm->fl, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
+    sfSprite_setTextureRect(rm->shop_room, (sfIntRect) {469, 0 , 468, 312});
+    sfSprite_setScale(rm->shop_room,
+    (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
 }
 
 room *create_room(void)
