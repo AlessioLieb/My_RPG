@@ -10,7 +10,7 @@
 player *creation_player(void)
 {
     player *py = malloc(sizeof(player));
-    sfIntRect place = {130, 19, 28, 35};
+    sfIntRect place = {125, 14, 44, 40};
     init_player(py);
     py->lf = create_life();
     py->invulnerability = 1000;
@@ -62,7 +62,7 @@ int move_sprite(player *py, int top, room *rm)
         py->actual_sp = 1;
     }
     if (py->invulnerability >= 0 && rand() % 2 == 0)
-        sfSprite_setTextureRect(py->sp, (sfIntRect){181, 181, 28, 33});
+        sfSprite_setTextureRect(py->sp, (sfIntRect){176, 176, 44, 40});
     return 0;
 }
 
