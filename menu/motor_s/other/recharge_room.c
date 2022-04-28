@@ -35,8 +35,13 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
 {
     char *actual_map;
     char *buff;
-    // is_boss = true;
-    //is_empty = true;
+    char actual_room =
+    red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]];
+    if (actual_room == 'T' || actual_room == 'B' || actual_room == 'S'
+    || actual_room == 'M')
+        is_empty = true;
+    if (actual_room == 'B')
+        is_boss = true;
     if (red->rm->change_room) {
         clear_tears(red);
         actual_map = is_empty || is_boss ? "rooms/empty.room" : search_map();
