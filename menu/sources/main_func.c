@@ -36,6 +36,7 @@ int choose_texture_player(reduce *red, options *sprt)
 
 int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
 {
+    red->rm->luck = red->py->st.luck;
     choose_texture_player(red, sprt);
     recharge_room(red, false, false);
     player_room(wndw->window, red, sprt);

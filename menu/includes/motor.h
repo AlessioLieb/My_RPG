@@ -161,6 +161,7 @@ typedef struct {
     collectible *piece;
     collectible *item;
     bool change_room;
+    int luck;
 }room;
 
 typedef struct {

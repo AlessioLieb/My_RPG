@@ -42,7 +42,7 @@ void place_bonus(room *rm)
 {
     srand(time(NULL));
     for (int i = 0; i < 4; ++i)
-        if (rand() % (i + 20) == 0) {
+        if (rand() % (i + 20 - rm->luck) == 0) {
             rm->red_hearth[i].pos_collision.left = 200 + rand() % 1400;
             rm->red_hearth[i].pos_collision.top = 200 + rand() % 600;
             sfSprite_setPosition(rm->red_hearth[i].sp,
@@ -50,7 +50,7 @@ void place_bonus(room *rm)
             .pos_collision.left, rm->red_hearth[i].pos_collision.top});
     }
     for (int i = 0; i < 2; ++i)
-        if (rand() % (i + 40) == 0) {
+        if (rand() % (i + 40 - rm->luck) == 0) {
             rm->blue_hearth[i].pos_collision.left = 200 + rand() % 1400;
             rm->blue_hearth[i].pos_collision.top = 200 + rand() % 600;
             sfSprite_setPosition(rm->blue_hearth[i].sp,
@@ -58,7 +58,7 @@ void place_bonus(room *rm)
             .pos_collision.left, rm->blue_hearth[i].pos_collision.top});
         }
     for (int i = 0; i < 10; ++i)
-        if (rand() % (i + 5) == 0) {
+        if (rand() % (i + 5 - (rm->luck / 3)) == 0) {
             rm->piece[i].pos_collision.left = 200 + rand() % 1400;
             rm->piece[i].pos_collision.top = 200 + rand() % 600;
             sfSprite_setPosition(rm->piece[i].sp, (sfVector2f) {rm->piece[i]
