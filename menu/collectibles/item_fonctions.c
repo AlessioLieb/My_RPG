@@ -35,5 +35,6 @@ int fly_player(player *py)
 {
     py->collision_box = sfImage_createFromFile
     ("assets/collisions/isaac_border.png");
+    sfSprite_setTexture(py->sp, sfTexture_createFromFile("assets/theotime_fly.png", NULL), sfFalse);
     return 1;
 }

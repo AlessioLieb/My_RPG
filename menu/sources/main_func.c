@@ -23,8 +23,21 @@ void check_move_all(reduce *red)
     sfClock_getElapsedTime(red->py->time).microseconds;
 }
 
+int choose_texture_player(reduce *red, options *sprt)
+{
+    if (red->py->change_texture)
+        return 1;
+    (sprt->choose == 0) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/robin.png", NULL), sfFalse) : 0;
+    (sprt->choose == 1) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/theotime.png", NULL), sfFalse) : 0;
+    (sprt->choose == 2) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/alessio.png", NULL), sfFalse) : 0;
+    (sprt->choose == 3) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/oscar.png", NULL), sfFalse) : 0;
+    red->py->change_texture = sprt->choose + 1;
+    return 0;
+}
+
 int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
 {
+    choose_texture_player(red, sprt);
     recharge_room(red, false, false);
     player_room(wndw->window, red, sprt);
     draw_enemies(red->enem_t, wndw->window, red->py, red->rm);

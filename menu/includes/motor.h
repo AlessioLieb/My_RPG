@@ -129,6 +129,7 @@ typedef struct player_s{
     timer anim_timer;
     timer tears_timer;
     sfClock *time;
+    int change_texture;
 }player;
 
 typedef struct {

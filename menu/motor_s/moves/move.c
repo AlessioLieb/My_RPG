@@ -26,6 +26,7 @@ player *creation_player(void)
     sfSprite_setScale(py->sp, (sfVector2f){3, 3});
     sfSprite_setPosition(py->sp, (sfVector2f){py->x, py->y});
     py->time = sfClock_create();
+    py->change_texture = 0;
     return py;
 }
 
@@ -46,17 +47,17 @@ int move_sprite(player *py, int top, room *rm)
         return 1;
     py->actual_sp ? ++py->actual_sp : 0;
     if (py->actual_sp == 4) {
-        sfSprite_setTextureRect(py->sp, (sfIntRect){227, top, 28, 34});
+        sfSprite_setTextureRect(py->sp, (sfIntRect){222, top - 5, 44, 40});
         py->actual_sp = 0;
         next = 1;
     }
     if (py->actual_sp == 2 && !next)
-        sfSprite_setTextureRect(py->sp, (sfIntRect) {130, top, 29, 34});
+        sfSprite_setTextureRect(py->sp, (sfIntRect) {125, top - 5, 44, 40});
     if (py->actual_sp == 0 && !next) {
-        sfSprite_setTextureRect(py->sp, (sfIntRect) {32, top, 29, 34});
+        sfSprite_setTextureRect(py->sp, (sfIntRect) {27, top - 5, 44, 40});
         py->actual_sp = 1;
     }
-    if (py->invulnerability >= 500 && rand() % 2 == 0)
+    if (py->invulnerability >= 0 && rand() % 2 == 0)
         sfSprite_setTextureRect(py->sp, (sfIntRect){181, 181, 28, 33});
     return 0;
 }

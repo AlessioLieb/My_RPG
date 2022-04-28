@@ -34,10 +34,10 @@ static bool map_collision(player *py)
 
 int check_move_right(player *py, room *rm)
 {
-    int tmp_x = py->actual_speed.x >= py->speed
-    ? py->speed : py->actual_speed.x + 1;
+    int tmp_y = (py->actual_speed.y >= 0) ?  py->actual_speed.y + 10 : py->actual_speed.y;
+    int tmp_x = (py->actual_speed.y >= 0) ? 10 : 0;
     if (!map_collision(py) || !collision_stone
-    (rm, py, tmp_x, py->actual_speed.y))
+    (rm, py, tmp_x, tmp_y))
         return 0;
     return 1;
 }
