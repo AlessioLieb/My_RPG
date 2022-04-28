@@ -31,12 +31,12 @@ void move_player_check(reduce *red)
         red->py->anim_timer.timer_total -= 10000;
     }
     reduce_move_player_check(red);
-    while (red->py->tears_timer.timer_total > 300000) {
+    while (red->py->tears_timer.timer_total > (500000 / (red->py->st.freq_tears / 2))) {
         red->py->player_key.key_left ? shoot_tears(1, red) : 0;
         red->py->player_key.key_right ? shoot_tears(2, red) : 0;
         red->py->player_key.key_up ? shoot_tears(3, red) : 0;
         red->py->player_key.key_down ? shoot_tears(4, red) : 0;
-        red->py->tears_timer.timer_total -= 300000;
+        red->py->tears_timer.timer_total -= 500000 / (red->py->st.freq_tears / 2);
     }
     red->py->tears_timer.timer =
     sfClock_getElapsedTime(red->py->time).microseconds;

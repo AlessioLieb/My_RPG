@@ -14,10 +14,8 @@ void shoot_tears(int id, reduce *red)
     sfVector2f t_pos = sfSprite_getPosition(red->py->sp);
     sfSprite_setPosition(red->te[nb_tears].t_sp,
     (sfVector2f){t_pos.x + 20, t_pos.y});
-
     red->te[nb_tears].move = true;
     red->te[nb_tears].is_shot = true;
-
     if (id == 1)
         red->te[nb_tears].direction = 1;
     if (id == 2)
