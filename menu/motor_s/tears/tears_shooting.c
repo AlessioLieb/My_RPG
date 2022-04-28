@@ -10,20 +10,32 @@
 void shoot_tears(int id, reduce *red)
 {
     int nb_tears = verif_moving(red, 6);
-
+    if (red->py->st.damages >= 3 && red->py->st.damages < 6)
+        sfSprite_setTextureRect(red->te[nb_tears].t_sp, (sfIntRect) {139, 190, 15, 15});
+    if (red->py->st.damages >= 6)
+        sfSprite_setTextureRect(red->te[nb_tears].t_sp, (sfIntRect) {318, 357, 28, 11});
     sfVector2f t_pos = sfSprite_getPosition(red->py->sp);
     sfSprite_setPosition(red->te[nb_tears].t_sp,
     (sfVector2f){t_pos.x + 20, t_pos.y});
     red->te[nb_tears].move = true;
     red->te[nb_tears].is_shot = true;
-    if (id == 1)
+    if (id == 1) {
+        sfSprite_setRotation(red->te[nb_tears].t_sp, 180);
         red->te[nb_tears].direction = 1;
-    if (id == 2)
+        printf("yes\n");
+    }
+    if (id == 2) {
+        sfSprite_setRotation(red->te[nb_tears].t_sp, 0);
         red->te[nb_tears].direction = 2;
-    if (id == 3)
+    }
+    if (id == 3) {
+        sfSprite_setRotation(red->te[nb_tears].t_sp, 270);
         red->te[nb_tears].direction = 3;
-    if (id == 4)
+    }
+    if (id == 4) {
+        sfSprite_setRotation(red->te[nb_tears].t_sp, 90);
         red->te[nb_tears].direction = 4;
+    }
 }
 
 void move_tears_up_down(int id, reduce *red, sfRenderWindow *wd, int i)

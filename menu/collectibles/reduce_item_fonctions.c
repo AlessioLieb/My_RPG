@@ -21,7 +21,8 @@ int item_speed(player *py)
 
 int item_freq(player *py)
 {
-    py->st.freq_tears++;
+    if (py->st.freq_tears <= 9)
+        py->st.freq_tears++;
     return 1;
 }
 
