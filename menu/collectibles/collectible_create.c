@@ -7,7 +7,7 @@
 
 #include "../includes/motor.h"
 
-void draw_bonus(room *rm, sfRenderWindow *wd, player *py)
+void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro)
 {
     sfVector2f player_pos = sfSprite_getPosition(py->sp);
     sfIntRect player = (sfIntRect){player_pos.x, player_pos.y, 28 * 3, 33 * 3};
@@ -30,7 +30,9 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py)
             &player, &overlap)) ? launch_piece(py, rm, i) : 0;
             sfRenderWindow_drawSprite(wd, rm->piece[i].sp, NULL);
         }
-    if (rm->item != NULL) {
+    if (rm->item != NULL && (ro->floor_rooms[rm->actual_room[1]]
+    [rm->actual_room[0]] == 'T' || (ro->floor_rooms[rm->actual_room[1]]
+    [rm->actual_room[0]] == 'B' && rm->open == true))) {
         sfRenderWindow_drawSprite(wd, rm->item->sp, NULL);
         (sfIntRect_intersects(&rm->item->pos_collision,
         &player, &overlap)) ? launch_item(py, rm) : 0;

@@ -351,7 +351,7 @@ collectible *create_blue_hearth(sfTexture *text);
 void got_blue_hearth(room *rm, int i, player *py);
 
 // collectible_create.c //
-void draw_bonus(room *rm, sfRenderWindow *wd, player *py);
+void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro);
 void place_bonus(room *rm);
 
 // red_hearth.c //
