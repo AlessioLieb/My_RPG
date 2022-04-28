@@ -418,6 +418,6 @@ int check_move_up(player *py, room *rm);
 
 void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm, player *py);
 void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py);
-void draw_npc(window *wndw, options *sprt, room *rm);
+void draw_npc(window *wndw, options *sprt, room *rm, player *py);
 
 #endif
