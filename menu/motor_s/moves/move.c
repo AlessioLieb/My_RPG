@@ -34,6 +34,7 @@ void draw_room(sfRenderWindow *wd, reduce *red, rooms *ro)
 {
     int x = red->rm->actual_room[1];
     int y = red->rm->actual_room[0];
+
     if (ro->lvl == 0 || ro->lvl == 1)
         sfRenderWindow_drawSprite(wd, red->rm->fo, NULL);
     if (ro->lvl == 2 || ro->lvl == 3)
@@ -47,6 +48,7 @@ void draw_room(sfRenderWindow *wd, reduce *red, rooms *ro)
 int move_sprite(player *py, int top, room *rm)
 {
     int next = 0;
+
     if (!move_sp_top(py, top, rm))
         return 1;
     py->actual_sp ? ++py->actual_sp : 0;

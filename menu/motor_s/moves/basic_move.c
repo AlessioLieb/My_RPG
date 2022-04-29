@@ -15,10 +15,9 @@ static bool map_collision(player *py)
         sfSprite_setPosition(py->sp, (sfVector2f) {WIDTH - 285, pos.y});
         end = false;
     }
-    if (pos.x - py->actual_speed.x - 5 < 200) {
-        sfSprite_setPosition(py->sp,(sfVector2f) {210, pos.y});
-        end = false;
-    }
+    pos.x - py->actual_speed.x - 5 < 200 ?
+    sfSprite_setPosition(py->sp,(sfVector2f) {210, pos.y}) : 0;
+    pos.x - py->actual_speed.x - 5 < 200 ? end = false : 0;
     if (pos.y - py->actual_speed.y - 5 < 100) {
         sfSprite_setPosition(py->sp,(sfVector2f) {pos.x, 110});
         end = false;
@@ -34,7 +33,8 @@ static bool map_collision(player *py)
 
 int check_move_right(player *py, room *rm)
 {
-    int tmp_y = (py->actual_speed.y >= 0) ?  py->actual_speed.y + 10 : py->actual_speed.y;
+    int tmp_y = (py->actual_speed.y >= 0) ?  py->actual_speed.y + 10
+    : py->actual_speed.y;
     int tmp_x = (py->actual_speed.y >= 0) ? 10 : 0;
     if (!map_collision(py) || !collision_stone
     (rm, py, tmp_x, tmp_y))

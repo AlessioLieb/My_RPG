@@ -19,7 +19,7 @@ void slow_player(player *py)
         py->actual_speed.y -= 0.25;
 }
 
-void move_player_check(reduce *red)
+void move_player_check(reduce *red, int div)
 {
     red->py->anim_timer.timer_total += sfClock_getElapsedTime
     (red->py->time).microseconds - red->py->anim_timer.timer;
@@ -31,12 +31,12 @@ void move_player_check(reduce *red)
         red->py->anim_timer.timer_total -= 50000;
     }
     reduce_move_player_check(red);
-    while (red->py->tears_timer.timer_total > (500000 / (red->py->st.freq_tears / 2))) {
+    while (red->py->tears_timer.timer_total > (500000 / (div))) {
         red->py->player_key.key_left ? shoot_tears(1, red) :
         red->py->player_key.key_right ? shoot_tears(2, red) :
         red->py->player_key.key_up ? shoot_tears(3, red) :
         red->py->player_key.key_down ? shoot_tears(4, red) : 0;
-        red->py->tears_timer.timer_total -= 500000 / (red->py->st.freq_tears / 2);
+        red->py->tears_timer.timer_total -= 500000 / (div);
     }
     red->py->tears_timer.timer =
     sfClock_getElapsedTime(red->py->time).microseconds;

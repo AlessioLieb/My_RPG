@@ -254,7 +254,7 @@ int move_sprite(player *py, int top, room *rm);
 void key_action_pressed(sfEvent event, reduce *red);
 
 // move2.c //
-void move_player_check(reduce *red);
+void move_player_check(reduce *red, int div);
 void move_event(sfEvent event, reduce *red);
 room *create_room(void);
 

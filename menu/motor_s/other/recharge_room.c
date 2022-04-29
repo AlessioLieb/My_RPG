@@ -9,7 +9,7 @@
 
 static char *search_map()
 {
-    char *name_map= my_int_str(rand() % NB_MAPS + 1);
+    char *name_map = my_int_str(rand() % NB_MAPS + 1);
     char *extension = ".room";
     char *preced = "rooms/";
     char *total_name;
