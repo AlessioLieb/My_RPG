@@ -33,6 +33,7 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
         ((32 * 3.5) / 2), 115});
         sfRenderWindow_drawSprite(wd, sprt->win, NULL);
     }
+    draw_enemies(red->enem_t, wd, red->py, red->rm);
     red->rm->timer_tears.timer_total += sfClock_getElapsedTime(red->enem_t->total_clock)
     .microseconds - red->rm->timer_tears.timer;
     while (red->rm->timer_tears.timer_total > 8000 / (red->py->st.shot_speed / 2)) {

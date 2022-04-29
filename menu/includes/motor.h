@@ -72,13 +72,13 @@ typedef struct boss_spawning_s {
 typedef struct boss_s {
     sfSprite *sp;
     sfVector2f pos;
-    int pv;
+    float pv;
     int speed;
     bool is_flying;
     int decal_texture;
     int max_decal;
     boss_spawning_t bospt;
-    int total_life;
+    float total_life;
 }boss_t;
 
 typedef struct {
@@ -97,7 +97,7 @@ typedef struct {
 typedef struct {
     int speed;
     int shot_speed;
-    int damages;
+    float damages;
     int freq_tears;
     int luck;
 }stats;
@@ -179,7 +179,7 @@ typedef struct {
     sfVector2f pos;
     bool is_shooting;
     bool is_flying;
-    int pv;
+    float pv;
     int speed;
 }adv_t;
 

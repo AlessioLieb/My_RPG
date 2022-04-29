@@ -40,7 +40,6 @@ int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
     choose_texture_player(red, sprt);
     recharge_room(red, false, false);
     player_room(wndw->window, red, sprt);
-    draw_enemies(red->enem_t, wndw->window, red->py, red->rm);
     check_move_all(red);
     draw_life(red->py, wndw->window);
     draw_bonus(red->rm, wndw->window, red->py, red->ro);
