@@ -14,6 +14,12 @@ void clear_tears(reduce *red)
         red->te[i].is_shot = false;
         ++i;
     }
+    for (int i = 0; i < 4; ++i)
+        red->rm->red_hearth[i].pos_collision.left = -1;
+    for (int i = 0; i < 2; ++i)
+        red->rm->blue_hearth[i].pos_collision.left = -1;
+    for (int i = 0; i < 10; ++i)
+        red->rm->piece[i].pos_collision.left = -1;
 }
 
 int verif_moving(reduce *red, int nb_tears)
