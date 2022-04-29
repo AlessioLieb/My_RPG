@@ -77,7 +77,8 @@ SRC	=	sources/init_base.c						\
 		collectibles/item_fonctions.c			\
 		collectibles/reduce_item_fonctions.c	\
 		collectibles/all_stat.c					\
-		music/room_music.c
+		music/room_music.c	\
+		collectibles/item_launching.c
 
 
 OBJ	=    $(SRC:.c=.o)

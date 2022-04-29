@@ -389,6 +389,11 @@ int item_freq(player *py);
 int money_up(player *py);
 int item_speed_tears(player *py);
 int luck_up(player *py);
+
+//item_launching.c //
+
+bool already_got(char *tmp, old_item_t old_t);
+char *item_selected(char *path, int nb);
 ///////////// minimap ////////////
 
 void update_mini_map(rooms *ro, room *rm);

@@ -7,14 +7,6 @@
 
 #include "../includes/motor.h"
 
-void launch_item(player *py, room *rm)
-{
-    if ((*(rm->item->change))(py)) {
-        sfSprite_destroy(rm->item->sp);
-        rm->item = NULL;
-    }
-}
-
 static void choose_effect(collectible *item, int choose)
 {
     if (choose == ALL_STATS)
@@ -37,24 +29,6 @@ static void choose_effect(collectible *item, int choose)
         item->change = &item_freq;
     if (choose == LUCK)
         item->change = &luck_up;
-}
-
-static char *item_selected(char *path, int nb)
-{
-    char *new_str = malloc(sizeof(char) * str_len(path) + 15);
-    char *int_str = my_int_str(nb);
-    char *extension = ".png";
-    int i = 0;
-    int j = 0;
-    int e = 0;
-    for (; path[i] != '\0'; ++i)
-        new_str[i] = path[i];
-    for (; int_str[j] != '\0'; ++j)
-        new_str[i + j] = int_str[j];
-    for (; extension[e] != '\0'; ++e)
-        new_str[i + j + e] = extension[e];
-    new_str[i + j + e] = '\0';
-    return new_str;
 }
 
 static char *select_item(int choose)
@@ -82,31 +56,10 @@ static char *select_item(int choose)
         return item_selected("../Sprites/Items/luck_up/", rand() % NB_LUCK);
 }
 
-static bool already_got(char *tmp, old_item_t old_t)
+static void reduce_place_item(room *rm, char *tmp, collectible *item, sfTexture *text)
 {
-    for (int i = 0; i < old_t.cp; ++i)
-        if (my_str_compare(tmp, old_t.old[i]))
-            return false;
-    return true;
-}
-
-void place_item(room *rm)
-{
-    sfTexture *text;
-    char *tmp;
-    collectible *item = malloc(sizeof(collectible));
-    int choose = rand() % LEN_FOLDERS;
     sfVector2f rect = {1920 / 2 - 50, 1080 / 2 - 100};
     sfVector2f rect1 = {1920 / 2 - 45, 1080 / 2};
-    tmp = select_item(choose);
-    item->altar_text = sfTexture_createFromFile("../Sprites/altar.png", NULL);
-    srand(time(NULL));
-    while (!already_got(tmp, rm->old_i)) {
-        choose = rand() % LEN_FOLDERS;
-        tmp = select_item(choose);
-    }
-    rm->old_i.old[rm->old_i.cp] = tmp;
-    ++rm->old_i.cp;
     text = sfTexture_createFromFile(tmp, NULL);
     item->sp = sfSprite_create();
     item->altar = sfSprite_create();
@@ -117,6 +70,24 @@ void place_item(room *rm)
     sfSprite_setScale(item->sp, (sfVector2f) {3, 3});
     sfSprite_setTexture(item->sp, text, sfTrue);
     item->pos_collision = (sfIntRect) {1920 / 2 - 50, 1080 / 2 - 100, 75, 166};
+}
+
+void place_item(room *rm)
+{
+    sfTexture *text;
+    char *tmp;
+    collectible *item = malloc(sizeof(collectible));
+    int choose = rand() % LEN_FOLDERS;
+    tmp = select_item(choose);
+    item->altar_text = sfTexture_createFromFile("../Sprites/altar.png", NULL);
+    srand(time(NULL));
+    while (!already_got(tmp, rm->old_i)) {
+        choose = rand() % LEN_FOLDERS;
+        tmp = select_item(choose);
+    }
+    rm->old_i.old[rm->old_i.cp] = tmp;
+    ++rm->old_i.cp;
+    reduce_place_item(rm, tmp, item, text);
     choose_effect(item, choose);
     rm->item = item;
 }

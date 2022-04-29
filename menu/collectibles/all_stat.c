@@ -17,6 +17,15 @@ int my_str_compare(char const *str_one, char const *str_two)
     return 1;
 }
 
+inventory create_inventory(void)
+{
+    inventory invent;
+    invent.money = 3;
+    invent.bomb = 6;
+    invent.key = 1;
+    return invent;
+}
+
 int all_stats_up(player *py)
 {
     py->lf.total_life += 2;

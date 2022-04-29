@@ -7,6 +7,23 @@
 
 #include "../includes/motor.h"
 
+static void draw_bonus_reduce(room *rm, sfRenderWindow *wd, player *py, sfIntRect player)
+{
+    sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
+    for (int i = 0; i < 2; ++i)
+        if (rm->piece[i].pos_collision.left != -1) {
+            (sfIntRect_intersects(&rm->piece[i].pos_collision,
+            &player, &overlap)) ? launch_piece(py, rm, i) : 0;
+            sfRenderWindow_drawSprite(wd, rm->piece[i].sp, NULL);
+        }
+    if (rm->item != NULL) {
+        sfRenderWindow_drawSprite(wd, rm->item->sp, NULL);
+        sfRenderWindow_drawSprite(wd, rm->item->altar, NULL);
+        (sfIntRect_intersects(&rm->item->pos_collision,
+        &player, &overlap)) ? launch_item(py, rm) : 0;
+    }
+}
+
 void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro)
 {
     sfVector2f player_pos = sfSprite_getPosition(py->sp);
@@ -24,18 +41,18 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro)
             &player, &overlap)) ? got_blue_hearth(rm, i, py) : 0;
             sfRenderWindow_drawSprite(wd, rm->blue_hearth[i].sp, NULL);
         }
-    for (int i = 0; i < 2; ++i)
-        if (rm->piece[i].pos_collision.left != -1) {
-            (sfIntRect_intersects(&rm->piece[i].pos_collision,
-            &player, &overlap)) ? launch_piece(py, rm, i) : 0;
-            sfRenderWindow_drawSprite(wd, rm->piece[i].sp, NULL);
+    draw_bonus_reduce(rm, wd, py, player);
+}
+
+static void place_bonus_reduce(room *rm)
+{
+    for (int i = 0; i < 10; ++i)
+        if (rand() % (i + 5 - (rm->luck / 3)) == 0) {
+            rm->piece[i].pos_collision.left = 200 + rand() % 1400;
+            rm->piece[i].pos_collision.top = 200 + rand() % 600;
+            sfSprite_setPosition(rm->piece[i].sp, (sfVector2f) {rm->piece[i]
+            .pos_collision.left, rm->piece[i].pos_collision.top});
         }
-    if (rm->item != NULL) {
-        sfRenderWindow_drawSprite(wd, rm->item->sp, NULL);
-        sfRenderWindow_drawSprite(wd, rm->item->altar, NULL);
-        (sfIntRect_intersects(&rm->item->pos_collision,
-        &player, &overlap)) ? launch_item(py, rm) : 0;
-    }
 }
 
 void place_bonus(room *rm)
@@ -57,11 +74,5 @@ void place_bonus(room *rm)
             (sfVector2f) {rm->blue_hearth[i]
             .pos_collision.left, rm->blue_hearth[i].pos_collision.top});
         }
-    for (int i = 0; i < 10; ++i)
-        if (rand() % (i + 5 - (rm->luck / 3)) == 0) {
-            rm->piece[i].pos_collision.left = 200 + rand() % 1400;
-            rm->piece[i].pos_collision.top = 200 + rand() % 600;
-            sfSprite_setPosition(rm->piece[i].sp, (sfVector2f) {rm->piece[i]
-            .pos_collision.left, rm->piece[i].pos_collision.top});
-        }
+    place_bonus_reduce(rm);
 }
