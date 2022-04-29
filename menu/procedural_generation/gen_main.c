@@ -9,7 +9,6 @@
 
 void gen_main(rooms *room)
 {
-    srand(time(NULL));
     int x = 10;
     create_rooms(room);
     if (room->init == false) {

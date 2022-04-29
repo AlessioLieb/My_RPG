@@ -23,6 +23,7 @@ static int call_main_func(void)
 
 int main(void)
 {
+    srand(time(NULL));
     call_main_func();
     return 0;
 }

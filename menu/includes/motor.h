@@ -281,6 +281,9 @@ stone *create_stone(char *str, rooms *ro);
 void place_stone(room *rm, player *py, char *str, rooms *ro);
 void draw_stone(room *rm, sfRenderWindow *wd);
 bool collision_stone(room *rm, player *py, int x, int y);
+void reduce_place_f(sfImage *f_stone, room *rm, int i);
+void reduce_place_s(sfImage *s_stone, room *rm, int i);
+void reduce_place_t(sfImage *t_stone, room *rm, int i);
 
 //recharge_room.c //
 void recharge_room(reduce *red, bool is_empty, bool is_boss);

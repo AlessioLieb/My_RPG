@@ -13,7 +13,7 @@ bool collision_stone_tears(reduce *red, int x, int y, int nb)
     sfIntRect tmp;
     sfVector2f tears_tmp = sfSprite_getPosition(red->te[nb].t_sp);
     sfIntRect tears_pos = (sfIntRect)
-            {tears_tmp.y + y, tears_tmp.x + x, 15 * 3, 15 * 3};
+    {tears_tmp.y + y, tears_tmp.x + x, 15 * 3, 15 * 3};
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
     for (int i = 0; i < red->rm->len_stone; ++i) {
         pos_tmp = sfSprite_getPosition(red->rm->st[i].sp);
@@ -51,10 +51,10 @@ void disp_stat_hud(reduce *red, sfRenderWindow *wd)
 stats create_stats(void)
 {
     stats st;
-    st.damages = 1;
-    st.freq_tears = 2;
+    st.damages = 10;
+    st.freq_tears = 10;
     st.luck = 1;
-    st.shot_speed = 2;
+    st.shot_speed = 10;
     st.speed = 6;
     return st;
 }

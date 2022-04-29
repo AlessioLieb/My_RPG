@@ -39,6 +39,7 @@ SRC	=	sources/init_base.c						\
 		motor_s/other/reduce.c					\
 		motor_s/other/int_str.c					\
 		motor_s/other/life_gestion.c			\
+		motor_s/other/reduce_place_stone.c		\
 		motor_s/tears/tears_shooting.c			\
 		motor_s/tears/tears_state.c				\
 		motor_s/tears/check_tears_collision.c	\

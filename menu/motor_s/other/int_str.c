@@ -17,8 +17,7 @@ int put_nbr(unsigned long long nb, char *str, int i)
             ++i;
             put_nbr(nb, str, i);
             str[i] = (rest + 48);
-        }
-        else {
+        } else {
             ++i;
             str[i] = (nb + 48);
         }
@@ -45,7 +44,7 @@ void my_evil_str(char *str)
     while (str[i] != '\0')
         ++i;
     --i;
-    while (i > j){
+    while (i > j) {
         temp = str[j];
         str[j] = str [i];
         str[i] = temp;
