@@ -14,7 +14,6 @@ void create_verge(char **map, int x, rooms *room)
     int i;
     int last_i = 0;
     int last_j = 0;
-
     while (count != 2) {
         j = rand() % x;
         i = rand() % x;
