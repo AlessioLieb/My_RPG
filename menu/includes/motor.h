@@ -301,6 +301,7 @@ tears *init_st_array(tears *te, sfIntRect r, player *py);
 // tears_state.c //
 void clear_tears(reduce *red);
 int verif_moving(reduce *red, int nb_tears);
+void change_tears_aspect(reduce *red);
 
 //////// enemies ////////
 

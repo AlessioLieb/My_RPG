@@ -24,17 +24,7 @@ void shoot_tears(int id, reduce *red)
 {
     sfVector2f rect;
     int nb_tears = verif_moving(red, 6);
-    if (red->py->st.damages >= 3 && red->py->st.damages < 6)
-        sfSprite_setTextureRect(red->te[nb_tears].t_sp, (sfIntRect)
-        {139, 190, 15, 15});
-    if (red->py->st.damages >= 6)
-        sfSprite_setTextureRect(red->te[nb_tears].t_sp, (sfIntRect)
-        {318, 357, 28, 11});
-    if (red->py->st.freq_tears >= 8) {
-        sfSprite_setTextureRect(red->te[nb_tears].t_sp, (sfIntRect)
-                {505, 465, 100, 26});
-        sfSprite_setColor(red->te[nb_tears].t_sp, sfRed);
-    }
+    change_tears_aspect(red);
     rect = center_tears(id, rect, red);
     sfSprite_setPosition(red->te[nb_tears].t_sp, rect);
     red->te[nb_tears].move = true;
