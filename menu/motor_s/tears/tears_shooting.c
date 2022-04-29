@@ -22,7 +22,6 @@ void shoot_tears(int id, reduce *red)
     if (id == 1) {
         sfSprite_setRotation(red->te[nb_tears].t_sp, 180);
         red->te[nb_tears].direction = 1;
-        printf("yes\n");
     }
     if (id == 2) {
         sfSprite_setRotation(red->te[nb_tears].t_sp, 0);
@@ -56,7 +55,6 @@ void move_tears(int id, reduce *red, sfRenderWindow *wd)
 {
     int nb_tears = verif_moving(red, 6);
     int i = 0;
-
     while (i < 100) {
         if (red->te[i].direction == 1 && red->te[i].is_shot == true
         && check_collisions(1, red, i)) {

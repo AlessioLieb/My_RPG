@@ -15,8 +15,8 @@ bool touch_boss(reduce *red, sfIntRect tears)
     for (int i = 0; i < LEN_BOSS; ++i) {
         if (red->enem_t->boss_adv[i].pos.x != -1) {
             tmp = sfSprite_getTextureRect(red->enem_t->boss_adv[i].sp);
-            tmp.left = red->enem_t->boss_adv[i].pos.x;
-            tmp.top = red->enem_t->boss_adv[i].pos.y;
+            tmp.left = red->enem_t->boss_adv[i].pos.x + tmp.width;
+            tmp.top = red->enem_t->boss_adv[i].pos.y + tmp.height;
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
@@ -36,8 +36,8 @@ bool touch_three_reduce(reduce *red, sfIntRect tears)
     for (int i = 0; i < 10; ++i) {
         if (red->enem_t->flying_adv[i].pos.x != -1) {
             tmp = sfSprite_getTextureRect(red->enem_t->little_adv[i].sp);
-            tmp.left = red->enem_t->flying_adv[i].pos.x;
-            tmp.top = red->enem_t->flying_adv[i].pos.y;
+            tmp.left = red->enem_t->flying_adv[i].pos.x + tmp.height;
+            tmp.top = red->enem_t->flying_adv[i].pos.y + tmp.width;
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
@@ -57,8 +57,8 @@ bool touch_reduce_reduce(reduce *red, sfIntRect tears)
     for (int i = 0; i < 10; ++i) {
         if (red->enem_t->little_adv[i].pos.x != -1) {
             tmp = sfSprite_getTextureRect(red->enem_t->little_adv[i].sp);
-            tmp.left = red->enem_t->little_adv[i].pos.x;
-            tmp.top = red->enem_t->little_adv[i].pos.y;
+            tmp.left = red->enem_t->little_adv[i].pos.x + tmp.height;
+            tmp.top = red->enem_t->little_adv[i].pos.y + tmp.width;
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
@@ -78,8 +78,8 @@ bool touch_reduce_enemy(reduce *red, sfIntRect tears)
     for (int i = 0; i < 10; ++i) {
         if (red->enem_t->no_moving_adv[i].pos.x != -1) {
             tmp = sfSprite_getTextureRect(red->enem_t->no_moving_adv[i].sp);
-            tmp.left = red->enem_t->no_moving_adv[i].pos.x;
-            tmp.top = red->enem_t->no_moving_adv[i].pos.y;
+            tmp.left = red->enem_t->no_moving_adv[i].pos.x + tmp.height;
+            tmp.top = red->enem_t->no_moving_adv[i].pos.y + tmp.width;
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
@@ -100,8 +100,8 @@ bool touch_enemy(sfVector2f tears_pos, reduce *red)
     for (int i = 0; i < 10; ++i) {
         if (red->enem_t->big_adv[i].pos.x != -1) {
             tmp = sfSprite_getTextureRect(red->enem_t->big_adv[i].sp);
-            tmp.left = red->enem_t->big_adv[i].pos.x;
-            tmp.top = red->enem_t->big_adv[i].pos.y;
+            tmp.left = red->enem_t->big_adv[i].pos.x + tmp.height;
+            tmp.top = red->enem_t->big_adv[i].pos.y + tmp.width;
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))

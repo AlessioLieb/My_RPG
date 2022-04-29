@@ -78,17 +78,42 @@ static char *select_item(int choose)
         return item_selected("../Sprites/Items/tears_up/", rand() % NB_TEARS);
 }
 
+int my_str_compare(char const *str_one, char const *str_two)
+{
+    if (str_len(str_one) != str_len(str_two))
+        return 0;
+    for (int i = 0; str_one[i] != '\0'; ++i)
+        if (str_one[i] != str_two[i])
+            return 0;
+    return 1;
+}
+
+static bool already_got(char *tmp, old_item_t old_t)
+{
+    for (int i = 0; i < old_t.cp; ++i)
+        if (my_str_compare(tmp, old_t.old[i]))
+            return false;
+    return true;
+}
+
 void place_item(room *rm)
 {
     sfTexture *text;
+    char *tmp;
     collectible *item = malloc(sizeof(collectible));
     int choose = 0;
     sfVector2f rect = {1920 / 2 - 50, 1080 / 2 - 100};
     sfVector2f rect1 = {1920 / 2 - 45, 1080 / 2};
+    tmp = select_item(choose);
     item->altar_text = sfTexture_createFromFile("../Sprites/altar.png", NULL);
     srand(time(NULL));
-    choose = rand() % LEN_FOLDERS;
-    text = sfTexture_createFromFile(select_item(choose), NULL);
+    while (!already_got(tmp, rm->old_i)) {
+        choose = rand() % LEN_FOLDERS;
+        tmp = select_item(choose);
+    }
+    rm->old_i.old[rm->old_i.cp] = tmp;
+    ++rm->old_i.cp;
+    text = sfTexture_createFromFile(tmp, NULL);
     item->sp = sfSprite_create();
     item->altar = sfSprite_create();
     sfSprite_setTexture(item->altar, item->altar_text, sfTrue);

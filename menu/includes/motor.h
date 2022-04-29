@@ -39,7 +39,8 @@ enum {
     NB_MONEY = 4,
     NB_SPEED = 9,
     NB_TEARS = 9,
-    LEN_FOLDERS = 9
+    LEN_FOLDERS = 9,
+    NB_ITEMS = 93
 };
 
 enum {
@@ -146,6 +147,11 @@ typedef struct {
     sfSprite *altar;
 }collectible;
 
+typedef struct old_item_s {
+    char **old;
+    int cp;
+}old_item_t;
+
 typedef struct {
     sfSprite *fo;
     sfSprite *ft;
@@ -162,6 +168,7 @@ typedef struct {
     collectible *item;
     bool change_room;
     int luck;
+    old_item_t old_i;
 }room;
 
 typedef struct {
