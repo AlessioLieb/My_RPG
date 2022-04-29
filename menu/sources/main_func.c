@@ -26,10 +26,14 @@ int choose_texture_player(reduce *red, options *sprt)
 {
     if (red->py->change_texture)
         return 1;
-    (sprt->choose == 0) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/robin.png", NULL), sfFalse) : 0;
-    (sprt->choose == 1) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/theotime.png", NULL), sfFalse) : 0;
-    (sprt->choose == 2) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/alessio.png", NULL), sfFalse) : 0;
-    (sprt->choose == 3) ? sfSprite_setTexture(red->py->sp, sfTexture_createFromFile("assets/oscar.png", NULL), sfFalse) : 0;
+    (sprt->choose == 0) ? sfSprite_setTexture(red->py->sp,
+    sfTexture_createFromFile("assets/robin.png", NULL), sfFalse) : 0;
+    (sprt->choose == 1) ? sfSprite_setTexture(red->py->sp,
+    sfTexture_createFromFile("assets/theotime.png", NULL), sfFalse) : 0;
+    (sprt->choose == 2) ? sfSprite_setTexture(red->py->sp,
+    sfTexture_createFromFile("assets/alessio.png", NULL), sfFalse) : 0;
+    (sprt->choose == 3) ? sfSprite_setTexture(red->py->sp,
+    sfTexture_createFromFile("assets/oscar.png", NULL), sfFalse) : 0;
     red->py->change_texture = sprt->choose + 1;
     return 0;
 }
@@ -101,16 +105,15 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         enemies_verification(enem_t, rm);
+        (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
+        (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         (sprt->begin == 3) ? doors_colisions(sprt, rm, py) : 0;
         (sprt->begin == 3 || sprt->begin == 6)
         ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro}, sprt) : 0;
         (sprt->begin == 3 && mu->id_m == 0) ? ++mu->id_m : 0;
-        (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
-        (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
         sprt->begin == 3 ? draw_mini_map(ro, wndw->window, rm) : 0;
-        sfRenderWindow_display(wndw->window);
-        sfRenderWindow_clear(wndw->window, sfBlack);
+        reduce_clear_display(wndw);
     }
     end_buffer(sprt);
 }

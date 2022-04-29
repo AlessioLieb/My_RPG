@@ -30,5 +30,6 @@ typedef struct {
 void floor_pass(rooms *ro, reduce *red, options *sprt, music *mu);
 void music_launcher(reduce *red, int floor, int state, music *mu);
 music *create_music(void);
+void reduce_clear_display(window *wndw);
 
 #endif

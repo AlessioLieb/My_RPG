@@ -102,3 +102,10 @@ void draw_doors_leftc(int lvl, options *sprt, sfRenderWindow *wd, char c)
     sfRenderWindow_drawSprite(wd, door, NULL);
     sprt->actual_doors[3] = false;
 }
+
+void draw_all(sfRenderWindow *wd, reduce *red, options *sprt)
+{
+    draw_room(wd, red, red->ro);
+    draw_doors(red->rm, red->ro, wd, sprt);
+    draw_stone(red->rm, wd);
+}

@@ -58,3 +58,9 @@ void init_rm_sprt(room *rm, options *sprt)
     sprt->actual_doors[3] = false;
     sprt->plus_lvl = false;
 }
+
+void reduce_clear_display(window *wndw)
+{
+    sfRenderWindow_display(wndw->window);
+    sfRenderWindow_clear(wndw->window, sfBlack);
+}

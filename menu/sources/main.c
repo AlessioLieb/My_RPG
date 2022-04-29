@@ -13,7 +13,7 @@ static int call_main_func(void)
     options *sprt = malloc(sizeof(options));
     players *perso = malloc(sizeof(players));
     sprt->actual_doors = malloc(sizeof(bool) * 6);
-    rooms room = {0, 0, NULL, 0, NULL, false, NULL};
+    rooms room = {0, 0, NULL, 4, NULL, false, NULL};
     gen_main(&room);
     init_mini_map(&room);
     clear_mini_map(&room);

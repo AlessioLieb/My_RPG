@@ -428,6 +428,7 @@ void draw_doors_topc(int lvl, options *sprt, sfRenderWindow *wd, char c);
 void draw_doors_rightc(int lvl, options *sprt, sfRenderWindow *wd, char c);
 void draw_doors_leftc(int lvl, options *sprt, sfRenderWindow *wd, char c);
 void draw_doors_botc(int lvl, options *sprt, sfRenderWindow *wd, char c);
+void draw_all(sfRenderWindow *wd, reduce *red, options *sprt);
 void launch_piece(player *py, room *rm, int i);
 int event_window(window *wndw, options *sprt, reduce *red);
 void player_room(sfRenderWindow *wd, reduce *red, options *sprt);
