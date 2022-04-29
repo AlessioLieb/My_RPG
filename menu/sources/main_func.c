@@ -72,6 +72,7 @@ void enemies_verification(enemies_t *enem_t, room *rm)
         enem_t->flying_adv[i].pos.x != -1 ? ++count : 0;
         enem_t->little_adv[i].pos.x != -1 ? ++count : 0;
         enem_t->no_moving_adv[i].pos.x != -1 ? ++count : 0;
+        enem_t->boss_adv[i].pos.x != -1 ? ++count : 0;
     }
     if (count == 0)
         rm->open = true;

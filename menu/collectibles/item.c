@@ -101,7 +101,7 @@ void place_item(room *rm)
     sfTexture *text;
     char *tmp;
     collectible *item = malloc(sizeof(collectible));
-    int choose = 0;
+    int choose = rand() % LEN_FOLDERS;
     sfVector2f rect = {1920 / 2 - 50, 1080 / 2 - 100};
     sfVector2f rect1 = {1920 / 2 - 45, 1080 / 2};
     tmp = select_item(choose);

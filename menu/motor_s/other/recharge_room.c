@@ -52,9 +52,9 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
         place_stone(red->rm, red->py, buff, red->ro);
         is_visited != 'X'  && is_visited != 'T' ? place_bonus(red->rm) : 0;
         if ((red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]] == 'T' || 
-        (red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]] == 'B' && red->rm->open == true)) && (is_visited == 't' || is_visited == 'B'))
+        (red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]] == 'B' && red->rm->open == true)) && (is_visited == 't'))
             place_item(red->rm);
-        is_boss ? place_boss_level(red->enem_t, false) : 0;
+        is_boss  && is_visited == 'b' ? place_boss_level(red->enem_t, red->ro->lvl == 4 ? true : false) : 0;
         free(buff);
         red->rm->change_room = false;
     }
