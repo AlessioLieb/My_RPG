@@ -28,6 +28,7 @@ int item_freq(player *py)
 
 int item_speed_tears(player *py)
 {
+    if (py->st.shot_speed <= 10)
     py->st.shot_speed++;
     return 1;
 }

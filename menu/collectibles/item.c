@@ -35,6 +35,8 @@ static void choose_effect(collectible *item, int choose)
         item->change = &item_speed;
     if (choose == TEARS)
         item->change = &item_freq;
+    if (choose == LUCK)
+        item->change = &luck_up;
 }
 
 static char *item_selected(char *path, int nb)
@@ -76,16 +78,8 @@ static char *select_item(int choose)
         return item_selected("../Sprites/Items/speed_up/", rand() % NB_SPEED);
     if (choose == TEARS)
         return item_selected("../Sprites/Items/tears_up/", rand() % NB_TEARS);
-}
-
-int my_str_compare(char const *str_one, char const *str_two)
-{
-    if (str_len(str_one) != str_len(str_two))
-        return 0;
-    for (int i = 0; str_one[i] != '\0'; ++i)
-        if (str_one[i] != str_two[i])
-            return 0;
-    return 1;
+    if (choose == LUCK)
+        return item_selected("../Sprites/Items/luck_up/", rand() % NB_LUCK);
 }
 
 static bool already_got(char *tmp, old_item_t old_t)

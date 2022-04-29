@@ -39,7 +39,8 @@ enum {
     NB_MONEY = 4,
     NB_SPEED = 9,
     NB_TEARS = 9,
-    LEN_FOLDERS = 9,
+    NB_LUCK = 4,
+    LEN_FOLDERS = 10,
     NB_ITEMS = 93
 };
 
@@ -53,6 +54,7 @@ enum {
     MONEY,
     SPEED,
     TEARS,
+    LUCK
 };
 
 typedef struct {
@@ -378,6 +380,7 @@ void launch_item(player *py, room *rm);
 int item_life_augmentation(player *py);
 int item_speed(player *py);
 int all_stats_up(player *py);
+int my_str_compare(char const *str_one, char const *str_two);
 int bombs_up(player *py);
 int fly_player(player *py);
 int item_damage(player *py);
@@ -385,7 +388,7 @@ int keys_up(player *py);
 int item_freq(player *py);
 int money_up(player *py);
 int item_speed_tears(player *py);
-
+int luck_up(player *py);
 ///////////// minimap ////////////
 
 void update_mini_map(rooms *ro, room *rm);

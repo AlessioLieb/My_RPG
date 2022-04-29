@@ -13,7 +13,7 @@ player *creation_player(void)
     sfIntRect place = {125, 14, 44, 40};
     init_player(py);
     py->lf = create_life();
-    py->invulnerability = 1000;
+    py->invulnerability = 0;
     py->invent = create_inventory();
     py->st = create_stats();
     py->player_key = (event_key) {false, false, false, false, false,

@@ -9,13 +9,13 @@
 
 int bombs_up(player *py)
 {
-    py->invent.bomb++;
+    py->invent.bomb += 5;
     return 1;
 }
 
 int keys_up(player *py)
 {
-    py->invent.key++;
+    py->invent.key += 5;
     return 1;
 }
 
