@@ -113,7 +113,7 @@ typedef struct {
     bool key_down;
 }event_key;
 
-typedef struct player_s{
+typedef struct player_s {
     event_key player_key;
     sfSprite *sp;
     sfTexture *tx;
