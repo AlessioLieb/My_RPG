@@ -302,7 +302,6 @@ tears *init_st_array(tears *te, sfIntRect r, player *py);
 void clear_tears(reduce *red);
 int verif_moving(reduce *red, int nb_tears);
 
-
 //////// enemies ////////
 
 // anim_enemies.c //
@@ -355,7 +354,6 @@ char *create_map_str(char *to_read);
 //boss_bar.c//
 void display_boss_life(enemies_t *enemy, int i, sfRenderWindow *wd);
 boss_life_t create_boss_bar(void);
-
 
 //////// collectibles ////////
 
