@@ -43,7 +43,7 @@ static char *select_item(int choose)
     if (choose == FLY_I)
         return item_selected("../Sprites/Items/fly/", rand() % NB_FLY_I);
     if (choose == HEALTH)
-        return item_selected("../Sprites/Items/health_up/", rand() % NB_HEALTH);
+        return item_selected("../Sprites/Items/health_up/", rand() % N_HEALTH);
     if (choose == KEYS)
         return item_selected("../Sprites/Items/keys_up/", rand() % NB_KEYS);
     if (choose == MONEY)
@@ -65,7 +65,8 @@ sfTexture *text)
     item->altar = sfSprite_create();
     sfSprite_setTexture(item->altar, item->altar_text, sfTrue);
     sfSprite_setPosition(item->sp, rect);
-    sfSprite_setScale(item->altar, (sfVector2f) {3 * (32 / 27), 3 * (32 / 27)});
+    sfSprite_setScale(item->altar, (sfVector2f) {3 * (32 / 27), 3 *
+    (32 / 27)});
     sfSprite_setPosition(item->altar, rect1);
     sfSprite_setScale(item->sp, (sfVector2f) {3, 3});
     sfSprite_setTexture(item->sp, text, sfTrue);

@@ -48,7 +48,7 @@ void place_stone(room *rm, player *py, char *str, rooms *ro)
     sfImage *t_stone = sfImage_createFromFile("assets/collisions/stone3.png");
     rm->room_col = sfImage_create(WIDTH, HEIGHT);
     rm->len_stone = count_stone(str);
-    for (int i = 0; str[i] != '\0'; ++i) {
+    for (int i = 0; str[i] != '\0'; ++i)
         if (str[i] == 'B') {
             sfSprite_setPosition(rm->st[count].sp, (sfVector2f)
             {i % 22 * 78 + 140, (i / 22 * 90) + 82});
@@ -57,7 +57,6 @@ void place_stone(room *rm, player *py, char *str, rooms *ro)
             rm->st[count].nb_stone == 2 ? reduce_place_t(t_stone, rm, i) : 0;
             ++count;
         }
-    }
 }
 
 void draw_stone(room *rm, sfRenderWindow *wd)
@@ -68,17 +67,17 @@ void draw_stone(room *rm, sfRenderWindow *wd)
 
 bool collision_stone(room *rm, player *py, int x, int y)
 {
-    sfVector2f player_tmp = sfSprite_getPosition(py->sp);
-    sfVector2f end = player_tmp;
+    sfVector2f player_tp = sfSprite_getPosition(py->sp);
+    sfVector2f end = player_tp;
     bool res = true;
-    player_tmp.x += x;
-    player_tmp.y += y;
+    player_tp.x += x;
+    player_tp.y += y;
     end.x -= x;
     end.y -= y;
     for (int i = 0; i < 83; ++i)
         for (int j = 0; j < 70; ++j)
             res = (sfImage_getPixel(py->collision_box, i, j).r ==
-            sfImage_getPixel(rm->room_col, player_tmp.x + i, player_tmp.y + j).r
+            sfImage_getPixel(rm->room_col, player_tp.x + i, player_tp.y + j).r
             && sfImage_getPixel(py->collision_box, i, j).r != 0) ? false : res;
     if (!res) {
         py->actual_speed = (sfVector2f) {0, 0};

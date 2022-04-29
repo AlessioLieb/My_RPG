@@ -34,7 +34,7 @@ enum {
     NB_BOMBS = 3,
     NB_DMG = 26,
     NB_FLY_I = 2,
-    NB_HEALTH = 19,
+    N_HEALTH = 19,
     NB_KEYS = 4,
     NB_MONEY = 4,
     NB_SPEED = 9,
@@ -85,7 +85,7 @@ typedef struct {
     int total_life;
     int red_hearth;
     int blue_hearth;
-    sfSprite *h_sp;
+    sfSprite *hsp;
 }life;
 
 typedef struct {
@@ -323,7 +323,8 @@ void move_enemies(enemies_t *enem_t, player *py, room *rm);
 void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale,
 sfIntRect place);
 void move_enemies(enemies_t *enem_t, player *py, room *rm);
-void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale, sfIntRect place);
+void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale,
+sfIntRect place);
 
 // player_enemies.c //
 void touch_player_enemy(adv_t adv, sfVector2f player_pos, player *py);
@@ -345,6 +346,7 @@ void place_boss_level(enemies_t *enemy, bool final_boss);
 void create_monstro_diggle(boss_t *boss);
 sfTexture *init_mdg(sfTexture *text_m, sfTexture *text_d);
 sfTexture *init_hgd(sfTexture *t_greed, sfTexture *t_husk);
+void create_husk(boss_t *boss);
 
 //anim_boss //
 
@@ -439,7 +441,8 @@ int check_move_left(player *py, room *rm);
 int check_move_down(player *py, room *rm);
 int check_move_up(player *py, room *rm);
 
-void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm, player *py);
+void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm,
+player *py);
 void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py);
 void draw_npc(window *wndw, options *sprt, room *rm, player *py);
 

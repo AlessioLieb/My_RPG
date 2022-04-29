@@ -30,7 +30,7 @@ void touch_player_boss(boss_t adv, sfVector2f player_pos, player *py)
     sfIntRect player = (sfIntRect){player_pos.x, player_pos.y, 28 * 3, 33 * 3};
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
     if (py->invulnerability <= 0 && sfIntRect_intersects(&tmp, &player,
-        &overlap)) {
+    &overlap)) {
         py->invulnerability = 500;
         if (py->lf.blue_hearth > 1)
             py->lf.blue_hearth -= 2;

@@ -23,6 +23,7 @@ void floor_pass(rooms *ro, reduce *red, options *sprt, music *mu)
 
 void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
 {
+    int x = 8000;
     draw_all(wd, red, sprt);
     !sprt->win_cond ? sfRenderWindow_drawSprite(wd, red->py->sp, NULL) : 0;
     if (sprt->win_cond) {
@@ -34,10 +35,10 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
     red->rm->timer_tears.timer_total +=
     sfClock_getElapsedTime(red->enem_t->total_clock)
     .microseconds - red->rm->timer_tears.timer;
-    while (red->rm->timer_tears.timer_total > 8000
+    while (red->rm->timer_tears.timer_total > x
     / (red->py->st.shot_speed / 2)) {
         move_tears(2, red, wd);
-        red->rm->timer_tears.timer_total -= 8000 / (red->py->st.shot_speed / 2);
+        red->rm->timer_tears.timer_total -= x / (red->py->st.shot_speed / 2);
     }
     red->rm->timer_tears.timer =
     sfClock_getElapsedTime(red->enem_t->total_clock).microseconds;

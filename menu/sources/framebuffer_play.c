@@ -16,7 +16,6 @@ void my_put_pixel_circle(options *sprt, int x, int y, sfColor color)
         sprt->framebuffer[r + 2] = color.b;
         sprt->framebuffer[r + 3] = color.a;
     }
-
 }
 
 void dsquare(int x, int y, int radius, options *sprt, sfColor color)

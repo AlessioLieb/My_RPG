@@ -42,7 +42,8 @@ void draw_adv(adv_t *adv, sfRenderWindow *wndw)
         }
 }
 
-void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py, room *rm)
+void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py,
+room *rm)
 {
     anim_enemies(enem_t);
     move_enemies(enem_t, py, rm);

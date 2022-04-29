@@ -18,7 +18,8 @@ sfUint8 *framebuffer, sfColor color)
 boss_life_t create_boss_bar(void)
 {
     boss_life_t boss_life;
-    sfTexture *text = sfTexture_createFromFile("../Sprites/boss_bar.png", NULL);
+    sfTexture *text =
+    sfTexture_createFromFile("../Sprites/boss_bar.png", NULL);
     boss_life.framebuffer = malloc(sizeof(sfUint8) * HEIGHT * WIDTH * 4 * 8);
     if (boss_life.framebuffer == NULL)
         return (boss_life_t){NULL, NULL, NULL, NULL, -2};
@@ -43,8 +44,8 @@ void display_boss_life(enemies_t *enemy, int i, sfRenderWindow *wd)
     length_bar.y = 48;
     length_bar.x = x * 444.0;
     sfRenderWindow_drawSprite(wd, enemy->boss_life.end_start, NULL);
-    draw_rectangle_framebuffer((sfVector2f){0, 0}, (sfVector2i) {WIDTH, HEIGHT},
-    enemy->boss_life.framebuffer, sfTransparent);
+    draw_rectangle_framebuffer((sfVector2f){0, 0}, (sfVector2i)
+    {WIDTH, HEIGHT}, enemy->boss_life.framebuffer, sfTransparent);
     draw_rectangle_framebuffer((sfVector2f){750, 156}, length_bar,
     enemy->boss_life.framebuffer, sfRed);
     sfTexture_updateFromPixels(enemy->boss_life.text_framebuffer,

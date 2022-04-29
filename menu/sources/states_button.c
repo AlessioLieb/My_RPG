@@ -55,7 +55,7 @@ void catch_button(window *wndw, options *opt, sfEvent event)
 
 void click_button(window *wndw, options *opt, sfEvent event)
 {
-        for (int i = 0; i < opt->len_button; ++i) {
+    for (int i = 0; i < opt->len_button; ++i) {
         if (((event.mouseButton.x >= opt->ar_btn[i].pos.x) &&
         (event.mouseButton.x <= (opt->ar_btn[i].pos.x +
         opt->ar_btn[i].place.width))) && ((event.mouseButton.y >=

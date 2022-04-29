@@ -29,13 +29,12 @@ void move_adv(adv_t *actual, int i, sfVector2f player_pos, int type, room *rm)
     sfVector2f nw_move = actual[i].pos;
     int changed = 0;
     if (fabsf(actual[i].pos.x - player_pos.x) > fabsf
-    (actual[i].pos.y - player_pos.y)) {
-        nw_move.x += actual[i].pos.x - player_pos
-                .x > 0 ? -actual[i].speed : actual[i].speed;
-    } else {
-        nw_move.y += actual[i].pos.y - player_pos
-                .y > 0 ? -actual[i].speed : actual[i].speed;
-    }
+    (actual[i].pos.y - player_pos.y))
+        nw_move.x += actual[i].pos.x - player_pos.x > 0
+        ? -actual[i].speed : actual[i].speed;
+    else
+        nw_move.y += actual[i].pos.y - player_pos.y > 0
+        ? -actual[i].speed : actual[i].speed;
     if (actual[i].is_flying || actual[i].speed == 0
     || check_move(nw_move, type, rm))
         actual[i].pos = nw_move;
@@ -54,13 +53,12 @@ void move_boss(boss_t *actual, int i, sfVector2f player_pos)
 {
     sfVector2f nw_move = actual[i].pos;
     if (fabsf(actual[i].pos.x - player_pos.x) > fabsf
-            (actual[i].pos.y - player_pos.y)) {
-        nw_move.x += actual[i].pos.x - player_pos
-                .x > 0 ? -actual[i].speed : actual[i].speed;
-    } else {
-        nw_move.y += actual[i].pos.y - player_pos
-                .y > 0 ? -actual[i].speed : actual[i].speed;
-    }
+    (actual[i].pos.y - player_pos.y))
+        nw_move.x += actual[i].pos.x - player_pos.x > 0
+        ? -actual[i].speed : actual[i].speed;
+    else
+        nw_move.y += actual[i].pos.y - player_pos.y > 0
+        ? -actual[i].speed : actual[i].speed;
     actual[i].pos = nw_move;
 }
 

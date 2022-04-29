@@ -20,7 +20,7 @@ bool touch_boss(reduce *red, sfIntRect tears)
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
-                    ? touched_enemy(red, i, 'E') : check;
+            ? touched_enemy(red, i, 'E') : check;
         }
         if (!check)
             return false;
@@ -41,7 +41,7 @@ bool touch_three_reduce(reduce *red, sfIntRect tears)
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
-                    ? touched_enemy(red, i, 'F') : check;
+            ? touched_enemy(red, i, 'F') : check;
         }
         if (!check)
             return false;
@@ -62,7 +62,7 @@ bool touch_reduce_reduce(reduce *red, sfIntRect tears)
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
-                    ? touched_enemy(red, i, 'L') : check;
+            ? touched_enemy(red, i, 'L') : check;
         }
         if (!check)
             return false;
@@ -83,7 +83,7 @@ bool touch_reduce_enemy(reduce *red, sfIntRect tears)
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
-                    ? touched_enemy(red, i, 'N') : check;
+            ? touched_enemy(red, i, 'N') : check;
         }
         if (!check)
             return false;
@@ -105,7 +105,7 @@ bool touch_enemy(sfVector2f tears_pos, reduce *red)
             tmp.height *= 2;
             tmp.width *= 2;
             check = (sfIntRect_intersects(&tmp, &tears, &overlap))
-                    ? touched_enemy(red, i, 'I') : check;
+            ? touched_enemy(red, i, 'I') : check;
         }
         if (!check)
             return false;
