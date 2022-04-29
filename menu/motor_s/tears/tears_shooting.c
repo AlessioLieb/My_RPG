@@ -7,8 +7,22 @@
 
 #include "../../includes/motor.h"
 
+sfVector2f center_tears(int id, sfVector2f rect, reduce *red)
+{
+    sfVector2f t_pos = sfSprite_getPosition(red->py->sp);
+    rect = (sfVector2f) {t_pos.x + 20, t_pos.y};
+    id == 1 ? rect.y += 80 : 0;
+    id == 2 ? rect.y += 40 : 0;
+    id == 2 ? rect.x += 80 : 0;
+    id == 3 ? rect.x += 20 : 0;
+    id == 4 ? rect.y += 80 : 0;
+    id == 4 ? rect.x += 55 : 0;
+    return (rect);
+}
+
 void shoot_tears(int id, reduce *red)
 {
+    sfVector2f rect;
     int nb_tears = verif_moving(red, 6);
     if (red->py->st.damages >= 3 && red->py->st.damages < 6)
         sfSprite_setTextureRect(red->te[nb_tears].t_sp, (sfIntRect)
@@ -16,9 +30,8 @@ void shoot_tears(int id, reduce *red)
     if (red->py->st.damages >= 6)
         sfSprite_setTextureRect(red->te[nb_tears].t_sp, (sfIntRect)
         {318, 357, 28, 11});
-    sfVector2f t_pos = sfSprite_getPosition(red->py->sp);
-    sfSprite_setPosition(red->te[nb_tears].t_sp,
-    (sfVector2f){t_pos.x + 20, t_pos.y});
+    rect = center_tears(id, rect, red);
+    sfSprite_setPosition(red->te[nb_tears].t_sp, rect);
     red->te[nb_tears].move = true;
     red->te[nb_tears].is_shot = true;
     id == 1 ? sfSprite_setRotation(red->te[nb_tears].t_sp, 180) : 0;
