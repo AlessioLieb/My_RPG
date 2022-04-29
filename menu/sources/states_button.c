@@ -17,7 +17,7 @@ void touch_button(window *wndw, options *opt, int i, sfVector2i pos)
     if (sfIntRect_contains(&tmp, pos.x, pos.y) && opt->ar_btn[i].event != 3) {
         sfSprite_setTextureRect(opt->ar_btn[i].sprt, new);
         opt->ar_btn[i].event = 0;
-        } else if (opt->ar_btn[i].event != 3)
+    } else if (opt->ar_btn[i].event != 3)
         sfSprite_setTextureRect(opt->ar_btn[i].sprt, opt->ar_btn[i].place);
     if (opt->ar_btn[i].screen == opt->begin && opt->ar_btn[i].params)
         sfRenderWindow_drawSprite(wndw->window, opt->ar_btn[i].sprt, NULL);

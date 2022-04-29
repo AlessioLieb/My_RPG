@@ -50,11 +50,10 @@ void draw_doors_boto(int lvl, options *sprt, sfRenderWindow *wd, char c)
         door = sfSprite_copy(sprt->treasure_do);
         pos.y += 20;
     }
-    if (c == 'B') {
+    if (c == 'B')
         door = sfSprite_copy(sprt->boss_do);
-        pos.x += 20;
-        pos.y += 20;
-    }
+    c == 'B' ? pos.x += 20 : 0;
+    c == 'B' ? pos.y += 20 : 0;
     sfSprite_setPosition(door, pos);
     sfSprite_setRotation(door, 180);
     sfRenderWindow_drawSprite(wd, door, NULL);
@@ -75,11 +74,10 @@ void draw_doors_righto(int lvl, options *sprt, sfRenderWindow *wd, char c)
         door = sfSprite_copy(sprt->treasure_do);
         pos.x += 20;
     }
-    if (c == 'B') {
+    if (c == 'B')
         door = sfSprite_copy(sprt->boss_do);
-        pos.y -= 20;
-        pos.x += 20;
-    }
+    c == 'B' ? pos.y -= 20 : 0;
+    c == 'B' ? pos.x += 20 : 0;
     sfSprite_setPosition(door, pos);
     sfSprite_setRotation(door, 90);
     sfRenderWindow_drawSprite(wd, door, NULL);
