@@ -32,7 +32,6 @@ collectible *create_red_hearth(sfTexture *text)
     collectible *r_hearth = malloc(sizeof(collectible) * 5);
     sfIntRect complete = (sfIntRect) {0, 0, 16, 13};
     sfIntRect semi = (sfIntRect) {16, 0, 16, 13};
-    srand(time(NULL));
     for (int i = 0; i < 4; ++i) {
         r_hearth[i].sp = sfSprite_create();
         sfSprite_setTexture(r_hearth[i].sp, text, sfTrue);

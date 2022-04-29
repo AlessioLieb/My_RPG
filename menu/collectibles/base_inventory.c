@@ -36,7 +36,6 @@ void launch_piece(player *py, room *rm, int i)
 collectible *create_piece(sfTexture *text)
 {
     collectible *piece = malloc(sizeof(collectible) * 12);
-    srand(time(NULL));
     for (int i = 0; i < 10; ++i) {
         piece[i].sp = sfSprite_create();
         sfSprite_setTexture(piece[i].sp, text, sfTrue);

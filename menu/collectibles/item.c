@@ -52,11 +52,11 @@ static char *select_item(int choose)
         return item_selected("../Sprites/Items/speed_up/", rand() % NB_SPEED);
     if (choose == TEARS)
         return item_selected("../Sprites/Items/tears_up/", rand() % NB_TEARS);
-    if (choose == LUCK)
-        return item_selected("../Sprites/Items/luck_up/", rand() % NB_LUCK);
+    return item_selected("../Sprites/Items/luck_up/", rand() % NB_LUCK);
 }
 
-static void reduce_place_item(room *rm, char *tmp, collectible *item, sfTexture *text)
+static void reduce_place_item(room *rm, char *tmp, collectible *item,
+sfTexture *text)
 {
     sfVector2f rect = {1920 / 2 - 50, 1080 / 2 - 100};
     sfVector2f rect1 = {1920 / 2 - 45, 1080 / 2};

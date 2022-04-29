@@ -7,7 +7,8 @@
 
 #include "../includes/motor.h"
 
-static void draw_bonus_reduce(room *rm, sfRenderWindow *wd, player *py, sfIntRect player)
+static void draw_bonus_reduce(room *rm, sfRenderWindow *wd, player *py,
+sfIntRect player)
 {
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
     for (int i = 0; i < 2; ++i)
@@ -57,7 +58,6 @@ static void place_bonus_reduce(room *rm)
 
 void place_bonus(room *rm)
 {
-    srand(time(NULL));
     for (int i = 0; i < 4; ++i)
         if (rand() % (i + 20 - rm->luck) == 0) {
             rm->red_hearth[i].pos_collision.left = 200 + rand() % 1400;
