@@ -54,7 +54,7 @@ stats create_stats(void)
     st.damages = 1;
     st.freq_tears = 2;
     st.luck = 1;
-    st.shot_speed = 5;
+    st.shot_speed = 2;
     st.speed = 6;
     return st;
 }

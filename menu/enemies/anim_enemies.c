@@ -47,7 +47,7 @@ void reduce_init_big(int i, adv_t *adv)
     adv[i].pos = (sfVector2f){-1, -1};
     adv[i].is_flying = false;
     adv[i].is_shooting = false;
-    adv[i].pv = 7;
+    adv[i].pv = 6;
 }
 
 void reduce_init_fly(int i, adv_t *adv)
@@ -56,5 +56,5 @@ void reduce_init_fly(int i, adv_t *adv)
     adv[i].pos = (sfVector2f){-1, -1};
     adv[i].is_flying = true;
     adv[i].is_shooting = false;
-    adv[i].pv = 4;
+    adv[i].pv = 3;
 }

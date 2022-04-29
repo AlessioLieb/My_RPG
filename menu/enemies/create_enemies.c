@@ -91,7 +91,7 @@ adv_t *little_adv_create(void)
         adv[i].pos = (sfVector2f){-1, -1};
         adv[i].is_flying = false;
         adv[i].is_shooting = false;
-        adv[i].pv = 5;
+        adv[i].pv = 3;
     }
     return adv;
 }

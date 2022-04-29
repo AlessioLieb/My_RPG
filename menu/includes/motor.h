@@ -169,6 +169,7 @@ typedef struct {
     bool change_room;
     int luck;
     old_item_t old_i;
+    timer timer_tears;
 }room;
 
 typedef struct {

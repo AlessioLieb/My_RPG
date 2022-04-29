@@ -25,6 +25,7 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
 {
     draw_room(wd, red, red->ro);
     draw_doors(red->rm, red->ro, wd, sprt);
+    draw_stone(red->rm, wd);
     if (sprt->win_cond == false)
         sfRenderWindow_drawSprite(wd, red->py->sp, NULL);
     else {
@@ -32,8 +33,14 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
         ((32 * 3.5) / 2), 115});
         sfRenderWindow_drawSprite(wd, sprt->win, NULL);
     }
-    draw_stone(red->rm, wd);
-    move_tears(2, red, wd);
+    red->rm->timer_tears.timer_total += sfClock_getElapsedTime(red->enem_t->total_clock)
+    .microseconds - red->rm->timer_tears.timer;
+    while (red->rm->timer_tears.timer_total > 8000 / (red->py->st.shot_speed / 2)) {
+        move_tears(2, red, wd);
+        red->rm->timer_tears.timer_total -= 8000 / (red->py->st.shot_speed / 2);
+    }
+    red->rm->timer_tears.timer =
+    sfClock_getElapsedTime(red->enem_t->total_clock).microseconds;
 }
 
 void trap_colisions(options *sprt, room *ry, player *py)

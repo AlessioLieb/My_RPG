@@ -32,5 +32,5 @@ void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale, sfIntRect place)
     no_mov[i].pos = (sfVector2f){-1, -1};
     no_mov[i].is_flying = false;
     no_mov[i].is_shooting = true;
-    no_mov[i].pv = 3;
+    no_mov[i].pv = 2;
 }
