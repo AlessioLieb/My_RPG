@@ -304,6 +304,7 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss);
 // item_description.c //
 item_desc *init_description(void);
 void disp_description(reduce *red, sfRenderWindow *wd);
+void disp_fly_hud(player *py);
 
 //// tears ////
 

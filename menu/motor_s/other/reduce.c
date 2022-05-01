@@ -60,10 +60,10 @@ void disp_stat_hud(reduce *red, sfRenderWindow *wd)
 stats create_stats(void)
 {
     stats st;
-    st.damages = 0.05;
-    st.freq_tears = 250;
+    st.damages = 4;
+    st.freq_tears = 4;
     st.luck = 1;
-    st.shot_speed = 75;
-    st.speed = 6;
+    st.shot_speed = 4;
+    st.speed = 8;
     return st;
 }

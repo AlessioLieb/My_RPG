@@ -7,19 +7,29 @@
 
 #include "../../includes/motor.h"
 
+void disp_fly_hud(player *py)
+{
+    py->it_des->active = true;
+    sfClock_restart(py->it_des->des_clock);
+    sfText_setString(py->it_des->main_d, " FLIGHT !");
+    sfText_setString(py->it_des->sec_d, "Gives you the ability to fly !");
+    sfText_setPosition(py->it_des->main_d, (sfVector2f) {830, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {730, 270});
+}
+
 void draw_all_texts(reduce *red, sfRenderWindow *wd)
 {
     sfText_setColor(red->py->it_des->l_hud, sfGreen);
     sfText_setString(red->py->it_des->l_hud, "+1");
-    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {145, 650});
+    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {150, 650});
     sfRenderWindow_drawText(wd, red->py->it_des->l_hud, NULL);
-    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {145, 725});
+    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {150, 725});
     sfRenderWindow_drawText(wd, red->py->it_des->l_hud, NULL);
-    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {145, 800});
+    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {150, 800});
     sfRenderWindow_drawText(wd, red->py->it_des->l_hud, NULL);
-    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {145, 875});
+    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {150, 875});
     sfRenderWindow_drawText(wd, red->py->it_des->l_hud, NULL);
-    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {145, 950});
+    sfText_setPosition(red->py->it_des->l_hud, (sfVector2f) {150, 950});
     sfRenderWindow_drawText(wd, red->py->it_des->l_hud, NULL);
 }
 
@@ -39,9 +49,7 @@ void init_description_bis(item_desc *it_des)
     sfText_setFont(it_des->main_d, it_des->font);
     sfText_setFont(it_des->sec_d, it_des->font);
     sfText_setFont(it_des->l_hud, it_des->font);
-    sfText_setPosition(it_des->main_d, (sfVector2f) {800, 195});
     sfText_setScale(it_des->main_d, (sfVector2f) {2, 2});
-    sfText_setPosition(it_des->sec_d, (sfVector2f) {890, 270});
     sfText_setScale(it_des->sec_d, (sfVector2f) {1, 1});
     sfText_setScale(it_des->l_hud, (sfVector2f) {0.75, 0.75});
 
