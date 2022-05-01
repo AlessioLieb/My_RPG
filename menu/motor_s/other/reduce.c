@@ -46,6 +46,15 @@ void disp_stat_hud(reduce *red, sfRenderWindow *wd)
     disp_sp_tears(red, wd);
     disp_damages(red, wd);
     disp_luck(red, wd);
+    if (red->py->it_des->active)
+        disp_description(red, wd);
+    int t = sfClock_getElapsedTime(red->py->it_des->des_clock).microseconds
+    / 1000000;
+    if (t > 2) {
+        red->py->it_des->active = false;
+        red->py->it_des->l_h_active = false;
+        red->py->it_des->all_st_active = false;
+    }
 }
 
 stats create_stats(void)
