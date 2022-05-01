@@ -113,6 +113,18 @@ typedef struct {
     bool key_down;
 }event_key;
 
+typedef struct {
+    sfSprite *des;
+    sfFont *font;
+    sfText *main_d;
+    sfText *sec_d;
+    sfText *l_hud;
+    bool active;
+    bool l_h_active;
+    bool all_st_active;
+    sfClock *des_clock;
+}item_desc;
+
 typedef struct player_s {
     event_key player_key;
     sfSprite *sp;
@@ -132,6 +144,7 @@ typedef struct player_s {
     timer anim_timer;
     timer tears_timer;
     sfClock *time;
+    item_desc *it_des;
     int change_texture;
 }player;
 
@@ -287,6 +300,10 @@ void reduce_place_t(sfImage *t_stone, room *rm, int i);
 
 //recharge_room.c //
 void recharge_room(reduce *red, bool is_empty, bool is_boss);
+
+// item_description.c //
+item_desc *init_description(void);
+void disp_description(reduce *red, sfRenderWindow *wd);
 
 //// tears ////
 
