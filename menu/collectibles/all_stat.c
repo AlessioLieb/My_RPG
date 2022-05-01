@@ -34,6 +34,8 @@ int all_stats_up(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "ALL STATS UP !");
     sfText_setString(py->it_des->sec_d, "+1 all stats");
+    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
     py->it_des->all_st_active = true;
     ++py->st.damages;
     ++py->st.freq_tears;
