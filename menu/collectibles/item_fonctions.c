@@ -28,6 +28,8 @@ int luck_up(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, " LUCK UP !");
     sfText_setString(py->it_des->sec_d, "+1 luck up");
+    sfText_setPosition(py->it_des->main_d, (sfVector2f) {800, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {875, 270});
     sfText_setColor(py->it_des->l_hud, sfGreen);
     sfText_setPosition(py->it_des->l_hud, (sfVector2f) {145, 950});
     sfText_setString(py->it_des->l_hud, "+1");
@@ -56,5 +58,6 @@ int fly_player(player *py)
     if (py->change_texture == 3)
         sfSprite_setTexture(py->sp, sfTexture_createFromFile
         ("assets/alessio_fly.png", NULL), sfFalse);
+    disp_fly_hud(py);
     return 1;
 }
