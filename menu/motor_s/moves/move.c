@@ -16,6 +16,7 @@ player *creation_player(void)
     py->invulnerability = 0;
     py->invent = create_inventory();
     py->st = create_stats();
+    py->it_des = init_description();
     py->player_key = (event_key) {false, false, false, false, false,
     false, false, false};
     py->move_timer = (timer){0, 0};
