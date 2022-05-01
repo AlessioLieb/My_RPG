@@ -43,10 +43,23 @@ SRC	=	sources/init_base.c						\
 		motor_s/tears/tears_shooting.c			\
 		motor_s/tears/tears_state.c				\
 		motor_s/tears/check_tears_collision.c	\
+		motor_s/other/recharge_room.c			\
+		motor_s/other/item_description.c		\
 		enemies/create_enemies.c				\
 		enemies/enemies_room.c					\
 		enemies/anim_enemies.c					\
+		enemies/player_enemies.c				\
+		enemies/shoot_enemies.c					\
+		enemies/touch_enemy.c					\
+		enemies/mov_enemies2.c					\
+		enemies/init_specific_boss.c			\
+		enemies/reduce_create_boss.c			\
 		enemies/mov_enemies.c					\
+		enemies/create_specific_boss.c			\
+		enemies/anim_boss.c						\
+		enemies/create_boss.c					\
+		enemies/boss_bar.c						\
+		procedural_generation/verif_rooms.c		\
 		procedural_generation/gen_main.c		\
 		procedural_generation/map_gen.c			\
 		procedural_generation/map_gen2.c		\
@@ -55,32 +68,20 @@ SRC	=	sources/init_base.c						\
 		procedural_generation/tools.c			\
 		procedural_generation/tools2.c			\
 		procedural_generation/tools3.c			\
-		procedural_generation/verif_rooms.c		\
-		enemies/player_enemies.c				\
-		enemies/shoot_enemies.c					\
-		enemies/touch_enemy.c					\
-		enemies/mov_enemies2.c					\
-		enemies/init_specific_boss.c			\
-		enemies/reduce_create_boss.c			\
+		collectibles/base_inventory.c			\
 		collectibles/collectible_create.c		\
 		collectibles/red_hearth.c				\
 		collectibles/blue_hearth.c				\
-		collectibles/base_inventory.c			\
-		enemies/create_specific_boss.c			\
-		enemies/anim_boss.c						\
-		enemies/create_boss.c					\
-		enemies/boss_bar.c						\
-		motor_s/other/recharge_room.c			\
-		mini_map/mini_map.c						\
-		mini_map/reduce_mini_map.c				\
-		mini_map/init_mini_map.c				\
-		mini_map/reduce_draw_mini_map.c			\
 		collectibles/item.c						\
 		collectibles/item_fonctions.c			\
 		collectibles/reduce_item_fonctions.c	\
 		collectibles/all_stat.c					\
-		music/room_music.c	\
-		collectibles/item_launching.c
+		collectibles/item_launching.c			\
+		mini_map/mini_map.c						\
+		mini_map/reduce_mini_map.c				\
+		mini_map/init_mini_map.c				\
+		mini_map/reduce_draw_mini_map.c			\
+		music/room_music.c						\
 
 
 OBJ	=    $(SRC:.c=.o)
