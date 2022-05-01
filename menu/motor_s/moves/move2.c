@@ -84,6 +84,8 @@ room *create_room(void)
     rm->red_hearth = create_red_hearth(text);
     rm->blue_hearth = create_blue_hearth(text);
     rm->piece = create_piece(text);
+    rm->bombs = create_bomb_key(text, (sfIntRect) {0, 28, 14, 20}, &add_key);
+    rm->keys = create_bomb_key(text, (sfIntRect) {0, 48, 20, 21}, &add_bomb);
     rm->change_room = true;
     return rm;
 }

@@ -24,7 +24,7 @@
     #include <stdbool.h>
     #define HEIGHT 1080
     #define WIDTH 1920
-    #include "../includes/menu.h"
+    #include "menu.h"
     #include "procedural.h"
     #define LEN_MAP 219
     #define NB_MAPS 21
@@ -181,6 +181,8 @@ typedef struct {
     collectible *blue_hearth;
     collectible *piece;
     collectible *item;
+    collectible *bombs;
+    collectible *keys;
     bool change_room;
     int luck;
     old_item_t old_i;
@@ -463,5 +465,9 @@ void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm,
 player *py);
 void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py);
 void draw_npc(window *wndw, options *sprt, room *rm, player *py);
-
+collectible *create_bomb_key(sfTexture *text, sfIntRect place, int (*change)(player *py));
+int add_bomb(player *py);
+int add_key(player *py);
+void launch_bombs(player *py, room *rm, int i);
+void launch_key(player *py, room *rm, int i);
 #endif

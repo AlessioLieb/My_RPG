@@ -26,7 +26,7 @@ bool collision_stone_tears(reduce *red, int x, int y, int nb)
 
 tears *create_tears(player *py)
 {
-    tears *te = malloc(sizeof(tears) * 100);
+    tears *te = malloc(sizeof(tears) * 1000);
     sfIntRect r = {402, 285, 15, 15};
     te = init_st_array(te, r, py);
 }

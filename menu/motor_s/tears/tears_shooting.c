@@ -57,7 +57,7 @@ void move_tears(int id, reduce *red, sfRenderWindow *wd)
 {
     int nb_tears = verif_moving(red, 6);
     int i = 0;
-    while (i < 100) {
+    while (i < 1000) {
         if (red->te[i].direction == 1 && red->te[i].is_shot == true
         && check_collisions(1, red, i)) {
             sfSprite_move(red->te[i].t_sp,
@@ -78,7 +78,7 @@ tears *init_st_array(tears *te, sfIntRect r, player *py)
 {
     sfTexture *te_tex =
     sfTexture_createFromFile("assets/alleffects.png", NULL);
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 1000; ++i) {
         te[i].x = py->x;
         te[i].y = py->y;
         te[i].speed = 2;

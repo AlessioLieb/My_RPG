@@ -7,11 +7,28 @@
 
 #include "../includes/motor.h"
 
+static void launch_piece_bomb(room *rm, sfRenderWindow *wd, player *py,
+sfIntRect player) {
+    sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
+    for (int i = 0; i < 10; ++i) {
+        if (rm->bombs[i].pos_collision.left != -1) {
+            (sfIntRect_intersects(&rm->bombs[i].pos_collision,
+            &player, &overlap)) ? launch_bombs(py, rm, i) : 0;
+            sfRenderWindow_drawSprite(wd, rm->bombs[i].sp, NULL);
+        }
+        if (rm->keys[i].pos_collision.left != -1) {
+            (sfIntRect_intersects(&rm->keys[i].pos_collision,
+            &player, &overlap)) ? launch_key(py, rm, i) : 0;
+            sfRenderWindow_drawSprite(wd, rm->keys[i].sp, NULL);
+        }
+    }
+}
+
 static void draw_bonus_reduce(room *rm, sfRenderWindow *wd, player *py,
 sfIntRect player)
 {
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
-    for (int i = 0; i < 2; ++i)
+    for (int i = 0; i < 10; ++i)
         if (rm->piece[i].pos_collision.left != -1) {
             (sfIntRect_intersects(&rm->piece[i].pos_collision,
             &player, &overlap)) ? launch_piece(py, rm, i) : 0;
@@ -23,6 +40,7 @@ sfIntRect player)
         (sfIntRect_intersects(&rm->item->pos_collision,
         &player, &overlap)) ? launch_item(py, rm) : 0;
     }
+    launch_piece_bomb(rm, wd, py, player);
 }
 
 void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro)
@@ -47,13 +65,26 @@ void draw_bonus(room *rm, sfRenderWindow *wd, player *py, rooms *ro)
 
 static void place_bonus_reduce(room *rm)
 {
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 10; ++i) {
         if (rand() % (i + 5 - (rm->luck / 3)) == 0) {
             rm->piece[i].pos_collision.left = 200 + rand() % 1400;
             rm->piece[i].pos_collision.top = 200 + rand() % 600;
             sfSprite_setPosition(rm->piece[i].sp, (sfVector2f) {rm->piece[i]
             .pos_collision.left, rm->piece[i].pos_collision.top});
         }
+        if (rand() % (i + 7 - (rm->luck / 3)) == 0) {
+            rm->bombs[i].pos_collision.left = 200 + rand() % 1400;
+            rm->bombs[i].pos_collision.top = 200 + rand() % 600;
+            sfSprite_setPosition(rm->bombs[i].sp, (sfVector2f) {rm->bombs[i]
+            .pos_collision.left, rm->bombs[i].pos_collision.top});
+        }
+        if (rand() % (i + 8 - (rm->luck / 3)) == 0) {
+            rm->keys[i].pos_collision.left = 200 + rand() % 1400;
+            rm->keys[i].pos_collision.top = 200 + rand() % 600;
+            sfSprite_setPosition(rm->keys[i].sp, (sfVector2f) {rm->keys[i]
+            .pos_collision.left, rm->keys[i].pos_collision.top});
+        }
+    }
 }
 
 void place_bonus(room *rm)

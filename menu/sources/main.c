@@ -10,7 +10,7 @@
 void stats_player(reduce *red)
 {
     if (red->py->change_texture == 1) {
-        red->py->st = (stats) {8, 2, 1, 2, 1};
+        red->py->st = (stats) {8, 2, 1, 8, 1};
         red->py->speed = 8;
         red->py->invent = (inventory) {50, 1, 0};
         red->py->lf = (life) {8, 8, 0, red->py->lf.hsp};
@@ -22,15 +22,15 @@ void stats_player(reduce *red)
         red->py->lf = (life) {3, 3, 0, red->py->lf.hsp};
     }
     if (red->py->change_texture == 3) {
-        red->py->st = (stats) {2, 3, 2, 3, 3};
-        red->py->speed = 2;
+        red->py->st = (stats) {3, 3, 2, 3, 3};
+        red->py->speed = 3;
         red->py->invent = (inventory) {15, 1, 2};
         red->py->lf = (life) {6, 6, 4, red->py->lf.hsp};
     }
     if (red->py->change_texture == 4) {
         red->py->st = (stats) {5, 2, 1, 2, 5};
         red->py->speed = 5;
-        red->py->invent = (inventory) {200, 0, 5};
+        red->py->invent = (inventory) {200, 1, 5};
         red->py->lf = (life) {2, 2, 2, red->py->lf.hsp};
     }
 }
