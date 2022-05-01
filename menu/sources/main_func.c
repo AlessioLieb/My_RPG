@@ -54,6 +54,7 @@ int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
     draw_npc(wndw, sprt, red->rm, red->py);
     nb_time_hud(sfClock_getElapsedTime(red->py->time).microseconds / 1000000,
     wndw->window);
+    update_my_stuff(sprt, red->rm->old_i.old, red->rm->old_i.cp);
     return 0;
 }
 

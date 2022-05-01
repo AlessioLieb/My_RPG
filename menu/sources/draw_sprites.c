@@ -21,6 +21,8 @@ void draw_spbarre(window *wndw, options *sprt)
 void draw_spause(window *wndw, options *sprt)
 {
     sfRenderWindow_drawSprite(wndw->window, sprt->pause_sprt, NULL);
+    for (int i = 0; i < sprt->invent.len; ++i)
+        sfRenderWindow_drawSprite(wndw->window, sprt->invent.sprites[i], NULL);
     is_touched_button(wndw, sprt);
 }
 

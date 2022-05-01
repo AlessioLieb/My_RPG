@@ -13,6 +13,10 @@ static int call_main_func(void)
     options *sprt = malloc(sizeof(options));
     players *perso = malloc(sizeof(players));
     sprt->actual_doors = malloc(sizeof(bool) * 6);
+    sprt->invent.last_pos = (sfVector2f) {200, 550};
+    sprt->invent.len = 0;
+    sprt->invent.object = NULL;
+    sprt->invent.sprites = malloc(sizeof(sfSprite *) * NB_ITEMS + 1);
     rooms room = {0, 0, NULL, 0, NULL, false, NULL};
     gen_main(&room);
     init_mini_map(&room);

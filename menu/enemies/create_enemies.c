@@ -87,7 +87,7 @@ adv_t *little_adv_create(void)
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 3], sfTrue);
         sfSprite_setTextureRect(adv[i].sp, place);
         sfSprite_setScale(adv[i].sp, scale);
-        adv[i].speed = 5;
+        adv[i].speed = 9;
         adv[i].pos = (sfVector2f){-1, -1};
         adv[i].is_flying = false;
         adv[i].is_shooting = false;

@@ -26,6 +26,7 @@
     #define HEIGHT 1080
     #define nb_buttons 2
 
+
 typedef struct {
     sfRenderWindow *window;
     struct sfTexture *texture;
@@ -34,6 +35,13 @@ typedef struct {
     int y;
     int radius;
 }window;
+
+typedef struct objects_s {
+    sfSprite **sprites;
+    char **object;
+    int len;
+    sfVector2f last_pos;
+}objects_t;
 
 typedef struct {
     int mv;
@@ -79,6 +87,7 @@ typedef struct {
     sfTexture *text_npc;
     sfSprite *npc;
     sfSprite *spbulle_npc;
+    objects_t invent;
 }options;
 
 typedef enum button_name {
@@ -163,5 +172,5 @@ void end_buffer_play(options *sprt);
 void dsquare(int x, int y, int radius, options *sprt, sfColor color);
 
 void init_npc(window *wndw, options *sprt);
-
+int update_my_stuff(options *opt, char **new_array, int new_len);
 #endif

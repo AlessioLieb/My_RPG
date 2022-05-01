@@ -43,7 +43,7 @@ void anim_enemies(enemies_t *enem_t)
 
 void reduce_init_big(int i, adv_t *adv)
 {
-    adv[i].speed = 2;
+    adv[i].speed = 5;
     adv[i].pos = (sfVector2f){-1, -1};
     adv[i].is_flying = false;
     adv[i].is_shooting = false;
@@ -52,7 +52,7 @@ void reduce_init_big(int i, adv_t *adv)
 
 void reduce_init_fly(int i, adv_t *adv)
 {
-    adv[i].speed = 4;
+    adv[i].speed = 8;
     adv[i].pos = (sfVector2f){-1, -1};
     adv[i].is_flying = true;
     adv[i].is_shooting = false;
