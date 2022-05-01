@@ -35,6 +35,7 @@ int choose_texture_player(reduce *red, options *sprt)
     (sprt->choose == 3) ? sfSprite_setTexture(red->py->sp,
     sfTexture_createFromFile("assets/oscar.png", NULL), sfFalse) : 0;
     red->py->change_texture = sprt->choose + 1;
+    stats_player(red);
     return 0;
 }
 

@@ -453,7 +453,7 @@ void launch_piece(player *py, room *rm, int i);
 int event_window(window *wndw, options *sprt, reduce *red);
 void player_room(sfRenderWindow *wd, reduce *red, options *sprt);
 void draw_doors(room *rm, rooms *ro, sfRenderWindow *wd, options *sprt);
-
+void stats_player(reduce *red);
 int check_move_right(player *py, room *rm);
 int check_move_left(player *py, room *rm);
 int check_move_down(player *py, room *rm);
