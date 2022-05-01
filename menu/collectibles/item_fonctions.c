@@ -23,6 +23,14 @@ int luck_up(player *py)
 {
     if (py->st.luck <= 15)
         py->st.luck++;
+    py->it_des->active = true;
+    py->it_des->l_h_active = true;
+    sfClock_restart(py->it_des->des_clock);
+    sfText_setString(py->it_des->main_d, " LUCK UP !");
+    sfText_setString(py->it_des->sec_d, "+1 luck up");
+    sfText_setColor(py->it_des->l_hud, sfGreen);
+    sfText_setPosition(py->it_des->l_hud, (sfVector2f) {145, 950});
+    sfText_setString(py->it_des->l_hud, "+1");
     return 1;
 }
 

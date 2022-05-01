@@ -30,6 +30,11 @@ int all_stats_up(player *py)
 {
     py->lf.total_life += 2;
     py->lf.red_hearth += 2;
+    py->it_des->active = true;
+    sfClock_restart(py->it_des->des_clock);
+    sfText_setString(py->it_des->main_d, "ALL STATS UP !");
+    sfText_setString(py->it_des->sec_d, "+1 all stats");
+    py->it_des->all_st_active = true;
     ++py->st.damages;
     ++py->st.freq_tears;
     ++py->st.luck;
