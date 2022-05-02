@@ -88,6 +88,7 @@ void key_action_realeased(sfEvent event, reduce *red)
         red->py->player_key.key_up;
         red->py->player_key.key_down = event.key.code == sfKeyDown ? false :
         red->py->player_key.key_down;
+        other_keys_released(red, event);
     }
 }
 
@@ -110,6 +111,7 @@ void key_action_pressed(sfEvent event, reduce *red)
         red->py->player_key.key_up;
         red->py->player_key.key_down = event.key.code == sfKeyDown ? true :
         red->py->player_key.key_down;
+        other_keys_pressed(red, event);
     }
     key_action_realeased(event, red);
 }

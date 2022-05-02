@@ -20,7 +20,7 @@ static void reduce_stats_player(reduce *red)
 void stats_player(reduce *red)
 {
     if (red->py->change_texture == 1) {
-        red->py->st = (stats) {6, 6, 6, 6, 1};
+        red->py->st = (stats) {6, 6, 6, 9, 1};
         red->py->speed = 8;
         red->py->invent = (inventory) {50, 1, 0};
         red->py->lf = (life) {8, 8, 0, red->py->lf.hsp};

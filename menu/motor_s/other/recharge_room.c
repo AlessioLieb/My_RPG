@@ -30,7 +30,7 @@ static char *search_map()
     return total_name;
 }
 
-static char get_actual_room_char(reduce *red)
+char get_actual_room_char(reduce *red)
 {
     return (red->ro->floor_rooms[red->rm->actual_room[1]]
     [red->rm->actual_room[0]]);

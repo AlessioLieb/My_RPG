@@ -90,7 +90,9 @@ SRC	=	sources/init_base.c						\
 		mini_map/reduce_draw_mini_map.c			\
 		music/room_music.c						\
 		sources/draw_my_stuff.c	\
-		collectibles/key_bombs.c
+		collectibles/key_bombs.c	\
+		motor_s/other/npc_actions.c	\
+		motor_s/other/saler.c
 
 
 OBJ	=    $(SRC:.c=.o)

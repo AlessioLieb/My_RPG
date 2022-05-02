@@ -24,6 +24,13 @@
     #define HEIGHT 1080
     #define nb_buttons 2
 
+enum {
+    MONEY_S,
+    BOMBS_S,
+    KEYS_S,
+    LEN_SALER
+};
+
 typedef struct {
     sfRenderWindow *window;
     struct sfTexture *texture;
@@ -40,7 +47,13 @@ typedef struct objects_s {
     sfVector2f last_pos;
 }objects_t;
 
+typedef struct saler_s {
+    sfSprite *sp;
+    sfIntRect place_touch;
+}saler_t;
+
 typedef struct {
+    saler_t *sal;
     int mv;
     int params;
     int begin;
