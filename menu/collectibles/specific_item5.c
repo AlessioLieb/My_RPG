@@ -23,8 +23,8 @@ int abaddon(player *py)
 int masc(player *py)
 {
     py->st.damages += 1.5;
-    py->st.freq_tears -= 1;
-    py->st.shot_speed -= 1;
+    py->st.freq_tears >= 3 ? py->st.freq_tears -= 1 : 0;
+    py->st.shot_speed >= 3 ? py->st.shot_speed -= 1 : 0;
     py->it_des->active = true;
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, " EVE'S MASCARA");

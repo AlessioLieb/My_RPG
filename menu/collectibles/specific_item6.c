@@ -63,7 +63,10 @@ int cricket(player *py)
 int polyphemus(player *py)
 {
     py->st.damages += 3;
-    py->st.freq_tears -= 3;
+    if (py->st.freq_tears >= 5)
+        py->st.freq_tears -= 3;
+    else
+        py->st.freq_tears = 2;
     py->it_des->active = true;
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "  POLYPHEMUS  ");
