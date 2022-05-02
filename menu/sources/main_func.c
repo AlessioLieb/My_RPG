@@ -107,7 +107,6 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         enemies_verification(enem_t, rm);
-        (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         (sprt->begin == 3) ? doors_colisions(sprt, rm, py) : 0;
         (sprt->begin == 3 || sprt->begin == 6)
@@ -115,6 +114,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 3 && mu->id_m == 0) ? ++mu->id_m : 0;
         (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
         sprt->begin == 3 ? draw_mini_map(ro, wndw->window, rm) : 0;
+        (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
         reduce_clear_display(wndw);
     }
     end_buffer(sprt);

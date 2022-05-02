@@ -11,7 +11,7 @@
 void put_framebuffer(options *sprt)
 {
     for (int i = 0; i < WIDTH * HEIGHT * 4; ++i)
-        sprt->framebuffer[i] = 255;
+        sprt->framebuffer[i] = 210;
 }
 
 void func_flash_frame(window *wndw, options *sprt)
