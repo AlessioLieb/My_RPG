@@ -24,7 +24,6 @@
     #define HEIGHT 1080
     #define nb_buttons 2
 
-
 typedef struct {
     sfRenderWindow *window;
     struct sfTexture *texture;

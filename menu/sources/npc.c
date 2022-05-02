@@ -14,7 +14,8 @@ void init_bulle_npc(window *wndw, options *sprt)
     sprt->spbulle_npc = sfSprite_create();
     sprt->text_for_npc = sfText_create();
     sfText_setPosition(sprt->text_for_npc, prems);
-    sfText_setFont(sprt->text_for_npc, sfFont_createFromFile("ressources/ft.ttf"));
+    sfText_setFont(sprt->text_for_npc,
+    sfFont_createFromFile("ressources/ft.ttf"));
     sfText_setString(sprt->text_for_npc, "place\nholder");
     sfText_setColor(sprt->text_for_npc, sfBlack);
     sfText_setScale(sprt->text_for_npc, (sfVector2f) {0.5, 0.5});
@@ -59,20 +60,22 @@ static char *edit_text_for_draw(char *str)
 char *choose_string(int lvl)
 {
     if (lvl == 0)
-        return "Help me to retrive my trophy ! For this kill all the bosses ! Start by this floor "
-               "by getting some items in the treasure room or in the shop.";
+        return "Help me to retrive my trophy ! For this kill all the bosses"
+        "! Start by this floor by getting some items in the treasure room"
+        "or in the shop.";
     if (lvl == 1)
-        return "\nGreat ! You defeat your first boss ! Now use the items you got in the last level for "
-               "reach the boss of this level";
+        return "\nGreat ! You defeat your first boss ! Now use the items you "
+        "got in the last level for reach the boss of this level";
     if (lvl == 2)
-        return "Ho ? We are in the   depths ? We approching of the final boss ! You have now some money or some "
-               "collectible so don't forget the shop !";
+        return "Ho ? We are in the   depths ? We approching of the final boss "
+        "! You have now some money or some collectible so don't"
+        " forget the shop !";
     if (lvl == 3)
-        return "I can feel the dark room from here ! Speed up you need to kill the boss from here ! "
-               "You need to kill satan in the next level !";
+        return "I can feel the dark room from here ! Speed up you need to "
+        "kill the boss from here ! You need to kill satan in the next level !";
     if (lvl == 4)
-        return "It's the last time i see you ! Take care of you in the last level "
-               "and thanks for all and defeat this giant satan head for me !";
+        return "It's the last time i see you ! Take care of you in the last"
+        " level and thanks for all and defeat this giant satan head for me !";
     return "";
 }
 
@@ -88,7 +91,8 @@ void touch_npc(sfVector2f player_pos, options *sprt, window *wndw, int level)
     if (sfIntRect_intersects(&tmp, &player, &overlap)) {
         sprt->text_for_npc = sfText_create();
         sfText_setPosition(sprt->text_for_npc, prems);
-        sfText_setFont(sprt->text_for_npc, sfFont_createFromFile("ressources/ft.ttf"));
+        sfText_setFont(sprt->text_for_npc,
+        sfFont_createFromFile("ressources/ft.ttf"));
         sfText_setString(sprt->text_for_npc, "place\nholder");
         sfText_setColor(sprt->text_for_npc, sfBlack);
         sfText_setScale(sprt->text_for_npc, (sfVector2f) {0.5, 0.5});

@@ -52,7 +52,7 @@ int mind(player *py)
     py->st.shot_speed += 1;
     py->it_des->active = true;
     sfClock_restart(py->it_des->des_clock);
-    sfText_setString(py->it_des->main_d, "   The Mind ! ");
+    sfText_setString(py->it_des->main_d, "   The Mind   ");
     sfText_setString(py->it_des->sec_d, " I Know All ");
     sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
     sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});

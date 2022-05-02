@@ -20,8 +20,10 @@ int update_my_stuff(options *opt, char **new_array, int new_len)
         opt->invent.last_pos.x = 275;
         opt->invent.last_pos.y += 75;
     }
-    sfSprite_setPosition(opt->invent.sprites[opt->invent.len], opt->invent.last_pos);
-    sfSprite_setScale(opt->invent.sprites[opt->invent.len], (sfVector2f) {2, 2});
+    sfSprite_setPosition(opt->invent.sprites[opt->invent.len],
+    opt->invent.last_pos);
+    sfSprite_setScale(opt->invent.sprites[opt->invent.len],
+    (sfVector2f) {2, 2});
     opt->invent.len = new_len;
     return 1;
 }
