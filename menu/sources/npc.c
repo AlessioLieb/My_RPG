@@ -15,7 +15,7 @@ void init_bulle_npc(window *wndw, options *sprt)
     sprt->text_for_npc = sfText_create();
     sfText_setPosition(sprt->text_for_npc, prems);
     sfText_setFont(sprt->text_for_npc,
-                   sfFont_createFromFile("ressources/ft.ttf"));
+    sfFont_createFromFile("ressources/ft.ttf"));
     sfText_setString(sprt->text_for_npc, "place\nholder");
     sfText_setColor(sprt->text_for_npc, sfBlack);
     sfText_setScale(sprt->text_for_npc, (sfVector2f) {0.5, 0.5});

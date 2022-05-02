@@ -6,28 +6,28 @@
 */
 
 #ifndef MAP_H_
-#define MAP_H_
+    #define MAP_H_
 
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include <SFML/System.h>
-#include <SFML/Window.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <unistd.h>
-#include <math.h>
-#include <stddef.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdbool.h>
-#define HEIGHT 1080
-#define WIDTH 1920
-#include "menu.h"
-#include "procedural.h"
-#define LEN_MAP 219
-#define NB_MAPS 21
+    #include <SFML/Graphics.h>
+    #include <SFML/Audio.h>
+    #include <SFML/System.h>
+    #include <SFML/Window.h>
+    #include <stdlib.h>
+    #include <stdio.h>
+    #include <time.h>
+    #include <unistd.h>
+    #include <math.h>
+    #include <stddef.h>
+    #include <sys/types.h>
+    #include <sys/stat.h>
+    #include <fcntl.h>
+    #include <stdbool.h>
+    #define HEIGHT 1080
+    #define WIDTH 1920
+    #include "menu.h"
+    #include "procedural.h"
+    #define LEN_MAP 219
+    #define NB_MAPS 21
 
 enum {
     NB_ALL_STATS = 6,
@@ -338,15 +338,15 @@ enemies_t *create_enemies(void);
 // enemies_room.c //
 void place_enemies(char *str, enemies_t *enem_t);
 void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw,
-                  player *py, room *rm);
+player *py, room *rm);
 
 // mov_enemies.c //
 void move_enemies(enemies_t *enem_t, player *py, room *rm);
 void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale,
-                       sfIntRect place);
+sfIntRect place);
 void move_enemies(enemies_t *enem_t, player *py, room *rm);
 void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale,
-                       sfIntRect place);
+sfIntRect place);
 
 // player_enemies.c //
 void touch_player_enemy(adv_t adv, sfVector2f player_pos, player *py);
@@ -495,11 +495,11 @@ int check_move_down(player *py, room *rm);
 int check_move_up(player *py, room *rm);
 
 void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm,
-             player *py);
+player *py);
 void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py);
 void draw_npc(window *wndw, options *sprt, reduce *red);
 collectible *create_bomb_key(sfTexture *text, sfIntRect place,
-                             int (*change)(player *py));
+int (*change)(player *py));
 int add_bomb(player *py);
 int add_key(player *py);
 void launch_bombs(player *py, room *rm, int i);
@@ -509,5 +509,6 @@ void other_keys_released(reduce *red, sfEvent event);
 char *choose_string(int lvl);
 void talking_npc( options *sprt, window *wndw, int level);
 char get_actual_room_char(reduce *red);
-void touch_saler(sfVector2f player_pos, options *sprt, window *wndw, int i, reduce *red);
+void touch_saler(sfVector2f player_pos, options *sprt, window *wndw,
+int i, reduce *red);
 #endif
