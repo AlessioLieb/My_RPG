@@ -31,6 +31,10 @@ int event_window(window *wndw, options *sprt, reduce *red)
 {
     sfEvent event;
     while (sfRenderWindow_pollEvent(wndw->window, &event)) {
+        (sprt->begin == 3 && event.type == sfEvtKeyPressed
+        && sfKeyEscape == event.key.code) ? sprt->begin = 4 :
+        (sprt->begin == 4 && event.type == sfEvtKeyPressed
+        && sfKeyEscape == event.key.code) ? sprt->begin = 3 : 0;
         (event.type == sfEvtKeyPressed && sfKeyF4 == event.key.code)
         ? sfRenderWindow_close(wndw->window) : 0;
         (event.type == sfEvtKeyPressed && sfKeyL == event.key.code)
@@ -39,10 +43,6 @@ int event_window(window *wndw, options *sprt, reduce *red)
         ? catch_button(wndw, sprt, event) : 0;
         (event.type == sfEvtMouseButtonPressed)
         ? click_button(wndw, sprt, event) : 0;
-        (sprt->begin == 3 && event.type == sfEvtKeyPressed
-        && sfKeyEscape == event.key.code) ? sprt->begin = 4 : 0;
-        (sprt->begin == 4 && event.type == sfEvtKeyPressed
-        && sfKeyQ == event.key.code) ? sprt->begin = 3 : 0;
         move_event(event, red);
     }
     return 0;
