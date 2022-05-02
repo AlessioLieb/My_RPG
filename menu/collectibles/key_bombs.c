@@ -9,7 +9,7 @@
 
 void launch_key(player *py, room *rm, int i)
 {
-    if ((*(rm->keys[i].change))(py)){
+    if ((*(rm->keys[i].change))(py)) {
         rm->keys[i].pos_collision.left = -1;
         rm->keys[i].pos_collision.top = -1;
     }
@@ -17,7 +17,7 @@ void launch_key(player *py, room *rm, int i)
 
 void launch_bombs(player *py, room *rm, int i)
 {
-    if ((*(rm->bombs[i].change))(py)){
+    if ((*(rm->bombs[i].change))(py)) {
         rm->bombs[i].pos_collision.left = -1;
         rm->bombs[i].pos_collision.top = -1;
     }
@@ -35,7 +35,8 @@ int add_key(player *py)
     return 1;
 }
 
-collectible *create_bomb_key(sfTexture *text, sfIntRect place, int (*change)(player *py))
+collectible *create_bomb_key(sfTexture *text, sfIntRect place,
+int (*change)(player *py))
 {
     collectible *bomb = malloc(sizeof(collectible) * 12);
     for (int i = 0; i < 10; ++i) {

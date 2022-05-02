@@ -306,7 +306,7 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss);
 // item_description.c //
 item_desc *init_description(void);
 void disp_description(reduce *red, sfRenderWindow *wd);
-void disp_fly_hud(player *py);
+void disp_fly_hud(player *py, char c);
 
 //// tears ////
 
@@ -406,13 +406,44 @@ int item_speed(player *py);
 int all_stats_up(player *py);
 int my_str_compare(char const *str_one, char const *str_two);
 int bombs_up(player *py);
-int fly_player(player *py);
+int fate(player *py);
 int item_damage(player *py);
 int keys_up(player *py);
 int item_freq(player *py);
 int money_up(player *py);
 int item_speed_tears(player *py);
 int luck_up(player *py);
+int god_head(player *py);
+int mushroom(player *py);
+int cricket(player *py);
+int polyphemus(player *py);
+int abaddon(player *py);
+int masc(player *py);
+int death(player *py);
+int arrow(player *py);
+int stigmata(player *py);
+int cat(player *py);
+int brimstone(player *py);
+int ipecac(player *py);
+int mind(player *py);
+int demon(player *py);
+int bandage(player *py);
+int body(player *py);
+int soul(player *py);
+int fat(player *py);
+int scab(player *py);
+int meat(player *py);
+int screw(player *py);
+int pyj(player *py);
+int binky(player *py);
+int speed_ball(player *py);
+int tooth(player *py);
+int odd(player *py);
+int dolly(player *py);
+int squeezy(player *py);
+int torn(player *py);
+int strcomp(char *str, char *str1);
+void reduce_choose_effect(collectible *item, int choose, char *tmp);
 
 //item_launching.c //
 

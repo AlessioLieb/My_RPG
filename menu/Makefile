@@ -77,6 +77,13 @@ SRC	=	sources/init_base.c						\
 		collectibles/reduce_item_fonctions.c	\
 		collectibles/all_stat.c					\
 		collectibles/item_launching.c			\
+		collectibles/reduce_item.c				\
+		collectibles/specific_item.c			\
+		collectibles/specific_item2.c			\
+		collectibles/specific_item3.c			\
+		collectibles/specific_item4.c			\
+		collectibles/specific_item5.c			\
+		collectibles/specific_item6.c			\
 		mini_map/mini_map.c						\
 		mini_map/reduce_mini_map.c				\
 		mini_map/init_mini_map.c				\

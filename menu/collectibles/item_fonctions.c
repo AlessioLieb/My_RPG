@@ -72,8 +72,9 @@ int money_up(player *py)
     return 1;
 }
 
-int fly_player(player *py)
+int fate(player *py)
 {
+    py->lf.total_life += 2;
     py->collision_box = sfImage_createFromFile
     ("assets/collisions/isaac_no_border.png");
     if (py->change_texture == 1)
@@ -88,6 +89,6 @@ int fly_player(player *py)
     if (py->change_texture == 3)
         sfSprite_setTexture(py->sp, sfTexture_createFromFile
         ("assets/alessio_fly.png", NULL), sfFalse);
-    disp_fly_hud(py);
+    disp_fly_hud(py, 'f');
     return 1;
 }

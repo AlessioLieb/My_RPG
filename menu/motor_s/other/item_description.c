@@ -7,14 +7,24 @@
 
 #include "../../includes/motor.h"
 
-void disp_fly_hud(player *py)
+void disp_fly_hud(player *py, char c)
 {
-    py->it_des->active = true;
-    sfClock_restart(py->it_des->des_clock);
-    sfText_setString(py->it_des->main_d, " FLIGHT !");
-    sfText_setString(py->it_des->sec_d, "Gives you the ability to fly !");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {830, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {730, 270});
+    if (c == 'f') {
+        py->it_des->active = true;
+        sfClock_restart(py->it_des->des_clock);
+        sfText_setString(py->it_des->main_d, "  FATE ! ");
+        sfText_setString(py->it_des->sec_d, "Gives you the ability to fly !");
+        sfText_setPosition(py->it_des->main_d, (sfVector2f) {830, 195});
+        sfText_setPosition(py->it_des->sec_d, (sfVector2f) {730, 270});
+    }
+    if (c == 'd') {
+        py->it_des->active = true;
+        sfClock_restart(py->it_des->des_clock);
+        sfText_setString(py->it_des->main_d, "DEMON WINGS");
+        sfText_setString(py->it_des->sec_d, "Gives you the ability to fly !");
+        sfText_setPosition(py->it_des->main_d, (sfVector2f) {830, 195});
+        sfText_setPosition(py->it_des->sec_d, (sfVector2f) {730, 270});
+    }
 }
 
 void draw_all_texts(reduce *red, sfRenderWindow *wd)

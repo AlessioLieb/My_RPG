@@ -7,7 +7,17 @@
 
 #include "../includes/motor.h"
 
-static void choose_effect(collectible *item, int choose)
+int strcomp(char *str, char *str1)
+{
+    if (str_len(str) != str_len(str1))
+        return (1);
+    for (int i = 0; str[i] != '\0'; ++i)
+        if (str[i] != str1[i])
+            return (1);
+    return (0);
+}
+
+static void choose_effect(collectible *item, int choose, char *tmp)
 {
     if (choose == ALL_STATS)
         item->change = &all_stats_up;
@@ -15,8 +25,6 @@ static void choose_effect(collectible *item, int choose)
         item->change = &bombs_up;
     if (choose == DMG)
         item->change = &item_damage;
-    if (choose == FLY_I)
-        item->change = &fly_player;
     if (choose == HEALTH)
         item->change = &item_life_augmentation;
     if (choose == KEYS)
@@ -29,6 +37,7 @@ static void choose_effect(collectible *item, int choose)
         item->change = &item_freq;
     if (choose == LUCK)
         item->change = &luck_up;
+    reduce_choose_effect(item, choose, tmp);
 }
 
 static char *select_item(int choose)
@@ -89,6 +98,6 @@ void place_item(room *rm)
     rm->old_i.old[rm->old_i.cp] = tmp;
     ++rm->old_i.cp;
     reduce_place_item(rm, tmp, item, text);
-    choose_effect(item, choose);
+    choose_effect(item, choose, tmp);
     rm->item = item;
 }
