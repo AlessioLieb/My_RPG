@@ -464,7 +464,7 @@ int check_move_up(player *py, room *rm);
 void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm,
 player *py);
 void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py);
-void draw_npc(window *wndw, options *sprt, room *rm, player *py);
+void draw_npc(window *wndw, options *sprt, reduce *red);
 collectible *create_bomb_key(sfTexture *text, sfIntRect place, int (*change)(player *py));
 int add_bomb(player *py);
 int add_key(player *py);

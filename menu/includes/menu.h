@@ -9,18 +9,16 @@
     #define MENU_H_
 
     #include <SFML/Graphics.h>
-    #include <SFML/Graphics/Export.h>
-    #include <SFML/System/Export.h>
-    #include <SFML/System/Time.h>
-    #include <SFML/System/Types.h>
+    #include <SFML/System.h>
     #include <stddef.h>
     #include <SFML/System/Vector2.h>
     #include <SFML/Audio.h>
     #include <stdlib.h>
     #include <stdio.h>
     #include <math.h>
+    #include <stddef.h>
     #include "stdbool.h"
-    #include "../includes/enemies.h"
+    #include "enemies.h"
     #include "procedural.h"
     #define WIDTH 1920
     #define HEIGHT 1080
@@ -87,6 +85,7 @@ typedef struct {
     sfTexture *text_npc;
     sfSprite *npc;
     sfSprite *spbulle_npc;
+    sfText *text_for_npc;
     objects_t invent;
 }options;
 
