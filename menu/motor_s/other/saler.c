@@ -36,9 +36,11 @@ static void talking_saler(options *sprt, window *wndw, int i, reduce *red)
 {
     sfVector2f prems = {450 + 300 * (i + 1), 190};
     sfVector2f sec = {380 + 300 * (i + 1), 180};
-    char *floor = i == 0 ? "\npress a for\nitem for \n50 coins" :
-    i == 1 ? "press a\n blue heart for\n10 bombs" : i == 2 ?
-    "\npress a for\nred hearth for 5 keys\npress e for\n hearth placement for 10 keys" : 0;
+    char *floor = i == 0 ? "\n          [Press a]\n       I'll give you an\n  "
+    "  item for 50 coins" : i == 1 ? "\n          [Press a]\n       I'll "
+    "give you a \nblue heart for 10 bombs" : i == 2 ? "          [Press a]"
+    "\n    I'll give you a red\n     hearth for 5 keys\n          [Press e]"
+    "\n  I'll give you a hearth\nplacement for 10 keys" : 0;
     sprt->text_for_npc = sfText_create();
     sfSprite_setPosition(sprt->spbulle_npc, sec);
     sfText_setPosition(sprt->text_for_npc, prems);
