@@ -92,4 +92,8 @@ void close_door(rooms *ro, options *sprt, int x, int y)
     if (y != 9 && (ro->floor_rooms[y + 1][x] == ' '
     || ro->floor_rooms[y + 1][x] == '?'))
         sprt->actual_doors[2] = false;
+    x == 0 ? sprt->actual_doors[3] = false : 0;
+    x == 9 ? sprt->actual_doors[1] = false : 0;
+    y == 0 ? sprt->actual_doors[0] = false : 0;
+    y == 9 ? sprt->actual_doors[2] = false : 0;
 }
