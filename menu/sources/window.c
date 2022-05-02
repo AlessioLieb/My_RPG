@@ -17,6 +17,8 @@ void params_window(window *wndw, options *sprt, players *perso)
     perso->txt_perso_wheel =
     sfTexture_createFromFile("ressources/player_wheel_choose.png", NULL);
     sprt->tuto = sfTexture_createFromFile("../Sprites/allrooms.png", NULL);
+    sprt->loose_txt = sfTexture_createFromFile("ressources/loose_screen.png",
+    NULL);
     sprt->doors = sfTexture_createFromFile("../Sprites/allroomobjects.png",
     NULL);
     sprt->pickups =

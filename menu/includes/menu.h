@@ -99,6 +99,8 @@ typedef struct {
     sfSprite *spbulle_npc;
     sfText *text_for_npc;
     objects_t invent;
+    sfTexture *loose_txt;
+    sfSprite *loose_sprt;
 }options;
 
 typedef enum button_name {
@@ -182,6 +184,8 @@ void display_framebuffer_play(window *wndw, options *sprt);
 void end_buffer_play(options *sprt);
 void dsquare(int x, int y, int radius, options *sprt, sfColor color);
 void put_framebuffer2(options *sprt);
+void init_loose_scrn(window *wndw, options *sprt);
+void draw_loose_scrn(window *wndw, options *sprt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);

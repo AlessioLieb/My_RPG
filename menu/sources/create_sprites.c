@@ -64,4 +64,5 @@ void init_sprites(window *wndw, options *sprt)
     init_trophy(wndw, sprt);
     init_win(wndw, sprt);
     init_npc(wndw, sprt);
+    init_loose_scrn(wndw, sprt);
 }

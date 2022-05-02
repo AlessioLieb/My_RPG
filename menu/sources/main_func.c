@@ -114,7 +114,9 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 3 && mu->id_m == 0) ? ++mu->id_m : 0;
         (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
         sprt->begin == 3 ? draw_mini_map(ro, wndw->window, rm) : 0;
+        (sprt->begin == 3 && py->lf.red_hearth < 1) ? sprt->begin = 7 : 0;
         (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
+        (sprt->begin == 7) ? draw_loose_scrn(wndw, sprt) : 0;
         reduce_clear_display(wndw);
     }
     end_buffer(sprt);

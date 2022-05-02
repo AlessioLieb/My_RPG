@@ -26,3 +26,11 @@ void init_win(window *wndw, options *sprt)
     sfSprite_setTextureRect(sprt->win, rect);
     sfSprite_setScale(sprt->win, scale);
 }
+
+void init_loose_scrn(window *wndw, options *sprt)
+{
+    sfIntRect rect = {0, 0, 1920, 1080};
+    sprt->loose_sprt = sfSprite_create();
+    sfSprite_setTexture(sprt->loose_sprt, sprt->loose_txt, sfTrue);
+    sfSprite_setTextureRect(sprt->loose_sprt, rect);
+}

@@ -26,6 +26,11 @@ void draw_spause(window *wndw, options *sprt)
     is_touched_button(wndw, sprt);
 }
 
+void draw_loose_scrn(window *wndw, options *sprt)
+{
+    sfRenderWindow_drawSprite(wndw->window, sprt->loose_sprt, NULL);
+}
+
 void init_dlc(window *wndw, options *sprt)
 {
     sfIntRect rect = {49, 369, 49, 33};
