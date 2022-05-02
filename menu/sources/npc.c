@@ -60,22 +60,23 @@ static char *edit_text_for_draw(char *str)
 char *choose_string(int lvl)
 {
     if (lvl == 0)
-        return "Help me to retrive my trophy ! For this kill all the bosses"
-        "! Start by this floor by getting some items in the treasure room"
-        "or in the shop.";
+        return "Help me to retrive my trophy ! For you'll need to kill all"
+        " the bosses ! Start by getting some items in the treasure room or"
+        " in the shop.";
     if (lvl == 1)
-        return "\nGreat ! You defeat your first boss ! Now use the items you "
-        "got in the last level for reach the boss of this level";
+        return "\nGreat ! You defeated your first boss ! Now use the items"
+        " you earned in the last level for reach the boss of this floor";
     if (lvl == 2)
-        return "Ho ? We are in the   depths ? We approching of the final boss "
-        "! You have now some money or some collectible so don't"
-        " forget the shop !";
+        return "Oh ? We are in the depths ? We are approching the final boss "
+        "! You have now some money and collectibles so don't"
+        " forget to check the shop !";
     if (lvl == 3)
-        return "I can feel the dark room from here ! Speed up you need to "
-        "kill the boss from here ! You need to kill satan in the next level !";
+        return "I can feel the dark room, we are close ! Speed up you need"
+        " to kill the boss from this floor ! You need to kill satan in the"
+        " next level !";
     if (lvl == 4)
         return "It's the last time i see you ! Take care of you in the last"
-        " level and thanks for all and defeat this giant satan head for me !";
+        " level, thanks for all and defeat this giant satan head for me !";
     return "";
 }
 

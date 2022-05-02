@@ -8,7 +8,8 @@
 #include "../includes/motor.h"
 
 static void launch_piece_bomb(room *rm, sfRenderWindow *wd, player *py,
-sfIntRect player) {
+sfIntRect player)
+{
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
     for (int i = 0; i < 10; ++i) {
         if (rm->bombs[i].pos_collision.left != -1) {
