@@ -181,6 +181,7 @@ void put_framebuffer_play(options *sprt);
 void display_framebuffer_play(window *wndw, options *sprt);
 void end_buffer_play(options *sprt);
 void dsquare(int x, int y, int radius, options *sprt, sfColor color);
+void put_framebuffer2(options *sprt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);

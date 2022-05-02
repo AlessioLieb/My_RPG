@@ -22,3 +22,9 @@ void init_framebuffer(options *sprt)
     for (int i = 0; i < WIDTH * HEIGHT * 4; ++i)
         sprt->framebuffer[i] = 255;
 }
+
+void put_framebuffer2(options *sprt)
+{
+    for (int i = 0; i < WIDTH * HEIGHT * 4; ++i)
+        sprt->framebuffer[i] = 255;
+}

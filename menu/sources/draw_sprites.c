@@ -9,7 +9,7 @@
 
 void draw_spwelcome(window *wndw, options *sprt)
 {
-    put_framebuffer(sprt);
+    put_framebuffer2(sprt);
     sfRenderWindow_drawSprite(wndw->window, sprt->spwelcome, NULL);
 }
 
