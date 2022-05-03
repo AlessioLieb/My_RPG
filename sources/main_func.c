@@ -88,6 +88,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
     tears *te = create_tears(py);
     enemies_t *enem_t = create_enemies();
     music *mu = create_music();
+    sounds *so = create_sounds();
     init_all(wndw, sprt, perso);
     while (sfRenderWindow_isOpen(wndw->window)) {
         sprt->plus_lvl == true ? floor_pass(ro, &(reduce)
@@ -104,8 +105,8 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 4) ? draw_spause(wndw, sprt) : 0;
         (sprt->begin == 3) ? doors_colisions(sprt, rm, py) : 0;
         (sprt->begin == 3 || sprt->begin == 6)
-        ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro}, sprt) : 0;
-        (sprt->begin == 3 && mu->id_m == 0) ? ++mu->id_m : 0;
+        ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro, so},
+        sprt) : 0; (sprt->begin == 3 && mu->id_m == 0) ? ++mu->id_m : 0;
         (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
         sprt->begin == 3 ? draw_mini_map(ro, wndw->window, rm) : 0;
         (sprt->begin == 3 && py->lf.red_hearth < 1) ? sprt->begin = 7 : 0;

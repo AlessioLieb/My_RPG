@@ -10,6 +10,7 @@
 sounds *create_sounds(void)
 {
     sounds *so = malloc(sizeof(sounds));
+    so->sound_clock = sfClock_create();
     so->tr_room = sfSound_create();
     so->p_hurt = sfSound_create();
     so->p_die = sfSound_create();
@@ -22,6 +23,7 @@ sounds *create_sounds(void)
     sfSound_setBuffer(so->tr_room, t_room);
     sfSound_setBuffer(so->p_hurt, p_hurt);
     sfSound_setBuffer(so->p_die, p_die);
+
     return so;
 }
 
@@ -34,7 +36,6 @@ music *create_music(void)
     mu->fl_5 = sfMusic_createFromFile("./sounds/dark_room.ogg");
     mu->id_m = 0;
     mu->tmp_id = -1;
-    sounds *so = create_sounds();
     return mu;
 }
 
