@@ -33,5 +33,6 @@ music *create_music(void);
 void reduce_clear_display(window *wndw);
 sounds *create_sounds(void);
 void play_sound_hurt(reduce *red);
+void play_sound_dies();
 
 #endif

@@ -22,6 +22,8 @@ void touch_player_enemy(adv_t adv, sfVector2f player_pos, reduce *red)
         sfSprite_setTextureRect(red->py->sp, (sfIntRect){181, 181, 28, 33});
         play_sound_hurt(red);
     }
+    if (red->py->lf.red_hearth < 1)
+        play_sound_dies();
 }
 
 void touch_player_boss(boss_t adv, sfVector2f player_pos, reduce *red)
@@ -41,4 +43,6 @@ void touch_player_boss(boss_t adv, sfVector2f player_pos, reduce *red)
         sfSprite_setTextureRect(red->py->sp, (sfIntRect){181, 181, 28, 33});
         play_sound_hurt(red);
     }
+    if (red->py->lf.red_hearth < 1)
+        play_sound_dies();
 }
