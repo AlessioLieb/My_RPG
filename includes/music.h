@@ -32,6 +32,6 @@ void music_launcher(reduce *red, int floor, int state, music *mu);
 music *create_music(void);
 void reduce_clear_display(window *wndw);
 sounds *create_sounds(void);
-void play_sound(reduce *red);
+void play_sound_hurt(reduce *red);
 
 #endif
