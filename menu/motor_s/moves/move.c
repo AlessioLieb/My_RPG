@@ -28,6 +28,7 @@ player *creation_player(void)
     sfSprite_setPosition(py->sp, (sfVector2f){py->x, py->y});
     py->time = sfClock_create();
     py->change_texture = 0;
+    py->new_item = false;
     return py;
 }
 

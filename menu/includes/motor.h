@@ -148,6 +148,7 @@ typedef struct player_s {
     sfClock *time;
     item_desc *it_des;
     int change_texture;
+    bool new_item;
 }player;
 
 typedef struct {

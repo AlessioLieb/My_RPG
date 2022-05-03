@@ -5,7 +5,7 @@
 ** draw my stuff
 */
 
-#include "../includes/menu.h"
+#include "../includes/motor.h"
 
 int update_my_stuff(options *opt, char **new_array, int new_len)
 {

@@ -38,5 +38,6 @@ void launch_item(player *py, room *rm)
     if ((*(rm->item->change))(py)) {
         sfSprite_destroy(rm->item->sp);
         rm->item = NULL;
+        py->new_item = true;
     }
 }

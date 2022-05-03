@@ -38,8 +38,15 @@ void clear_tears(reduce *red)
         red->rm->red_hearth[i].pos_collision.left = -1;
     for (int i = 0; i < 2; ++i)
         red->rm->blue_hearth[i].pos_collision.left = -1;
-    for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 10; ++i) {
         red->rm->piece[i].pos_collision.left = -1;
+        red->rm->bombs[i].pos_collision.left = -1;
+        red->rm->keys[i].pos_collision.left = -1;
+    }
+    if (red->rm->item != NULL) {
+        red->rm->item = NULL;
+        red->rm->old_i.cp--;
+    }
 }
 
 int verif_moving(reduce *red, int nb_tears)
