@@ -206,6 +206,12 @@ typedef struct {
     int speed;
 }adv_t;
 
+typedef struct reduce_adv_s {
+    int i;
+    sfVector2f player_pos; 
+    int type;
+}reduce_adv_t;
+
 typedef struct boss_life_s {
     sfSprite *end_start;
     sfSprite *life_bar;
@@ -239,11 +245,19 @@ typedef struct {
 }tears;
 
 typedef struct {
+    sfSound *p_hurt;
+    sfSound *tr_room;
+    sfSound *p_die;
+    sfClock *sound_clock;
+}sounds;
+
+typedef struct {
     player *py;
     room *rm;
     tears *te;
     enemies_t *enem_t;
     rooms *ro;
+    sounds *so;
 }reduce;
 
 //////// motor_s ////////
@@ -343,19 +357,15 @@ enemies_t *create_enemies(void);
 
 // enemies_room.c //
 void place_enemies(char *str, enemies_t *enem_t);
-void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw,
-player *py, room *rm);
+void draw_enemies(reduce *red, sfRenderWindow *wndw);
 
 // mov_enemies.c //
-void move_enemies(enemies_t *enem_t, player *py, room *rm);
-void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale,
-sfIntRect place);
-void move_enemies(enemies_t *enem_t, player *py, room *rm);
+void move_enemies(reduce *red);
 void reduce_init_nomov(int i, adv_t *no_mov, sfVector2f scale,
 sfIntRect place);
 
 // player_enemies.c //
-void touch_player_enemy(adv_t adv, sfVector2f player_pos, player *py);
+void touch_player_enemy(adv_t adv, sfVector2f player_pos, reduce *red);
 void touch_player_boss(boss_t adv, sfVector2f player_pos, player *py);
 
 // shoot_enemies.c //
@@ -500,9 +510,8 @@ int check_move_left(player *py, room *rm);
 int check_move_down(player *py, room *rm);
 int check_move_up(player *py, room *rm);
 
-void mov_all(adv_t *all, sfVector2f player_pos, int type, room *rm,
-player *py);
-void mov_all_boss(boss_t *all, sfVector2f player_pos, player *py);
+void mov_all(adv_t *all, sfVector2f player_pos, int type, reduce *red);
+void mov_all_boss(boss_t *all, sfVector2f player_pos, reduce *red);
 void draw_npc(window *wndw, options *sprt, reduce *red);
 collectible *create_bomb_key(sfTexture *text, sfIntRect place,
 int (*change)(player *py));

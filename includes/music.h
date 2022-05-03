@@ -9,12 +9,12 @@
     #define MUSIC_H_
 
     #include "motor.h"
-
+/*
 typedef struct {
     sfSound *p_hurt;
     sfSound *tr_room;
     sfSound *p_die;
-}sounds;
+}sounds;*/
 
 typedef struct {
     sfMusic *men;
@@ -31,5 +31,7 @@ void floor_pass(rooms *ro, reduce *red, options *sprt, music *mu);
 void music_launcher(reduce *red, int floor, int state, music *mu);
 music *create_music(void);
 void reduce_clear_display(window *wndw);
+sounds *create_sounds(void);
+void play_sound(reduce *red);
 
 #endif

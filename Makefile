@@ -89,6 +89,7 @@ SRC	=	sources/init_base.c						\
 		mini_map/init_mini_map.c				\
 		mini_map/reduce_draw_mini_map.c			\
 		music/room_music.c						\
+		music/play_sounds.c						\
 		sources/draw_my_stuff.c	\
 		collectibles/key_bombs.c	\
 		motor_s/other/npc_actions.c	\
