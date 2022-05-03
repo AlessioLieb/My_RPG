@@ -25,7 +25,7 @@ void params_window(window *wndw, options *sprt, players *perso)
     sfTexture_createFromFile("./Sprites/allpickups.png", NULL);
     sprt->text_npc =
     sfTexture_createFromFile("ressources/npc_froom.png", NULL);
-    wndw->window = sfRenderWindow_create(mode, "niktameralessio", sfResize
+    wndw->window = sfRenderWindow_create(mode, "MyRPG", sfResize
     | sfClose | sfFullscreen, NULL);
 }
 
