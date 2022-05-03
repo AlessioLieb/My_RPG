@@ -10,9 +10,9 @@
 static void reduce_stats_player(reduce *red)
 {
     if (red->py->change_texture == 4) {
-        red->py->st = (stats) {5, 2, 1, 2, 5};
+        red->py->st = (stats) {5, 2, 1, 2, 1};
         red->py->speed = 5;
-        red->py->invent = (inventory) {200, 1, 5};
+        red->py->invent = (inventory) {200, 1, 1};
         red->py->lf = (life) {2, 2, 2, red->py->lf.hsp};
     }
 }
@@ -20,21 +20,21 @@ static void reduce_stats_player(reduce *red)
 void stats_player(reduce *red)
 {
     if (red->py->change_texture == 1) {
-        red->py->st = (stats) {6, 6, 6, 9, 1};
-        red->py->speed = 8;
+        red->py->st = (stats) {6, 2, 1, 2, 1};
+        red->py->speed = 7;
         red->py->invent = (inventory) {50, 1, 0};
         red->py->lf = (life) {8, 8, 0, red->py->lf.hsp};
     }
     if (red->py->change_texture == 2) {
-        red->py->st = (stats) {5, 4, 1, 4, 1};
+        red->py->st = (stats) {5, 5, 1, 5, 3};
         red->py->speed = 5;
-        red->py->invent = (inventory) {0, 5, 1};
+        red->py->invent = (inventory) {0, 15, 5};
         red->py->lf = (life) {3, 3, 0, red->py->lf.hsp};
     }
     if (red->py->change_texture == 3) {
-        red->py->st = (stats) {3, 3, 2, 3, 3};
-        red->py->speed = 3;
-        red->py->invent = (inventory) {15, 1, 2};
+        red->py->st = (stats) {4, 3, 2, 3, 3};
+        red->py->speed = 4;
+        red->py->invent = (inventory) {30, 7, 2};
         red->py->lf = (life) {6, 6, 4, red->py->lf.hsp};
     }
     reduce_stats_player(red);
