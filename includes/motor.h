@@ -57,6 +57,11 @@ enum {
     LUCK
 };
 
+typedef struct saler_red_s {
+    sfVector2f player_pos;
+    int i;
+} saler_red_t;
+
 typedef struct {
     unsigned long timer_total;
     unsigned long timer;
@@ -510,6 +515,5 @@ void other_keys_released(reduce *red, sfEvent event);
 char *choose_string(int lvl);
 void talking_npc( options *sprt, window *wndw, int level);
 char get_actual_room_char(reduce *red);
-void touch_saler(sfVector2f player_pos, options *sprt, window *wndw,
-int i, reduce *red);
+void touch_saler(saler_red_t rt, options *sprt, window *wndw, reduce *red);
 #endif

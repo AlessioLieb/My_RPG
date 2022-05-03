@@ -82,6 +82,6 @@ void draw_npc(window *wndw, options *sprt, reduce *red)
     if (get_actual_room_char(red) == 'M')
         for (int i = 0; i < LEN_SALER; ++i) {
             sfRenderWindow_drawSprite(wndw->window, sprt->sal[i].sp, NULL);
-            touch_saler(player_pos, sprt, wndw, i, red);
+            touch_saler((saler_red_t) {player_pos, i}, sprt, wndw, red);
         }
 }
