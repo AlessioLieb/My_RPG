@@ -75,7 +75,7 @@ void init_minimap_sprites(rooms *ro)
     sfVector2f room_scale = {3.5, 3.5};
     sfIntRect rect1 = {55, 40, 9, 8};
 
-    ro->text = sfTexture_createFromFile("../Sprites/minimap.png", NULL);
+    ro->text = sfTexture_createFromFile("./Sprites/minimap.png", NULL);
     ro->map = sfSprite_create();
     sfSprite_setTexture(ro->map, ro->text, sfTrue);
     sfSprite_setTextureRect(ro->map, rect);

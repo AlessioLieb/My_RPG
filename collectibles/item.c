@@ -43,25 +43,25 @@ static void choose_effect(collectible *item, int choose, char *tmp)
 static char *select_item(int choose)
 {
     if (choose == ALL_STATS)
-        return item_selected("../Sprites/Items/all_stats_up/",
+        return item_selected("./Sprites/Items/all_stats_up/",
         rand() % NB_ALL_STATS);
     if (choose == BOMBS)
-        return item_selected("../Sprites/Items/bombs_up/", rand() % NB_BOMBS);
+        return item_selected("./Sprites/Items/bombs_up/", rand() % NB_BOMBS);
     if (choose == DMG)
-        return item_selected("../Sprites/Items/dmg_up/", rand() % NB_DMG);
+        return item_selected("./Sprites/Items/dmg_up/", rand() % NB_DMG);
     if (choose == FLY_I)
-        return item_selected("../Sprites/Items/fly/", rand() % NB_FLY_I);
+        return item_selected("./Sprites/Items/fly/", rand() % NB_FLY_I);
     if (choose == HEALTH)
-        return item_selected("../Sprites/Items/health_up/", rand() % N_HEALTH);
+        return item_selected("./Sprites/Items/health_up/", rand() % N_HEALTH);
     if (choose == KEYS)
-        return item_selected("../Sprites/Items/keys_up/", rand() % NB_KEYS);
+        return item_selected("./Sprites/Items/keys_up/", rand() % NB_KEYS);
     if (choose == MONEY)
-        return item_selected("../Sprites/Items/money_up/", rand() % NB_MONEY);
+        return item_selected("./Sprites/Items/money_up/", rand() % NB_MONEY);
     if (choose == SPEED)
-        return item_selected("../Sprites/Items/speed_up/", rand() % NB_SPEED);
+        return item_selected("./Sprites/Items/speed_up/", rand() % NB_SPEED);
     if (choose == TEARS)
-        return item_selected("../Sprites/Items/tears_up/", rand() % NB_TEARS);
-    return item_selected("../Sprites/Items/luck_up/", rand() % NB_LUCK);
+        return item_selected("./Sprites/Items/tears_up/", rand() % NB_TEARS);
+    return item_selected("./Sprites/Items/luck_up/", rand() % NB_LUCK);
 }
 
 static void reduce_place_item(room *rm, char *tmp, collectible *item,
@@ -89,7 +89,7 @@ void place_item(room *rm)
     collectible *item = malloc(sizeof(collectible));
     int choose = rand() % LEN_FOLDERS;
     tmp = select_item(choose);
-    item->altar_text = sfTexture_createFromFile("../Sprites/altar.png", NULL);
+    item->altar_text = sfTexture_createFromFile("./Sprites/altar.png", NULL);
     srand(time(NULL));
     while (!already_got(tmp, rm->old_i)) {
         choose = rand() % LEN_FOLDERS;

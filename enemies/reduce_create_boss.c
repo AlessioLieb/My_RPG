@@ -10,7 +10,7 @@
 void create_husk(boss_t *boss)
 {
     sfTexture *t_husk =
-    sfTexture_createFromFile("../Sprites/bosses/husk.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/husk.png", NULL);
     sfVector2f scale = {3, 3};
     boss[HUSK] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 50, 6,
     false, 77, 307, (boss_spawning_t) {"rooms/husk.room", 5000, 0, true}, 50};

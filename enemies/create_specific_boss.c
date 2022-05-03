@@ -10,9 +10,9 @@
 static void create_last_boss(boss_t *boss)
 {
     sfTexture *text_duke =
-    sfTexture_createFromFile("../Sprites/bosses/duke.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/duke.png", NULL);
     sfTexture *text_satan =
-    sfTexture_createFromFile("../Sprites/bosses/satan.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/satan.png", NULL);
     sfVector2f scale = {3, 3};
     boss[DUKE] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 40, 6,
     false, 77, 307, (boss_spawning_t) {"rooms/husk.room", 3000, 0, true}, 40};
@@ -30,9 +30,9 @@ static void create_greed_dark_husk(boss_t *boss)
 {
     sfVector2f scale = {3, 3};
     sfTexture *t_greed =
-    sfTexture_createFromFile("../Sprites/bosses/greed.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/greed.png", NULL);
     sfTexture *text_dark =
-    sfTexture_createFromFile("../Sprites/bosses/dark_one.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/dark_one.png", NULL);
     boss[GREED] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 15, 20,
     false, 30, 89, (boss_spawning_t) {"", 10000, 0, false}, 15};
     sfSprite_setTexture(boss[GREED].sp, t_greed, sfTrue);
@@ -49,9 +49,9 @@ static void create_greed_dark_husk(boss_t *boss)
 static void create_piloki_chub(boss_t *boss)
 {
     sfTexture *p =
-    sfTexture_createFromFile("../Sprites/bosses/pit.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/pit.png", NULL);
     sfTexture *c =
-    sfTexture_createFromFile("../Sprites/bosses/chub.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/chub.png", NULL);
     sfVector2f scale = {3, 3};
     boss[PIT] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},20, 9,
     false, 70, 150, (boss_spawning_t) {"", 10000, 0, false}, 20};
@@ -70,9 +70,9 @@ static void create_gurdy_loki(boss_t *boss)
 {
     sfVector2f scale = {3, 3};
     sfTexture *text_g =
-    sfTexture_createFromFile("../Sprites/bosses/gurdy.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/gurdy.png", NULL);
     sfTexture *l =
-    sfTexture_createFromFile("../Sprites/bosses/loki.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/loki.png", NULL);
     boss[GRUDY] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},50, 0,
     false, 138, 551, (boss_spawning_t) {"rooms/grudy.room", 15000, 0, true},
     50};
@@ -89,9 +89,9 @@ static void create_gurdy_loki(boss_t *boss)
 void create_monstro_diggle(boss_t *boss)
 {
     sfTexture *text_m =
-    sfTexture_createFromFile("../Sprites/bosses/monstro.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/monstro.png", NULL);
     sfTexture *text_d =
-    sfTexture_createFromFile("../Sprites/bosses/diggle.png", NULL);
+    sfTexture_createFromFile("./Sprites/bosses/diggle.png", NULL);
     sfVector2f scale = {3, 3};
     boss[MONSTRO] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},75, 3,
     false, 80, 253, (boss_spawning_t) {"rooms/monstro.room", 10000, 0, true},

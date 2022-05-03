@@ -16,13 +16,13 @@ void params_window(window *wndw, options *sprt, players *perso)
     sprt->pause_txt = sfTexture_createFromFile("ressources/pause.png", NULL);
     perso->txt_perso_wheel =
     sfTexture_createFromFile("ressources/player_wheel_choose.png", NULL);
-    sprt->tuto = sfTexture_createFromFile("../Sprites/allrooms.png", NULL);
+    sprt->tuto = sfTexture_createFromFile("./Sprites/allrooms.png", NULL);
     sprt->loose_txt = sfTexture_createFromFile("ressources/loose_screen.png",
     NULL);
-    sprt->doors = sfTexture_createFromFile("../Sprites/allroomobjects.png",
+    sprt->doors = sfTexture_createFromFile("./Sprites/allroomobjects.png",
     NULL);
     sprt->pickups =
-    sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
+    sfTexture_createFromFile("./Sprites/allpickups.png", NULL);
     sprt->text_npc =
     sfTexture_createFromFile("ressources/npc_froom.png", NULL);
     wndw->window = sfRenderWindow_create(mode, "niktameralessio", sfResize

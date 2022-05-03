@@ -19,7 +19,7 @@ boss_life_t create_boss_bar(void)
 {
     boss_life_t boss_life;
     sfTexture *text =
-    sfTexture_createFromFile("../Sprites/boss_bar.png", NULL);
+    sfTexture_createFromFile("./Sprites/boss_bar.png", NULL);
     boss_life.framebuffer = malloc(sizeof(sfUint8) * HEIGHT * WIDTH * 4 * 8);
     if (boss_life.framebuffer == NULL)
         return (boss_life_t){NULL, NULL, NULL, NULL, -2};

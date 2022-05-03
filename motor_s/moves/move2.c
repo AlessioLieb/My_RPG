@@ -77,7 +77,7 @@ room *create_room(void)
     room *rm = malloc(sizeof(room));
     sfTexture *txt = sfTexture_createFromFile("assets/allrooms.png", NULL);
     sfTexture *text =
-    sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
+    sfTexture_createFromFile("./Sprites/allpickups.png", NULL);
     reduce_init_room(rm, txt);
     rm->len_stone = 15;
     rm->st = NULL;

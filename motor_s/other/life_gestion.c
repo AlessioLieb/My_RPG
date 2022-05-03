@@ -9,7 +9,7 @@
 
 life create_life(void)
 {
-    sfTexture *text = sfTexture_createFromFile("../Sprites/hearts.png", NULL);
+    sfTexture *text = sfTexture_createFromFile("./Sprites/hearts.png", NULL);
     life li = (life) {6, 6, 2, sfSprite_create()};
     sfSprite_setTexture(li.hsp, text, sfTrue);
     sfSprite_setScale(li.hsp, (sfVector2f) {3, 3});

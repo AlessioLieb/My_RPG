@@ -10,9 +10,9 @@
 adv_t *no_moving_adv_create(void)
 {
     sfTexture *one =
-    sfTexture_createFromFile("../Sprites/m_anim/constant.png", NULL);
+    sfTexture_createFromFile("./Sprites/m_anim/constant.png", NULL);
     sfTexture *two =
-    sfTexture_createFromFile("../Sprites/m_anim/horf.png", NULL);
+    sfTexture_createFromFile("./Sprites/m_anim/horf.png", NULL);
     sfIntRect place = {0, 0, 31, 30};
     adv_t *no_mov = malloc(sizeof(adv_t) * NB_NO_MOUVING);
     sfVector2f scale = {3, 3};
@@ -33,11 +33,11 @@ adv_t *no_moving_adv_create(void)
 adv_t *big_adv_create(void)
 {
     sfTexture *array_text[] =
-    {sfTexture_createFromFile("../Sprites/m_anim/fatty.png",
-    NULL), sfTexture_createFromFile("../Sprites/m_anim/muli.png", NULL),
-    sfTexture_createFromFile("../Sprites/m_anim/muliboom.png", NULL),
-    sfTexture_createFromFile("../Sprites/m_anim/squirt.png", NULL),
-    sfTexture_createFromFile("../Sprites/m_anim/skinny.png", NULL), NULL};
+    {sfTexture_createFromFile("./Sprites/m_anim/fatty.png",
+    NULL), sfTexture_createFromFile("./Sprites/m_anim/muli.png", NULL),
+    sfTexture_createFromFile("./Sprites/m_anim/muliboom.png", NULL),
+    sfTexture_createFromFile("./Sprites/m_anim/squirt.png", NULL),
+    sfTexture_createFromFile("./Sprites/m_anim/skinny.png", NULL), NULL};
     sfIntRect place = {0, 0, 60, 70};
     adv_t *adv = malloc(sizeof(adv_t) * NB_BIG);
     srand(time(NULL));
@@ -54,10 +54,10 @@ adv_t *big_adv_create(void)
 adv_t *flying_adv_create(void)
 {
     sfTexture *array_text[] = {sfTexture_createFromFile
-    ("../Sprites/m_anim/boom_fly.png", NULL), sfTexture_createFromFile
-    ("../Sprites/m_anim/fly.png", NULL), sfTexture_createFromFile
-    ("../Sprites/m_anim/haunted.png", NULL), sfTexture_createFromFile
-    ("../Sprites/m_anim/shooter.png", NULL), NULL};
+    ("./Sprites/m_anim/boom_fly.png", NULL), sfTexture_createFromFile
+    ("./Sprites/m_anim/fly.png", NULL), sfTexture_createFromFile
+    ("./Sprites/m_anim/haunted.png", NULL), sfTexture_createFromFile
+    ("./Sprites/m_anim/shooter.png", NULL), NULL};
     sfIntRect place = {0, 0, 33, 29};
     adv_t *adv = malloc(sizeof(adv_t) * NB_FLY);
     sfVector2f scale = {3, 3};
@@ -75,9 +75,9 @@ adv_t *flying_adv_create(void)
 adv_t *little_adv_create(void)
 {
     sfTexture *array_text[] = {sfTexture_createFromFile
-    ("../Sprites/m_anim/bodies.png", NULL), sfTexture_createFromFile
-    ("../Sprites/m_anim/dip.png", NULL), sfTexture_createFromFile
-    ("../Sprites/m_anim/charger.png", NULL), NULL};
+    ("./Sprites/m_anim/bodies.png", NULL), sfTexture_createFromFile
+    ("./Sprites/m_anim/dip.png", NULL), sfTexture_createFromFile
+    ("./Sprites/m_anim/charger.png", NULL), NULL};
     sfIntRect place = {0, 0, 28, 25};
     adv_t *adv = malloc(sizeof(adv_t) * NB_LITTLE);
     sfVector2f scale = {3, 3};

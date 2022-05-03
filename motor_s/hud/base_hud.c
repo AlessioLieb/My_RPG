@@ -45,7 +45,7 @@ void nb_piece_hud(int piece, sfRenderWindow *wd)
     sfText *hud = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *pi = sfSprite_create();
-    sfTexture *p = sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
+    sfTexture *p = sfTexture_createFromFile("./Sprites/allpickups.png", NULL);
     sfSprite_setTexture(pi, p, sfTrue);
     sfSprite_setTextureRect(pi, (sfIntRect) {0, 129, 9, 11});
     sfSprite_setScale(pi, (sfVector2f){3, 3});
@@ -69,7 +69,7 @@ void nb_bomb_hud(int bomb, sfRenderWindow *wd)
     sfText *hud = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *bo = sfSprite_create();
-    sfTexture *b = sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
+    sfTexture *b = sfTexture_createFromFile("./Sprites/allpickups.png", NULL);
     sfSprite_setTexture(bo, b, sfTrue);
     sfSprite_setTextureRect(bo, (sfIntRect) {9, 129, 13, 13});
     sfSprite_setScale(bo, (sfVector2f){3, 3});
@@ -93,7 +93,7 @@ void nb_key_hud(int key, sfRenderWindow *wd)
     sfText *hud = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *ke = sfSprite_create();
-    sfTexture *k = sfTexture_createFromFile("../Sprites/allpickups.png", NULL);
+    sfTexture *k = sfTexture_createFromFile("./Sprites/allpickups.png", NULL);
     sfSprite_setTexture(ke, k, sfTrue);
     sfSprite_setTextureRect(ke, (sfIntRect) {0, 141, 9, 11});
     sfSprite_setScale(ke, (sfVector2f){3, 3});

@@ -12,7 +12,7 @@ void disp_speed(reduce *red, sfRenderWindow *wd)
     sfText *spe = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *sp = sfSprite_create();
-    sfTexture *s = sfTexture_createFromFile("../Sprites/hudstats.png", NULL);
+    sfTexture *s = sfTexture_createFromFile("./Sprites/hudstats.png", NULL);
     sfSprite_setTexture(sp, s, sfTrue);
     sfSprite_setTextureRect(sp, (sfIntRect) {1, 4, 12, 10});
     sfSprite_setScale(sp, (sfVector2f) {3, 3});
@@ -36,7 +36,7 @@ void disp_freq_tears(reduce *red, sfRenderWindow *wd)
     sfText *fre = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *fr = sfSprite_create();
-    sfTexture *f = sfTexture_createFromFile("../Sprites/hudstats.png", NULL);
+    sfTexture *f = sfTexture_createFromFile("./Sprites/hudstats.png", NULL);
     sfSprite_setTexture(fr, f, sfTrue);
     sfSprite_setTextureRect(fr, (sfIntRect) {32, 2, 13, 12});
     sfSprite_setScale(fr, (sfVector2f) {3, 3});
@@ -60,7 +60,7 @@ void disp_sp_tears(reduce *red, sfRenderWindow *wd)
     sfText *spt = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *sp = sfSprite_create();
-    sfTexture *s = sfTexture_createFromFile("../Sprites/hudstats.png", NULL);
+    sfTexture *s = sfTexture_createFromFile("./Sprites/hudstats.png", NULL);
     sfSprite_setTexture(sp, s, sfTrue);
     sfSprite_setTextureRect(sp, (sfIntRect) {50, 3, 10, 10});
     sfSprite_setScale(sp, (sfVector2f) {3, 3});
@@ -84,7 +84,7 @@ void disp_damages(reduce *red, sfRenderWindow *wd)
     sfText *dmg = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *da = sfSprite_create();
-    sfTexture *d = sfTexture_createFromFile("../Sprites/hudstats.png", NULL);
+    sfTexture *d = sfTexture_createFromFile("./Sprites/hudstats.png", NULL);
     sfSprite_setTexture(da, d, sfTrue);
     sfSprite_setTextureRect(da, (sfIntRect) {2, 19, 11, 11});
     sfSprite_setScale(da, (sfVector2f) {3, 3});
@@ -108,7 +108,7 @@ void disp_luck(reduce *red, sfRenderWindow *wd)
     sfText *luc = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfSprite *lu = sfSprite_create();
-    sfTexture *l = sfTexture_createFromFile("../Sprites/hudstats.png", NULL);
+    sfTexture *l = sfTexture_createFromFile("./Sprites/hudstats.png", NULL);
     sfSprite_setTexture(lu, l, sfTrue);
     sfSprite_setTextureRect(lu, (sfIntRect) {19, 19, 9, 10});
     sfSprite_setScale(lu, (sfVector2f) {3, 3});
