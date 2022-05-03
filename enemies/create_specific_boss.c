@@ -15,7 +15,8 @@ static void create_last_boss(boss_t *boss)
     sfTexture_createFromFile("./Sprites/bosses/satan.png", NULL);
     sfVector2f scale = {3, 3};
     boss[DUKE] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 40, 6,
-    false, 77, 307, (boss_spawning_t) {"rooms/husk.room", 3000, 0, true}, 40};
+    false, 77, 307, (boss_spawning_t) {"rooms/husk.room", 3000, 0, true}, 40
+    };
     sfSprite_setTexture(boss[DUKE].sp, text_duke, sfTrue);
     sfSprite_setScale(boss[DUKE].sp, scale);
     sfSprite_setTextureRect(boss[DUKE].sp, (sfIntRect) {0, 0, 80, 64});
