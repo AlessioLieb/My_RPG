@@ -17,7 +17,6 @@ adv_t *no_moving_adv_create(void)
     adv_t *no_mov = malloc(sizeof(adv_t) * NB_NO_MOUVING);
     sfVector2f scale = {3, 3};
     int tmp = 0;
-    srand(time(NULL));
     for (int i = 0; i < NB_NO_MOUVING; ++i) {
         tmp = rand() % 2;
         no_mov[i].sp = sfSprite_create();
@@ -40,7 +39,6 @@ adv_t *big_adv_create(void)
     sfTexture_createFromFile("./Sprites/m_anim/skinny.png", NULL), NULL};
     sfIntRect place = {0, 0, 60, 70};
     adv_t *adv = malloc(sizeof(adv_t) * NB_BIG);
-    srand(time(NULL));
     for (int i = 0; i < NB_BIG; ++i) {
         adv[i].sp = sfSprite_create();
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 5], sfTrue);
@@ -61,7 +59,6 @@ adv_t *flying_adv_create(void)
     sfIntRect place = {0, 0, 33, 29};
     adv_t *adv = malloc(sizeof(adv_t) * NB_FLY);
     sfVector2f scale = {3, 3};
-    srand(time(NULL));
     for (int i = 0; i < NB_FLY; ++i) {
         adv[i].sp = sfSprite_create();
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 4], sfTrue);
@@ -81,7 +78,6 @@ adv_t *little_adv_create(void)
     sfIntRect place = {0, 0, 28, 25};
     adv_t *adv = malloc(sizeof(adv_t) * NB_LITTLE);
     sfVector2f scale = {3, 3};
-    srand(time(NULL));
     for (int i = 0; i < NB_LITTLE; ++i) {
         adv[i].sp = sfSprite_create();
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 3], sfTrue);

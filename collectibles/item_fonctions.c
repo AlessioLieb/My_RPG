@@ -58,12 +58,12 @@ int luck_up(player *py)
 
 int money_up(player *py)
 {
-    py->invent.money += 35;
+    py->invent.money += 25;
     py->it_des->active = true;
     py->it_des->l_h_active = true;
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, " MONEY RAIN !");
-    sfText_setString(py->it_des->sec_d, "+35 money up");
+    sfText_setString(py->it_des->sec_d, "+25 money up");
     sfText_setPosition(py->it_des->main_d, (sfVector2f) {800, 195});
     sfText_setPosition(py->it_des->sec_d, (sfVector2f) {875, 270});
     sfText_setColor(py->it_des->l_hud, sfGreen);

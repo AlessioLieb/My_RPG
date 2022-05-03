@@ -10,7 +10,6 @@
 void place_boss_level(enemies_t *enemy, bool final_boss)
 {
     int choose;
-    srand(time(NULL));
     choose = rand() % (LEN_BOSS - 1) + 1;
     if (final_boss)
         choose = 0;
