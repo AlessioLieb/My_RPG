@@ -62,15 +62,6 @@ int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
     return 0;
 }
 
-void screen_choose_player(window *wndw, options *sprt, players *perso)
-{
-    draw_spbarre(wndw, sprt);
-    (sprt->choose == 0) ? draw_robhein(wndw, perso) : 0;
-    (sprt->choose == 1) ? draw_theotitime(wndw, perso) : 0;
-    (sprt->choose == 2) ? draw_aliciau(wndw, perso) : 0;
-    (sprt->choose == 3) ? draw_osca(wndw, perso) : 0;
-}
-
 void enemies_verification(enemies_t *enem_t, room *rm)
 {
     int count = 0;

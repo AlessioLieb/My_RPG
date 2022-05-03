@@ -68,3 +68,12 @@ void reduce_clear_display(window *wndw)
     sfRenderWindow_display(wndw->window);
     sfRenderWindow_clear(wndw->window, sfBlack);
 }
+
+void screen_choose_player(window *wndw, options *sprt, players *perso)
+{
+    draw_spbarre(wndw, sprt);
+    (sprt->choose == 0) ? draw_robhein(wndw, perso) : 0;
+    (sprt->choose == 1) ? draw_theotitime(wndw, perso) : 0;
+    (sprt->choose == 2) ? draw_aliciau(wndw, perso) : 0;
+    (sprt->choose == 3) ? draw_osca(wndw, perso) : 0;
+}

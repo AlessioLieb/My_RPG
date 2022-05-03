@@ -189,4 +189,5 @@ void draw_loose_scrn(window *wndw, options *sprt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);
+void screen_choose_player(window *wndw, options *sprt, players *perso);
 #endif
