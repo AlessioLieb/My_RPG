@@ -42,16 +42,15 @@ void draw_adv(adv_t *adv, sfRenderWindow *wndw)
         }
 }
 
-void draw_enemies(enemies_t *enem_t, sfRenderWindow *wndw, player *py,
-room *rm)
+void draw_enemies(reduce *red, sfRenderWindow *wndw)
 {
-    anim_enemies(enem_t);
-    move_enemies(enem_t, py, rm);
-    draw_adv(enem_t->no_moving_adv, wndw);
-    draw_adv(enem_t->flying_adv, wndw);
-    draw_adv(enem_t->little_adv, wndw);
-    draw_adv(enem_t->big_adv, wndw);
-    draw_boss(enem_t->boss_adv, wndw);
-    if (enem_t->boss_life.active != -1)
-        display_boss_life(enem_t, enem_t->boss_life.active, wndw);
+    anim_enemies(red->enem_t);
+    move_enemies(red);
+    draw_adv(red->enem_t->no_moving_adv, wndw);
+    draw_adv(red->enem_t->flying_adv, wndw);
+    draw_adv(red->enem_t->little_adv, wndw);
+    draw_adv(red->enem_t->big_adv, wndw);
+    draw_boss(red->enem_t->boss_adv, wndw);
+    if (red->enem_t->boss_life.active != -1)
+        display_boss_life(red->enem_t, red->enem_t->boss_life.active, wndw);
 }
