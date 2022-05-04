@@ -22,15 +22,6 @@ void func_flash_frame(window *wndw, options *sprt)
     sfClock_restart(sprt->j);
 }
 
-void func_flash_frame_rev(window *wndw, options *sprt)
-{
-    for (int i = 3; i < WIDTH * HEIGHT * 4; i += 4) {
-        (sprt->framebuffer[i] < 255) ? sprt->framebuffer[i] += 2.5 : 0;
-        (sprt->framebuffer[i] >= 250) ? sprt->begin = 8 : 0;
-    }
-    sfClock_restart(sprt->j);
-}
-
 void func_square_frame(window *wndw, options *sprt)
 {
     (wndw->radius > 0) ? wndw->radius -= 15 : 0;

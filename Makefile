@@ -18,6 +18,7 @@ SRC	=	sources/init_base.c						\
 		sources/button.c						\
 		sources/animation_framebuffer.c			\
 		sources/animation_framebuffer2.c		\
+		sources/animation_framebuffer3.c		\
 		sources/init_choose_players.c			\
 		sources/action_button.c					\
 		sources/players_choose.c				\
