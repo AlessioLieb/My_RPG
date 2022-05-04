@@ -64,7 +64,8 @@ static void talking_saler(options *sprt, window *wndw, int i, reduce *red)
 
 void touch_saler(saler_red_t rt, options *sprt, window *wndw, reduce *red)
 {
-    sfIntRect player = (sfIntRect){rt.player_pos.x, rt.player_pos.y, 28 * 3, 33 * 3};
+    sfIntRect player = (sfIntRect){rt.player_pos.x, rt.player_pos.y, 28 * 3,
+    33 * 3};
     sfIntRect overlap = (sfIntRect){1, 1, 1, 1};
     if (sfIntRect_intersects(&sprt->sal[rt.i].place_touch, &player, &overlap)) {
         talking_saler(sprt, wndw, rt.i, red);

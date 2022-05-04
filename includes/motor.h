@@ -208,7 +208,7 @@ typedef struct {
 
 typedef struct reduce_adv_s {
     int i;
-    sfVector2f player_pos; 
+    sfVector2f player_pos;
     int type;
 }reduce_adv_t;
 
