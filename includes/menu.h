@@ -101,6 +101,8 @@ typedef struct {
     objects_t invent;
     sfTexture *loose_txt;
     sfSprite *loose_sprt;
+    sfTexture *win_txt;
+    sfSprite *win_sprt;
 }options;
 
 typedef enum button_name {
