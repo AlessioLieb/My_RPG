@@ -7,7 +7,7 @@
 
 #include "../includes/editor.h"
 
-void init(void)
+static void init(void)
 {
     initscr();
     keypad(stdscr, TRUE);
@@ -15,7 +15,7 @@ void init(void)
     mousemask(BUTTON1_CLICKED , NULL);
 }
 
-char **create_content(void)
+static char **create_content(void)
 {
     char **array_file = malloc(sizeof(char *) * (MAP_HEIGHT + 2));
     int i = 0;
@@ -40,7 +40,7 @@ char **create_content(void)
     return array_file;
 }
 
-void fill_content(char **content_file)
+static void fill_content(char **content_file)
 {
     MEVENT event;
     int ch = 0;
@@ -62,7 +62,7 @@ void fill_content(char **content_file)
     }
 }
 
-void map_editor(void)
+static void map_editor(void)
 {
     char **content_file = create_content();
     FILE *file = get_file_name();
