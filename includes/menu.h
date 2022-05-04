@@ -103,6 +103,8 @@ typedef struct {
     sfSprite *loose_sprt;
     sfTexture *win_txt;
     sfSprite *win_sprt;
+    sfTexture *opt_txt;
+    sfSprite *opt_sprt;
 }options;
 
 typedef enum button_name {
@@ -116,6 +118,7 @@ typedef enum button_name {
     NEXT,
     OPTIONS,
     QUIT_GAME,
+    BACK_OPT,
 }buttton_name;
 
 typedef struct button {
@@ -196,6 +199,8 @@ int continue_button(window *wndw, options *opt);
 int resume_button(window *wndw, options *opt);
 int print_win(window *wndw, options *opt);
 int quitgame(window *wndw, options *opt);
+int open_opt(window *wndw, options *opt);
+void init_opt_screen(window *wndw, options *sprt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);

@@ -100,6 +100,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;
         (sprt->begin == 2 || sprt->begin == 3)
         ? screen_choose_player(wndw, sprt, perso) : 0;
+        (sprt->begin == 9) ? sfRenderWindow_drawSprite(wndw->window, sprt->opt_sprt, NULL) : 0;
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         enemies_verification(enem_t, rm);

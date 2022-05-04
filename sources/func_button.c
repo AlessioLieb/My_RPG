@@ -30,3 +30,9 @@ int quitgame(window *wndw, options *opt)
     sfRenderWindow_close(wndw->window);
     return 0;
 }
+
+int open_opt(window *wndw, options *opt)
+{
+    opt->begin = 9;
+    return 0;
+}

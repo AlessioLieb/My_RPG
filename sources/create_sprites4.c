@@ -42,3 +42,11 @@ void init_win_scrn(window *wndw, options *sprt)
     sfSprite_setTexture(sprt->win_sprt, sprt->win_txt, sfTrue);
     sfSprite_setTextureRect(sprt->win_sprt, rect);
 }
+
+void init_opt_screen(window *wndw, options *sprt)
+{
+    sfIntRect rect = {0, 0, 1920, 1080};
+    sprt->opt_sprt = sfSprite_create();
+    sfSprite_setTexture(sprt->opt_sprt, sprt->opt_txt, sfTrue);
+    sfSprite_setTextureRect(sprt->opt_sprt, rect);
+}
