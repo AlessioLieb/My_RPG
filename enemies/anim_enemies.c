@@ -7,22 +7,18 @@
 
 #include "../includes/motor.h"
 
-static void check_max(sfIntRect actual, int max, adv_t *adv, int i, int decal)
-{
-    if (actual.left >= max)
-        sfSprite_setTextureRect(adv[i].sp,
-        (sfIntRect) {0, actual.top, actual.width, actual.height});
-    else
-        sfSprite_setTextureRect(adv[i].sp,
-        (sfIntRect) {actual.left + decal, actual.top,
-        actual.width, actual.height});
-}
-
 static void anim_all(adv_t *all, int max, int decal)
 {
+    sfIntRect actual;
     for (int i = 0; i < 10; ++i)
-        if (all[i].pos.x != - 1 && all[i].pos.y != - 1)
-            check_max(sfSprite_getTextureRect(all[i].sp), max, all, i, decal);
+        if (all[i].pos.x != - 1 && all[i].pos.y != - 1) {
+            actual = sfSprite_getTextureRect(all[i].sp);
+            (actual.left >= max) ? sfSprite_setTextureRect(all[i].sp,
+            (sfIntRect) {0, actual.top, actual.width, actual.height}) : 0;
+            (actual.left < max) ? sfSprite_setTextureRect(all[i].sp,
+            (sfIntRect) {actual.left + decal, actual.top,
+            actual.width, actual.height}) : 0;
+        }
 }
 
 void anim_enemies(enemies_t *enem_t)
