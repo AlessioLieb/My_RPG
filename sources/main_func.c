@@ -57,7 +57,7 @@ int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
     wndw->window);
     is_touched_button(wndw, sprt);
     if (red->py->new_item) {
-        update_my_stuff(sprt,red->rm->old_i.old, red->rm->old_i.cp);
+        update_my_stuff(sprt, red->rm->old_i.old, red->rm->old_i.cp);
         red->py->new_item = false;
     }
     return 0;
@@ -115,6 +115,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 2 || sprt->begin == 6 || sprt->begin == 3 && sprt->anim == 3) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 7) ? draw_loose_scrn(wndw, sprt) : 0;
         (sprt->begin == 8) ? dwin_sprt(wndw, sprt) : 0;
+        (sprt->begin == 8) ? update_my_stuff_end(sprt, wndw) : 0;
         reduce_clear_display(wndw);
     }
     end_buffer(sprt);

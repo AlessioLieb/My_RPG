@@ -27,3 +27,16 @@ int update_my_stuff(options *opt, char **new_array, int new_len)
     opt->invent.len = new_len;
     return 1;
 }
+
+int update_my_stuff_end(options *opt, window *wndw)
+{
+    sfVector2f place = {750, 450};
+    for (int i = 0; i != opt->invent.len; ++i) {
+        sfSprite_setPosition(opt->invent.sprites[i], place);
+        place.x += 75;
+        sfSprite_setScale(opt->invent.sprites[i],
+        (sfVector2f) {3, 3});
+        sfRenderWindow_drawSprite(wndw->window, opt->invent.sprites[i], NULL);
+    }
+    return 1;
+}

@@ -527,4 +527,6 @@ char get_actual_room_char(reduce *red);
 void touch_saler(saler_red_t rt, options *sprt, window *wndw, reduce *red);
 void draw_spause(window *wndw, options *sprt, reduce *red);
 void stop_all_clocks(reduce *red);
+int update_my_stuff_end(options *opt, window *wndw);
+
 #endif
