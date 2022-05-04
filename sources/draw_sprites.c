@@ -25,17 +25,17 @@ void reduce_draw_spause(window *wndw, options *sprt, rooms *ro)
     sfIntRect last = {0, 417, 774, 47};
     if (ro->lvl == 2) {
         sfSprite_setTextureRect(sprt->lvl_m_sprt, third);
-        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {845, 460});
+        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {845, 430});
         sfRenderWindow_drawSprite(wndw->window, sprt->lvl_m_sprt, NULL);
     }
     if (ro->lvl == 3) {
         sfSprite_setTextureRect(sprt->lvl_m_sprt, four);
-        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {830, 460});
+        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {830, 430});
         sfRenderWindow_drawSprite(wndw->window, sprt->lvl_m_sprt, NULL);
     }
     if (ro->lvl == 4) {
         sfSprite_setTextureRect(sprt->lvl_m_sprt, last);
-        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {790, 460});
+        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {790, 430});
         sfRenderWindow_drawSprite(wndw->window, sprt->lvl_m_sprt, NULL);
     }
 }
@@ -49,12 +49,12 @@ void draw_spause(window *wndw, options *sprt, rooms *ro)
         sfRenderWindow_drawSprite(wndw->window, sprt->invent.sprites[i], NULL);
     if (ro->lvl == 0) {
         sfSprite_setTextureRect(sprt->lvl_m_sprt, first);
-        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {800, 460});
+        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {800, 430});
         sfRenderWindow_drawSprite(wndw->window, sprt->lvl_m_sprt, NULL);
     }
     if (ro->lvl == 1) {
         sfSprite_setTextureRect(sprt->lvl_m_sprt, sec);
-        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {785, 460});
+        sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {785, 430});
         sfRenderWindow_drawSprite(wndw->window, sprt->lvl_m_sprt, NULL);
     }
     is_touched_button(wndw, sprt);
