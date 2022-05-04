@@ -114,6 +114,8 @@ typedef enum button_name {
     RESUME_GAME_PAUSE,
     QUIT_PAUSE,
     NEXT,
+    OPTIONS,
+    QUIT_GAME,
 }buttton_name;
 
 typedef struct button {
@@ -190,6 +192,10 @@ void put_framebuffer2(options *sprt);
 void init_loose_scrn(window *wndw, options *sprt);
 void draw_loose_scrn(window *wndw, options *sprt);
 void init_win_scrn(window *wndw, options *sprt);
+int continue_button(window *wndw, options *opt);
+int resume_button(window *wndw, options *opt);
+int print_win(window *wndw, options *opt);
+int quitgame(window *wndw, options *opt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);
