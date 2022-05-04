@@ -7,10 +7,20 @@
 
 #include "../includes/menu.h"
 
-int back_opt(window *wndw, options *opt)
+void reduce_part_linked_button(options *opt, window *wndw)
 {
-    opt->begin = 4;
-    return 0;
+    factory_button(opt, &open_opt, (sfIntRect){1998, 0, 297, 45},
+    (sfVector2f){970, 665});
+    opt->ar_btn[OPTIONS].params = 1;
+    opt->ar_btn[OPTIONS].screen = 4;
+    factory_button(opt, &quitgame, (sfIntRect){2300, 0, 166, 45},
+    (sfVector2f){1030, 565});
+    opt->ar_btn[QUIT_GAME].params = 1;
+    opt->ar_btn[QUIT_GAME].screen = 4;
+    factory_button(opt, &back_opt, (sfIntRect){2468, 0, 180, 45},
+    (sfVector2f){20, 20});
+    opt->ar_btn[BACK_OPT].params = 1;
+    opt->ar_btn[BACK_OPT].screen = 9;
 }
 
 void part_linked_button(options *opt, window *wndw)
@@ -31,18 +41,7 @@ void part_linked_button(options *opt, window *wndw)
     (sfVector2f){872, 820});
     opt->ar_btn[NEXT].params = 0;
     opt->ar_btn[NEXT].screen = 3;
-    factory_button(opt, &open_opt, (sfIntRect){1998, 0, 297, 45},
-    (sfVector2f){970, 665});
-    opt->ar_btn[OPTIONS].params = 1;
-    opt->ar_btn[OPTIONS].screen = 4;
-    factory_button(opt, &quitgame, (sfIntRect){2300, 0, 166, 45},
-    (sfVector2f){1030, 565});
-    opt->ar_btn[QUIT_GAME].params = 1;
-    opt->ar_btn[QUIT_GAME].screen = 4;
-    factory_button(opt, &back_opt, (sfIntRect){2468, 0, 180, 45},
-    (sfVector2f){20, 20});
-    opt->ar_btn[BACK_OPT].params = 1;
-    opt->ar_btn[BACK_OPT].screen = 9;
+    reduce_part_linked_button(opt, wndw);
 }
 
 void linked_button(options *opt, window *wndw)

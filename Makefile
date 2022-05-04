@@ -30,6 +30,8 @@ SRC	=	sources/init_base.c						\
 		sources/draw_doors.c					\
 		sources/npc.c							\
 		sources/func_button.c					\
+		sources/func_button_sec.c				\
+		sources/draw_sprites4.c					\
 		motor_s/hud/base_hud.c					\
 		motor_s/hud/stat_hud.c					\
 		motor_s/moves/move.c					\

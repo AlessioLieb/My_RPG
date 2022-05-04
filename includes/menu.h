@@ -201,6 +201,9 @@ int print_win(window *wndw, options *opt);
 int quitgame(window *wndw, options *opt);
 int open_opt(window *wndw, options *opt);
 void init_opt_screen(window *wndw, options *sprt);
+int back_opt(window *wndw, options *opt);
+void dopt_sprt(window *wndw, options *sprt);
+void dwin_sprt(window *wndw, options *sprt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);

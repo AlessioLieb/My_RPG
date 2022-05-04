@@ -100,7 +100,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;
         (sprt->begin == 2 || sprt->begin == 3)
         ? screen_choose_player(wndw, sprt, perso) : 0;
-        (sprt->begin == 9) ? sfRenderWindow_drawSprite(wndw->window, sprt->opt_sprt, NULL) : 0;
+        (sprt->begin == 9) ? dopt_sprt(wndw, sprt) : 0;
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         enemies_verification(enem_t, rm);
@@ -114,7 +114,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 3 && py->lf.red_hearth < 1) ? sprt->begin = 7 : 0;
         (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 7) ? draw_loose_scrn(wndw, sprt) : 0;
-        (sprt->begin == 8) ? sfRenderWindow_drawSprite(wndw->window, sprt->win_sprt, NULL) : 0;
+        (sprt->begin == 8) ? dwin_sprt(wndw, sprt) : 0;
         reduce_clear_display(wndw);
     }
     end_buffer(sprt);
