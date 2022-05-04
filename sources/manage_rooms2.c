@@ -30,6 +30,7 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
         sfSprite_setPosition(sprt->win, (sfVector2f) {1920 / 2 -
         ((32 * 3.5) / 2), 115});
         sfRenderWindow_drawSprite(wd, sprt->win, NULL);
+        sprt->ar_btn[NEXT].params = 1;
     }
     draw_enemies(red, wd);
     red->rm->timer_tears.timer_total +=

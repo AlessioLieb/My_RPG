@@ -41,8 +41,6 @@ int event_window(window *wndw, options *sprt, reduce *red)
         && sfKeyEscape == event.key.code) ? sprt->begin = 3 : 0;
         (event.type == sfEvtKeyPressed && sfKeyF4 == event.key.code)
         ? sfRenderWindow_close(wndw->window) : 0;
-        (event.type == sfEvtKeyPressed && sfKeyL == event.key.code)
-        ? sprt->begin = 0 : 0;
         (event.type == sfEvtMouseButtonReleased)
         ? catch_button(wndw, sprt, event) : 0;
         (event.type == sfEvtMouseButtonPressed)

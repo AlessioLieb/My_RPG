@@ -55,6 +55,7 @@ int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
     disp_stat_hud(red, wndw->window);
     nb_time_hud(sfClock_getElapsedTime(red->py->time).microseconds / 1000000,
     wndw->window);
+    is_touched_button(wndw, sprt);
     if (red->py->new_item) {
         update_my_stuff(sprt,red->rm->old_i.old, red->rm->old_i.cp);
         red->py->new_item = false;
@@ -112,6 +113,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 3 && py->lf.red_hearth < 1) ? sprt->begin = 7 : 0;
         (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 7) ? draw_loose_scrn(wndw, sprt) : 0;
+        (sprt->begin == 8) ? sfRenderWindow_drawSprite(wndw->window, sprt->win_sprt, NULL) : 0;
         reduce_clear_display(wndw);
     }
     end_buffer(sprt);

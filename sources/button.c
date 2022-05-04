@@ -19,6 +19,12 @@ int resume_button(window *wndw, options *opt)
     return 0;
 }
 
+int print_win(window *wndw, options *opt)
+{
+    opt->begin = 8;
+    return 0;
+}
+
 void part_linked_button(options *opt, window *wndw)
 {
     factory_button(opt, &mines_choose, (sfIntRect){704, 0, 54, 40},
@@ -33,6 +39,10 @@ void part_linked_button(options *opt, window *wndw)
     (sfVector2f){965, 865});
     opt->ar_btn[QUIT_PAUSE].params = 1;
     opt->ar_btn[QUIT_PAUSE].screen = 4;
+    factory_button(opt, &print_win, (sfIntRect){1816, 0, 176, 45},
+    (sfVector2f){872, 820});
+    opt->ar_btn[NEXT].params = 0;
+    opt->ar_btn[NEXT].screen = 3;
 }
 
 void linked_button(options *opt, window *wndw)

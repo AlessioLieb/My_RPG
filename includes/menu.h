@@ -113,6 +113,7 @@ typedef enum button_name {
     TURN_LEFT_WHEEL_PERSO,
     RESUME_GAME_PAUSE,
     QUIT_PAUSE,
+    NEXT,
 }buttton_name;
 
 typedef struct button {
@@ -188,6 +189,7 @@ void dsquare(int x, int y, int radius, options *sprt, sfColor color);
 void put_framebuffer2(options *sprt);
 void init_loose_scrn(window *wndw, options *sprt);
 void draw_loose_scrn(window *wndw, options *sprt);
+void init_win_scrn(window *wndw, options *sprt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);
