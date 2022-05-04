@@ -104,7 +104,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         is_touched_button(wndw, sprt);
         (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         enemies_verification(enem_t, rm);
-        (sprt->begin == 4) ? draw_spause(wndw, sprt, ro) : 0;
+        (sprt->begin == 4) ? draw_spause(wndw, sprt, &(reduce) {py, rm, te, enem_t, ro}) : 0;
         (sprt->begin == 3) ? doors_colisions(sprt, rm, py) : 0;
         (sprt->begin == 3 || sprt->begin == 6)
         ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro, so},

@@ -164,7 +164,6 @@ void init_trophy(window *wndw, options *sprt);
 void init_win(window *wndw, options *sprt);
 void draw_spwelcome(window *wndw, options *sprt);
 void draw_spbarre(window *wndw, options *sprt);
-void draw_spause(window *wndw, options *sprt, rooms *ro);
 void draw_tuto(sfRenderWindow *wd, options *sprt);
 typedef int (*ptr_f)(window *wndw, options *opt);
 void factory_button(options *opt, ptr_f fc, sfIntRect old, sfVector2f pos);

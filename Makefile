@@ -98,7 +98,8 @@ SRC	=	sources/init_base.c						\
 		sources/draw_my_stuff.c	\
 		collectibles/key_bombs.c	\
 		motor_s/other/npc_actions.c	\
-		motor_s/other/saler.c
+		motor_s/other/saler.c	\
+		motor_s/other/clock_gestion.c
 
 
 OBJ	=    $(SRC:.c=.o)

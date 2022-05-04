@@ -5,7 +5,7 @@
 ** draw_sprites.c
 */
 
-#include "../includes/menu.h"
+#include "../includes/motor.h"
 
 void draw_spwelcome(window *wndw, options *sprt)
 {
@@ -40,25 +40,26 @@ void reduce_draw_spause(window *wndw, options *sprt, rooms *ro)
     }
 }
 
-void draw_spause(window *wndw, options *sprt, rooms *ro)
+void draw_spause(window *wndw, options *sprt, reduce *red)
 {
     sfIntRect first = {0, 0, 774, 47};
     sfIntRect sec = {0, 103, 774, 47};
+    stop_all_clocks(red);
     sfRenderWindow_drawSprite(wndw->window, sprt->pause_sprt, NULL);
     for (int i = 0; i < sprt->invent.len; ++i)
         sfRenderWindow_drawSprite(wndw->window, sprt->invent.sprites[i], NULL);
-    if (ro->lvl == 0) {
+    if (red->ro->lvl == 0) {
         sfSprite_setTextureRect(sprt->lvl_m_sprt, first);
         sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {800, 430});
         sfRenderWindow_drawSprite(wndw->window, sprt->lvl_m_sprt, NULL);
     }
-    if (ro->lvl == 1) {
+    if (red->ro->lvl == 1) {
         sfSprite_setTextureRect(sprt->lvl_m_sprt, sec);
         sfSprite_setPosition(sprt->lvl_m_sprt, (sfVector2f) {785, 430});
         sfRenderWindow_drawSprite(wndw->window, sprt->lvl_m_sprt, NULL);
     }
     is_touched_button(wndw, sprt);
-    reduce_draw_spause(wndw, sprt, ro);
+    reduce_draw_spause(wndw, sprt, red->ro);
 }
 
 void draw_loose_scrn(window *wndw, options *sprt)

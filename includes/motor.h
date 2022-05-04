@@ -63,8 +63,8 @@ typedef struct saler_red_s {
 } saler_red_t;
 
 typedef struct {
-    unsigned long timer_total;
-    unsigned long timer;
+    long timer_total;
+    long timer;
 }timer;
 
 typedef struct boss_spawning_s {
@@ -525,4 +525,6 @@ char *choose_string(int lvl);
 void talking_npc( options *sprt, window *wndw, int level);
 char get_actual_room_char(reduce *red);
 void touch_saler(saler_red_t rt, options *sprt, window *wndw, reduce *red);
+void draw_spause(window *wndw, options *sprt, reduce *red);
+void stop_all_clocks(reduce *red);
 #endif

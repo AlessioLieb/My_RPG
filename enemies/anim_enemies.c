@@ -25,6 +25,8 @@ void anim_enemies(enemies_t *enem_t)
 {
     enem_t->ti.timer_total += sfClock_getElapsedTime
     (enem_t->total_clock).microseconds - enem_t->ti.timer;
+    if (enem_t->ti.timer_total < 0)
+        enem_t->ti.timer_total = 0;
     while (enem_t->ti.timer_total > 100000) {
         anim_all(enem_t->flying_adv, 60, 30);
         anim_all(enem_t->big_adv, 440, 64);
