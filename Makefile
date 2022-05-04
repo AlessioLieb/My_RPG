@@ -22,6 +22,8 @@ SRC	=	sources/init_base.c						\
 		sources/action_button.c					\
 		sources/players_choose.c				\
 		sources/framebuffer_play.c				\
+		sources/create_sprites5.c				\
+		sources/init_all_sprites.c				\
 		sources/manage_rooms.c					\
 		sources/manage_rooms2.c					\
 		sources/create_sprites2.c				\

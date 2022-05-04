@@ -13,8 +13,8 @@ void reduce_part_linked_button(options *opt, window *wndw)
     (sfVector2f){970, 665});
     opt->ar_btn[OPTIONS].params = 1;
     opt->ar_btn[OPTIONS].screen = 4;
-    factory_button(opt, &quitgame, (sfIntRect){2300, 0, 166, 45},
-    (sfVector2f){1030, 565});
+    factory_button(opt, &quitgame, (sfIntRect){2650, 0, 441, 54},
+    (sfVector2f){930, 565});
     opt->ar_btn[QUIT_GAME].params = 1;
     opt->ar_btn[QUIT_GAME].screen = 4;
     factory_button(opt, &back_opt, (sfIntRect){2468, 0, 180, 45},

@@ -21,6 +21,7 @@ void params_window(window *wndw, options *sprt, players *perso)
     NULL);
     sprt->win_txt = sfTexture_createFromFile("ressources/screen_win.png", NULL);
     sprt->opt_txt = sfTexture_createFromFile("ressources/options.png", NULL);
+    sprt->lvl_m_txt = sfTexture_createFromFile("ressources/lvl_menu.png", NULL);
     sprt->doors = sfTexture_createFromFile("./Sprites/allroomobjects.png",
     NULL);
     sprt->pickups =

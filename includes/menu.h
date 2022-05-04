@@ -105,6 +105,8 @@ typedef struct {
     sfSprite *win_sprt;
     sfTexture *opt_txt;
     sfSprite *opt_sprt;
+    sfTexture *lvl_m_txt;
+    sfSprite *lvl_m_sprt;
 }options;
 
 typedef enum button_name {
@@ -162,7 +164,7 @@ void init_trophy(window *wndw, options *sprt);
 void init_win(window *wndw, options *sprt);
 void draw_spwelcome(window *wndw, options *sprt);
 void draw_spbarre(window *wndw, options *sprt);
-void draw_spause(window *wndw, options *sprt);
+void draw_spause(window *wndw, options *sprt, rooms *ro);
 void draw_tuto(sfRenderWindow *wd, options *sprt);
 typedef int (*ptr_f)(window *wndw, options *opt);
 void factory_button(options *opt, ptr_f fc, sfIntRect old, sfVector2f pos);
@@ -204,6 +206,8 @@ void init_opt_screen(window *wndw, options *sprt);
 int back_opt(window *wndw, options *opt);
 void dopt_sprt(window *wndw, options *sprt);
 void dwin_sprt(window *wndw, options *sprt);
+void init_lvl_m(window *wndw, options *sprt);
+void init_tuto(window *wndw, options *sprt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);
