@@ -21,7 +21,8 @@ int resume_button(window *wndw, options *opt)
 
 int print_win(window *wndw, options *opt)
 {
-    opt->begin = 8;
+    put_framebuffer3(opt);
+    opt->anim = 3;
     return 0;
 }
 

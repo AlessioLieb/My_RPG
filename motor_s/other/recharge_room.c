@@ -63,13 +63,13 @@ void recharge_room(reduce *red, bool is_empty, bool is_boss)
         actual_map = is_empty || is_boss ? "rooms/empty.room" : search_map();
         buff = create_map_str(actual_map);
         !is_empty && !is_boss ? free(actual_map) : 0;
-        place_enemies(buff, red->enem_t);
+        // place_enemies(buff, red->enem_t);
         place_stone(red->rm, red->py, buff, red->ro);
         is_visited != 'X'  && is_visited != 'T' ? place_bonus(red->rm) : 0;
         (red->ro->floor_rooms[red->rm->actual_room[1]][red->rm->actual_room[0]]
         == 'T' && (is_visited == 't')) ? place_item(red->rm) : 0;
-        is_boss  && is_visited == 'b' ? place_boss_level(red->enem_t,
-        red->ro->lvl == 4 ? true : false) : 0;
+        // is_boss  && is_visited == 'b' ? place_boss_level(red->enem_t,
+        // red->ro->lvl == 4 ? true : false) : 0;
         red->rm->change_room = false;
     }
 }

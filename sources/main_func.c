@@ -102,7 +102,6 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         ? screen_choose_player(wndw, sprt, perso) : 0;
         (sprt->begin == 9) ? dopt_sprt(wndw, sprt) : 0;
         is_touched_button(wndw, sprt);
-        (sprt->begin == 2) ? display_framebuffer(wndw, sprt) : 0;
         enemies_verification(enem_t, rm);
         (sprt->begin == 4) ? draw_spause(wndw, sprt, &(reduce) {py, rm, te, enem_t, ro}) : 0;
         (sprt->begin == 3) ? doors_colisions(sprt, rm, py) : 0;
@@ -113,7 +112,7 @@ int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
         (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
         sprt->begin == 3 ? draw_mini_map(ro, wndw->window, rm) : 0;
         (sprt->begin == 3 && py->lf.red_hearth < 1) ? sprt->begin = 7 : 0;
-        (sprt->begin == 6) ? display_framebuffer(wndw, sprt) : 0;
+        (sprt->begin == 2 || sprt->begin == 6 || sprt->begin == 3 && sprt->anim == 3) ? display_framebuffer(wndw, sprt) : 0;
         (sprt->begin == 7) ? draw_loose_scrn(wndw, sprt) : 0;
         (sprt->begin == 8) ? dwin_sprt(wndw, sprt) : 0;
         reduce_clear_display(wndw);

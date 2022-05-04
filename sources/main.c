@@ -50,7 +50,7 @@ static int call_main_func(void)
     sprt->invent.len = 0;
     sprt->invent.object = NULL;
     sprt->invent.sprites = malloc(sizeof(sfSprite *) * NB_ITEMS + 1);
-    rooms room = {0, 0, NULL, 0, NULL, false, NULL};
+    rooms room = {0, 0, NULL, 4, NULL, false, NULL};
     gen_main(&room);
     init_mini_map(&room);
     clear_mini_map(&room);

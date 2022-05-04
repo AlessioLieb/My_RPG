@@ -16,8 +16,18 @@ void put_framebuffer(options *sprt)
 
 void func_flash_frame(window *wndw, options *sprt)
 {
-    for (int i = 3; i < WIDTH * HEIGHT * 4; i += 4)
+    for (int i = 0; i < WIDTH * HEIGHT * 4; i++) {
         (sprt->framebuffer[i] > 1) ? sprt->framebuffer[i] -= 2.5 : 0;
+    }
+    sfClock_restart(sprt->j);
+}
+
+void func_flash_frame_rev(window *wndw, options *sprt)
+{
+    for (int i = 3; i < WIDTH * HEIGHT * 4; i += 4) {
+        (sprt->framebuffer[i] < 255) ? sprt->framebuffer[i] += 2.5 : 0;
+        (sprt->framebuffer[i] >= 250) ? sprt->begin = 8 : 0;
+    }
     sfClock_restart(sprt->j);
 }
 
@@ -34,13 +44,15 @@ void display_framebuffer(window *wndw, options *sprt)
     ? func_flash_frame(wndw, sprt) : 0;
     (sfClock_getElapsedTime(sprt->j).microseconds > 1 && sprt->anim == 2)
     ? func_square_frame(wndw, sprt) : 0;
+    (sfClock_getElapsedTime(sprt->j).microseconds > 1 && sprt->anim == 3)
+    ? func_flash_frame_rev(wndw, sprt) : 0;
     (sprt->anim == 2)
     ? dsquare(wndw->x, wndw->y, wndw->radius, sprt) : 0;
     sfTexture_updateFromPixels(sprt->frame_txt, sprt->framebuffer, WIDTH,
     HEIGHT, 0, 0);
     sfSprite_setTexture(sprt->frame_sprt, sprt->frame_txt, sfTrue);
     sfRenderWindow_drawSprite(wndw->window, sprt->frame_sprt, NULL);
-    (sprt->anim != 1) ? restore_framebuffer(sprt) : 0;
+    (sprt->anim != 1 && sprt->anim != 3) ? restore_framebuffer(sprt) : 0;
     (sprt->framebuffer[3] == 0 && sprt->begin == 6) ? sprt->begin = 3 : 0;
 }
 
