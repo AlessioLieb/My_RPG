@@ -14,13 +14,13 @@ static void create_last_boss(boss_t *boss)
     sfTexture *text_satan =
     sfTexture_createFromFile("./Sprites/bosses/satan.png", NULL);
     sfVector2f scale = {3, 3};
-    boss[DUKE] = (boss_t) {sfSprite_create(), (sfVector2f) {-1, -1}, 40, 6,
+    boss[DUKE] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 40, 6,
     false, 77, 307, (boss_spawning_t) {"rooms/husk.room", 3000, 0, true}, 40
     };
     sfSprite_setTexture(boss[DUKE].sp, text_duke, sfTrue);
     sfSprite_setScale(boss[DUKE].sp, scale);
     sfSprite_setTextureRect(boss[DUKE].sp, (sfIntRect) {0, 0, 80, 64});
-    boss[SATAN] = (boss_t){sfSprite_create(), (sfVector2f) {-1, -1}, 100, 10,
+    boss[SATAN] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 100, 10,
     false, 271, 812, (boss_spawning_t) {"", 666, 0, false}, 100
     };
     sfSprite_setTexture(boss[SATAN].sp, text_satan, sfTrue);
@@ -41,7 +41,7 @@ static void create_greed_dark_husk(boss_t *boss)
     sfSprite_setTexture(boss[GREED].sp, t_greed, sfTrue);
     sfSprite_setScale(boss[GREED].sp, scale);
     sfSprite_setTextureRect(boss[GREED].sp, (sfIntRect) {0, 0, 30, 32});
-    boss[DARK_ONE] = (boss_t){sfSprite_create(), (sfVector2f) {-1, -1}, 30, 12,
+    boss[DARK_ONE] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 30, 12,
     false, 78, 419, (boss_spawning_t) {"", 10000, 0, false}, 30
     };
     sfSprite_setTexture(boss[DARK_ONE].sp, text_dark, sfTrue);
@@ -57,7 +57,7 @@ static void create_piloki_chub(boss_t *boss)
     sfTexture *c =
     sfTexture_createFromFile("./Sprites/bosses/chub.png", NULL);
     sfVector2f scale = {3, 3};
-    boss[PIT] = (boss_t) {sfSprite_create(), (sfVector2f){-1, -1}, 20, 9,
+    boss[PIT] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},20, 9,
     false, 70, 150, (boss_spawning_t) {"", 10000, 0, false}, 20
     };
     sfSprite_setTexture(boss[PIT].sp, p, sfTrue);
@@ -79,14 +79,14 @@ static void create_gurdy_loki(boss_t *boss)
     sfTexture_createFromFile("./Sprites/bosses/gurdy.png", NULL);
     sfTexture *l =
     sfTexture_createFromFile("./Sprites/bosses/loki.png", NULL);
-    boss[GRUDY] = (boss_t) {sfSprite_create(), (sfVector2f){-1, -1}, 50, 0,
+    boss[GRUDY] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},50, 0,
     false, 138, 551, (boss_spawning_t) {"rooms/grudy.room", 15000, 0, true},
     50
     };
     sfSprite_setTexture(boss[GRUDY].sp, text_g, sfTrue);
     sfSprite_setScale(boss[GRUDY].sp, scale);
     sfSprite_setTextureRect(boss[GRUDY].sp, (sfIntRect) {0, 0, 138, 118});
-    boss[LOKI] = (boss_t) {sfSprite_create(), (sfVector2f) {-1, -1}, 30, 6,
+    boss[LOKI] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 30, 6,
     false, 48, 287, (boss_spawning_t) {"rooms/loki.room", 6000, 0, true}, 30
     };
     sfSprite_setTexture(boss[LOKI].sp, l, sfTrue);
@@ -101,15 +101,15 @@ void create_monstro_diggle(boss_t *boss)
     sfTexture *text_d =
     sfTexture_createFromFile("./Sprites/bosses/diggle.png", NULL);
     sfVector2f scale = {3, 3};
-    boss[MONSTRO] = (boss_t){sfSprite_create(), (sfVector2f) {-1, -1}, 75, 3,
-    false, 80, 253, (boss_spawning_t){"rooms/monstro.room", 10000, 0, true}, 75
+    boss[MONSTRO] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 75, 3,
+    false, 80, 253, (boss_spawning_t) {"rooms/monstro.room", 10000, 0, true},
+    75
     };
     sfSprite_setTexture(boss[MONSTRO].sp, text_m, sfTrue);
     sfSprite_setScale(boss[MONSTRO].sp, scale);
     sfSprite_setTextureRect(boss[MONSTRO].sp, (sfIntRect) {0, 0, 80, 74});
-    boss[DIGGLE] = (boss_t){sfSprite_create(), (sfVector2f) {-1, -1}, 50, 7,
-    false, 65, 520, (boss_spawning_t) {"rooms/diggle.room", 7500, 0, true}, 50
-    };
+    boss[DIGGLE] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 50, 7,
+    false, 65, 520, (boss_spawning_t){"rooms/diggle.room", 7500, 0, true}, 50};
     sfSprite_setTexture(boss[DIGGLE].sp, text_d, sfTrue);
     sfSprite_setScale(boss[DIGGLE].sp, scale);
     sfSprite_setTextureRect(boss[DIGGLE].sp, (sfIntRect) {0, 0, 58, 52});

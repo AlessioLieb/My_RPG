@@ -29,8 +29,7 @@ void place_enemies(char *str, enemies_t *enem_t)
             .pos = (sfVector2f) {i % 22 * 78 + 140, (i / 22 * 90) + 82};
         if (str[i] == 'N')
             enem_t->no_moving_adv[search_len_en(enem_t->no_moving_adv)]
-            .pos = (sfVector2f) {i % 22 * 78 + 140, (i / 22 * 90) + 82
-            };
+            .pos = (sfVector2f) {i % 22 * 78 + 140, (i / 22 * 90) + 82};
     }
 }
 

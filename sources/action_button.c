@@ -20,7 +20,7 @@ int play_button(window *wndw, options *opt)
     wndw->x = 960;
     wndw->y = 540;
     wndw->radius = 1100;
-    dsquare(wndw->x, wndw->y, wndw->radius, opt, sfBlue);
+    dsquare(wndw->x, wndw->y, wndw->radius, opt);
     return 0;
 }
 

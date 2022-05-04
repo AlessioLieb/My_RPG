@@ -192,7 +192,7 @@ void init_framebuffer_play(options *sprt);
 void put_framebuffer_play(options *sprt);
 void display_framebuffer_play(window *wndw, options *sprt);
 void end_buffer_play(options *sprt);
-void dsquare(int x, int y, int radius, options *sprt, sfColor color);
+void dsquare(int x, int y, int radius, options *sprt);
 void put_framebuffer2(options *sprt);
 void init_loose_scrn(window *wndw, options *sprt);
 void draw_loose_scrn(window *wndw, options *sprt);

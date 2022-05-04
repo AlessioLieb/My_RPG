@@ -18,7 +18,7 @@ void my_put_pixel_circle(options *sprt, int x, int y, sfColor color)
     }
 }
 
-void dsquare(int x, int y, int radius, options *sprt, sfColor color)
+void dsquare(int x, int y, int radius, options *sprt)
 {
     for (int i = 0; i <= WIDTH; ++i)
         for (int j = 0; j <= HEIGHT; ++j)

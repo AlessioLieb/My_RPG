@@ -35,7 +35,7 @@ void display_framebuffer(window *wndw, options *sprt)
     (sfClock_getElapsedTime(sprt->j).microseconds > 1 && sprt->anim == 2)
     ? func_square_frame(wndw, sprt) : 0;
     (sprt->anim == 2)
-    ? dsquare(wndw->x, wndw->y, wndw->radius, sprt, sfBlue) : 0;
+    ? dsquare(wndw->x, wndw->y, wndw->radius, sprt) : 0;
     sfTexture_updateFromPixels(sprt->frame_txt, sprt->framebuffer, WIDTH,
     HEIGHT, 0, 0);
     sfSprite_setTexture(sprt->frame_sprt, sprt->frame_txt, sfTrue);
