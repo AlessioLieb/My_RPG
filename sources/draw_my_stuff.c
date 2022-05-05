@@ -39,7 +39,6 @@ void put_params_to_timer(char *nb, sfText *hud, sfFont *font, window *wndw)
     sfRenderWindow_drawText(wndw->window, hud, NULL);
 }
 
-
 void update_my_stuff_end(options *opt, window *wndw)
 {
     sfText *hud = sfText_create();
