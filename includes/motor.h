@@ -266,7 +266,7 @@ typedef struct {
 
 // base_hud.c //
 char *str_concat(char *str, char *concat);
-void nb_time_hud(long time, sfRenderWindow *wd);
+void nb_time_hud(long time, sfRenderWindow *wd, window *wndw, options *sprt);
 void nb_bomb_hud(int bomb, sfRenderWindow *wd);
 void nb_key_hud(int key, sfRenderWindow *wd);
 void nb_piece_hud(int piece, sfRenderWindow *wd);

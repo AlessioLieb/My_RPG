@@ -20,7 +20,7 @@ char *str_concat(char *str, char *concat)
     return nw;
 }
 
-void nb_time_hud(long time, sfRenderWindow *wd)
+void nb_time_hud(long time, sfRenderWindow *wd, window *wndw, options *sprt)
 {
     sfText *hud = sfText_create();
     sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
@@ -30,6 +30,10 @@ void nb_time_hud(long time, sfRenderWindow *wd)
     char *nb = str_concat("Time = ", my_int_str(t));
     nb = str_concat(nb, " : ");
     nb = str_concat(nb, my_int_str(t2));
+    if (sprt->win_cond == true && wndw->last_time[0] == 0) {
+        wndw->last_time[0] = t;
+        wndw->last_time[1] = t2;
+    }
     sfText_setFont(hud, font);
     sfText_setString(hud, nb);
     sfText_setPosition(hud, (sfVector2f) {(WIDTH / 2.2), 25});

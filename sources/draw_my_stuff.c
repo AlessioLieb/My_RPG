@@ -28,8 +28,20 @@ int update_my_stuff(options *opt, char **new_array, int new_len)
     return 1;
 }
 
+void put_params_to_timer(char *nb, sfText *hud, sfFont *font)
+{
+    sfText_setFont(hud, font);
+    sfText_setString(hud, nb);
+    sfText_setPosition(hud, (sfVector2f) {(1550), 230});
+    sfText_setScale(hud, (sfVector2f) {2, 2});
+    sfText_rotate(hud, 10);
+    sfText_setColor(hud, sfBlack);
+}
+
 int update_my_stuff_end(options *opt, window *wndw)
 {
+    sfText *hud = sfText_create();
+    sfFont *font = sfFont_createFromFile("ressources/upheavtt.ttf");
     sfVector2f place = {750, 450};
     for (int i = 0; i != opt->invent.len; ++i) {
         sfSprite_setPosition(opt->invent.sprites[i], place);
@@ -38,5 +50,13 @@ int update_my_stuff_end(options *opt, window *wndw)
         (sfVector2f) {3, 3});
         sfRenderWindow_drawSprite(wndw->window, opt->invent.sprites[i], NULL);
     }
+    char *nb = str_concat("", my_int_str(wndw->last_time[0]));
+    nb = str_concat(nb, " : ");
+    nb = str_concat(nb, my_int_str(wndw->last_time[1]));
+    put_params_to_timer(nb, hud, font);
+    sfRenderWindow_drawText(wndw->window, hud, NULL);
+    sfText_destroy(hud);
+    sfFont_destroy(font);
+    free(nb);
     return 1;
 }

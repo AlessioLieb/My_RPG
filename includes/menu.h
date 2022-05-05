@@ -38,6 +38,7 @@ typedef struct {
     int x;
     int y;
     int radius;
+    long *last_time;
 }window;
 
 typedef struct objects_s {

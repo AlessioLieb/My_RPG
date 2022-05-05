@@ -54,7 +54,7 @@ int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
     draw_npc(wndw, sprt, red);
     disp_stat_hud(red, wndw->window);
     nb_time_hud(sfClock_getElapsedTime(red->py->time).microseconds / 1000000,
-    wndw->window);
+    wndw->window, wndw, sprt);
     is_touched_button(wndw, sprt);
     if (red->py->new_item) {
         update_my_stuff(sprt, red->rm->old_i.old, red->rm->old_i.cp);

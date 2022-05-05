@@ -25,6 +25,8 @@ void init_win(window *wndw, options *sprt)
     sfSprite_setTexture(sprt->win, sprt->pickups, sfTrue);
     sfSprite_setTextureRect(sprt->win, rect);
     sfSprite_setScale(sprt->win, scale);
+    wndw->last_time = malloc(sizeof(long) * 2);
+    wndw->last_time[0] = 0;
 }
 
 void init_loose_scrn(window *wndw, options *sprt)
