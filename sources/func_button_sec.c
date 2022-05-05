@@ -12,3 +12,9 @@ int back_opt(window *wndw, options *opt)
     opt->begin = 4;
     return 0;
 }
+
+int full_screen(window *wndw, options *opt)
+{
+    re_create_window(wndw, opt);
+    return 0;
+}

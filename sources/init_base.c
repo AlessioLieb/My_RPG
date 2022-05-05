@@ -15,6 +15,7 @@ void init_all(window *wndw, options *sprt, players *perso)
     sprt->alt = 0;
     sprt->choose = 0;
     sprt->anim = 1;
+    wndw->full = 0;
     sprt->win_cond = false;
     params_window(wndw, sprt, perso);
     init_sprites(wndw, sprt);

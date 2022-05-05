@@ -21,6 +21,10 @@ void reduce_part_linked_button(options *opt, window *wndw)
     (sfVector2f){20, 20});
     opt->ar_btn[BACK_OPT].params = 1;
     opt->ar_btn[BACK_OPT].screen = 9;
+    factory_button(opt, &full_screen, (sfIntRect){3090, 0, 506, 45},
+    (sfVector2f){1100, 20});
+    opt->ar_btn[FULLSCREEN].params = 1;
+    opt->ar_btn[FULLSCREEN].screen = 9;
 }
 
 void part_linked_button(options *opt, window *wndw)

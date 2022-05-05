@@ -8,6 +8,22 @@
 #include "../includes/menu.h"
 #include "../includes/motor.h"
 
+void re_create_window(window *wndw, options *sprt)
+{
+    sfVideoMode mode = {WIDTH, HEIGHT, 32};
+    sfRenderWindow_close(wndw->window);
+    sfRenderWindow_destroy(wndw->window);
+    if (wndw->full == 1) {
+        wndw->window = sfRenderWindow_create(mode, "MyRPG", sfResize
+        | sfClose | sfFullscreen, NULL);
+        wndw->full = 0;
+    } else {
+        wndw->window = sfRenderWindow_create(mode, "MyRPG", sfResize
+        | sfClose, NULL);
+        wndw->full = 1;
+    }
+}
+
 void params_window(window *wndw, options *sprt, players *perso)
 {
     sfVideoMode mode = {WIDTH, HEIGHT, 32};

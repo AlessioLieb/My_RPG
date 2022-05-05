@@ -39,6 +39,7 @@ typedef struct {
     int y;
     int radius;
     long *last_time;
+    int full;
 }window;
 
 typedef struct objects_s {
@@ -122,6 +123,7 @@ typedef enum button_name {
     OPTIONS,
     QUIT_GAME,
     BACK_OPT,
+    FULLSCREEN,
 }buttton_name;
 
 typedef struct button {
@@ -210,6 +212,8 @@ void init_lvl_m(window *wndw, options *sprt);
 void init_tuto(window *wndw, options *sprt);
 void put_framebuffer3(options *sprt);
 void func_flash_frame_rev(window *wndw, options *sprt);
+void re_create_window(window *wndw, options *sprt);
+int full_screen(window *wndw, options *opt);
 
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);
