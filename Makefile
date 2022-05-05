@@ -35,6 +35,7 @@ SRC	=	sources/init_base.c						\
 		sources/func_button.c					\
 		sources/func_button_sec.c				\
 		sources/draw_sprites4.c					\
+		sources/re_create_window.c				\
 		motor_s/hud/base_hud.c					\
 		motor_s/hud/stat_hud.c					\
 		motor_s/moves/move.c					\

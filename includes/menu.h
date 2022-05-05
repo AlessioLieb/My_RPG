@@ -124,6 +124,8 @@ typedef enum button_name {
     QUIT_GAME,
     BACK_OPT,
     FULLSCREEN,
+    ENABLED,
+    UNENABLED,
 }buttton_name;
 
 typedef struct button {

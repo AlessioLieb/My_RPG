@@ -7,6 +7,23 @@
 
 #include "../includes/menu.h"
 
+int none(window *wndw, options *opt)
+{
+    return 0;
+}
+
+void red_reduce_part_linked_button(options *opt, window *wndw)
+{
+    factory_button(opt, &none, (sfIntRect){3603, 0, 313, 43},
+    (sfVector2f){1100, 20});
+    opt->ar_btn[ENABLED].params = 1;
+    opt->ar_btn[ENABLED].screen = 9;
+    factory_button(opt, &none, (sfIntRect){3929, 0, 313, 43},
+    (sfVector2f){1100, 20});
+    opt->ar_btn[UNENABLED].params = 0;
+    opt->ar_btn[UNENABLED].screen = 9;
+}
+
 void reduce_part_linked_button(options *opt, window *wndw)
 {
     factory_button(opt, &open_opt, (sfIntRect){1998, 0, 297, 45},
@@ -22,9 +39,10 @@ void reduce_part_linked_button(options *opt, window *wndw)
     opt->ar_btn[BACK_OPT].params = 1;
     opt->ar_btn[BACK_OPT].screen = 9;
     factory_button(opt, &full_screen, (sfIntRect){3090, 0, 506, 45},
-    (sfVector2f){1100, 20});
+    (sfVector2f){550, 20});
     opt->ar_btn[FULLSCREEN].params = 1;
     opt->ar_btn[FULLSCREEN].screen = 9;
+    red_reduce_part_linked_button(opt, wndw);
 }
 
 void part_linked_button(options *opt, window *wndw)
@@ -51,7 +69,7 @@ void part_linked_button(options *opt, window *wndw)
 void linked_button(options *opt, window *wndw)
 {
     opt->t = sfTexture_createFromFile("ressources/button_sprt.png", NULL);
-    opt->ar_btn = malloc(sizeof(button) * 12);
+    opt->ar_btn = malloc(sizeof(button) * 14);
     opt->len_button = 0;
     factory_button(opt, &continue_button, (sfIntRect){0, 0, 362, 100},
     (sfVector2f){760, 870});
