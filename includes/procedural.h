@@ -45,7 +45,7 @@ int reduce_replace_boss(char **map, int x, int i);
 int deep_reduce_place_boss(int x, char **map, int i);
 int reduce_place_r_boss(char **map, int i, int x);
 int ver_start(char **map, int x);
-int wrong_map(char **map, int x);
+int wrong_map(char **map, int x, rooms *room);
 void find_verge(char **map, int x, rooms *room);
 int my_intarray_len(int *array);
 int place_secret_room(char **map, int x, rooms *room);
