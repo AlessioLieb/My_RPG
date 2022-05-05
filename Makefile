@@ -118,11 +118,13 @@ debug:
 
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) $(FLAGS)
+	make -C bonus
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
+	make fclean -C bonus
 
 re: fclean all
 	gcc -o $(NAME) $(OBJ) $(FLAGS)
