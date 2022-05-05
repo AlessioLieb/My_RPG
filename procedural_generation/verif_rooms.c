@@ -30,7 +30,17 @@ int ver_shop(char **map, int len)
         return (1);
 }
 
-int wrong_map(char **map, int x)
+int ver_treasure(char **map, rooms *room)
+{
+    if (room->lvl == 0)
+        return (0);
+    if (room->lvl != 0 && (map[4][5] == 'T' || map[4][3] == 'T'
+    || map[5][4] == 'T' || map[3][4] == 'T'))
+        return (1);
+    return (0);
+}
+
+int wrong_map(char **map, int x, rooms *room)
 {
     int start = 0;
     int treasure = 0;
@@ -47,7 +57,8 @@ int wrong_map(char **map, int x)
         }
     if (start != 1 || treasure != 1 || boss != 1 || shop != 1 || secret != 1)
         return (1);
-    if (ver_start(map, x) == 1 || ver_shop(map, x) == 1)
+    if (ver_start(map, x) == 1 || ver_shop(map, x) == 1
+    || ver_treasure(map, room) == 1)
         return (1);
     return (0);
 }

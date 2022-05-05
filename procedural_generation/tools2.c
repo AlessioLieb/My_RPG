@@ -34,7 +34,7 @@ void create_map(char **map, int j, int x, rooms *room)
 char **print_map(char **map, int x, rooms *room, int j)
 {
     create_map(map, j, x, room);
-    while (wrong_map(map, x) == 1)
+    while (wrong_map(map, x, room) == 1)
         create_map(map, j, x, room);
     return (map);
 }
