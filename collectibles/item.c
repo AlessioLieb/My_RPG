@@ -82,12 +82,14 @@ sfTexture *text)
     item->pos_collision = (sfIntRect) {1920 / 2 - 50, 1080 / 2 - 100, 75, 166};
 }
 
-void place_item(room *rm)
+int place_item(room *rm)
 {
     sfTexture *text;
     char *tmp;
     collectible *item = malloc(sizeof(collectible));
     int choose = rand() % LEN_FOLDERS;
+    if (rm->item != NULL)
+        return 0;
     tmp = select_item(choose);
     item->altar_text = sfTexture_createFromFile("./Sprites/altar.png", NULL);
     srand(time(NULL));
@@ -100,4 +102,5 @@ void place_item(room *rm)
     reduce_place_item(rm, tmp, item, text);
     choose_effect(item, choose, tmp);
     rm->item = item;
+    return 1;
 }

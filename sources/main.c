@@ -23,7 +23,7 @@ void stats_player(reduce *red)
         red->py->st = (stats) {6, 2, 1, 2, 1};
         red->py->speed = 7;
         red->py->invent = (inventory) {50, 1, 0};
-        red->py->lf = (life) {8, 8, 0, red->py->lf.hsp};
+        red->py->lf = (life) {16, 16, 0, red->py->lf.hsp};
     }
     if (red->py->change_texture == 2) {
         red->py->st = (stats) {5, 5, 1, 5, 3};

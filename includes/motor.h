@@ -415,7 +415,7 @@ collectible *create_red_hearth(sfTexture *text);
 void got_hearth(room *rm, int i, player *py);
 
 //item.c//
-void place_item(room *rm);
+int place_item(room *rm);
 void launch_item(player *py, room *rm);
 
 //item_fonctions.c//
