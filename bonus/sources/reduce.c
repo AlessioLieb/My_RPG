@@ -32,7 +32,7 @@ FILE *get_file_name(void)
     printw("Write your file name");
     move(1, 0);
     ch = getch();
-    while(ch != 10) {
+    while (ch != 10) {
         tmp = ch;
         name_file[cp] = tmp;
         ++cp;
