@@ -149,7 +149,7 @@ typedef struct {
 void init_all(window *wndw, options *sprt, players *perso);
 void restore_framebuffer(options *sprt);
 void params_window(window *wndw, options *sprt, players *perso);
-int main_func(window *wndw, options *sprt, players *perso, rooms *room);
+//int main_func(reduce *red, rooms *room);
 void init_welcome(window *wndw, options *sprt);
 void init_barre(window *wndw, options *sprt);
 void init_pause(window *wndw, options *sprt);
@@ -208,7 +208,6 @@ int quitgame(window *wndw, options *opt);
 int open_opt(window *wndw, options *opt);
 void init_opt_screen(window *wndw, options *sprt);
 int back_opt(window *wndw, options *opt);
-void dopt_sprt(window *wndw, options *sprt);
 void dwin_sprt(window *wndw, options *sprt);
 void init_lvl_m(window *wndw, options *sprt);
 void init_tuto(window *wndw, options *sprt);

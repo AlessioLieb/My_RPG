@@ -10,17 +10,6 @@
 
     #include "motor.h"
 
-typedef struct {
-    sfMusic *men;
-    sfMusic *fl_1_2;
-    sfMusic *fl_3_4;
-    sfMusic *fl_5;
-    sfMusic *music;
-    int id_m;
-    int tmp_id;
-    sounds *so;
-}music;
-
 void floor_pass(rooms *ro, reduce *red, options *sprt, music *mu);
 void music_launcher(reduce *red, int floor, int state, music *mu);
 music *create_music(void);
@@ -28,5 +17,9 @@ void reduce_clear_display(window *wndw);
 sounds *create_sounds(void);
 void play_sound_hurt(reduce *red);
 void play_sound_dies(void);
+slide_bar *create_slide_bar(void);
+void sound_bar_handling(reduce *red, slide_bar *s_bar, sfRenderWindow *wd);
+
+void dopt_sprt(window *wndw, options *sprt, reduce *red, slide_bar *s_bar);
 
 #endif

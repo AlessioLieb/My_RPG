@@ -57,6 +57,26 @@ enum {
     LUCK
 };
 
+typedef struct {
+    int vol;
+    sfSprite *bar;
+    sfSprite *bu;
+    sfVector2f b_pos;
+    sfVector2f bu_pos;
+}slide_bar;
+
+typedef struct {
+    sfMusic *men;
+    sfMusic *fl_1_2;
+    sfMusic *fl_3_4;
+    sfMusic *fl_5;
+    sfMusic *music;
+    int id_m;
+    int tmp_id;
+    //sounds *so;
+    //slide_bar *s_bar;
+}music;
+
 typedef struct saler_red_s {
     sfVector2f player_pos;
     int i;
@@ -258,6 +278,12 @@ typedef struct {
     enemies_t *enem_t;
     rooms *ro;
     sounds *so;
+    options *sprt;
+    window *wndw;
+    players *perso;
+    sfEvent event;
+    music *mu;
+    slide_bar *s_bar;
 }reduce;
 
 //////// motor_s ////////
@@ -528,5 +554,7 @@ void touch_saler(saler_red_t rt, options *sprt, window *wndw, reduce *red);
 void draw_spause(window *wndw, options *sprt, reduce *red);
 void stop_all_clocks(reduce *red);
 void update_my_stuff_end(options *opt, window *wndw);
+
+int main_func(reduce *red, rooms *ro);
 
 #endif
