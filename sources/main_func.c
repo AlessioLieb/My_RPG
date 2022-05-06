@@ -80,43 +80,40 @@ void enemies_verification(enemies_t *enem_t, room *rm)
         rm->open = false;
 }
 
-int main_func(window *wndw, options *sprt, players *perso, rooms *ro)
+int main_func(reduce *red, rooms *ro)
 {
-    player *py = creation_player();
-    room *rm = create_room();
-    init_rm_sprt(rm, sprt);
-    sfEvent event;
-    tears *te = create_tears(py);
-    enemies_t *enem_t = create_enemies();
-    music *mu = create_music();
-    sounds *so = create_sounds();
-    init_all(wndw, sprt, perso);
-    while (sfRenderWindow_isOpen(wndw->window)) {
-        sprt->plus_lvl == true ? floor_pass(ro, &(reduce)
-        {py, rm, te, enem_t, ro}, sprt, mu) : 0;
-        event_window(wndw, sprt, &(reduce) {py, rm, te, enem_t});
-        music_launcher(&(reduce) {py, rm, te, enem_t, ro}, mu->id_m,
-        sprt->begin, mu);
-        (sprt->begin == 1) ? draw_spwelcome(wndw, sprt) : 0;
-        (sprt->begin == 2 || sprt->begin == 3)
-        ? screen_choose_player(wndw, sprt, perso) : 0;
-        (sprt->begin == 9) ? dopt_sprt(wndw, sprt) : 0;
-        is_touched_button(wndw, sprt);
-        enemies_verification(enem_t, rm);
-        (sprt->begin == 4) ? draw_spause(wndw, sprt, &(reduce) {py, rm, te, enem_t, ro}) : 0;
-        (sprt->begin == 3) ? doors_colisions(sprt, rm, py) : 0;
-        (sprt->begin == 3 || sprt->begin == 6)
-        ? my_game(wndw, event, &(reduce) {py, rm, te, enem_t, ro, so},
-        sprt) : 0;
-        (sprt->begin == 3 && mu->id_m == 0) ? ++mu->id_m : 0;
-        (sprt->begin == 3) ? update_mini_map(ro, rm) : 0;
-        sprt->begin == 3 ? draw_mini_map(ro, wndw->window, rm) : 0;
-        (sprt->begin == 3 && py->lf.red_hearth < 1) ? sprt->begin = 7 : 0;
-        (sprt->begin == 2 || sprt->begin == 6 || sprt->begin == 3 && sprt->anim == 3) ? display_framebuffer(wndw, sprt) : 0;
-        (sprt->begin == 7) ? draw_loose_scrn(wndw, sprt) : 0;
-        (sprt->begin == 8) ? dwin_sprt(wndw, sprt) : 0;
-        (sprt->begin == 8) ? update_my_stuff_end(sprt, wndw) : 0;
-        reduce_clear_display(wndw);
+    init_rm_sprt(red->rm, red->sprt);
+    init_all(red->wndw, red->sprt, red->perso);
+    while (sfRenderWindow_isOpen(red->wndw->window)) {
+        red->sprt->plus_lvl == true ? floor_pass(red->ro, red, red->sprt,
+        red->mu) : 0;
+        event_window(red->wndw, red->sprt, red);
+        music_launcher(red, red->mu->id_m, red->sprt->begin, red->mu);
+        (red->sprt->begin == 1) ? draw_spwelcome(red->wndw, red->sprt) : 0;
+        (red->sprt->begin == 2 || red->sprt->begin == 3)
+        ? screen_choose_player(red->wndw, red->sprt, red->perso) : 0;
+        (red->sprt->begin == 9) ? dopt_sprt(red->wndw, red->sprt, red,
+        red->s_bar) : 0;
+        is_touched_button(red->wndw, red->sprt);
+        enemies_verification(red->enem_t, red->rm);
+        (red->sprt->begin == 4) ? draw_spause(red->wndw, red->sprt, red) : 0;
+        (red->sprt->begin == 3) ? doors_colisions(red->sprt, red->rm,
+        red->py) : 0;
+        (red->sprt->begin == 3 || red->sprt->begin == 6)
+        ? my_game(red->wndw, red->event, red, red->sprt) : 0;
+        (red->sprt->begin == 3 && red->mu->id_m == 0) ? ++red->mu->id_m : 0;
+        (red->sprt->begin == 3) ? update_mini_map(red->ro, red->rm) : 0;
+        red->sprt->begin == 3 ? draw_mini_map(red->ro, red->wndw->window,
+        red->rm) : 0;
+        (red->sprt->begin == 3 && red->py->lf.red_hearth < 1)
+        ? red->sprt->begin = 7 : 0;
+        (red->sprt->begin == 2 || red->sprt->begin == 6 ||
+        red->sprt->begin == 3 && red->sprt->anim == 3) ?
+        display_framebuffer(red->wndw, red->sprt) : 0;
+        (red->sprt->begin == 7) ? draw_loose_scrn(red->wndw, red->sprt) : 0;
+        (red->sprt->begin == 8) ? dwin_sprt(red->wndw, red->sprt) : 0;
+        (red->sprt->begin == 8) ? update_my_stuff_end(red->sprt, red->wndw) : 0;
+        reduce_clear_display(red->wndw);
     }
-    end_buffer(sprt);
+    end_buffer(red->sprt);
 }

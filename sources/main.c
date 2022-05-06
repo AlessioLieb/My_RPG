@@ -5,7 +5,7 @@
 ** main.c
 */
 
-#include "../includes/motor.h"
+#include "../includes/music.h"
 
 static void reduce_stats_player(reduce *red)
 {
@@ -40,21 +40,38 @@ void stats_player(reduce *red)
     reduce_stats_player(red);
 }
 
+reduce *init_all_structs(void)
+{
+    reduce *red = malloc(sizeof(reduce));
+
+    red->wndw = malloc(sizeof(window));
+    red->sprt = malloc(sizeof(options));
+    red->perso = malloc(sizeof(players));
+    red->py = creation_player();
+    red->rm = create_room();
+    red->te = create_tears(red->py);
+    red->enem_t = create_enemies();
+    red->so = create_sounds();
+    red->s_bar = create_slide_bar();
+    red->mu = create_music();
+    return red;
+}
+
 static int call_main_func(void)
 {
-    window *wndw = malloc(sizeof(window));
-    options *sprt = malloc(sizeof(options));
-    players *perso = malloc(sizeof(players));
-    sprt->actual_doors = malloc(sizeof(bool) * 6);
-    sprt->invent.last_pos = (sfVector2f) {200, 550};
-    sprt->invent.len = 0;
-    sprt->invent.object = NULL;
-    sprt->invent.sprites = malloc(sizeof(sfSprite *) * NB_ITEMS + 1);
+    reduce *red = init_all_structs();
+
+    red->sprt->actual_doors = malloc(sizeof(bool) * 6);
+    red->sprt->invent.last_pos = (sfVector2f) {200, 550};
+    red->sprt->invent.len = 0;
+    red->sprt->invent.object = NULL;
+    red->sprt->invent.sprites = malloc(sizeof(sfSprite *) * NB_ITEMS + 1);
     rooms room = {0, 0, NULL, 0, NULL, false, NULL};
     gen_main(&room);
     init_mini_map(&room);
     clear_mini_map(&room);
-    main_func(wndw, sprt, perso, &room);
+    red->ro = &room;
+    main_func(red, &room);
     return 0;
 }
 
