@@ -73,8 +73,6 @@ typedef struct {
     sfMusic *music;
     int id_m;
     int tmp_id;
-    //sounds *so;
-    //slide_bar *s_bar;
 }music;
 
 typedef struct saler_red_s {
@@ -514,7 +512,6 @@ void close_door(rooms *ro, options *sprt, int x, int y);
 void trophy_colisions(options *sprt, room *rm, player *py);
 void trap_colisions(options *sprt, room *ry, player *py);
 void player_room(sfRenderWindow *wd, reduce *red, options *sprt);
-//void floor_pass(rooms *ro, reduce *red, options *sprt, window *wndw);
 void doors_colisions(options *sprt, room *rm, player *py);
 void init_rm_sprt(room *rm, options *sprt);
 void draw_doors_topo(int lvl, options *sprt, sfRenderWindow *wd, char c);
