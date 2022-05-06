@@ -7,7 +7,7 @@
 
 #include "../../includes/motor.h"
 
-static char *search_map()
+static char *search_map(void)
 {
     char *name_map = my_int_str(rand() % NB_MAPS + 1);
     char *extension = ".room";
