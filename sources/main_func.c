@@ -22,23 +22,6 @@ void check_move_all(reduce *red)
     sfClock_getElapsedTime(red->py->time).microseconds;
 }
 
-int choose_texture_player(reduce *red, options *sprt)
-{
-    if (red->py->change_texture)
-        return 1;
-    (sprt->choose == 0) ? sfSprite_setTexture(red->py->sp,
-    sfTexture_createFromFile("assets/robin.png", NULL), sfFalse) : 0;
-    (sprt->choose == 1) ? sfSprite_setTexture(red->py->sp,
-    sfTexture_createFromFile("assets/theotime.png", NULL), sfFalse) : 0;
-    (sprt->choose == 2) ? sfSprite_setTexture(red->py->sp,
-    sfTexture_createFromFile("assets/alessio.png", NULL), sfFalse) : 0;
-    (sprt->choose == 3) ? sfSprite_setTexture(red->py->sp,
-    sfTexture_createFromFile("assets/oscar.png", NULL), sfFalse) : 0;
-    red->py->change_texture = sprt->choose + 1;
-    stats_player(red);
-    return 0;
-}
-
 int my_game(window *wndw, sfEvent event, reduce *red, options *sprt)
 {
     red->rm->luck = red->py->st.luck;
@@ -80,29 +63,35 @@ void enemies_verification(enemies_t *enem_t, room *rm)
         rm->open = false;
 }
 
+void reduce_main_func(reduce *red, rooms *ro)
+{
+    red->sprt->plus_lvl == true ? floor_pass(red->ro, red, red->sprt,
+    red->mu) : 0;
+    event_window(red->wndw, red->sprt, red);
+    music_launcher(red, red->mu->id_m, red->sprt->begin, red->mu);
+    (red->sprt->begin == 1) ? draw_spwelcome(red->wndw, red->sprt) : 0;
+    (red->sprt->begin == 2 || red->sprt->begin == 3)
+    ? screen_choose_player(red->wndw, red->sprt, red->perso) : 0;
+    (red->sprt->begin == 9) ? dopt_sprt(red->wndw, red->sprt, red,
+    red->s_bar) : 0;
+    is_touched_button(red->wndw, red->sprt);
+    enemies_verification(red->enem_t, red->rm);
+    (red->sprt->begin == 4) ? draw_spause(red->wndw, red->sprt, red) : 0;
+    (red->sprt->begin == 3) ? doors_colisions(red->sprt, red->rm,
+    red->py) : 0;
+    (red->sprt->begin == 3 || red->sprt->begin == 6)
+    ? my_game(red->wndw, red->event, red, red->sprt) : 0;
+    (red->sprt->begin == 3 && red->mu->id_m == 0) ? ++red->mu->id_m : 0;
+    (red->sprt->begin == 3) ? update_mini_map(red->ro, red->rm) : 0;
+
+}
+
 int main_func(reduce *red, rooms *ro)
 {
     init_rm_sprt(red->rm, red->sprt);
     init_all(red->wndw, red->sprt, red->perso);
     while (sfRenderWindow_isOpen(red->wndw->window)) {
-        red->sprt->plus_lvl == true ? floor_pass(red->ro, red, red->sprt,
-        red->mu) : 0;
-        event_window(red->wndw, red->sprt, red);
-        music_launcher(red, red->mu->id_m, red->sprt->begin, red->mu);
-        (red->sprt->begin == 1) ? draw_spwelcome(red->wndw, red->sprt) : 0;
-        (red->sprt->begin == 2 || red->sprt->begin == 3)
-        ? screen_choose_player(red->wndw, red->sprt, red->perso) : 0;
-        (red->sprt->begin == 9) ? dopt_sprt(red->wndw, red->sprt, red,
-        red->s_bar) : 0;
-        is_touched_button(red->wndw, red->sprt);
-        enemies_verification(red->enem_t, red->rm);
-        (red->sprt->begin == 4) ? draw_spause(red->wndw, red->sprt, red) : 0;
-        (red->sprt->begin == 3) ? doors_colisions(red->sprt, red->rm,
-        red->py) : 0;
-        (red->sprt->begin == 3 || red->sprt->begin == 6)
-        ? my_game(red->wndw, red->event, red, red->sprt) : 0;
-        (red->sprt->begin == 3 && red->mu->id_m == 0) ? ++red->mu->id_m : 0;
-        (red->sprt->begin == 3) ? update_mini_map(red->ro, red->rm) : 0;
+        reduce_main_func(red, ro);
         red->sprt->begin == 3 ? draw_mini_map(red->ro, red->wndw->window,
         red->rm) : 0;
         (red->sprt->begin == 3 && red->py->lf.red_hearth < 1)

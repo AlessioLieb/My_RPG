@@ -19,7 +19,7 @@ void play_sound_hurt(reduce *red);
 void play_sound_dies(void);
 slide_bar *create_slide_bar(void);
 void sound_bar_handling(reduce *red, slide_bar *s_bar, sfRenderWindow *wd);
-
+int choose_texture_player(reduce *red, options *sprt);
 void dopt_sprt(window *wndw, options *sprt, reduce *red, slide_bar *s_bar);
 
 #endif
