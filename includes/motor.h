@@ -27,7 +27,7 @@
     #include "menu.h"
     #include "procedural.h"
     #define LEN_MAP 219
-    #define NB_MAPS 40
+    #define NB_MAPS 46
 
 enum {
     NB_ALL_STATS = 6,
