@@ -18,11 +18,11 @@ void red_reduce_part_linked_button(options *opt, window *wndw)
     opt->ar_btn[UNENABLED].params = 0;
     opt->ar_btn[UNENABLED].screen = 9;
     factory_button(opt, &music_but, (sfIntRect){4251, 0, 86, 77},
-    (sfVector2f){1270, 170});
+    (sfVector2f){1270, 330});
     opt->ar_btn[HEAD_MUSIC].params = 1;
     opt->ar_btn[HEAD_MUSIC].screen = 9;
     factory_button(opt, &sound_but, (sfIntRect){4348, 0, 86, 74},
-   (sfVector2f){1270, 330});
+   (sfVector2f){1270, 170});
     opt->ar_btn[HEAD_SOUND].params = 1;
     opt->ar_btn[HEAD_SOUND].screen = 9;
     opt->mus_t.mouv_music = false;

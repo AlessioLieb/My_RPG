@@ -23,7 +23,7 @@ sounds *create_sounds(void)
     sfSound_setBuffer(so->tr_room, t_room);
     sfSound_setBuffer(so->p_hurt, p_hurt);
     sfSound_setBuffer(so->p_die, p_die);
-    so->sound_volume = 50;
+    so->sound_volume = 100;
     return so;
 }
 
