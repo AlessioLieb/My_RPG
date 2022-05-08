@@ -69,6 +69,7 @@ void reduce_main_func(reduce *red, rooms *ro)
     red->mu) : 0;
     event_window(red->wndw, red->sprt, red);
     music_launcher(red, red->mu->id_m, red->sprt->begin, red->mu);
+    (red->sprt->begin == 8) ? red->mu->id_m = 10 : 0;
     (red->sprt->begin == 1) ? draw_spwelcome(red->wndw, red->sprt) : 0;
     (red->sprt->begin == 2 || red->sprt->begin == 3)
     ? screen_choose_player(red->wndw, red->sprt, red->perso) : 0;

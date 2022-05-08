@@ -58,7 +58,7 @@ void music_launcher(reduce *red, int floor, int state, music *mu)
     id_music = (mu->id_m == 1 || mu->id_m == 2) ? 1 : id_music;
     id_music = (mu->id_m == 3 || mu->id_m == 4) ? 2 : id_music;
     id_music = (mu->id_m == 5) ? 3 : id_music;
-    id_music = (red->sprt->begin == 8) ? 4 : id_music;
+    id_music = (mu->id_m == 10) ? 4 : id_music;
     mu->music = sfMusic_createFromFile(music_list[id_music]);
     sfMusic_play(mu->music);
     sfMusic_setLoop(mu->music, sfTrue);
