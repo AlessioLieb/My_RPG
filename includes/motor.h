@@ -70,6 +70,7 @@ typedef struct {
     sfMusic *fl_1_2;
     sfMusic *fl_3_4;
     sfMusic *fl_5;
+    sfMusic *win_m;
     sfMusic *music;
     int id_m;
     int tmp_id;
