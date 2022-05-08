@@ -49,8 +49,8 @@ slide_bar *create_slide_bar(void)
     sfIntRect r_bu_b = {0, 39, 28, 25};
     s_bar[0].b_pos = (sfVector2f){850, 180};
     s_bar[1].b_pos = (sfVector2f){850, 340};
-    s_bar[0].bu_pos = (sfVector2f){840, 150};
-    s_bar[1].bu_pos = (sfVector2f){840, 310};
+    s_bar[0].bu_pos = (sfVector2f){1300, 150};
+    s_bar[1].bu_pos = (sfVector2f){1400, 310};
     sfSprite_setTextureRect(s_bar[0].bu, r_bu_r);
     sfSprite_setTextureRect(s_bar[1].bu, r_bu_b);
     sfSprite_setPosition(s_bar[0].bar, s_bar[0].b_pos);

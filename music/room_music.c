@@ -36,7 +36,7 @@ music *create_music(void)
     mu->fl_5 = sfMusic_createFromFile("./sounds/dark_room.ogg");
     mu->id_m = 0;
     mu->tmp_id = -1;
-    mu->music_volume = 50;
+    mu->music_volume = 100;
     return mu;
 }
 
@@ -45,7 +45,8 @@ void music_launcher(reduce *red, int floor, int state, music *mu)
     int id_music = -1;
     char *music_list[] = {"./sounds/title_scr.ogg", "./sounds/cellar.ogg",
     "./sounds/necropolis.ogg", "./sounds/dark_room.ogg"};
-
+    if (mu->tmp_id != -1)
+        sfMusic_setVolume(mu->music, mu->music_volume);
     if (mu->id_m == mu->tmp_id)
         return;
     mu->tmp_id = mu->id_m;
