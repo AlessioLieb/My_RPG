@@ -57,7 +57,7 @@ static void create_piloki_chub(boss_t *boss)
     sfTexture *c =
     sfTexture_createFromFile("./Sprites/bosses/chub.png", NULL);
     sfVector2f scale = {3, 3};
-    boss[PIT] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},20, 9,
+    boss[PIT] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 20, 9,
     false, 70, 150, (boss_spawning_t) {"", 10000, 0, false}, 20
     };
     sfSprite_setTexture(boss[PIT].sp, p, sfTrue);
@@ -79,7 +79,7 @@ static void create_gurdy_loki(boss_t *boss)
     sfTexture_createFromFile("./Sprites/bosses/gurdy.png", NULL);
     sfTexture *l =
     sfTexture_createFromFile("./Sprites/bosses/loki.png", NULL);
-    boss[GRUDY] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1},50, 0,
+    boss[GRUDY] = (boss_t){sfSprite_create(), (sfVector2f){-1, -1}, 50, 0,
     false, 138, 551, (boss_spawning_t) {"rooms/grudy.room", 15000, 0, true},
     50
     };

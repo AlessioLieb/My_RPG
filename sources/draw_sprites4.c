@@ -16,7 +16,6 @@ void is_pressed(window *wndw, options *opt, reduce *red, slide_bar *s_bar)
 
 void dopt_sprt(window *wndw, options *sprt, reduce *red, slide_bar *s_bar)
 {
-    //sfVector2f m_pos = sfMouse_getPosition(NULL);
     sfRenderWindow_drawSprite(wndw->window, sprt->opt_sprt, NULL);
     sound_bar_handling(red, s_bar, wndw->window);
 }
