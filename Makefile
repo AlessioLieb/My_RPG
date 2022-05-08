@@ -113,6 +113,7 @@ CFLAGS += -g
 
 NAME	=    my_rpg
 
+
 all:    	$(NAME)
 
 debug:
@@ -121,6 +122,9 @@ debug:
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) $(FLAGS)
 	make -C bonus
+
+target:
+
 clean:
 	rm -f $(OBJ)
 
