@@ -73,6 +73,7 @@ typedef struct {
     sfMusic *music;
     int id_m;
     int tmp_id;
+    float music_volume;
 }music;
 
 typedef struct saler_red_s {
@@ -267,6 +268,7 @@ typedef struct {
     sfSound *tr_room;
     sfSound *p_die;
     sfClock *sound_clock;
+    float sound_volume;
 }sounds;
 
 typedef struct {

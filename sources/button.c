@@ -7,11 +7,6 @@
 
 #include "../includes/menu.h"
 
-int none(window *wndw, options *opt)
-{
-    return 0;
-}
-
 void red_reduce_part_linked_button(options *opt, window *wndw)
 {
     factory_button(opt, &none, (sfIntRect){3603, 0, 313, 43},
@@ -22,6 +17,16 @@ void red_reduce_part_linked_button(options *opt, window *wndw)
     (sfVector2f){1100, 20});
     opt->ar_btn[UNENABLED].params = 0;
     opt->ar_btn[UNENABLED].screen = 9;
+    factory_button(opt, &music_but, (sfIntRect){4251, 0, 86, 77},
+    (sfVector2f){840, 170});
+    opt->ar_btn[HEAD_MUSIC].params = 1;
+    opt->ar_btn[HEAD_MUSIC].screen = 9;
+    factory_button(opt, &sound_but, (sfIntRect){4348, 0, 86, 74},
+   (sfVector2f){840, 330});
+    opt->ar_btn[HEAD_SOUND].params = 1;
+    opt->ar_btn[HEAD_SOUND].screen = 9;
+    opt->mus_t.mouv_music = false;
+    opt->mus_t.mouv_sound = false;
 }
 
 void reduce_part_linked_button(options *opt, window *wndw)

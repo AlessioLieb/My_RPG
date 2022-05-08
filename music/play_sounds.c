@@ -63,8 +63,22 @@ slide_bar *create_slide_bar(void)
 
 void sound_bar_handling(reduce *red, slide_bar *s_bar, sfRenderWindow *wd)
 {
+    sfVector2i tmp = sfMouse_getPosition(NULL);
+    if (red->sprt->mus_t.mouv_music && tmp.x >= 890 && tmp.x <= 1320) {
+        red->sprt->ar_btn[HEAD_MUSIC].pos.x = tmp.x - 50;
+        sfSprite_setPosition(red->sprt->ar_btn[HEAD_MUSIC].sprt,
+        red->sprt->ar_btn[HEAD_MUSIC].pos);
+        red->mu->music_volume = ((red->sprt->ar_btn
+        [HEAD_MUSIC].pos.x - 839) / 435.0) * 100.0;
+    }
+    if (red->sprt->mus_t.mouv_sound && tmp.x >= 890 && tmp.x <= 1320) {
+        red->sprt->ar_btn[HEAD_SOUND].pos.x = tmp.x - 50;
+        sfSprite_setPosition(red->sprt->ar_btn[HEAD_SOUND].sprt,
+        red->sprt->ar_btn[HEAD_SOUND].pos);
+        red->so->sound_volume = ((red->sprt->ar_btn
+        [HEAD_SOUND].pos.x - 839) / 435.0) * 100.0;
+    }
     sfRenderWindow_drawSprite(wd, s_bar[0].bar, NULL);
     sfRenderWindow_drawSprite(wd, s_bar[1].bar, NULL);
-    sfRenderWindow_drawSprite(wd, s_bar[0].bu, NULL);
-    sfRenderWindow_drawSprite(wd, s_bar[1].bu, NULL);
 }
+

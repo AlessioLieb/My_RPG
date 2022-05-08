@@ -23,7 +23,7 @@ sounds *create_sounds(void)
     sfSound_setBuffer(so->tr_room, t_room);
     sfSound_setBuffer(so->p_hurt, p_hurt);
     sfSound_setBuffer(so->p_die, p_die);
-
+    so->sound_volume = 50;
     return so;
 }
 
@@ -36,6 +36,7 @@ music *create_music(void)
     mu->fl_5 = sfMusic_createFromFile("./sounds/dark_room.ogg");
     mu->id_m = 0;
     mu->tmp_id = -1;
+    mu->music_volume = 50;
     return mu;
 }
 

@@ -54,7 +54,13 @@ typedef struct saler_s {
     sfIntRect place_touch;
 }saler_t;
 
+typedef struct ch_music_s {
+    bool mouv_music;
+    bool mouv_sound;
+}ch_music_t;
+
 typedef struct {
+    ch_music_t mus_t;
     saler_t *sal;
     int mv;
     int params;
@@ -109,6 +115,8 @@ typedef struct {
     sfSprite *opt_sprt;
     sfTexture *lvl_m_txt;
     sfSprite *lvl_m_sprt;
+    sfSprite *head_music;
+
 }options;
 
 typedef enum button_name {
@@ -126,6 +134,8 @@ typedef enum button_name {
     FULLSCREEN,
     ENABLED,
     UNENABLED,
+    HEAD_MUSIC,
+    HEAD_SOUND,
 }buttton_name;
 
 typedef struct button {
@@ -218,4 +228,7 @@ int full_screen(window *wndw, options *opt);
 void init_npc(window *wndw, options *sprt);
 int update_my_stuff(options *opt, char **new_array, int new_len);
 void screen_choose_player(window *wndw, options *sprt, players *perso);
+int none(window *wndw, options *opt);
+int music_but(window *wndw, options *opt);
+int sound_but(window *wndw, options *opt);
 #endif
