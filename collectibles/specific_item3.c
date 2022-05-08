@@ -15,8 +15,8 @@ int bandage(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "SUPER BANDAGE");
     sfText_setString(py->it_des->sec_d, "  +2 Hearts ");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -27,8 +27,8 @@ int body(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "   The Body   ");
     sfText_setString(py->it_des->sec_d, " I Feel All ");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -40,8 +40,8 @@ int soul(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "   The Soul   ");
     sfText_setString(py->it_des->sec_d, "  I Am All  ");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -53,8 +53,8 @@ int fat(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "Bucket Of Lard");
     sfText_setString(py->it_des->sec_d, "HP Up");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -66,7 +66,7 @@ int scab(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "  Magic Scab  ");
     sfText_setString(py->it_des->sec_d, "HP + luck up");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }

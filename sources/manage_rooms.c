@@ -81,13 +81,13 @@ static void reduce_doors_colisions(options *sprt, room *rm, player *py)
     if (sfIntRect_intersects(&doorthree, &player, &overlap) == true
     && sprt->actual_doors[2] == true) {
         ++rm->actual_room[1];
-        sfSprite_setPosition(py->sp, (sfVector2f) {912, 160});
+        sfSprite_setPosition(py->sp, (sfVector2f){912, 160});
         rm->change_room = true;
     }
     if (sfIntRect_intersects(&doorfour, &player, &overlap) == true
     && sprt->actual_doors[3] == true) {
         --rm->actual_room[0];
-        sfSprite_setPosition(py->sp, (sfVector2f) {1585, 452});
+        sfSprite_setPosition(py->sp, (sfVector2f){1585, 452});
         rm->change_room = true;
     }
 }
@@ -104,13 +104,13 @@ void doors_colisions(options *sprt, room *rm, player *py)
     if (sfIntRect_intersects(&doorone, &player, &overlap) == true
     && sprt->actual_doors[0] == true) {
         --rm->actual_room[1];
-        sfSprite_setPosition(py->sp, (sfVector2f) {916, 749});
+        sfSprite_setPosition(py->sp, (sfVector2f){916, 749});
         rm->change_room = true;
     }
     if (sfIntRect_intersects(&doortwo, &player, &overlap) == true
     && sprt->actual_doors[1] == true) {
         ++rm->actual_room[0];
-        sfSprite_setPosition(py->sp, (sfVector2f) {260, 468});
+        sfSprite_setPosition(py->sp, (sfVector2f){260, 468});
         rm->change_room = true;
     }
     reduce_doors_colisions(sprt, rm, py);

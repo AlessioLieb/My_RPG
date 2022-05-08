@@ -18,13 +18,13 @@ void init_bulle_npc(window *wndw, options *sprt)
     sfFont_createFromFile("ressources/ft.ttf"));
     sfText_setString(sprt->text_for_npc, "place\nholder");
     sfText_setColor(sprt->text_for_npc, sfBlack);
-    sfText_setScale(sprt->text_for_npc, (sfVector2f) {0.5, 0.5});
+    sfText_setScale(sprt->text_for_npc, (sfVector2f){0.5, 0.5});
     sfSprite_setTexture(sprt->spbulle_npc, sprt->text_npc, sfTrue);
     sfSprite_setTextureRect(sprt->spbulle_npc, first);
     prems.x = 380;
     prems.y = 180;
     sfSprite_setPosition(sprt->spbulle_npc, prems);
-    sfSprite_setScale(sprt->spbulle_npc, (sfVector2f) {2, 2});
+    sfSprite_setScale(sprt->spbulle_npc, (sfVector2f){2, 2});
 }
 
 static void reduce_init_npc(window *wndw, options *sprt)
@@ -35,9 +35,9 @@ static void reduce_init_npc(window *wndw, options *sprt)
     sfSprite_setTextureRect(sprt->sal[MONEY_S].sp, money_rect);
     sfSprite_setTextureRect(sprt->sal[BOMBS_S].sp, bombs_rect);
     sfSprite_setTextureRect(sprt->sal[KEYS_S].sp, keys_rect);
-    sprt->sal[MONEY_S].place_touch = (sfIntRect) {600, 250, 28 * 3, 34 * 10};
-    sprt->sal[BOMBS_S].place_touch = (sfIntRect) {900, 250, 28 * 3, 34 * 10};
-    sprt->sal[KEYS_S].place_touch = (sfIntRect) {1200, 250, 28 * 3, 34 * 10};
+    sprt->sal[MONEY_S].place_touch = (sfIntRect){600, 250, 28 * 3, 34 * 10};
+    sprt->sal[BOMBS_S].place_touch = (sfIntRect){900, 250, 28 * 3, 34 * 10};
+    sprt->sal[KEYS_S].place_touch = (sfIntRect){1200, 250, 28 * 3, 34 * 10};
 }
 
 void init_npc(window *wndw, options *sprt)
@@ -48,14 +48,14 @@ void init_npc(window *wndw, options *sprt)
     sfSprite_setTexture(sprt->npc, sprt->text_npc, sfTrue);
     sfSprite_setTextureRect(sprt->npc, first);
     sfSprite_setPosition(sprt->npc, prems);
-    sfSprite_setScale(sprt->npc, (sfVector2f) {2, 2});
+    sfSprite_setScale(sprt->npc, (sfVector2f){2, 2});
     init_bulle_npc(wndw, sprt);
     sprt->sal = malloc(sizeof(saler_t) * LEN_SALER + 1);
     for (int i = 0; i < LEN_SALER; ++i) {
         prems.x += 300;
         sprt->sal[i].sp = sfSprite_create();
         sfSprite_setTexture(sprt->sal[i].sp, sprt->text_npc, sfTrue);
-        sfSprite_setScale(sprt->sal[i].sp, (sfVector2f) {3, 3});
+        sfSprite_setScale(sprt->sal[i].sp, (sfVector2f){3, 3});
         sfSprite_setPosition(sprt->sal[i].sp, prems);
     }
     reduce_init_npc(wndw, sprt);
@@ -82,6 +82,6 @@ void draw_npc(window *wndw, options *sprt, reduce *red)
     if (get_actual_room_char(red) == 'M')
         for (int i = 0; i < LEN_SALER; ++i) {
             sfRenderWindow_drawSprite(wndw->window, sprt->sal[i].sp, NULL);
-            touch_saler((saler_red_t) {player_pos, i}, sprt, wndw, red);
+            touch_saler((saler_red_t){player_pos, i}, sprt, wndw, red);
         }
 }

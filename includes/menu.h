@@ -116,7 +116,6 @@ typedef struct {
     sfTexture *lvl_m_txt;
     sfSprite *lvl_m_sprt;
     sfSprite *head_music;
-
 }options;
 
 typedef enum button_name {

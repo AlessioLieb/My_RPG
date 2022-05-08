@@ -15,8 +15,8 @@ int meat(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "    MEAT !    ");
     sfText_setString(py->it_des->sec_d, "HP + dmg up");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -28,8 +28,8 @@ int pyj(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "   Pyjamas !   ");
     sfText_setString(py->it_des->sec_d, "You Feel Cozy");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -41,8 +41,8 @@ int binky(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "   Binky !   ");
     sfText_setString(py->it_des->sec_d, "Memories ...");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -54,8 +54,8 @@ int speed_ball(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, " Speed Ball ! ");
     sfText_setString(py->it_des->sec_d, "Shot + speed up");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -67,7 +67,7 @@ int screw(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "   Screw !   ");
     sfText_setString(py->it_des->sec_d, "Shot + speed up");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }

@@ -23,7 +23,7 @@ int update_my_stuff(options *opt, char **new_array, int new_len)
     sfSprite_setPosition(opt->invent.sprites[opt->invent.len],
     opt->invent.last_pos);
     sfSprite_setScale(opt->invent.sprites[opt->invent.len],
-    (sfVector2f) {2, 2});
+    (sfVector2f){2, 2});
     opt->invent.len = new_len;
     return 1;
 }
@@ -32,8 +32,8 @@ void put_params_to_timer(char *nb, sfText *hud, sfFont *font, window *wndw)
 {
     sfText_setFont(hud, font);
     sfText_setString(hud, nb);
-    sfText_setPosition(hud, (sfVector2f) {(1550), 230});
-    sfText_setScale(hud, (sfVector2f) {2, 2});
+    sfText_setPosition(hud, (sfVector2f){(1550), 230});
+    sfText_setScale(hud, (sfVector2f){2, 2});
     sfText_rotate(hud, 10);
     sfText_setColor(hud, sfBlack);
     sfRenderWindow_drawText(wndw->window, hud, NULL);
@@ -52,7 +52,7 @@ void update_my_stuff_end(options *opt, window *wndw)
         sfSprite_setPosition(opt->invent.sprites[i], place);
         place.x += 75;
         sfSprite_setScale(opt->invent.sprites[i],
-        (sfVector2f) {3, 3});
+        (sfVector2f){3, 3});
         sfRenderWindow_drawSprite(wndw->window, opt->invent.sprites[i], NULL);
     }
     char *nb = str_concat("", my_int_str(wndw->last_time[0]));

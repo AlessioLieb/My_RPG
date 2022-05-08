@@ -21,7 +21,7 @@ void check_boss(reduce *red, int i, char c)
             red->enem_t->boss_adv[i].pv = 100;
             red->enem_t->boss_adv[i].bospt.delay = 0;
             sfSprite_setTextureRect(red->enem_t->boss_adv[i].sp,
-            (sfIntRect) {0, 158, 271, 156});
+            (sfIntRect){0, 158, 271, 156});
             place_boss_level(red->enem_t, false);
         }
     }

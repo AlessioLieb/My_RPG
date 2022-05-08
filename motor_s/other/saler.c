@@ -56,7 +56,7 @@ static void talking_saler(options *sprt, window *wndw, int i, reduce *red)
     sfFont_createFromFile("ressources/ft.ttf"));
     sfText_setString(sprt->text_for_npc, "place\nholder");
     sfText_setColor(sprt->text_for_npc, sfBlack);
-    sfText_setScale(sprt->text_for_npc, (sfVector2f) {0.5, 0.5});
+    sfText_setScale(sprt->text_for_npc, (sfVector2f){0.5, 0.5});
     sfText_setString(sprt->text_for_npc, floor);
     sfRenderWindow_drawSprite(wndw->window, sprt->spbulle_npc, NULL);
     sfRenderWindow_drawText(wndw->window, sprt->text_for_npc, NULL);

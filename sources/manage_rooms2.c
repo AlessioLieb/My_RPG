@@ -27,7 +27,7 @@ void player_room(sfRenderWindow *wd, reduce *red, options *sprt)
     draw_all(wd, red, sprt);
     !sprt->win_cond ? sfRenderWindow_drawSprite(wd, red->py->sp, NULL) : 0;
     if (sprt->win_cond) {
-        sfSprite_setPosition(sprt->win, (sfVector2f) {1920 / 2 -
+        sfSprite_setPosition(sprt->win, (sfVector2f){1920 / 2 -
         ((32 * 3.5) / 2), 115});
         sfRenderWindow_drawSprite(wd, sprt->win, NULL);
         sprt->ar_btn[NEXT].params = 1;
@@ -58,7 +58,7 @@ void trap_colisions(options *sprt, room *ry, player *py)
     trap.top = t_pos.y;
     if (sfIntRect_intersects(&trap, &player, &overlap) == true
     && sprt->actual_doors[4] == true) {
-        sfSprite_setPosition(py->sp, (sfVector2f) {1920 / 2, 1080 / 2});
+        sfSprite_setPosition(py->sp, (sfVector2f){1920 / 2, 1080 / 2});
         sprt->plus_lvl = true;
     }
 }

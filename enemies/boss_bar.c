@@ -29,8 +29,8 @@ boss_life_t create_boss_bar(void)
     sfSprite_setTexture(boss_life.life_bar,
     boss_life.text_framebuffer, sfTrue);
     sfSprite_setTexture(boss_life.end_start, text, sfTrue);
-    sfSprite_setScale(boss_life.end_start, (sfVector2f) {4, 4});
-    sfSprite_setPosition(boss_life.end_start, (sfVector2f) {678, 140});
+    sfSprite_setScale(boss_life.end_start, (sfVector2f){4, 4});
+    sfSprite_setPosition(boss_life.end_start, (sfVector2f){678, 140});
     boss_life.active = -1;
     return boss_life;
 }

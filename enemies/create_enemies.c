@@ -43,7 +43,7 @@ adv_t *big_adv_create(void)
         adv[i].sp = sfSprite_create();
         sfSprite_setTexture(adv[i].sp, array_text[rand() % 5], sfTrue);
         sfSprite_setTextureRect(adv[i].sp, place);
-        sfSprite_setScale(adv[i].sp, (sfVector2f) {3, 3});
+        sfSprite_setScale(adv[i].sp, (sfVector2f){3, 3});
         reduce_init_big(i, adv);
     }
     return adv;

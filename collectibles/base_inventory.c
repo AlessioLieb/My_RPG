@@ -40,17 +40,17 @@ collectible *create_piece(sfTexture *text)
         piece[i].sp = sfSprite_create();
         sfSprite_setTexture(piece[i].sp, text, sfTrue);
         if (rand() % 2 == 0) {
-            sfSprite_setTextureRect(piece[i].sp, (sfIntRect) {32, 0, 18, 13});
+            sfSprite_setTextureRect(piece[i].sp, (sfIntRect){32, 0, 18, 13});
             piece[i].change = &add_one_piece;
         } else if (rand() % 5 == 0) {
-            sfSprite_setTextureRect(piece[i].sp, (sfIntRect) {68, 0, 18, 13});
+            sfSprite_setTextureRect(piece[i].sp, (sfIntRect){68, 0, 18, 13});
             piece[i].change = &add_ten_piece;
         } else {
-            sfSprite_setTextureRect(piece[i].sp, (sfIntRect) {50, 0, 18, 13});
+            sfSprite_setTextureRect(piece[i].sp, (sfIntRect){50, 0, 18, 13});
             piece[i].change = &add_five_piece;
         }
-        piece[i].pos_collision = (sfIntRect) {-1, -1, 18 * 3, 13 * 3};
-        sfSprite_setScale(piece[i].sp, (sfVector2f) {3, 3});
+        piece[i].pos_collision = (sfIntRect){-1, -1, 18 * 3, 13 * 3};
+        sfSprite_setScale(piece[i].sp, (sfVector2f){3, 3});
     }
     return piece;
 }

@@ -80,7 +80,7 @@ typedef struct {
 typedef struct saler_red_s {
     sfVector2f player_pos;
     int i;
-} saler_red_t;
+}saler_red_t;
 
 typedef struct {
     long timer_total;

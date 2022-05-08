@@ -12,22 +12,22 @@ static bool map_collision(player *py)
     sfVector2f pos = sfSprite_getPosition(py->sp);
     bool end = true;
     if (pos.x + py->actual_speed.x  + 5 >= WIDTH - 275) {
-        sfSprite_setPosition(py->sp, (sfVector2f) {WIDTH - 285, pos.y});
+        sfSprite_setPosition(py->sp, (sfVector2f){WIDTH - 285, pos.y});
         end = false;
     }
     pos.x - py->actual_speed.x - 5 < 200 ?
-    sfSprite_setPosition(py->sp,(sfVector2f) {210, pos.y}) : 0;
+    sfSprite_setPosition(py->sp,(sfVector2f){210, pos.y}) : 0;
     pos.x - py->actual_speed.x - 5 < 200 ? end = false : 0;
     if (pos.y - py->actual_speed.y - 5 < 100) {
-        sfSprite_setPosition(py->sp,(sfVector2f) {pos.x, 110});
+        sfSprite_setPosition(py->sp,(sfVector2f){pos.x, 110});
         end = false;
     }
     if (pos.y + py->actual_speed.y + 5 >= HEIGHT - 275) {
-        sfSprite_setPosition(py->sp, (sfVector2f) {pos.x, HEIGHT - 285});
+        sfSprite_setPosition(py->sp, (sfVector2f){pos.x, HEIGHT - 285});
         end = false;
     }
     if (!end)
-        py->actual_speed = (sfVector2f) {0, 0};
+        py->actual_speed = (sfVector2f){0, 0};
     return end;
 }
 

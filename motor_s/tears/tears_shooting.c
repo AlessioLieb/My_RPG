@@ -10,7 +10,7 @@
 sfVector2f center_tears(int id, sfVector2f rect, reduce *red)
 {
     sfVector2f t_pos = sfSprite_getPosition(red->py->sp);
-    rect = (sfVector2f) {t_pos.x + 20, t_pos.y};
+    rect = (sfVector2f){t_pos.x + 20, t_pos.y};
     id == 1 ? rect.y += 80 : 0;
     id == 2 ? rect.y += 40 : 0;
     id == 2 ? rect.x += 80 : 0;
@@ -43,12 +43,12 @@ void move_tears_up_down(int id, reduce *red, sfRenderWindow *wd, int i)
 {
     if (red->te[i].direction == 3 && red->te[i].is_shot == true
     && check_collisions(3, red, i)) {
-        sfSprite_move(red->te[i].t_sp, (sfVector2f) {0, -red->te[i].speed});
+        sfSprite_move(red->te[i].t_sp, (sfVector2f){0, -red->te[i].speed});
         sfRenderWindow_drawSprite(wd, red->te[i].t_sp, NULL);
     }
     if (red->te[i].direction == 4 && red->te[i].is_shot == true
     && check_collisions(4, red, i)) {
-        sfSprite_move(red->te[i].t_sp, (sfVector2f) {0, red->te[i].speed});
+        sfSprite_move(red->te[i].t_sp, (sfVector2f){0, red->te[i].speed});
         sfRenderWindow_drawSprite(wd, red->te[i].t_sp, NULL);
     }
 }
@@ -61,12 +61,12 @@ void move_tears(int id, reduce *red, sfRenderWindow *wd)
         if (red->te[i].direction == 1 && red->te[i].is_shot == true
         && check_collisions(1, red, i)) {
             sfSprite_move(red->te[i].t_sp,
-            (sfVector2f) {-red->te[i].speed, 0});
+            (sfVector2f){-red->te[i].speed, 0});
             sfRenderWindow_drawSprite(wd, red->te[i].t_sp, NULL);
         }
         if (red->te[i].direction == 2 && red->te[i].is_shot == true
         && check_collisions(2, red, i)) {
-            sfSprite_move(red->te[i].t_sp, (sfVector2f) {red->te[i].speed, 0});
+            sfSprite_move(red->te[i].t_sp, (sfVector2f){red->te[i].speed, 0});
             sfRenderWindow_drawSprite(wd, red->te[i].t_sp, NULL);
         }
         move_tears_up_down(id, red, wd, i);

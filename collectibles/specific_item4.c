@@ -18,8 +18,8 @@ int ipecac(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "    IPECAC    ");
     sfText_setString(py->it_des->sec_d, " MEGA TEARS ");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -31,8 +31,8 @@ int cat(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "CAT-O-NINE-TAILS");
     sfText_setString(py->it_des->sec_d, "Dmg + speed up");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -44,8 +44,8 @@ int brimstone(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "  BRIMSTONE ! ");
     sfText_setString(py->it_des->sec_d, "Brimstone laser");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -57,8 +57,8 @@ int mind(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "   The Mind   ");
     sfText_setString(py->it_des->sec_d, " I Know All ");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 

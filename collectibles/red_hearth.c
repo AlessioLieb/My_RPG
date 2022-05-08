@@ -30,8 +30,8 @@ int add_one_semi_red_hearth(player *py)
 collectible *create_red_hearth(sfTexture *text)
 {
     collectible *r_hearth = malloc(sizeof(collectible) * 5);
-    sfIntRect complete = (sfIntRect) {0, 0, 16, 13};
-    sfIntRect semi = (sfIntRect) {16, 0, 16, 13};
+    sfIntRect complete = (sfIntRect){0, 0, 16, 13};
+    sfIntRect semi = (sfIntRect){16, 0, 16, 13};
     for (int i = 0; i < 4; ++i) {
         r_hearth[i].sp = sfSprite_create();
         sfSprite_setTexture(r_hearth[i].sp, text, sfTrue);
@@ -42,8 +42,8 @@ collectible *create_red_hearth(sfTexture *text)
             sfSprite_setTextureRect(r_hearth[i].sp, semi);
             r_hearth[i].change = &add_one_semi_red_hearth;
         }
-        r_hearth[i].pos_collision = (sfIntRect) {-1, -1, 16 * 3, 13 * 3};
-        sfSprite_setScale(r_hearth[i].sp, (sfVector2f) {3, 3});
+        r_hearth[i].pos_collision = (sfIntRect){-1, -1, 16 * 3, 13 * 3};
+        sfSprite_setScale(r_hearth[i].sp, (sfVector2f){3, 3});
     }
     return r_hearth;
 }

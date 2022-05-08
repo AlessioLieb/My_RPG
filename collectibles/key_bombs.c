@@ -46,7 +46,7 @@ int (*change)(player *py))
         bomb[i].change = change;
         bomb[i].pos_collision = (sfIntRect)
         {-1, -1, place.width * 3, place.height * 3};
-        sfSprite_setScale(bomb[i].sp, (sfVector2f) {3, 3});
+        sfSprite_setScale(bomb[i].sp, (sfVector2f){3, 3});
     }
     return bomb;
 }

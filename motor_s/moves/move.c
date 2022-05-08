@@ -60,9 +60,9 @@ int move_sprite(player *py, int top, room *rm)
         next = 1;
     }
     if (py->actual_sp == 2 && !next)
-        sfSprite_setTextureRect(py->sp, (sfIntRect) {125, top - 5, 44, 40});
+        sfSprite_setTextureRect(py->sp, (sfIntRect){125, top - 5, 44, 40});
     if (py->actual_sp == 0 && !next) {
-        sfSprite_setTextureRect(py->sp, (sfIntRect) {27, top - 5, 44, 40});
+        sfSprite_setTextureRect(py->sp, (sfIntRect){27, top - 5, 44, 40});
         py->actual_sp = 1;
     }
     if (py->invulnerability >= 0 && rand() % 2 == 0)

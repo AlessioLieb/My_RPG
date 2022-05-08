@@ -60,16 +60,16 @@ void reduce_init_room(room *rm, sfTexture *txt)
     sfSprite_setTexture(rm->fl, txt, sfTrue);
     sfSprite_setTexture(rm->shop_room, txt, sfTrue);
     sfSprite_setTextureRect(rm->fo, (sfIntRect){0, 0, 468, 312});
-    sfSprite_setScale(rm->fo, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
+    sfSprite_setScale(rm->fo, (sfVector2f){1920.0 / 468.0, 1080.0 / 312.0});
     sfSprite_setTextureRect(rm->ft, (sfIntRect){469, 314, 468, 312});
-    sfSprite_setScale(rm->ft, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
+    sfSprite_setScale(rm->ft, (sfVector2f){1920.0 / 468.0, 1080.0 / 312.0});
     sfSprite_setTextureRect(rm->fl, (sfIntRect){0, 627, 468, 312});
-    sfSprite_setScale(rm->fl, (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
-    sfSprite_setTextureRect(rm->shop_room, (sfIntRect) {469, 0 , 468, 312});
+    sfSprite_setScale(rm->fl, (sfVector2f){1920.0 / 468.0, 1080.0 / 312.0});
+    sfSprite_setTextureRect(rm->shop_room, (sfIntRect){469, 0 , 468, 312});
     sfSprite_setScale(rm->shop_room,
-    (sfVector2f) {1920.0 / 468.0, 1080.0 / 312.0});
+    (sfVector2f){1920.0 / 468.0, 1080.0 / 312.0});
     rm->old_i = (old_item_t) {malloc(sizeof(char *) * NB_ITEMS + 1), 0};
-    rm->timer_tears = (timer) {0, 0};
+    rm->timer_tears = (timer){0, 0};
 }
 
 room *create_room(void)
@@ -84,8 +84,8 @@ room *create_room(void)
     rm->red_hearth = create_red_hearth(text);
     rm->blue_hearth = create_blue_hearth(text);
     rm->piece = create_piece(text);
-    rm->bombs = create_bomb_key(text, (sfIntRect) {0, 28, 14, 20}, &add_key);
-    rm->keys = create_bomb_key(text, (sfIntRect) {0, 48, 20, 21}, &add_bomb);
+    rm->bombs = create_bomb_key(text, (sfIntRect){0, 28, 14, 20}, &add_key);
+    rm->keys = create_bomb_key(text, (sfIntRect){0, 48, 20, 21}, &add_bomb);
     rm->change_room = true;
     return rm;
 }

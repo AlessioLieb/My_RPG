@@ -21,8 +21,8 @@ int god_head(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "  GOD HEAD !  ");
     sfText_setString(py->it_des->sec_d, "+1 all stats");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     py->it_des->all_st_active = true;
     return 1;
 }
@@ -41,8 +41,8 @@ int mushroom(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "  MUSHROOM !  ");
     sfText_setString(py->it_des->sec_d, "+1 all stats");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     py->it_des->all_st_active = true;
     return 1;
 }
@@ -55,8 +55,8 @@ int cricket(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "CRICKET'S HEAD");
     sfText_setString(py->it_des->sec_d, "   DMG UP   ");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }
 
@@ -71,7 +71,7 @@ int polyphemus(player *py)
     sfClock_restart(py->it_des->des_clock);
     sfText_setString(py->it_des->main_d, "  POLYPHEMUS  ");
     sfText_setString(py->it_des->sec_d, " MEGA TEARS ");
-    sfText_setPosition(py->it_des->main_d, (sfVector2f) {770, 195});
-    sfText_setPosition(py->it_des->sec_d, (sfVector2f) {885, 270});
+    sfText_setPosition(py->it_des->main_d, (sfVector2f){770, 195});
+    sfText_setPosition(py->it_des->sec_d, (sfVector2f){885, 270});
     return 1;
 }

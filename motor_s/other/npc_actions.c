@@ -37,7 +37,7 @@ void talking_npc( options *sprt, window *wndw, int level)
     sfFont_createFromFile("ressources/ft.ttf"));
     sfText_setString(sprt->text_for_npc, "place\nholder");
     sfText_setColor(sprt->text_for_npc, sfBlack);
-    sfText_setScale(sprt->text_for_npc, (sfVector2f) {0.5, 0.5});
+    sfText_setScale(sprt->text_for_npc, (sfVector2f){0.5, 0.5});
     floor = edit_text_for_draw(choose_string(level));
     sfText_setString(sprt->text_for_npc, floor);
     sfRenderWindow_drawSprite(wndw->window, sprt->spbulle_npc, NULL);

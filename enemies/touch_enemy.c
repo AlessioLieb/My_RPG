@@ -93,7 +93,7 @@ bool touch_reduce_enemy(reduce *red, sfIntRect tears)
 
 bool touch_enemy(sfVector2f tears_pos, reduce *red)
 {
-    sfIntRect tears = (sfIntRect) {tears_pos.x, tears_pos.y, 45, 45};
+    sfIntRect tears = (sfIntRect){tears_pos.x, tears_pos.y, 45, 45};
     sfIntRect tmp;
     sfIntRect overlap = {1, 1, 1, 1};
     bool check = true;

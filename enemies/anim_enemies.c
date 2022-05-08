@@ -14,9 +14,9 @@ static void anim_all(adv_t *all, int max, int decal)
         if (all[i].pos.x != - 1 && all[i].pos.y != - 1) {
             actual = sfSprite_getTextureRect(all[i].sp);
             (actual.left >= max) ? sfSprite_setTextureRect(all[i].sp,
-            (sfIntRect) {0, actual.top, actual.width, actual.height}) : 0;
+            (sfIntRect){0, actual.top, actual.width, actual.height}) : 0;
             (actual.left < max) ? sfSprite_setTextureRect(all[i].sp,
-            (sfIntRect) {actual.left + decal, actual.top,
+            (sfIntRect){actual.left + decal, actual.top,
             actual.width, actual.height}) : 0;
         }
 }

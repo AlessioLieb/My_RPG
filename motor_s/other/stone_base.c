@@ -25,15 +25,15 @@ stone *create_stone(char *str, rooms *ro)
     for (int i = 0; i < count_stone(str); ++i) {
         rd = rand() % 3;
         if (ro->lvl == 0 || ro->lvl == 1)
-            rect = (sfIntRect) {0 + (27 * rd), 432, 27, 30};
+            rect = (sfIntRect){0 + (27 * rd), 432, 27, 30};
         if (ro->lvl == 2 || ro->lvl == 3)
-            rect = (sfIntRect) {0 + (27 * rd), 462, 27, 30};
+            rect = (sfIntRect){0 + (27 * rd), 462, 27, 30};
         if (ro->lvl == 4)
-            rect = (sfIntRect) {0 + (27 * rd), 493, 27, 30};
+            rect = (sfIntRect){0 + (27 * rd), 493, 27, 30};
         array_stone[i].sp = sfSprite_create();
         sfSprite_setTexture(array_stone[i].sp, text, sfTrue);
         sfSprite_setTextureRect(array_stone[i].sp, rect);
-        sfSprite_setScale(array_stone[i].sp, (sfVector2f) {3, 3});
+        sfSprite_setScale(array_stone[i].sp, (sfVector2f){3, 3});
         array_stone[i].nb_stone = rd;
     }
     return array_stone;
@@ -80,7 +80,7 @@ bool collision_stone(room *rm, player *py, int x, int y)
             sfImage_getPixel(rm->room_col, player_tp.x + i, player_tp.y + j).r
             && sfImage_getPixel(py->collision_box, i, j).r != 0) ? false : res;
     if (!res) {
-        py->actual_speed = (sfVector2f) {0, 0};
+        py->actual_speed = (sfVector2f){0, 0};
         y >= 0 ? end.y += 5 : 0;
         x >= 0 ? end.x += 5 : 0;
         sfSprite_setPosition(py->sp, end);

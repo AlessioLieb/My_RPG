@@ -13,7 +13,7 @@ void check_move_all(reduce *red)
     (red->py->time).microseconds - red->py->move_timer.timer;
     while (red->py->move_timer.timer_total > 10000) {
         if (!check_move_right(red->py, red->rm))
-            red->py->actual_speed = (sfVector2f) {0, 0};
+            red->py->actual_speed = (sfVector2f){0, 0};
         sfSprite_move(red->py->sp, red->py->actual_speed);
         move_player_check(red, red->py->st.freq_tears / 2);
         red->py->move_timer.timer_total -= 10000;

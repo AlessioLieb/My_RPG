@@ -74,12 +74,12 @@ sfTexture *text)
     item->altar = sfSprite_create();
     sfSprite_setTexture(item->altar, item->altar_text, sfTrue);
     sfSprite_setPosition(item->sp, rect);
-    sfSprite_setScale(item->altar, (sfVector2f) {3 * (32 / 27), 3 *
+    sfSprite_setScale(item->altar, (sfVector2f){3 * (32 / 27), 3 *
     (32 / 27)});
     sfSprite_setPosition(item->altar, rect1);
-    sfSprite_setScale(item->sp, (sfVector2f) {3, 3});
+    sfSprite_setScale(item->sp, (sfVector2f){3, 3});
     sfSprite_setTexture(item->sp, text, sfTrue);
-    item->pos_collision = (sfIntRect) {1920 / 2 - 50, 1080 / 2 - 100, 75, 166};
+    item->pos_collision = (sfIntRect){1920 / 2 - 50, 1080 / 2 - 100, 75, 166};
 }
 
 int place_item(room *rm)
