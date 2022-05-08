@@ -68,7 +68,7 @@ void reduce_init_room(room *rm, sfTexture *txt)
     sfSprite_setTextureRect(rm->shop_room, (sfIntRect){469, 0 , 468, 312});
     sfSprite_setScale(rm->shop_room,
     (sfVector2f){1920.0 / 468.0, 1080.0 / 312.0});
-    rm->old_i = (old_item_t) {malloc(sizeof(char *) * NB_ITEMS + 1), 0};
+    rm->old_i = (old_item_t){malloc(sizeof(char *) * NB_ITEMS + 1), 0};
     rm->timer_tears = (timer){0, 0};
 }
 

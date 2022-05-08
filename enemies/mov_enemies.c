@@ -44,7 +44,7 @@ void mov_all(adv_t *all, sfVector2f player_pos, int type, reduce *red)
 {
     for (int i = 0; i < 10; ++i)
         if (all[i].pos.x != - 1 && all[i].pos.y != - 1) {
-            move_adv(all, (reduce_adv_t) {i, player_pos, type}, red);
+            move_adv(all, (reduce_adv_t){i, player_pos, type}, red);
             touch_player_enemy(all[i], player_pos, red);
         }
 }
